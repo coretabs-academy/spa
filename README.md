@@ -6,3 +6,9 @@
 ### Run Development Server
 
     npm run serve
+
+### Run Production Server
+
+    npm run build
+
+>   SPA is now alive at /public_html/index.html
