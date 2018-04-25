@@ -1,0 +1,29 @@
+@import '~@/assets/styles/vars.scss';
+@import '~@/../node_modules/rfs/scss/_rfs';
+/*=====================================
+Signup Style
+=======================================*/
+#signup-form {
+  margin: 20px;
+  overflow: auto;
+}
+
+#signup-form .btn {
+  float: left;
+}
+
+html[dir="rtl"] {
+  #signup-form .input-group--text-field label {
+    left: unset;
+    right: 0;
+    width: auto;
+  }
+  #signup-form .input-group.input-group--error .input-group__messages {
+    margin-left: 10px;
+  }
+
+  #signup-form .input-group--text-field .input-group__counter {
+    margin-left: unset;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,37 @@
+@import '~@/assets/styles/vars.scss';
+@import '~@/../node_modules/rfs/scss/_rfs';
+/*=====================================
+Home Style
+=======================================*/
+.home {
+   .jumbotron {
+      h1 {
+         font-weight: 700 !important;
+      }
+
+      p {
+         font-size: 20px;
+         font-weight: 450 !important;
+      }
+
+      &.main {
+         width: 100vw !important;
+         height: 100vh !important;
+
+         .jumbotron__background {
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-image: linear-gradient(rgba($primary-color, 0.8), rgba($accent-color, 0.8)), url("../../assets/multimedia/images/home/home_background.jpg")  !important;
+         }
+
+         h1 {
+            @include responsive-font-size(2.35rem,true);
+         }
+
+         p {
+            @include responsive-font-size(1.35rem,true);
+         }
+      }
+   }
+}
