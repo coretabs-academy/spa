@@ -1,6 +1,6 @@
 <template>
 <header v-show="show">
-   <v-navigation-drawer :right="drawer.isRight" app temporary floating v-model="drawer.isOpen" :width="drawer.width" class="primary">
+   <v-navigation-drawer :right="drawer.isRight" app temporary floating v-model="drawer.isOpen" :width="drawer.width">
       <v-list class="py-0">
          <template v-for="nav in navs">
             <v-list-tile v-if="!nav.dropdown" :key="nav.name">
@@ -19,14 +19,9 @@
          </template>
       </v-list>
    </v-navigation-drawer>
-   <v-toolbar :fixed="fixed" :flat="!fixed" class="primary" v-scroll="onScroll">
-      <v-avatar class="brand-logo">
-         <img :src="logo" alt="avatar">
-      </v-avatar>
-      <v-toolbar-title class="white--text">{{title}}</v-toolbar-title>
-      <v-spacer></v-spacer>
+   <v-toolbar :fixed="fixed" :flat="!fixed">
       <v-toolbar-items class="hidden-sm-and-down">
-         <v-btn v-for="nav in navs" :key="nav.name" v-if="!nav.dropdown" flat large class="white--text" :to="nav.url">{{nav.name}}</v-btn>
+         <v-btn v-for="nav in navs" :key="nav.name" v-if="!nav.dropdown" flat :class="['white--text', nav.radius ? 'radius' : '']" :to="nav.url">{{nav.name}}</v-btn>
          <v-menu v-else open-on-hover>
             <v-btn flat large class="white--text" slot="activator">{{nav.name}}</v-btn>
             <v-list class="primary white--text nav-dropdown py-0">
@@ -37,6 +32,12 @@
          </v-menu>
       </v-toolbar-items>
       <v-toolbar-side-icon class="white--text hidden-md-and-up" @click="toggleDrawer()"></v-toolbar-side-icon>
+      <v-spacer></v-spacer>
+      <v-avatar class="brand-logo">
+        <router-link to="/">
+          <img :src="logo" alt="avatar" />
+        </router-link>
+      </v-avatar>
    </v-toolbar>
 </header>
 </template>

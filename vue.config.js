@@ -8,8 +8,8 @@ module.exports = {
       },
       plugins: [
          new FaviconsWebpackPlugin({
-            logo: './src/assets/multimedia/icons/icon.jpg',
-            prefix: 'i_cons/',
+            logo: './src/assets/multimedia/images/icon.png',
+            prefix: 'icons/',
             persistentCache: true,
             inject: true,
             background: '#fff',

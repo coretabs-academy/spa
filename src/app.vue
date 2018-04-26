@@ -6,7 +6,7 @@
          <router-view></router-view>
       </v-container>
    </v-content>
-   <footer-component></footer-component>
+   <!--<footer-component></footer-component>-->
 </v-app>
 </template>
 <script src="./app.js"></script>

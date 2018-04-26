@@ -31,8 +31,7 @@ html {
 
 body {
    color: $white-color;
-   background: $black-color;
-   overflow-x: hidden !important;
+   overflow: hidden !important;
 }
 
 a {
@@ -96,4 +95,16 @@ a {
 
 .progress-container {
    height: 100% !important;
+}
+
+.application--wrap {
+  margin:0;
+  padding:0;
+  width: 100%;
+  background-color: #ffffff;
+  background-image: url("assets/multimedia/images/home/second-layer.svg"),
+                    url("assets/multimedia/images/home/first-layer.svg");
+  background-size: 40%, 55%;
+  background-repeat: no-repeat, no-repeat;
+  background-position: right top, right top;
 }

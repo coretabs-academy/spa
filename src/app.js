@@ -9,7 +9,7 @@ export default {
    data: () => ({}),
    created() {
       this.$store.state.lang = 'ar'
-      this.$store.state.title = 'كورتاب'
+      this.$store.state.title = 'أكاديمية Coretabs'
       this.$store.state.direction = 'rtl'
       document.querySelector('html').setAttribute('lang', this.$store.state.lang)
       document.querySelector('html').setAttribute('dir', this.$store.state.direction)

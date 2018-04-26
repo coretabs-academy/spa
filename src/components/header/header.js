@@ -6,47 +6,55 @@ export default {
       logo: '',
       show: true,
       currentClass: '',
-      default_navs: [{
-            url: '/',
-            dropdown: false,
-            name: 'الرئيسية'
-         },
-         //  {
-         //    url: '/signin',
-         //    dropdown: false,
-         //    name: 'تسجيل الدخول'
-         // }, {
-         //    url: '/signup',
-         //    dropdown: false,
-         //    name: 'حساب جديد'
-         // }, {
-         //    url: '/tracks',
-         //    dropdown: false,
-         //    name: 'المسارات'
-         // },
-         {
-            url: '/about',
-            dropdown: false,
-            name: 'عن الموقع'
-         }, {
-            url: '/contact',
-            dropdown: false,
-            name: 'إتصل بنا'
-         }
-         // {
-         //    name: 'اللغات',
-         //    dropdown: true,
-         //    children: [{
-         //       url: '',
-         //       name: 'العربية'
-         //    }, {
-         //       url: '',
-         //       name: 'الإنجليزية'
-         //    }, {
-         //       url: '',
-         //       name: 'الفرنسية'
-         //    }]
-         // }
+      default_navs: [
+        // {
+        //   url: '/',
+        //   dropdown: false,
+        //   name: 'الرئيسية'
+        // }
+        {
+          url: '/signup',
+          dropdown: false,
+          radius: true,
+          name: 'حساب جديد'
+        },
+        {
+          url: '/signin',
+          dropdown: false,
+          radius: true,
+          name: 'تسجيل الدخول'
+        },
+        // {
+        //   url: '/tracks',
+        //   dropdown: false,
+        //   name: 'المسارات'
+        // },
+        {
+          url: '/about',
+          dropdown: false,
+          name: 'عن الأكاديمية'
+        }
+        // {
+        //   url: '/contact',
+        //   dropdown: false,
+        //   name: 'إتصل بنا'
+        // },
+        // {
+        //   name: 'اللغات',
+        //   dropdown: true,
+        //   children: [
+        //     {
+        //       url: '',
+        //       name: 'العربية'
+        //     }, {
+        //       url: '',
+        //       name: 'الإنجليزية'
+        //     }, {
+        //       url: '',
+        //       name: 'الفرنسية'
+        //     }
+        //   ]
+        // }
       ],
       user_navs: [{
          url: '/tracks',
@@ -93,7 +101,7 @@ export default {
    }),
    created() {
       this.setHeader()
-      this.$store.dispatch('getImgUrl', 'icons/icon.jpg').then(img => {
+      this.$store.dispatch('getImgUrl', 'images/logo.png').then(img => {
          this.logo = img
       }).catch(error => {
          throw new Error(error.message)
@@ -152,13 +160,6 @@ export default {
       },
       toggleDrawer() {
          this.drawer.isOpen = !this.drawer.isOpen
-      },
-      onScroll(e) {
-         if (window.pageYOffset || document.documentElement.scrollTop > 0) {
-            this.fixed = true
-         } else {
-            this.fixed = false
-         }
       }
    }
 }
