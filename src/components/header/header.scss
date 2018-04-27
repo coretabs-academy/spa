@@ -92,7 +92,7 @@ header {
       }
 
       .btn.radius {
-        border: 1px $white-color solid !important;
+        border: 1px solid $white-color-alpha !important;
         border-radius: 20px;
 
         .btn__content {
@@ -102,6 +102,10 @@ header {
       .btn.radius:hover {
         background: $white-color !important;
         color: $primary-color !important;
+      }
+      .btn.active{
+        background: $white-color !important;
+        color:$primary-color !important;
       }
     }
   }

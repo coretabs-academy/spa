@@ -21,7 +21,7 @@
    </v-navigation-drawer>
    <v-toolbar :fixed="fixed" :flat="!fixed">
       <v-toolbar-items class="hidden-sm-and-down">
-         <v-btn v-for="nav in navs" :key="nav.name" v-if="!nav.dropdown" flat :class="['white--text', nav.radius ? 'radius' : '']" :to="nav.url">{{nav.name}}</v-btn>
+         <v-btn v-for="nav in navs" :key="nav.name" v-if="!nav.dropdown" flat :class="['white--text', nav.radius ? 'radius' : '', nav.active ? 'active' : '']" :to="nav.url">{{nav.name}}</v-btn>
          <v-menu v-else open-on-hover>
             <v-btn flat large class="white--text" slot="activator">{{nav.name}}</v-btn>
             <v-list class="primary white--text nav-dropdown py-0">
@@ -35,7 +35,7 @@
       <v-spacer></v-spacer>
       <v-avatar class="brand-logo">
         <router-link to="/">
-          <img :src="logo" alt="avatar" />
+          <img :src="logo" alt="coretabs" />
         </router-link>
       </v-avatar>
    </v-toolbar>

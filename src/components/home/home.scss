@@ -5,31 +5,54 @@ Home Style
 =======================================*/
 
 #home {
-  .container {
-    margin-top: 50px;
+  /*.container {
+   margin-top: 50px;
+  }*/
+
+  #full-screen-height{
+    /*TODO: change 210px to be calculated dynamically*/
+    min-height: calc(100vh - 210px);
   }
 
   #introductory-video {
     background-color: $white-color;
     border-radius: 25px;
-    -webkit-box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.25);
-    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 15px 34px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 15px 34px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 15px 34px 0px rgba(0, 0, 0, 0.15);
     overflow: hidden;
 
     iframe {
       width: 100%;
     }
   }
-
   
   #introduction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
     #yes {
       background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1));
+      width: 190px;
+			height: 50px;
+			box-shadow: 0px 15px 34px 0px rgba(0, 0, 0, 0.15);
     }
-    
-    @media (min-width: 0px) {
-      padding-top: 20px;
+    #no{
+      background: #fff;
+			box-shadow: none;
+			border: 2px solid #ccc;
+			height: 50px;
+			width: 160px;
+			color: #717171;
+    }
+    #yes,
+    #no{
+			font-weight: 700;
+    }
+
+    @media (max-width: 960px) {
+      padding-top: 40px;
     }
 
     @media (min-width: 600px) {
@@ -37,7 +60,14 @@ Home Style
     }
 
     @media (min-width: 960px) {
-      padding-right: 50px;
+      padding-right: 4%;
+    }
+    p{
+      max-width: 500px;
+      line-height: 32px;
+    }
+    h2{
+      font-size: 30px;
     }
   }
 
@@ -48,6 +78,7 @@ Home Style
   #testimonials {
     background: linear-gradient(to bottom, #FCFCFC, #FFFFFF);
     padding: 100px 0;
+    min-height: 100vh;
 
     .carousel {
       height: 350px;

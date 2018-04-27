@@ -16,6 +16,7 @@ export default {
           url: '/signup',
           dropdown: false,
           radius: true,
+          active: true,
           name: 'حساب جديد'
         },
         {
