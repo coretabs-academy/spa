@@ -9,6 +9,7 @@ $success-color: #4caf50;
 $warning-color: #ffeb3b;
 $secondary-color: #e0e0e0;
 $heading-color:#2c3e50;
+$shadow-color:rgba(0, 0, 0, 0.15);
 $header-height: 100px;
 $cario-font: 'assets/vendor/fonts/cario/';
 $material-design-font: 'assets/vendor/fonts/material-design-icons/';
@@ -27,4 +28,14 @@ $material-design-font: 'assets/vendor/fonts/material-design-icons/';
       left: 50% !important;
       transform: translate(-50%,-50%) !important;
    }
+}
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+@mixin box-shadow($left, $top,$radius ,$spread , $color) {
+	box-shadow: $left $top $radius $spread $color;
+	-webkit-box-shadow: $left $top $radius $spread $color;
+	-moz-box-shadow: $left $top $radius $spread $color;
 }
