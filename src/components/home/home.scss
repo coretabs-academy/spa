@@ -42,7 +42,6 @@ Home Style
       height: 100px;
       background-color: $white-color;
       opacity: 0.9;
-      z-index: 10;
       filter: alpha(opacity=90);
       position: absolute;
       
@@ -78,7 +77,7 @@ Home Style
         display: block;
         position: relative;
         left: 3px;
-        z-index: 3;
+        z-index: 2;
         width: 0;
         height: 0;
         transform: scale(0.8);
