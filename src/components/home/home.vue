@@ -9,7 +9,7 @@
             <h2 class="black--text">{{introduction.title}}</h2>
             <p class="black--text mt-4 mb-0">{{introduction.p1}}</p>
             <p class="black--text mt-4 mb-0">{{introduction.p2}}</p>
-            <div>
+            <div id="introduction-buttons">
               <v-btn id="yes" round dark class="mt-4 mb-0 mr-0 ml-3">{{introduction.button1}}</v-btn>
               <v-btn id="no" round light class="mt-4 mb-0 mx-0">{{introduction.button2}}</v-btn>
             </div>
