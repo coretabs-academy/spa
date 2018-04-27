@@ -12,7 +12,7 @@ export default {
     quotationIcon: '',
     starIcon: '',
     testimonials: {
-      title: 'اخترنا لكم من تجارب مجتمعنا',
+      title: 'من تجارب مجتمعنا',
       carousel: [
         {
           img: 'saif.png',
