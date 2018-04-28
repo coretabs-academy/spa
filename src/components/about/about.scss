@@ -3,3 +3,244 @@
 /*=====================================
 About Style
 =======================================*/
+#about {
+  #testimonials {
+    background: linear-gradient(to bottom, #FCFCFC, #FFFFFF);
+    min-height: 100vh;
+
+    .carousel {
+      height: 600px;
+      box-shadow: none;
+    }
+
+    .carousel .jumbotron {
+      position: relative;
+      width: 100%;
+      height: 500px !important;
+      margin: 50px 0 0;
+      background-color: $white-color;
+      @include box-shadow(0px, 15px,34px ,0px , $shadow-color);
+
+      .jumbotron__wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .quotation {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+        }
+
+        .avatar {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          border-radius: 25px;
+          width: 50px;
+          height: 50px;
+          background-size: 100% 100%;
+        }
+
+        .avatar:before {
+          position: absolute;
+          content: " ";
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 25px;
+          display: block;
+          z-index:  0;
+          background: linear-gradient(to top, rgba(45,67,231,0.5), rgba(144,66,232,0.5))
+        }
+        
+        .testimonial {
+          position: absolute;
+          margin: 0px 10px;
+          padding-top: 75px;
+          color: #425F7C;
+
+          .name {
+            width: 100%;
+            margin: 0 auto 20px;
+          }
+
+          .quote {
+            height: 300px;
+            margin-right: 30px;
+            margin-left: 30px;
+            overflow: hidden;
+
+            &:after {
+              content: "";
+              position: absolute;
+              top: -50px;
+              right: 0;
+              width: 100%;
+              height: 50px;
+              background: linear-gradient(to bottom,rgba(255,255,255,0) -75%,rgba(255,255,255,1) 100%);
+            }
+          }
+
+          .description {
+            color: #E5E5E5;
+          }
+        }
+      }
+    }
+
+    .carousel__left {
+      left: 10px;
+
+      .btn {
+        color: #E5E5E5;
+      }
+
+      i {
+        font-size: 30px !important;
+      }
+    }
+
+    .carousel__right {
+      right: 10px;
+
+      .btn {
+        color: #E5E5E5;
+      }
+
+      i { 
+        font-size: 30px !important;
+      }
+    }
+
+    .carousel__controls {
+      background: linear-gradient(to bottom, rgba(255,255,255, 0) -25%, rgba(255,255,255, 1));
+
+      .btn {
+        color: #D2D2D2;
+        margin: 0 !important;
+      }
+
+      .btn.carousel__controls__item--active {
+        color: $primary-color;
+        font-size: 16px !important;
+      }
+      
+      .btn.carousel__controls__item--active i {
+        font-size: 22px !important;
+      }
+    }
+    
+    @media (min-width: 600px) {
+      .carousel {
+        height: 400px;
+      }
+      .carousel .jumbotron {
+        width: 80%;
+        margin: 50px 10% 0;
+        border-radius: 25px;
+        height: 300px !important;
+        .jumbotron__wrapper {
+          .quotation {
+            top: 5px;
+            left: 5px;
+            width: 40px;
+            height: 40px;
+          }
+          .avatar {
+            top: 5px;
+            right: 5px;
+            width: 50px;
+            height: 50px;
+          }
+          .testimonial {
+            margin: 0px 10px;
+            padding-top: 25px;
+            
+            .quote {
+              margin-right: 0;
+              margin-left: 0;
+              height: 170px;
+            }
+          }
+        }
+      }
+      .carousel__left, .carousel__right {
+        i {
+          font-size: 46px !important;
+        }
+      }
+    }
+  
+    @media (min-width: 960px) {
+      .carousel {
+        height: 375px;
+      }
+      .carousel .jumbotron {
+        height: 275px !important;
+        .jumbotron__wrapper {
+          .quotation {
+            top: 15px;
+            left: 15px;
+          }
+          .avatar {
+            top: 15px;
+            right: 15px;
+            width: 95px;
+            height: 95px;
+          }
+          .testimonial {
+            margin: 0px 150px;
+            padding-top: 20px;
+            
+            .quote {
+              height: 150px;
+            }
+          }
+        }
+      }
+      .carousel__left {
+        left: calc(10% + 100px);
+      }
+      .carousel__right {
+        right: calc(10% + 100px);
+      }
+    }
+  
+    @media (min-width: 1200px) {
+      .carousel {
+        height: 350px;
+      }
+      .carousel .jumbotron {
+        height: 250px !important;
+        .jumbotron__wrapper {
+          .quotation {
+            top: 20px;
+            left: 20px;
+          }
+          .avatar {
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+          }
+          .testimonial {
+            margin: 0px 200px;
+            padding-top: 20px;
+
+            .quote {
+              height: 125px;
+            }
+          }
+        }
+      }
+      .carousel__left {
+        left: calc(10% + 125px);
+      }
+      .carousel__right {
+        right: calc(10% + 125px);
+      }
+    }
+  }
+}
