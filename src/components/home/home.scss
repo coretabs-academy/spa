@@ -22,7 +22,7 @@ Home Style
     overflow: hidden;
     max-width: 500px;
     height: 374px !important;
-    background: url("~@/assets/multimedia/images/video-cover.jpg") no-repeat;
+    background: url("~@/assets/multimedia/images/video-cover.png") no-repeat;
     background-size: 100% 100%;
     position: relative;
     iframe {
@@ -85,7 +85,7 @@ Home Style
     flex-direction: column;
     justify-content: center;
     max-width: 500px;
-    padding: 40px 10px 0 10px;
+    padding: 40px 10px 40px 10px;
     
     p {
       line-height: 32px;

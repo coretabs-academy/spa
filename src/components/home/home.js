@@ -12,11 +12,11 @@ export default {
   methods: {
     setIntroVideoHeight() {
       var vDiv = document.querySelector('#introductory-video')
-      var viFrame = document.querySelector('#introductory-video iframe')
-      var vDivHeight = (vDiv.clientWidth * 56) / 100
+      // var viFrame = document.querySelector('#introductory-video iframe')
+      var vDivHeight = (vDiv.clientWidth * 74.8) / 100
 
-      vDiv.setAttribute('style', 'height: ' + vDivHeight + 'px')
-      viFrame.setAttribute('height', vDivHeight)
+      vDiv.setAttribute('style', 'height: ' + vDivHeight + 'px !important')
+      // viFrame.setAttribute('height', vDivHeight)
     }
   },
   mounted() {
