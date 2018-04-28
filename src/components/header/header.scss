@@ -56,10 +56,18 @@ header {
     .toolbar__content {
       height: $header-height !important;
 
+      > :not(.btn):not(.menu):first-child:not(:only-child) {
+        margin-left: 0px;
+      }
+
+      > :not(.btn):not(.menu):last-child:not(:only-child) {
+        margin-right: 0px;
+      }
+
       .brand-logo {
         width: 200px !important;
         height: 80px !important;
-        margin: 10px 10px 0px 1% !important;
+        margin: 10px 10px 10px 20px !important;
 
         img {
           display: block;
@@ -83,13 +91,6 @@ header {
 
       .btn:first-of-type {
         margin: 29px 20px 29px 10px !important; 
-      }
-
-      .btn--active .btn__content:before,
-      .btn:active .btn__content:before,
-      .btn:focus .btn__content:before,
-      .btn:hover .btn__content:before {
-        background-color: unset;
       }
 
       .btn.radius {

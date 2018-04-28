@@ -39,6 +39,13 @@ a {
    text-decoration: none !important;
 }
 
+.btn--active .btn__content:before,
+.btn:active .btn__content:before,
+.btn:focus .btn__content:before,
+.btn:hover .btn__content:before {
+  background-color: unset;
+}
+
 .section-title {
    position: relative;
    display: inline-block;
@@ -102,8 +109,8 @@ a {
   padding:0;
   width: 100%;
   background-color: #ffffff;
-  background-image: url("assets/multimedia/images/home/second-layer.svg"),
-                    url("assets/multimedia/images/home/first-layer.svg");
+  background-image: url("~@/assets/multimedia/images/home/second-layer.svg"),
+                    url("~@/assets/multimedia/images/home/first-layer.svg");
   background-size: 40%, 55%;
   background-repeat: no-repeat, no-repeat;
   background-position: right top, right top;
