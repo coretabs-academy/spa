@@ -5,9 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
    state: {
+      icon: '',
       lang: '',
-      title: '',
+      logo: '',
       direction: '',
+      forumLogo: '',
       isLogin: false,
       githubFileURL: ''
    },

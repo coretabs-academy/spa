@@ -3,7 +3,6 @@ export default {
    components: {},
    data: () => ({
       navs: [],
-      logo: '',
       show: true,
       currentClass: '',
       default_navs: [
@@ -92,7 +91,6 @@ export default {
          dropdown: false
       }],
       admin_navs: [],
-      title: '',
       fixed: false,
       drawer: {
          width: 0,
@@ -102,12 +100,6 @@ export default {
    }),
    created() {
       this.setHeader()
-      this.$store.dispatch('getImgUrl', 'images/logo.png').then(img => {
-         this.logo = img
-      }).catch(error => {
-         throw new Error(error.message)
-      })
-      this.title = this.$store.state.title
       this.drawer.width = window.innerWidth
       this.drawer.isRight = this.$store.state.direction === 'rtl'
    },

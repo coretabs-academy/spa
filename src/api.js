@@ -2,7 +2,6 @@ import axios from 'axios'
 
 export default {
    install: (Vue) => {
-      // Vue.$http = ''
       Vue.prototype.$http = {
          async get(url) {
             return new Promise((resolve, reject) => {

@@ -98,13 +98,12 @@ a {
 }
 
 .application--wrap {
-  margin:0;
-  padding:0;
-  width: 100%;
-  background-color: #ffffff;
-  background-image: url("assets/multimedia/images/home/second-layer.svg"),
-                    url("assets/multimedia/images/home/first-layer.svg");
-  background-size: 40%, 55%;
-  background-repeat: no-repeat, no-repeat;
-  background-position: right top, right top;
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   background-color: #ffffff;
+   background-image: url("assets/multimedia/images/home/second_layer.svg"), url("assets/multimedia/images/home/first_layer.svg");
+   background-size: 40%, 55%;
+   background-repeat: no-repeat, no-repeat;
+   background-position: right top, right top;
 }

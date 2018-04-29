@@ -19,10 +19,10 @@ export default {
    },
    updated() {
       document.querySelectorAll('.course img').forEach((img) => {
-         let src = img.src.replace(/^.*[\\\/]/, '')
+         let src = img.src.replace(/^.*[\\/]/, '')
          this.$store.commit('getGithubFileURL', {
             repo: `${this.$route.params.track}-tutorials`,
-            path: `${this.$api.b64DecodeUnicode(this.$route.query.url).replace(/[a-zA-Z-]+\.txt/,'')}/${src}`
+            path: `${this.$api.b64DecodeUnicode(this.$route.query.url).replace(/[a-zA-Z-]+\.txt/, '')}/${src}`
          })
          img.src = this.$store.state.githubFileURL
       })

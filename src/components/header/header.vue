@@ -35,7 +35,7 @@
       <v-spacer></v-spacer>
       <v-avatar class="brand-logo">
         <router-link to="/">
-          <img :src="logo" alt="coretabs" />
+          <img :src="$store.state.logo" alt="coretabs" />
         </router-link>
       </v-avatar>
    </v-toolbar>

@@ -1,4 +1,4 @@
-@import '~@/assets/styles/vars.scss';
+@import '~@/assets/styles/vars';
 @import '~@/../node_modules/rfs/scss/_rfs';
 /*=====================================
 Courses Style
@@ -119,16 +119,6 @@ main.courses-main-content {
             overflow-y: scroll !important;
             overflow-x: hidden !important;
             padding: 40px 100px !important;
-         }
-      }
-
-      .toolbar-footer {
-         height: $toolbar-height !important;
-         background: $primary-color !important;
-
-         .btn {
-            margin: 0 30px !important;
-            font-weight: 700 !important;
          }
       }
    }

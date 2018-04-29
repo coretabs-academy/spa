@@ -4,11 +4,11 @@ import HomeComponent from './components/home/home.vue'
 import AboutComponent from './components/about/about.vue'
 import TrackComponent from './components/track/track.vue'
 import CourseComponent from './components/course/course.vue'
-// import SignInComponent from './components/signin/signin.vue'
-// import SignUpComponent from './components/signup/signup.vue'
-// import TracksComponent from './components/tracks/tracks.vue'
+import SignInComponent from './components/signin/signin.vue'
+import SignUpComponent from './components/signup/signup.vue'
 import ContactComponent from './components/contact/contact.vue'
 import CoursesComponent from './components/courses/courses.vue'
+// import TracksComponent from './components/tracks/tracks.vue'
 // import ProfileComponent from './components/profile/profile.vue'
 import NotFoundComponent from './components/not-found/not-found.vue'
 
@@ -53,16 +53,15 @@ export default new Router({
             path: ':number',
             component: CourseComponent
          }]
+      }, {
+         name: 'signin',
+         path: '/signin',
+         component: SignInComponent
+      }, {
+         name: 'signup',
+         path: '/signup',
+         component: SignUpComponent
       }
-      // {
-      //    name: 'signin',
-      //    path: '/signin',
-      //    component: SignInComponent
-      // }, {
-      //    name: 'signup',
-      //    path: '/signup',
-      //    component: SignUpComponent
-      // },
       // {
       //    name: 'tracks',
       //    path: '/tracks',

@@ -23,12 +23,6 @@
       <div class="content" v-bind:style="{ height: height + 'px' }" v-on:scroll="handleScroll">
          <router-view></router-view>
       </div>
-      <v-footer app class="toolbar-footer">
-         <div class="mx-auto">
-            <v-btn color="white" @click="prevStep(currentCourse.id)" :disabled="currentCourse.id === 1">{{prev}}</v-btn>
-            <v-btn color="white" @click="nextStep(currentCourse.id)" :disabled="currentCourse.id > courses.length">{{next}}</v-btn>
-         </div>
-      </v-footer>
    </v-stepper>
    <v-dialog v-model="dialog.open" max-width="400px" content-class="courses-dialog" persistent>
       <v-card color="primary">

@@ -20,12 +20,9 @@ export default {
     }),
     methods: {
         json(success) {
-            if (success === true)
-                return JSON.parse('{"success": true, "message": "Thank you for register."}')
-            else
-                return JSON.parse('{"success": false, "message": "Failed! please try again later."}')
+            if (success === true) { return JSON.parse('{"success": true, "message": "Thank you for register."}') } else { return JSON.parse('{"success": false, "message": "Failed! please try again later."}') }
         },
-        submit () {
+        submit() {
             if (this.$refs.form.validate()) {
                 var root = this
                 // axios.post('/signup', {username: this.username, email: this.email}).then(

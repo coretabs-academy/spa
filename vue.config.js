@@ -1,6 +1,7 @@
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
-   path = require('path')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const path = require('path')
 module.exports = {
+   outputDir: 'public_html',
    configureWebpack: {
       output: {
          publicPath: '/',

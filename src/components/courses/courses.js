@@ -44,7 +44,7 @@ export default {
    },
    methods: {
       onResize() {
-         this.height = window.innerHeight - document.querySelector('.courses .stepper>.toolbar').offsetHeight - document.querySelector('.courses .stepper>.footer').offsetHeight
+         this.height = window.innerHeight - document.querySelector('.courses .stepper>.toolbar').offsetHeight
       },
       handleScroll(e) {
          console.log(e)

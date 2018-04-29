@@ -1,4 +1,4 @@
-@import '~@/assets/styles/vars.scss';
+@import '~@/assets/styles/vars';
 @import '~@/../node_modules/rfs/scss/_rfs';
 /*=====================================
 Header Style
@@ -73,7 +73,7 @@ header {
         border: 1px transparent solid !important;
         border-radius: 20px;
         height: 40px !important;
-        margin: 29px 0px 29px 10px !important; 
+        margin: 29px 0px 29px 10px !important;
 
         .btn__content {
           height: 36px !important;
@@ -82,7 +82,7 @@ header {
       }
 
       .btn:first-of-type {
-        margin: 29px 20px 29px 10px !important; 
+        margin: 29px 20px 29px 10px !important;
       }
 
       .btn--active .btn__content:before,
