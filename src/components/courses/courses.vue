@@ -1,9 +1,14 @@
 <template>
 <div v-if="loaded" class="courses">
    <v-stepper v-model="currentCourse.id" vertical v-resize="onResize">
-      <v-toolbar app>
-         <v-toolbar-side-icon class="white--text" @click="drawer.isOpen = !drawer.isOpen"></v-toolbar-side-icon>
-         <v-toolbar-title class="white--text mx-auto">{{currentCourse.title}}</v-toolbar-title>
+      <v-toolbar app class="white">
+         <v-toolbar-side-icon @click="drawer.isOpen = !drawer.isOpen"></v-toolbar-side-icon>
+         <v-toolbar-title class="mx-auto">{{currentCourse.title}}</v-toolbar-title>
+         <v-avatar class="brand-logo">
+            <router-link to="/">
+               <img :src="$store.state.icon" alt="coretabs" />
+            </router-link>
+         </v-avatar>
       </v-toolbar>
       <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen">
          <v-toolbar flat>

@@ -24,9 +24,7 @@ export default {
          title: '',
          coursesGroup: ''
       },
-      trackURL: '',
-      prev: 'السابق',
-      next: 'التالي'
+      trackURL: ''
    }),
    created() {
       this.drawer.isRight = this.$store.state.direction === 'rtl'
@@ -89,7 +87,7 @@ export default {
                                     this.currentCourse = {
                                        id: id,
                                        title: this.courses[id - 1].title,
-                                       coursesGroup: `الدرس ${index + 1} : ${item[`title-${this.$store.state.lang}`]}`
+                                       coursesGroup: `${item[`title-${this.$store.state.lang}`]}`
                                     }
                                     this.$router.replace({
                                        query: {

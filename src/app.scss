@@ -1,5 +1,7 @@
 @import 'assets/styles/vars';
-@import 'assets/vendor/fonts/cario/cario';
+@import 'assets/vendor/fonts/cairo/cairo';
+@import 'assets/vendor/fonts/poppins/poppins';
+@import 'assets/vendor/fonts/droid-kufi/droid-kufi';
 @import 'assets/vendor/fonts/material-design-icons/material-icons';
 @import '../node_modules/vuetify/dist/vuetify.min';
 @import '~@/../node_modules/rfs/scss/_rfs';
@@ -9,7 +11,6 @@ Global Style
 =======================================*/
 * {
    outline: none;
-   font-family: 'Cairo', sans-serif;
 }
 
 *,

@@ -10,7 +10,7 @@ Vue.use(API)
 // User Vuetify material desing && customize own theme
 Vue.use(Vuetify, {
    theme: {
-      primary: '#3f51b5',
+      primary: '#4445e7',
       secondary: '#e0e0e0',
       accent: '#ff4081',
       error: '#f44336',

@@ -4,7 +4,6 @@
 Courses Style
 =======================================*/
 $toolbar-height: 60px;
-$navigation-toolbar-height: 80px;
 
 main.course-main-content,
 main.courses-main-content {
@@ -24,7 +23,6 @@ main.courses-main-content {
 
       > .toolbar {
          height: $toolbar-height !important;
-         background: $primary-color !important;
          line-height: $toolbar-height !important;
 
          .toolbar__content {
@@ -32,27 +30,47 @@ main.courses-main-content {
             line-height: $toolbar-height !important;
 
             .toolbar__title {
-               font-weight: 700 !important;
-               @include responsive-font-size(1.2rem,true);
+               @include responsive-font-size(1rem,true);
+            }
+
+            .brand-logo {
+               background: $shadow-color !important;
+               width: $toolbar-height - 15px !important;
+               height: $toolbar-height - 15px !important;
+
+               a {
+                  width: $toolbar-height - 20px !important;
+                  height: $toolbar-height - 20px !important;
+               }
+            }
+
+            .btn {
+               color: $primary-color !important;
+               width: $toolbar-height - 5px !important;
+               height: $toolbar-height - 5px !important;
+
+               .icon {
+                  font-size: 30px !important;
+                  font-weight: 500 !important;
+               }
             }
          }
       }
 
       .navigation-drawer {
          overflow: hidden !important;
-         background: $primary-color !important;
+         background: $white-color !important;
 
          > .toolbar {
             height: auto !important;
             background: $primary-color !important;
             min-height: $toolbar-height !important;
-            max-height: $navigation-toolbar-height !important;
-            // line-height: $toolbar-height !important;
+            max-height: $toolbar-height !important;
+
             .toolbar__content {
                height: auto !important;
                min-height: $toolbar-height !important;
-               // line-height: $toolbar-height !important;
-               max-height: $navigation-toolbar-height !important;
+               max-height: $toolbar-height !important;
 
                .btn {
                   width: 35px !important;
@@ -141,6 +159,20 @@ main.courses-main-content {
             margin: 0 !important;
             font-weight: 700 !important;
             @include responsive-font-size(0.9rem,true);
+         }
+      }
+   }
+}
+
+html[dir='rtl'] {
+   .courses {
+      .stepper {
+         > .toolbar {
+            .toolbar__content {
+               .brand-logo {
+                  margin-left: 10px !important;
+               }
+            }
          }
       }
    }
