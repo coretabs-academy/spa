@@ -39,6 +39,13 @@ a {
    text-decoration: none !important;
 }
 
+.btn--active .btn__content:before,
+.btn:active .btn__content:before,
+.btn:focus .btn__content:before,
+.btn:hover .btn__content:before {
+   background-color: unset;
+}
+
 .section-title {
    position: relative;
    display: inline-block;

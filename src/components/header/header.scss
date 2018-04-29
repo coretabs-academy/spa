@@ -4,123 +4,126 @@
 Header Style
 =======================================*/
 header {
-  .navigation-drawer {
-    z-index: 150 !important;
-    box-shadow: none !important;
-    margin-top: $header-height !important;
-    max-height: calc(100vh - $header-height) !important;
+   .navigation-drawer {
+      z-index: 150 !important;
+      box-shadow: none !important;
+      margin-top: $header-height !important;
+      max-height: calc(100vh - $header-height) !important;
 
-    .list {
-      .list__tile {
-        padding: 0 !important;
-      }
+      .list {
+         .list__tile {
+            padding: 0 !important;
+         }
 
-      .btn {
-        margin: 0 !important;
-        width: 100% !important;
-      }
+         .btn {
+            margin: 0 !important;
+            width: 100% !important;
+         }
 
-      .list__group__header {
-        flex-wrap: wrap !important;
+         .list__group__header {
+            flex-wrap: wrap !important;
 
-        > div:not(.list__group__header__append-icon) {
-            flex: 100% !important;
+            > div:not(.list__group__header__append-icon) {
+               flex: 100% !important;
 
-            .list__tile__title {
-              text-align: center !important;
-              @include responsive-font-size(0.82rem,true);
+               .list__tile__title {
+                  text-align: center !important;
+                  @include responsive-font-size(0.82rem,true);
+               }
             }
-        }
 
-        .list__group__header__append-icon {
-            position: absolute !important;
-        }
+            .list__group__header__append-icon {
+               position: absolute !important;
+            }
 
-        .list__group__header__append-icon i,
-        .list__tile__title {
-            font-weight: 700 !important;
-            color: $white-color !important;
-        }
+            .list__group__header__append-icon i,
+            .list__tile__title {
+               font-weight: 700 !important;
+               color: $white-color !important;
+            }
+         }
       }
-    }
-  }
+   }
 
-  .navigation-drawer.navigation-drawer--open {
-    background-color: transparent !important;
-  }
+   .navigation-drawer.navigation-drawer--open {
+      background-color: transparent !important;
+   }
 
-  .toolbar {
-    z-index: 100 !important;
-    background-color: transparent !important;
+   .toolbar {
+      z-index: 100 !important;
+      background-color: transparent !important;
 
-    .toolbar__content {
-      height: $header-height !important;
+      .toolbar__content {
+         height: $header-height !important;
 
-      .brand-logo {
-        width: 200px !important;
-        height: 80px !important;
-        margin: 10px 10px 0px 1% !important;
+         > :not(.btn):not(.menu):first-child:not(:only-child) {
+            margin-left: 0;
+         }
 
-        img {
-          display: block;
-          width: 100%;
-          border-radius:0;
-        }
+         > :not(.btn):not(.menu):last-child:not(:only-child) {
+            margin-right: 0;
+         }
+
+         .brand-logo {
+            width: 200px !important;
+            height: 80px !important;
+            margin: 10px 10px 10px 20px !important;
+
+            img {
+               display: block;
+               width: 100%;
+               border-radius: 0;
+            }
+         }
+
+         .btn {
+            background: transparent !important;
+            border: 1px transparent solid !important;
+            border-radius: 20px;
+            height: 40px !important;
+            margin: 29px 0 29px 10px !important;
+
+            .btn__content {
+               height: 36px !important;
+               padding: 0 10px;
+            }
+         }
+
+         .btn:first-of-type {
+            margin: 29px 20px 29px 10px !important;
+         }
+
+         .btn.radius {
+            border: 1px solid $white-color-alpha !important;
+            border-radius: 20px;
+
+            .btn__content {
+               padding: 0 20px;
+            }
+         }
+
+         .btn.radius:hover {
+            background: $white-color !important;
+            color: $primary-color !important;
+         }
+
+         .btn.active {
+            background: $white-color !important;
+            color: $primary-color !important;
+         }
       }
+   }
 
-      .btn {
-        background: transparent !important;
-        border: 1px transparent solid !important;
-        border-radius: 20px;
-        height: 40px !important;
-        margin: 29px 0px 29px 10px !important;
-
-        .btn__content {
-          height: 36px !important;
-          padding: 0 10px;
-        }
-      }
-
-      .btn:first-of-type {
-        margin: 29px 20px 29px 10px !important;
-      }
-
-      .btn--active .btn__content:before,
-      .btn:active .btn__content:before,
-      .btn:focus .btn__content:before,
-      .btn:hover .btn__content:before {
-        background-color: unset;
-      }
-
-      .btn.radius {
-        border: 1px solid $white-color-alpha !important;
-        border-radius: 20px;
-
-        .btn__content {
-          padding: 0 20px;
-        }
-      }
-      .btn.radius:hover {
-        background: $white-color !important;
-        color: $primary-color !important;
-      }
-      .btn.active{
-        background: $white-color !important;
-        color:$primary-color !important;
-      }
-    }
-  }
-
-  .btn {
-    font-weight: 700 !important;
-    @include responsive-font-size(0.82rem,true);
-  }
+   .btn {
+      font-weight: 700 !important;
+      @include responsive-font-size(0.82rem,true);
+   }
 }
 
 [dir='ltr'] {
-  header .list__group__header__append-icon {
-  right: 0 !important;
-  }
+   header .list__group__header__append-icon {
+      right: 0 !important;
+   }
 }
 
 .nav-dropdown {

@@ -33,11 +33,9 @@
       </v-toolbar-items>
       <v-toolbar-side-icon class="white--text hidden-md-and-up" @click="toggleDrawer()"></v-toolbar-side-icon>
       <v-spacer></v-spacer>
-      <v-avatar class="brand-logo">
-        <router-link to="/">
-          <img :src="$store.state.logo" alt="coretabs" />
-        </router-link>
-      </v-avatar>
+      <router-link to="/" class="brand-logo">
+         <img :src="$store.state.logo" alt="coretabs" />
+      </router-link>
    </v-toolbar>
 </header>
 </template>

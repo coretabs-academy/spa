@@ -5,56 +5,43 @@ export default {
       navs: [],
       show: true,
       currentClass: '',
-      default_navs: [
-        // {
-        //   url: '/',
-        //   dropdown: false,
-        //   name: 'الرئيسية'
-        // }
-        {
-          url: '/signup',
-          dropdown: false,
-          radius: true,
-          active: true,
-          name: 'حساب جديد'
-        },
-        {
-          url: '/signin',
-          dropdown: false,
-          radius: true,
-          name: 'تسجيل الدخول'
-        },
-        // {
-        //   url: '/tracks',
-        //   dropdown: false,
-        //   name: 'المسارات'
-        // },
-        {
-          url: '/about',
-          dropdown: false,
-          name: 'عن الأكاديمية'
-        }
-        // {
-        //   url: '/contact',
-        //   dropdown: false,
-        //   name: 'إتصل بنا'
-        // },
-        // {
-        //   name: 'اللغات',
-        //   dropdown: true,
-        //   children: [
-        //     {
-        //       url: '',
-        //       name: 'العربية'
-        //     }, {
-        //       url: '',
-        //       name: 'الإنجليزية'
-        //     }, {
-        //       url: '',
-        //       name: 'الفرنسية'
-        //     }
-        //   ]
-        // }
+      default_navs: [{
+            url: '/signup',
+            dropdown: false,
+            radius: true,
+            active: true,
+            name: 'حساب جديد'
+         }, {
+            url: '/signin',
+            dropdown: false,
+            radius: true,
+            name: 'تسجيل الدخول'
+         }, {
+            url: '/about',
+            dropdown: false,
+            name: 'عن الأكاديمية'
+         }
+         // {
+         //   url: '/contact',
+         //   dropdown: false,
+         //   name: 'إتصل بنا'
+         // },
+         // {
+         //   name: 'اللغات',
+         //   dropdown: true,
+         //   children: [
+         //     {
+         //       url: '',
+         //       name: 'العربية'
+         //     }, {
+         //       url: '',
+         //       name: 'الإنجليزية'
+         //     }, {
+         //       url: '',
+         //       name: 'الفرنسية'
+         //     }
+         //   ]
+         // }
       ],
       user_navs: [{
          url: '/tracks',
