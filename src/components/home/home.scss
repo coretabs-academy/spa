@@ -4,141 +4,141 @@
 Home Style
 =======================================*/
 #home {
-   #full-screen-height {
-      /*TODO: change 210px to be calculated dynamically*/
-      min-height: calc(100vh - 210px);
-   }
-
-   h2 {
-      @media (min-width: 768px) {
-         font-size: 28px;
-      }
-      color: $heading-color !important;
-   }
-
-   #introductory-video {
-      position: relative;
+  #player {
+    display: none;
+  }
+  #full-screen-height {
+    /*TODO: change 210px to be calculated dynamically*/
+    min-height: calc(100vh - 210px);
+  }
+  h2 {
+    @media (min-width: 768px) {
+      font-size: 28px;
+    }
+    color: $heading-color !important;
+  }
+  #introductory-video {
+    position: relative;
+    background-color: rgba(0,0,0,0.25);
+    border-radius: 50px;
+    @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
+    overflow: hidden;
+    max-width: 500px;
+    height: 374px !important;
+    background: url("~@/assets/multimedia/images/home/video_cover.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    iframe {
+      width: 100%;
       background-color: rgba(0,0,0,0.25);
-      border-radius: 50px;
-      @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
-      overflow: hidden;
-      max-width: 500px;
-      height: 374px !important;
-      background: url("~@/assets/multimedia/images/home/video_cover.png") no-repeat;
-      background-size: 100% 100%;
-      position: relative;
-
-      iframe {
-         width: 100%;
-         background-color: rgba(0,0,0,0.25);
+    }
+    
+    button#play {
+      width: 100px;
+      height: 100px;
+      background-color: $white-color;
+      opacity: 0.9;
+      filter: alpha(opacity=90);
+      position: absolute;
+      
+      @include box-shadow(0px, 15px,34px ,0px , $shadow-color);
+      @include border-radius(50%);
+      @include center(false);
+      left: 47% !important;
+     
+      &:after,
+      &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100px;
+        height: 100px;
+        @include border-radius(50%);
+        @include center(false);
       }
 
-      button {
-         width: 100px;
-         height: 100px;
-         background-color: $white-color;
-         opacity: 0.9;
-         filter: alpha(opacity=90);
-         position: absolute;
-         @include box-shadow(0px, 15px,34px ,0px , $shadow-color);
-         @include border-radius(50%);
-         @include center(false);
-         left: 47% !important;
-
-         &:after,
-         &:before {
-            content: "";
-            position: absolute;
-            display: block;
-            width: 100px;
-            height: 100px;
-            @include border-radius(50%);
-            @include center(false);
-         }
-
-         &:before {
-            z-index: 0;
-            background: rgba($primary-color, 0.65);
-            animation: pulse-border 1500ms ease-out infinite;
-         }
-
-         &:after {
-            z-index: 1;
-            background: $white-color;
-            transition: all 200ms;
-            transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
-         }
-
-         i {
-            display: block;
-            position: relative;
-            left: 3px;
-            z-index: 2;
-            width: 0;
-            height: 0;
-            transform: scale(0.8);
-            border-left: 32px solid $primary-color;
-            border-top: 22px solid transparent;
-            border-bottom: 22px solid transparent;
-            transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
-         }
+      &:before {
+        z-index: 0;
+        background: rgba($primary-color, 0.65);
+        animation: pulse-border 1500ms ease-out infinite;
       }
-   }
-
-   #introduction {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 500px;
-      padding: 40px 10px;
-
-      p {
-         line-height: 32px;
+      &:after {
+        z-index: 1;
+        background: $white-color;
+        transition: all 200ms;
+        transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
-
-      #introduction-buttons {
-         #yes {
-            background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1));
-            @include box-shadow(0px, 15px,34px ,0px , $shadow-color);
-         }
-
-         #no {
-            background: #fff;
-            box-shadow: none;
-            border: 2px solid #ccc;
-            color: #717171;
-         }
-
-         #no,
-         #yes {
-            font-weight: 700;
-            height: 50px;
-            width: 45%;
-            max-width: 180px;
-            @media (max-width: 768px) {
-               margin: 24px 0 0 0 !important;
-               width: 95%;
-               max-width: 95%;
-               height: 55px;
-            }
-         }
-         @media (max-width: 768px) {
-            text-align: center;
-         }
+     
+      i {
+        display: block;
+        position: relative;
+        left: 3px;
+        z-index: 2;
+        width: 0;
+        height: 0;
+        transform: scale(0.8);
+        border-left: 32px solid $primary-color;
+        border-top: 22px solid transparent;
+        border-bottom: 22px solid transparent;
+        transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
-      @media (min-width: 960px) {
-         padding: 0 4% 0 0;
+    }
+  }
+  #introduction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    padding: 40px 10px;
+    
+    p {
+      line-height: 32px;
+    }
+    
+    #introduction-buttons {
+      #yes {
+        background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1));
+        @include box-shadow(0px, 15px,34px ,0px , $shadow-color);
       }
-   }
+      #no {
+        background: #fff;
+        box-shadow: none;
+        border: 2px solid #ccc;
+        color: #717171;
+      }
+      #no,
+      #yes {
+        font-weight: 700;
+        height: 50px;
+        width: 45%;
+        max-width: 180px;
+        
+        @media (max-width: 768px) {
+          margin: 24px 0 0 0 !important; 
+          width: 95%;
+          max-width: 95%;
+          height: 55px;
+        }
+      }
+      @media (max-width: 768px) {
+        text-align: center;
+      } 
+    }
+    
+    @media (min-width: 960px) {
+      padding: 0 4% 0 0;
+    }
+  }
 }
-@keyframes pulse-border {
-   0% {
-      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
-      opacity: 1;
-   }
 
-   100% {
-      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
-      opacity: 0;
-   }
+@keyframes pulse-border {
+  0% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+    opacity: 0;
+  }
 }

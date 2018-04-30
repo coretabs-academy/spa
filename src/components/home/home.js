@@ -1,32 +1,70 @@
+import { videoPlayer } from 'vue-video-player'
+import '../../../node_modules/video.js/dist/video-js.css'
+
 export default {
-   name: 'HomeComponent',
-   data: () => ({
-      introduction: {
-         title: 'إن تعلم البرمجة شيء رائع!',
-         p1: 'الأروع من ذلك أن أكاديمية Coretabs ستقوم بتوجيهك لبدأ تعلمها عبر عمل تطبيقات من أول يوم.',
-         p2: 'مستعد لتغيير حياتك وتعلم مهارات جديدة؟',
-         button1: 'نعم، اكتشف ميولي',
-         button2: 'لا، أنا لست قدها'
+  name: 'HomeComponent',
+  components: {
+    videoPlayer
+  },
+  data: () => ({
+    introduction: {
+      title: 'إن تعلم البرمجة شيء رائع!',
+      p1: 'الأروع من ذلك أن أكاديمية Coretabs ستقوم بتوجيهك لبدأ تعلمها عبر عمل تطبيقات من أول يوم.',
+      p2: 'مستعد لتغيير حياتك وتعلم مهارات جديدة؟',
+      button1: 'نعم، اكتشف ميولي',
+      button2: 'لا، أنا لست قدها'
+    },
+    playerOptions: {
+      autoplay: false,
+      sources: [{
+        type: 'video/mp4',
+        src: 'https://www.w3schools.com/html/mov_bbb.mp4'
+      }]
+    }
+  }),
+  computed: {
+    vPlayer() {
+      return this.$refs.videoPlayer.player
+    }
+  },
+  methods: {
+    setIntroVideoHeight() {
+      var vDiv = document.querySelector('#introductory-video')
+      var vDivHeight = (vDiv.clientWidth * 74.8) / 100
+      vDiv.setAttribute('style', 'height: ' + vDivHeight + 'px !important')
+    },
+    play(vPlayer) {
+      var player = document.getElementById('player')
+      player.style.display = 'block'
+      vPlayer.requestFullscreen()
+      vPlayer.play()
+    },
+    pause(vPlayer) {
+      vPlayer.pause()
+    },
+    ended(vPlayer) {
+      vPlayer.exitFullscreen()
+      var player = document.getElementById('player')
+      player.style.display = 'none'
+    },
+    exit(vPlayer) {
+      if (vPlayer.isFullscreen() === false) {
+        this.pause(vPlayer)
+        this.ended(vPlayer)
       }
-   }),
-   methods: {
-      setIntroVideoHeight() {
-         var vDiv = document.querySelector('#introductory-video')
-         // var viFrame = document.querySelector('#introductory-video iframe')
-         var vDivHeight = (vDiv.clientWidth * 74.8) / 100
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', this.setIntroVideoHeight)
+    this.vPlayer.on('fullscreenchange', () => {
+      this.exit(this.vPlayer)
+    })
 
-         vDiv.setAttribute('style', 'height: ' + vDivHeight + 'px !important')
-         // viFrame.setAttribute('height', vDivHeight)
-      }
-   },
-   mounted() {
-      window.addEventListener('resize', this.setIntroVideoHeight)
-
-      this.$nextTick(function() {
-         this.setIntroVideoHeight()
-      })
-   },
-   beforeDestroy() {
-      window.removeEventListener('resize', this.onResize)
-   }
+    this.$nextTick(function() {
+      this.setIntroVideoHeight()
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
+  }
 }
