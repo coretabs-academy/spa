@@ -3,15 +3,20 @@
 @import 'assets/vendor/fonts/poppins/poppins';
 @import 'assets/vendor/fonts/droid-kufi/droid-kufi';
 @import 'assets/vendor/fonts/material-design-icons/material-icons';
-@import 'assets/vendor/fonts/open-sans-condensed-font/open-sans-condensed-font';
+@import 'assets/vendor/fonts/open-sans-condensed/open-sans-condensed';
 @import '../node_modules/vuetify/dist/vuetify.min';
 @import '~@/../node_modules/rfs/scss/_rfs';
 @import 'assets/styles/scrollbar';
 /*=====================================
 Global Style
 =======================================*/
+.btn {
+   font-family: 'Cairo';
+}
+
 * {
    outline: none;
+   font-family: 'Droid Arabic Kufi';
 }
 
 *,
@@ -28,7 +33,7 @@ Global Style
 html {
    line-height: 1.5;
    scroll-behavior: smooth;
-   @include responsive-font-size(1rem,true);
+   @include responsive-font-size(14px,true);
 }
 
 body {

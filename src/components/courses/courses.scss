@@ -3,11 +3,63 @@
 /*=====================================
 Courses Style
 =======================================*/
+$margin: 0 0 0 20px;
+$drawer-width: 300px;
+$padding: 0 0 15px 0;
 $toolbar-height: 60px;
+$ar-margin: 0 20px 0 0;
+$ar-padding: 0 15px 0 0;
+$toolbar-padding: 0 15px;
+$stepper-icon-size: 25px;
+$drawer-group-height: 64px;
+$drawer-group-item-height: 50px;
+$stepper-group-item-padding: 10px;
+$drawer-group-active-state: #74dad9;
+$drawer-group-normal-state: #cdcdcd;
+$stepper-group-item-fl-padding: 20px;
+$drawer-group-complete-state: #7d68df;
 
 main.course-main-content,
 main.courses-main-content {
    padding-top: $toolbar-height !important;
+}
+
+html[dir='rtl'] {
+   .courses {
+      .navigation-drawer {
+         .toolbar {
+            padding: $ar-padding !important;
+         }
+
+         .list {
+            .stepper {
+               .list__group {
+                  .list__group__header {
+                     padding: $ar-padding !important;
+
+                     .list__tile {
+                        .stepper__step {
+                           .stepper__label {
+                              margin: $ar-margin !important;
+                           }
+                        }
+                     }
+                  }
+
+                  .list__group__items {
+                     padding: $ar-padding !important;
+
+                     div .list__tile {
+                        a {
+                           margin: $ar-margin !important;
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
 }
 
 .courses {
@@ -22,31 +74,40 @@ main.courses-main-content {
 
       .toolbar__content {
          height: $toolbar-height !important;
+         padding: $toolbar-padding !important;
          line-height: $toolbar-height !important;
 
          .toolbar__title {
-            @include responsive-font-size(1rem,true);
+            font-size: 16px !important;
+            font-weight: bold !important;
+            color: $black-color !important;
          }
 
          .brand-logo {
-            background: $shadow-color !important;
-            width: $toolbar-height - 15px !important;
-            height: $toolbar-height - 15px !important;
+            background: #f4f4f4 !important;
+            width: $toolbar-height / 1.6 !important;
+            height: $toolbar-height / 1.6 !important;
 
             a {
-               width: $toolbar-height - 20px !important;
-               height: $toolbar-height - 20px !important;
+               width: $toolbar-height / 1.6 !important;
+               height: $toolbar-height / 1.6 !important;
+
+               img {
+                  width: $toolbar-height / 2 !important;
+                  height: $toolbar-height / 2 !important;
+               }
             }
          }
 
          .btn {
             color: $primary-color !important;
-            width: $toolbar-height - 5px !important;
-            height: $toolbar-height - 5px !important;
+            width: ($toolbar-height / 3) - 5px !important;
+            height: ($toolbar-height / 3) - 5px !important;
 
             .icon {
-               font-size: 30px !important;
-               font-weight: 500 !important;
+               width: $toolbar-height / 2 !important;
+               height: $toolbar-height / 2 !important;
+               font-size: ($toolbar-height / 2) / ($toolbar-height / 3) !important;
             }
          }
       }
@@ -54,11 +115,13 @@ main.courses-main-content {
 
    .navigation-drawer {
       overflow: hidden !important;
+      width: $drawer-width !important;
       background: $white-color !important;
 
       .toolbar {
          height: auto !important;
-         background: $primary-color !important;
+         padding: $padding !important;
+         background: #5557ce !important;
          min-height: $toolbar-height !important;
          max-height: $toolbar-height !important;
 
@@ -68,19 +131,21 @@ main.courses-main-content {
             max-height: $toolbar-height !important;
 
             .btn {
-               width: 35px !important;
-               height: 35px !important;
+               width: 25px !important;
+               height: 25px !important;
+               background: #393ba8 !important;
 
                .icon {
-                  font-size: 35px !important;
+                  width: 25px !important;
+                  height: 25px !important;
+                  font-size: 25px !important;
                }
             }
 
             .toolbar__title {
-               margin-left: 0 !important;
-               margin-right: 0 !important;
-               font-weight: 700 !important;
-               @include responsive-font-size(1rem,true);
+               font-size: 16px !important;
+               font-weight: bold !important;
+               color: $white-color !important;
             }
          }
       }
@@ -93,8 +158,8 @@ main.courses-main-content {
             box-shadow: none !important;
 
             .list__group {
-               height: 50px !important;
                overflow: hidden !important;
+               height: $drawer-group-height !important;
 
                &.list__group--active {
                   height: auto !important;
@@ -104,93 +169,207 @@ main.courses-main-content {
                   }
                }
 
+               &.active-state {
+                  .list__group__header {
+                     .list__tile {
+                        .stepper__step {
+                           .stepper__step__step {
+                              background-color: $drawer-group-active-state !important;
+                           }
+                        }
+                     }
+                  }
+
+                  .list__group__items {
+                     .list__tile {
+                        .list__tile__action {
+                           &.topic-complete-state {
+                              .icon {
+                                 color: $drawer-group-complete-state !important;
+                                 border-color: $drawer-group-complete-state !important;
+
+                                 &::after {
+                                    background: $drawer-group-active-state !important;
+                                 }
+
+                                 &::before {
+                                    background: $drawer-group-complete-state !important;
+                                 }
+                              }
+                           }
+
+                           &.topic-all-complete-state {
+                              .icon {
+                                 color: $drawer-group-complete-state !important;
+                                 border-color: $drawer-group-complete-state !important;
+
+                                 &::after,
+                                 &::before {
+                                    background: $drawer-group-complete-state !important;
+                                 }
+                              }
+                           }
+
+                           &.topic-active-state {
+                              .icon {
+                                 color: $drawer-group-active-state !important;
+                                 border-color: $drawer-group-active-state !important;
+
+                                 &::before {
+                                    background: $drawer-group-active-state !important;
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+
+               &.complete-state {
+                  .list__group__header {
+                     .list__tile {
+                        .stepper__step {
+                           .stepper__step__step {
+                              background-color: $drawer-group-complete-state !important;
+                           }
+                        }
+                     }
+                  }
+
+                  .list__group__items {
+                     .list__tile {
+                        .list__tile__action {
+                           .icon {
+                              color: $drawer-group-complete-state !important;
+                              border-color: $drawer-group-complete-state !important;
+
+                              &::after,
+                              &::before {
+                                 background: $drawer-group-complete-state !important;
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+
                .list__group__header {
-                  height: 50px !important;
                   overflow: visible !important;
-                  border-bottom: 1px solid $secondary-color !important;
+                  padding: $padding !important;
+                  height: $drawer-group-height !important;
+                  border-bottom: px solid $secondary-color !important;
 
                   .list__tile {
                      padding: 0 !important;
                      height: 100% !important;
 
                      .stepper__step {
-                        width: 100% !important;
+                        padding: 0 !important;
                         z-index: 1 !important;
-                        height: 50px !important;
+                        width: 100% !important;
                         pointer-events: none !important;
+                        height: $drawer-group-height !important;
 
-                        .stepper__step__step {}
+                        .stepper__step__step {
+                           background-color: $drawer-group-normal-state !important;
+                        }
 
-                        .stepper__label {}
+                        .stepper__label {
+                           font-size: 14px !important;
+                           margin: $margin !important;
+                           color: $black-color !important;
+                        }
                      }
                   }
 
                   .list__group__header__append-icon {
-                     .icon {}
+                     .icon {
+                        font-size: 25px !important;
+                        color: $secondary-color !important;
+                     }
                   }
                }
 
                .list__group__items {
                   height: auto !important;
-                  padding: 25px 0 !important;
+                  padding: $padding !important;
+                  background: #fafafa !important;
 
-                  &::after,
-                  &::before {
-                     width: 2px !important;
-                     content: "" !important;
-                     right: 11px !important;
-                     height: 25px !important;
-                     background: #000 !important;
-                     position: absolute !important;
-                  }
+                  div {
+                     &:first-child {
+                        .list__tile {
+                           height: auto !important;
+                           padding-top: $stepper-group-item-fl-padding !important;
 
-                  &::before {
-                     top: 0 !important;
-                  }
-
-                  &::after {
-                     bottom: 0 !important;
-                  }
-
-                  .list__tile {
-                     padding: 0 !important;
-                     height: 50px !important;
-
-                     .list__tile__action {
-                        width: 50px !important;
-                        min-width: 50px !important;
-                        max-width: 50px !important;
-
-                        .icon {
-                           width: 25px !important;
-                           height: 25px !important;
-                           font-size: 20px !important;
-                           border-radius: 50% !important;
-                           border: 2px dashed #000 !important;
-
-                           &::after,
-                           &::before {
-                              width: 2px !important;
-                              content: "" !important;
-                              background: #000 !important;
-                              position: absolute !important;
-                              height: calc((50px - 25px) / 2) !important;
-                           }
-
-                           &::before {
-                              top: 0 !important;
-                           }
-
-                           &::after {
-                              bottom: 0 !important;
+                           .list__tile__action {
+                              .icon {
+                                 &::before {
+                                    height: ($drawer-group-item-height - $stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
+                                 }
+                              }
                            }
                         }
                      }
 
-                     .btn {
-                        width: 100% !important;
-                        height: 50px !important;
-                        line-height: 50px !important;
+                     &:last-child {
+                        .list__tile {
+                           height: auto !important;
+                           padding-bottom: $stepper-group-item-fl-padding !important;
+
+                           .list__tile__action {
+                              .icon {
+                                 &::after {
+                                    height: ($drawer-group-item-height - $stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
+                                 }
+                              }
+                           }
+                        }
+                     }
+
+                     .list__tile {
+                        height: $drawer-group-item-height !important;
+                        padding: 0 $stepper-group-item-padding !important;
+
+                        .list__tile__action {
+                           width: $stepper-icon-size !important;
+                           min-width: $stepper-icon-size !important;
+                           max-width: $stepper-icon-size !important;
+
+                           .icon {
+                              border-radius: 50% !important;
+                              width: $stepper-icon-size !important;
+                              height: $stepper-icon-size !important;
+                              color: $drawer-group-normal-state !important;
+                              font-size: $stepper-icon-size / 2 !important;
+                              border: 2px dashed $drawer-group-normal-state !important;
+
+                              &::after,
+                              &::before {
+                                 width: 2px !important;
+                                 content: "" !important;
+                                 position: absolute !important;
+                                 background: $drawer-group-normal-state !important;
+                                 height: ($drawer-group-item-height - $stepper-icon-size) /2 !important;
+                              }
+
+                              &::before {
+                                 top: 0 !important;
+                              }
+
+                              &::after {
+                                 bottom: 0 !important;
+                              }
+                           }
+                        }
+
+                        a {
+                           margin: $margin !important;
+                           width: 100% !important;
+                           height: 50px !important;
+                           font-size: 14px !important;
+                           line-height: 50px !important;
+                           color: $black-color !important;
+                        }
                      }
                   }
                }

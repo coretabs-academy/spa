@@ -15,8 +15,8 @@ export default {
       current: {
          categorie: {
             id: '',
-            title: '',
-            completed: false
+            title: ''
+            // complete: false
          }
       }
    }),
@@ -37,7 +37,7 @@ export default {
                      topics: [],
                      id: index + 1,
                      title: categorie[`title-${this.$store.state.lang}`],
-                     active: Number(this.$route.params.course) === index + 1 ? true : false || this.current.categorie.completed
+                     // active: Number(this.$route.params.course) === index + 1 ? true : false || this.current.categorie.complete
                   })
                   categorie.topics.forEach((course, courseNumber) => {
                      this.$store.commit('getGithubFileURL', {
@@ -69,6 +69,7 @@ export default {
                      if (index === data.length - 1 && courseNumber === data[data.length - 1].topics.length - 1) {
                         let categorieId = Number(this.$route.params.course)
                         let topic = this.categories[categorieId - 1].topics[Number(this.$route.params.number) - 1]
+                        this.categories[0].complete = true
                         this.current.categorie = {
                            id: categorieId,
                            title: topic.title
@@ -104,6 +105,26 @@ export default {
             setTimeout(() => {
                self.height = window.innerHeight - document.querySelector('.courses >.toolbar').offsetHeight
             }, 1000)
+         }
+      },
+      getClass(categorie) {
+         if (categorie.complete) {
+            return 'complete-state'
+         } else if (categorie.id === this.current.categorie.id) {
+            return 'active-state'
+         }
+      },
+      isTopicActive(id, number) {
+         let categorieId = Number(this.$route.params.course)
+         let topic = Number(this.$route.params.number)
+         if (categorieId === id && topic > number) {
+            if (number + 1 === topic) {
+               return 'topic-complete-state'
+            } else {
+               return 'topic-all-complete-state'
+            }
+         } else if (categorieId === id && topic === number) {
+            return 'topic-active-state'
          }
       },
       getAction(type) {

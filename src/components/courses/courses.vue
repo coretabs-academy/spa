@@ -19,23 +19,23 @@
          </v-btn>
          <v-toolbar-title class="white--text">{{current.categorie.title}}</v-toolbar-title>
       </v-toolbar>
-      <v-list class="py-0" expand>
+      <v-list class="py-0">
          <v-stepper v-model="current.categorie.id" vertical class="py-0">
-            <v-list-group v-for="categorie in categories" :key="`step-${categorie.id}`" :prepend-icon="categorie.action" v-model="categorie.active" no-action>
+            <v-list-group v-for="categorie in categories" :key="`step-${categorie.id}`" :prepend-icon="categorie.action" v-model="categorie.active" no-action :class="getClass(categorie)">
                <v-list-tile slot="activator">
-                  <v-stepper-step :step="categorie.id" editable>{{categorie.title}}</v-stepper-step>
+                  <v-stepper-step :step="categorie.id" :complete="categorie.complete">{{categorie.title}}</v-stepper-step>
                </v-list-tile>
                <v-list-tile v-for="topic in categorie.topics" :key="`step-${categorie.id}-${topic.id}`">
-                  <v-list-tile-action>
+                  <v-list-tile-action :class="isTopicActive(categorie.id,topic.id)">
                      <v-icon>{{topic.action}}</v-icon>
                   </v-list-tile-action>
-                  <v-btn ripple block flat :to="topic.url">{{topic.title}}</v-btn>
+                  <router-link :to="topic.url">{{topic.title}}</router-link>
                </v-list-tile>
             </v-list-group>
          </v-stepper>
       </v-list>
    </v-navigation-drawer>
-   <div class="content" v-bind:style="{ height: height + 'px' }"  v-resize="onResize">
+   <div class="content" v-bind:style="{ height: height + 'px' }" v-resize="onResize">
       <router-view></router-view>
    </div>
 </div>
