@@ -108,11 +108,13 @@ export default {
          }
       },
       getClass(categorie) {
+         let cls = ''
          if (categorie.complete) {
-            return 'complete-state'
+            cls = 'complete-state'
          } else if (categorie.id === this.current.categorie.id) {
-            return 'active-state'
+            cls = 'active-state'
          }
+         return !categorie.active ? `elevation-1 ${cls}` : cls
       },
       isTopicActive(id, number) {
          let categorieId = Number(this.$route.params.course)

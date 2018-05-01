@@ -23,27 +23,27 @@
          <v-stepper v-model="current.categorie.id" vertical class="py-0">
             <v-list-group v-for="categorie in categories" :key="`step-${categorie.id}`" :prepend-icon="categorie.action" v-model="categorie.active" no-action :class="getClass(categorie)">
                <v-list-tile slot="activator">
-                  <v-stepper-step :step="categorie.id" :complete="categorie.complete">{{categorie.title}}</v-stepper-step>
+                  <v-stepper-step :step="categorie.id " :complete="categorie.complete ">{{categorie.title}}</v-stepper-step>
                </v-list-tile>
-               <v-list-tile v-for="topic in categorie.topics" :key="`step-${categorie.id}-${topic.id}`">
-                  <v-list-tile-action :class="isTopicActive(categorie.id,topic.id)">
+               <v-list-tile v-for="topic in categorie.topics " :key="`step-${categorie.id}-${topic.id}` ">
+                  <v-list-tile-action :class="isTopicActive(categorie.id,topic.id) ">
                      <v-icon>{{topic.action}}</v-icon>
                   </v-list-tile-action>
-                  <router-link :to="topic.url">{{topic.title}}</router-link>
+                  <router-link :to="topic.url ">{{topic.title}}</router-link>
                </v-list-tile>
             </v-list-group>
          </v-stepper>
       </v-list>
    </v-navigation-drawer>
-   <div class="content" v-bind:style="{ height: height + 'px' }" v-resize="onResize">
+   <div class="content " v-bind:style="{ height: height + 'px' } " v-resize="onResize ">
       <router-view></router-view>
    </div>
 </div>
-<div v-else class="progress-container">
+<div v-else class="progress-container ">
    <v-container fluid grid-list-xs fill-height>
       <v-layout row align-center>
          <v-flex xs12>
-            <v-progress-circular indeterminate color="primary" :size="80" :width="7"></v-progress-circular>
+            <v-progress-circular indeterminate color="primary " :size="80 " :width="7 "></v-progress-circular>
          </v-flex>
       </v-layout>
    </v-container>

@@ -11,7 +11,7 @@ $ar-margin: 0 20px 0 0;
 $ar-padding: 0 15px 0 0;
 $toolbar-padding: 0 15px;
 $stepper-icon-size: 25px;
-$drawer-group-height: 64px;
+$drawer-group-height: 60px;
 $drawer-group-item-height: 50px;
 $stepper-group-item-padding: 10px;
 $drawer-group-active-state: #74dad9;
@@ -114,6 +114,7 @@ html[dir='rtl'] {
    }
 
    .navigation-drawer {
+      height: 100vh !important;
       overflow: hidden !important;
       width: $drawer-width !important;
       background: $white-color !important;
@@ -151,11 +152,12 @@ html[dir='rtl'] {
       }
 
       .list {
-         max-height: 100% !important;
-         overflow-y: scroll !important;
+         overflow-y: auto !important;
+         height: calc(100vh - #{$toolbar-height}) !important;
 
          .stepper {
             box-shadow: none !important;
+            height: calc(100vh - #{$toolbar-height}) !important;
 
             .list__group {
                overflow: hidden !important;
@@ -165,7 +167,7 @@ html[dir='rtl'] {
                   height: auto !important;
 
                   .list__group__header {
-                     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12) !important;
+                     // box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12) !important;
                   }
                }
 
@@ -257,7 +259,10 @@ html[dir='rtl'] {
                   overflow: visible !important;
                   padding: $padding !important;
                   height: $drawer-group-height !important;
-                  border-bottom: px solid $secondary-color !important;
+
+                  &:hover {
+                     background: none !important;
+                  }
 
                   .list__tile {
                      padding: 0 !important;
@@ -271,6 +276,8 @@ html[dir='rtl'] {
                         height: $drawer-group-height !important;
 
                         .stepper__step__step {
+                           font-size: 14px !important;
+                           font-family: 'Open Sans Condensed' !important;
                            background-color: $drawer-group-normal-state !important;
                         }
 
@@ -337,6 +344,7 @@ html[dir='rtl'] {
 
                            .icon {
                               border-radius: 50% !important;
+                              background: $white-color !important;
                               width: $stepper-icon-size !important;
                               height: $stepper-icon-size !important;
                               color: $drawer-group-normal-state !important;
@@ -363,10 +371,10 @@ html[dir='rtl'] {
                         }
 
                         a {
-                           margin: $margin !important;
                            width: 100% !important;
                            height: 50px !important;
                            font-size: 14px !important;
+                           margin: $margin !important;
                            line-height: 50px !important;
                            color: $black-color !important;
                         }
