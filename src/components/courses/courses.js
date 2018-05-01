@@ -15,8 +15,10 @@ export default {
       current: {
          categorie: {
             id: '',
-            title: ''
-            // complete: false
+            title: '',
+            topic: {
+               title: ''
+            }
          }
       }
    }),
@@ -37,7 +39,7 @@ export default {
                      topics: [],
                      id: index + 1,
                      title: categorie[`title-${this.$store.state.lang}`],
-                     // active: Number(this.$route.params.course) === index + 1 ? true : false || this.current.categorie.complete
+                     active: Number(this.$route.params.course) === index + 1 ? true : false
                   })
                   categorie.topics.forEach((course, courseNumber) => {
                      this.$store.commit('getGithubFileURL', {
@@ -51,6 +53,7 @@ export default {
                            url: url,
                            type: type
                         },
+                        complete: false,
                         id: courseNumber + 1,
                         action: this.getAction(course.type),
                         title: course[`title-${this.$store.state.lang}`],
@@ -67,12 +70,15 @@ export default {
                         }
                      })
                      if (index === data.length - 1 && courseNumber === data[data.length - 1].topics.length - 1) {
-                        let categorieId = Number(this.$route.params.course)
-                        let topic = this.categories[categorieId - 1].topics[Number(this.$route.params.number) - 1]
+                        let categorie = this.categories[Number(this.$route.params.course) - 1]
+                        let topic = categorie.topics[Number(this.$route.params.number) - 1]
                         this.categories[0].complete = true
                         this.current.categorie = {
-                           id: categorieId,
-                           title: topic.title
+                           id: categorie.id,
+                           title: categorie.title,
+                           topic: {
+                              title: topic.title
+                           }
                         }
                         this.$router.replace({
                            query: {
@@ -94,7 +100,17 @@ export default {
    },
 
    watch: {
-
+      $route(to, from) {
+         let categorie = this.categories[Number(this.$route.params.course) - 1]
+         let topic = categorie.topics[Number(this.$route.params.number) - 1]
+         this.current.categorie = {
+            id: categorie.id,
+            title: categorie.title,
+            topic: {
+               title: topic.title
+            }
+         }
+      }
    },
    methods: {
       onResize() {
@@ -108,14 +124,21 @@ export default {
          }
       },
       getClass(categorie) {
-         let cls = ''
          if (categorie.complete) {
-            cls = 'complete-state'
+            return 'complete-state'
          } else if (categorie.id === this.current.categorie.id) {
-            cls = 'active-state'
+            return 'active-state'
          }
-         return !categorie.active ? `elevation-1 ${cls}` : cls
       },
+      // getClass(categorie) {
+      //    let cls = ''
+      //    if (categorie.complete) {
+      //       cls = 'complete-state'
+      //    } else if (categorie.id === this.current.categorie.id) {
+      //       cls = 'active-state'
+      //    }
+      //    return !categorie.active ? `elevation-1 ${cls}` : cls
+      // },
       isTopicActive(id, number) {
          let categorieId = Number(this.$route.params.course)
          let topic = Number(this.$route.params.number)
@@ -129,6 +152,9 @@ export default {
             return 'topic-active-state'
          }
       },
+      // isTopicActive(topic) {
+      //
+      // },
       getAction(type) {
          let action = ''
          switch (type) {

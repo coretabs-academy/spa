@@ -6,17 +6,17 @@ Courses Style
 $margin: 0 0 0 20px;
 $drawer-width: 300px;
 $padding: 0 0 15px 0;
-$toolbar-height: 60px;
+$toolbar-height: 50px;
 $ar-margin: 0 20px 0 0;
 $ar-padding: 0 15px 0 0;
 $toolbar-padding: 0 15px;
 $stepper-icon-size: 25px;
-$drawer-group-height: 60px;
-$drawer-group-item-height: 50px;
+$drawer-group-height: 45px;
+$drawer-group-item-height: 40px;
 $stepper-group-item-padding: 10px;
 $drawer-group-active-state: #74dad9;
 $drawer-group-normal-state: #cdcdcd;
-$stepper-group-item-fl-padding: 20px;
+$stepper-group-item-fl-padding: 15px;
 $drawer-group-complete-state: #7d68df;
 
 main.course-main-content,
@@ -101,8 +101,8 @@ html[dir='rtl'] {
 
          .btn {
             color: $primary-color !important;
-            width: ($toolbar-height / 3) - 5px !important;
-            height: ($toolbar-height / 3) - 5px !important;
+            width: $toolbar-height / 2 !important;
+            height: $toolbar-height / 2 !important;
 
             .icon {
                width: $toolbar-height / 2 !important;
@@ -122,9 +122,9 @@ html[dir='rtl'] {
       .toolbar {
          height: auto !important;
          padding: $padding !important;
-         background: #5557ce !important;
          min-height: $toolbar-height !important;
          max-height: $toolbar-height !important;
+         background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1)) !important;
 
          .toolbar__content {
             height: auto !important;
@@ -163,12 +163,15 @@ html[dir='rtl'] {
                overflow: hidden !important;
                height: $drawer-group-height !important;
 
+               &::after,
+               &::before {
+                  height: 0 !important;
+               }
+
                &.list__group--active {
                   height: auto !important;
 
-                  .list__group__header {
-                     // box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12) !important;
-                  }
+                  .list__group__header {}
                }
 
                &.active-state {
@@ -259,6 +262,7 @@ html[dir='rtl'] {
                   overflow: visible !important;
                   padding: $padding !important;
                   height: $drawer-group-height !important;
+                  border-bottom: 2px solid rgba($black-color,.12) !important;
 
                   &:hover {
                      background: none !important;
@@ -358,6 +362,8 @@ html[dir='rtl'] {
                                  position: absolute !important;
                                  background: $drawer-group-normal-state !important;
                                  height: ($drawer-group-item-height - $stepper-icon-size) /2 !important;
+                                 // right: 21px !important;
+                                 // display: block !important;
                               }
 
                               &::before {
@@ -372,11 +378,11 @@ html[dir='rtl'] {
 
                         a {
                            width: 100% !important;
-                           height: 50px !important;
                            font-size: 14px !important;
                            margin: $margin !important;
-                           line-height: 50px !important;
                            color: $black-color !important;
+                           height: $drawer-group-item-height !important;
+                           line-height: $drawer-group-item-height !important;
                         }
                      }
                   }

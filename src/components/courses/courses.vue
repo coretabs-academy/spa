@@ -2,14 +2,14 @@
 <div v-if="loaded" class="courses">
    <v-toolbar app class="white">
       <v-toolbar-side-icon @click="drawer.isOpen = !drawer.isOpen"></v-toolbar-side-icon>
-      <v-toolbar-title class="mx-auto">{{current.categorie.title}}</v-toolbar-title>
+      <v-toolbar-title class="mx-auto">{{current.categorie.topic.title}}</v-toolbar-title>
       <v-avatar class="brand-logo">
          <router-link to="/">
             <img :src="$store.state.icon" alt="coretabs" />
          </router-link>
       </v-avatar>
    </v-toolbar>
-   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen">
+   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen" class="elevation-15">
       <v-toolbar flat>
          <v-btn flat icon color="white" v-if="!drawer.isRight" :to="trackURL">
             <v-icon>chevron_left</v-icon>
@@ -17,11 +17,11 @@
          <v-btn v-else flat icon color="white" :to="trackURL">
             <v-icon>chevron_right</v-icon>
          </v-btn>
-         <v-toolbar-title class="white--text">{{current.categorie.title}}</v-toolbar-title>
+         <v-toolbar-title>{{current.categorie.title}}</v-toolbar-title>
       </v-toolbar>
       <v-list class="py-0">
          <v-stepper v-model="current.categorie.id" vertical class="py-0">
-            <v-list-group v-for="categorie in categories" :key="`step-${categorie.id}`" :prepend-icon="categorie.action" v-model="categorie.active" no-action :class="getClass(categorie)">
+            <v-list-group v-for="categorie in categories" :key="`step-${categorie.id}`" :prepend-icon="categorie.action" v-model="categorie.active"  :class="getClass(categorie)">
                <v-list-tile slot="activator">
                   <v-stepper-step :step="categorie.id " :complete="categorie.complete ">{{categorie.title}}</v-stepper-step>
                </v-list-tile>
