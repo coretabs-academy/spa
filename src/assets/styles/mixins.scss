@@ -30,7 +30,7 @@
 //    }
 // }
 @mixin center($class) {
-   @if($class !='') {
+   @if($class) {
       .center {
          top: 50% !important;
          left: 50% !important;
