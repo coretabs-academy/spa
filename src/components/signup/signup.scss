@@ -3,27 +3,148 @@
 /*=====================================
 Signup Style
 =======================================*/
-#signup-form {
-  margin: 20px;
-  overflow: auto;
-}
+#signup {
+  div#container {
+    position: relative;
+    @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
+    border-radius: 25px;
+    min-height: calc(100vh - 150px);
+    padding: 20px;
+    background-color: #FFFFFF;
 
-#signup-form .btn {
-  float: left;
-}
+    > .layout {
+      height: auto;
+      padding-bottom: 20px;
+    }
+    > .flex {
+      padding: 0 20px;
+    }
 
-html[dir="rtl"] {
-  #signup-form .input-group--text-field label {
-    left: unset;
-    right: 0;
-    width: auto;
-  }
-  #signup-form .input-group.input-group--error .input-group__messages {
-    margin-left: 10px;
-  }
+    #avatars {
+      margin-left: 10px;
+      flex-basis: 290px;
+      width: 290px !important;
+      max-width: 290px;
+      height: 290px;
 
-  #signup-form .input-group--text-field .input-group__counter {
-    margin-left: unset;
-    margin-right: auto;
+      @media (max-width: 960px) {
+        display: none;
+      }
+
+      > .layout {
+        flex-direction: row-reverse;
+      }
+
+      .avatar {
+        display: block;
+        border-radius: 0;
+        width: 90px;
+        max-width: 90px;
+        height: 90px;
+        background-image: url("~@/assets/multimedia/images/avatars.png");
+        color: #fff;
+        font-size: 50px;
+      }
+
+      .avatar:nth-child(1):before {
+        content: attr(data-before);
+        line-height: 90px;
+      }
+
+      $avatars: 10;
+      $offset-x: "0";
+      $offset-y: "0";
+      @for $i from 1 to $avatars {
+        $margin-top: "5px";
+        $margin-right: "5px";
+        $margin-bottom: "5px";
+        $margin-left: "5px";
+
+        @if $i % 3 == 1 {
+          $offset-x: "0";
+          $margin-left: "0";
+        } @else if $i % 3 == 2 {
+          $offset-x: "-110px";
+        } @else {
+          $offset-x: "-220px";
+          $margin-right: "0";
+        }
+        @if $i <= 3 {
+          $offset-y: "0";
+          $margin-top: "0";
+        } @else if $i <= 6 {
+          $offset-y: "-110px";
+        } @else {
+          $offset-y: "-220px";
+          $margin-bottom: "0";
+        }
+        
+        .avatar:nth-child(#{$i}) {
+          margin: #{$margin-top} #{$margin-right} #{$margin-bottom} #{$margin-left};
+          background-position: #{$offset-x} #{$offset-y};
+        }
+      }
+    }
+
+    #form {
+      @media (min-width: 960px) {
+        flex-basis: calc(83.33333333333334% - 300px);
+        max-width: calc(83.33333333333334% - 300px);
+      }
+      
+      .alert {
+        border-radius: 10px;
+        margin: 0 0 10px;
+        padding: 10px 10px 12px;
+        border-color: rgba(0, 0, 0, 0) !important;
+      }
+
+      .input-group.disabled {
+        .input-group__details {
+          min-height: 10px;
+        }
+
+        .icon--disabled {
+          display: none;
+        }
+      }
+
+      
+      
+      .input-group--text-field label {
+        max-width: unset;
+        text-align: right;
+        transform-origin: top right;
+      }
+
+      .input-group--required label:after {
+        content: "";
+      }
+      .input-group--error label:after {
+        content: " *";
+      }
+
+      .input-group--text-field .input-group__counter {
+        margin-left: unset;
+        margin-right: auto;
+      }
+    }
+
+    #submit {
+      float: left;
+      margin: 0;
+      height: 32px;
+      background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1));
+      @include box-shadow(0px, 2px, 5px, 0px , $shadow-color);
+      line-height: 0px;
+      color: #FFFFFF !important;
+      font-weight: 400;
+    }
+
+    #submit:disabled {
+      background: #D5D5D5;
+      box-shadow: none;
+      color: rgba(0, 0, 0, 0.5) !important;
+    }
   }
 }
