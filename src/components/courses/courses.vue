@@ -1,51 +1,43 @@
 <template>
 <div v-if="loaded" class="courses">
-   <v-stepper v-model="currentCourse.id" vertical v-resize="onResize">
-      <v-toolbar app class="white">
-         <v-toolbar-side-icon @click="drawer.isOpen = !drawer.isOpen"></v-toolbar-side-icon>
-         <v-toolbar-title class="mx-auto">{{currentCourse.title}}</v-toolbar-title>
-         <v-avatar class="brand-logo">
-            <router-link to="/">
-               <img :src="$store.state.icon" alt="coretabs" />
-            </router-link>
-         </v-avatar>
+   <v-toolbar app class="white">
+      <v-toolbar-side-icon @click="drawer.isOpen = !drawer.isOpen"></v-toolbar-side-icon>
+      <v-toolbar-title class="mx-auto">{{current.categorie.title}}</v-toolbar-title>
+      <v-avatar class="brand-logo">
+         <router-link to="/">
+            <img :src="$store.state.icon" alt="coretabs" />
+         </router-link>
+      </v-avatar>
+   </v-toolbar>
+   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen">
+      <v-toolbar flat>
+         <v-btn flat icon color="white" v-if="!drawer.isRight" :to="trackURL">
+            <v-icon>chevron_left</v-icon>
+         </v-btn>
+         <v-btn v-else flat icon color="white" :to="trackURL">
+            <v-icon>chevron_right</v-icon>
+         </v-btn>
+         <v-toolbar-title class="white--text">{{current.categorie.title}}</v-toolbar-title>
       </v-toolbar>
-      <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen">
-         <v-toolbar flat>
-            <v-btn flat icon color="white" v-if="!drawer.isRight" :to="trackURL">
-               <v-icon>chevron_left</v-icon>
-            </v-btn>
-            <v-btn v-else flat icon color="white" :to="trackURL">
-               <v-icon>chevron_right</v-icon>
-            </v-btn>
-            <v-toolbar-title class="white--text">{{currentCourse.coursesGroup}}</v-toolbar-title>
-         </v-toolbar>
-         <v-divider></v-divider>
-         <div class="stepper-group">
-            <v-stepper-step v-bind:class="{'active':currentCourse.id === course.id}" v-for="course in courses" :key="`${course.id}-step`" :step="course.id" @click.native="gotToStep(course.id)" editable>{{course.title}}</v-stepper-step>
-         </div>
-      </v-navigation-drawer>
-      <div class="content" v-bind:style="{ height: height + 'px' }" v-on:scroll="handleScroll">
-         <router-view></router-view>
-      </div>
-   </v-stepper>
-   <v-dialog v-model="dialog.open" max-width="400px" content-class="courses-dialog" persistent>
-      <v-card color="primary">
-         <v-card-text class="white--text text-xs-center">{{dialog.message}}</v-card-text>
-         <v-card-actions>
-            <v-container fluid grid-list-xs fill-height>
-               <v-layout row align-center justify-center>
-                  <v-flex xs5 sm4 md4>
-                     <v-btn color="white" :to="dialog.url" @click="dialog.open = false">{{dialog.yesBtn}}</v-btn>
-                  </v-flex>
-                  <v-flex xs5 sm4 md4>
-                     <v-btn color="white" @click="dialog.open = false">{{dialog.noBtn}}</v-btn>
-                  </v-flex>
-               </v-layout>
-            </v-container>
-         </v-card-actions>
-      </v-card>
-   </v-dialog>
+      <v-list class="py-0" expand>
+         <v-stepper v-model="current.categorie.id" vertical class="py-0">
+            <v-list-group v-for="categorie in categories" :key="`step-${categorie.id}`" :prepend-icon="categorie.action" v-model="categorie.active" no-action>
+               <v-list-tile slot="activator">
+                  <v-stepper-step :step="categorie.id" editable>{{categorie.title}}</v-stepper-step>
+               </v-list-tile>
+               <v-list-tile v-for="topic in categorie.topics" :key="`step-${categorie.id}-${topic.id}`">
+                  <v-list-tile-action>
+                     <v-icon>{{topic.action}}</v-icon>
+                  </v-list-tile-action>
+                  <v-btn ripple block flat :to="topic.url">{{topic.title}}</v-btn>
+               </v-list-tile>
+            </v-list-group>
+         </v-stepper>
+      </v-list>
+   </v-navigation-drawer>
+   <div class="content" v-bind:style="{ height: height + 'px' }"  v-resize="onResize">
+      <router-view></router-view>
+   </div>
 </div>
 <div v-else class="progress-container">
    <v-container fluid grid-list-xs fill-height>
