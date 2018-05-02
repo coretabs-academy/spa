@@ -9,8 +9,7 @@ Home Style
    }
 
    #full-screen-height {
-      /*TODO: change 210px to be calculated dynamically*/
-      min-height: calc(100vh - 210px);
+      min-height: calc(100vh - 150px);
    }
 
    h2 {
