@@ -4,12 +4,19 @@
 Signin Style
 =======================================*/
 #signin {
+  margin-bottom: 40px;
+
   div#container {
     position: relative;
     @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
     border-radius: 25px;
     padding: 20px;
     background-color: #FFFFFF;
+
+    @media (max-width: 600px) {
+      flex-basis: 90%;
+      max-width: 90%;
+    }
 
     #splash {
       background-image: url("~@/assets/multimedia/images/signin.svg");
@@ -113,6 +120,7 @@ Signin Style
           font-size: 14px;
           transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), color 1ms;
           user-select: none;
+          margin: 0;
         }
 
         #submit, #signup {
@@ -129,6 +137,7 @@ Signin Style
             height: 55px;
           }
         }
+
         @media (max-width: 768px) {
           text-align: center;
         }

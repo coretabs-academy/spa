@@ -35,7 +35,7 @@
             <v-flex xs10 sm10 md7>
               <p id="tos" v-html="tos_text" class="black--text text-xs-right mt-1 mb-0"></p>
             </v-flex>
-            <v-flex xs10 sm10 md3>
+            <v-flex xs10 sm10 md3 id="submit-container">
               <v-btn round id="submit" @click="submit" v-show="!alert.success" v-text="submit_btn_text" :disabled="valid < 4"></v-btn>
             </v-flex>
           </v-layout>
