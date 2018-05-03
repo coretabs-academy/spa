@@ -4,6 +4,8 @@
 Signup Style
 =======================================*/
 #signup {
+  margin-bottom: 40px;
+
   div#container {
     position: relative;
     @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
@@ -11,20 +13,23 @@ Signup Style
     padding: 20px;
     background-color: #FFFFFF;
 
+    @media (max-width: 600px) {
+      flex-basis: 90%;
+      max-width: 90%;
+    }
+
     > .layout {
       height: auto;
-      padding-bottom: 20px;
     }
     > .flex {
       padding: 0 20px;
     }
 
     #avatars {
-      margin-left: 10px;
-      flex-basis: 290px;
-      width: 290px !important;
-      max-width: 290px;
-      height: 290px;
+      background-image: url("~@/assets/multimedia/images/avatars.png");
+      background-position: right center;
+      background-size: calc(100% - 20px) calc(100% - 20px);
+      background-repeat: no-repeat;
 
       @media (max-width: 960px) {
         display: none;
@@ -34,63 +39,19 @@ Signup Style
         flex-direction: row-reverse;
       }
 
-      .avatar {
+      #avatar {
         display: block;
         border-radius: 0;
-        width: 90px;
-        max-width: 90px;
-        height: 90px;
-        background-image: url("~@/assets/multimedia/images/avatars.png");
         color: #fff;
-        font-size: 50px;
+        margin: 10px 0 0 20px;
       }
 
-      .avatar:nth-child(1):before {
+      #avatar:before {
         content: attr(data-before);
-        line-height: 90px;
-      }
-
-      $avatars: 10;
-      $offset-x: "0";
-      $offset-y: "0";
-      @for $i from 1 to $avatars {
-        $margin-top: "5px";
-        $margin-right: "5px";
-        $margin-bottom: "5px";
-        $margin-left: "5px";
-
-        @if $i % 3 == 1 {
-          $offset-x: "0";
-          $margin-left: "0";
-        } @else if $i % 3 == 2 {
-          $offset-x: "-110px";
-        } @else {
-          $offset-x: "-220px";
-          $margin-right: "0";
-        }
-        @if $i <= 3 {
-          $offset-y: "0";
-          $margin-top: "0";
-        } @else if $i <= 6 {
-          $offset-y: "-110px";
-        } @else {
-          $offset-y: "-220px";
-          $margin-bottom: "0";
-        }
-        
-        .avatar:nth-child(#{$i}) {
-          margin: #{$margin-top} #{$margin-right} #{$margin-bottom} #{$margin-left};
-          background-position: #{$offset-x} #{$offset-y};
-        }
       }
     }
 
     #form {
-      @media (min-width: 960px) {
-        flex-basis: calc(83.33333333333334% - 300px);
-        max-width: calc(83.33333333333334% - 300px);
-      }
-      
       .alert {
         border-radius: 10px;
         margin: 0 0 10px;
@@ -127,27 +88,44 @@ Signup Style
       }
     }
 
-    #submit {
-      float: left;
-      margin: 0;
-      height: 32px;
-      background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1));
-      @include box-shadow(0px, 2px, 5px, 0px , $shadow-color);
-      line-height: 0px;
-      color: #FFFFFF !important;
-      font-weight: 400;
-      width: 75%;
-      max-width: 150px;
+    .layout#footer {
+      margin: 20px 0;
 
-      @media (max-width: 960px) {
-        margin-top: 20px;
+      #submit-container {
+        #submit {
+          float: left;
+          margin: 0;
+          height: 32px;
+          background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1));
+          @include box-shadow(0px, 2px, 5px, 0px , $shadow-color);
+          line-height: 0px;
+          color: #FFFFFF !important;
+          font-weight: 400;
+          width: 75%;
+          max-width: 150px;
+    
+          @media (max-width: 960px) {
+            margin-top: 20px;
+          }
+        }
+    
+        #submit:disabled {
+          background: #D5D5D5;
+          box-shadow: none;
+          color: rgba(0, 0, 0, 0.5) !important;
+        }
+
+        @media (max-width: 600px) {
+          flex-basis: calc((100% / 12) * 10);
+          max-width: calc((100% / 12) * 10);
+          
+          #submit {
+            width: 100%;
+            max-width: 100%;
+            height: 55px;
+          }
+        }
       }
-    }
-
-    #submit:disabled {
-      background: #D5D5D5;
-      box-shadow: none;
-      color: rgba(0, 0, 0, 0.5) !important;
     }
   }
 }

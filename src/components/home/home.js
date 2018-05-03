@@ -30,8 +30,10 @@ export default {
   methods: {
     setIntroVideoHeight() {
       var vDiv = document.querySelector('#introductory-video')
-      var vDivHeight = (vDiv.clientWidth * 74.8) / 100
-      vDiv.setAttribute('style', 'height: ' + vDivHeight + 'px !important')
+      if (vDiv) {
+        var vDivHeight = (vDiv.clientWidth * 75) / 100
+        vDiv.setAttribute('style', 'height: ' + vDivHeight + 'px !important')
+      }
     },
     play(vPlayer) {
       var player = document.getElementById('player')
@@ -56,6 +58,7 @@ export default {
   },
   mounted() {
     window.addEventListener('resize', this.setIntroVideoHeight)
+
     this.vPlayer.on('fullscreenchange', () => {
       this.exit(this.vPlayer)
     })

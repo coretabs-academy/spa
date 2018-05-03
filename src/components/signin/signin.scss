@@ -4,21 +4,26 @@
 Signin Style
 =======================================*/
 #signin {
+  margin-bottom: 40px;
+
   div#container {
     position: relative;
     @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
     border-radius: 25px;
-    padding: 80px 20px;
+    padding: 20px;
     background-color: #FFFFFF;
 
+    @media (max-width: 600px) {
+      flex-basis: 90%;
+      max-width: 90%;
+    }
+
     #splash {
-      margin-left: 20px;
-      flex-basis: 400px;
-      width: 400px !important;
-      max-width: 400px;
-      height: 300px;
-      background: url("~@/assets/multimedia/images/signin.svg") no-repeat;
-      background-size: 100% 100%;
+      background-image: url("~@/assets/multimedia/images/signin.svg");
+      background-position: 20px 20px;
+      background-size: calc(100% - 20px) calc(100% - 20px);
+      background-repeat: no-repeat;
+      padding: 0 0 0 20px;
 
       @media (max-width: 1200px) {
         flex-basis: 240px;
@@ -33,19 +38,9 @@ Signin Style
     }
 
     #form {
-      @media (min-width: 960px) {
-        flex-basis: calc(83.33333333333334% - 280px);
-        max-width: calc(83.33333333333334% - 280px);
-      }
-
-      @media (min-width: 1200px) {
-        flex-basis: calc(83.33333333333334% - 400px);
-        max-width: calc(83.33333333333334% - 400px);
-      }
-
       h2 {
         text-align: right;
-        @include responsive-font-size(1.75rem,true);
+        @include responsive-font-size(2rem,true);
       }
 
       #forgot {
@@ -125,6 +120,7 @@ Signin Style
           font-size: 14px;
           transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), color 1ms;
           user-select: none;
+          margin: 0;
         }
 
         #submit, #signup {
@@ -141,6 +137,7 @@ Signin Style
             height: 55px;
           }
         }
+
         @media (max-width: 768px) {
           text-align: center;
         }

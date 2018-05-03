@@ -1,12 +1,12 @@
 <template>
   <div id="signin">
     <v-container fluid fill-height>
-      <v-layout fluid row justify-center wrap>
-        <v-flex id="container" xs8>
-          <v-layout fluid row justify-center align-center wrap fill-height>
-            <v-flex id="splash" xs0 sm0 md5>
+      <v-layout row wrap align-center justify-center>
+        <v-flex id="container" xs6>
+          <v-layout row align-center justify-center>
+            <v-flex id="splash" xs0 sm0 md6>
             </v-flex>
-            <v-flex id="form" xs10 sm10 md5>
+            <v-flex id="form" xs12 sm12 md6>
               <v-form ref="form" lazy-validation>
                 <h2 class="black--text mb-2" v-html="heading_text"></h2>
                 <v-alert type="success" v-model="alert.success" v-text="alert.message"></v-alert>
