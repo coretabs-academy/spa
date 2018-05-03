@@ -11,6 +11,7 @@ import CoursesComponent from './components/courses/courses.vue'
 // import TracksComponent from './components/tracks/tracks.vue'
 // import ProfileComponent from './components/profile/profile.vue'
 import NotFoundComponent from './components/not-found/not-found.vue'
+import quiz from './components/quiz/quiz.vue'
 
 Vue.use(Router)
 
@@ -22,6 +23,10 @@ export default new Router({
          name: 'home',
          component: HomeComponent
       }, {
+            path: '/quiz',
+            name: 'quiz',
+            component: quiz
+         }, {
          path: '/home',
          redirect: '/'
       }, {
