@@ -231,8 +231,7 @@ About Style
                padding-top: 75px;
                color: #425F7C;
                * {
-                 // @include font-family('en');
-                 font-family: $en;
+                 @include font-family('en');
                }
 
                .name {
@@ -478,8 +477,7 @@ About Style
          min-width: 312px;
 
          *{
-           // @include font-family('en');
-           font-family: $en;
+           @include font-family('en');
          }
 
          .box {
@@ -667,8 +665,7 @@ About Style
          position: relative;
 
          * {
-           // @include font-family('en');
-           font-family: $en;
+           @include font-family('en');
          }
 
          .mentors-carousel-item {

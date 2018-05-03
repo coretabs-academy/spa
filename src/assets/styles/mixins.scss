@@ -2,7 +2,7 @@
    @if($lang=='ar') {
       font-family: 'Droid Arabic Kufi'  + if($important,!important ,'');
    } @else {
-      font-family: 'Poppins'  if($important,!important ,'');
+      font-family: 'Poppins'  + if($important,!important ,'');
    }
 }
 @mixin responsive-ratio($x,$y, $pseudo: false) {
