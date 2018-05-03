@@ -12,6 +12,7 @@ $ar-padding: 0 15px 0 0;
 $toolbar-padding: 0 15px;
 $stepper-icon-size: 25px;
 $drawer-group-height: 45px;
+$drawer-background: #fafafa;
 $drawer-group-item-height: 40px;
 $stepper-group-item-padding: 10px;
 $drawer-group-active-state: #74dad9;
@@ -116,8 +117,8 @@ html[dir='rtl'] {
    .navigation-drawer {
       height: 100vh !important;
       overflow: hidden !important;
+      background: $drawer-background !important;
       width: $drawer-width !important;
-      background: $white-color !important;
 
       .toolbar {
          height: auto !important;
@@ -152,11 +153,13 @@ html[dir='rtl'] {
       }
 
       .list {
-         overflow-y: auto !important;
+         overflow-y: hidden !important;
+         background: $drawer-background !important;
          height: calc(100vh - #{$toolbar-height}) !important;
 
          .stepper {
             box-shadow: none !important;
+            background: $drawer-background !important;
             height: calc(100vh - #{$toolbar-height}) !important;
 
             .list__group {
@@ -304,7 +307,7 @@ html[dir='rtl'] {
                .list__group__items {
                   height: auto !important;
                   padding: $padding !important;
-                  background: #fafafa !important;
+                  background: $drawer-background !important;
 
                   div {
                      &:first-child {

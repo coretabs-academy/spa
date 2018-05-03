@@ -33,6 +33,7 @@ Global Style
 html {
    line-height: 1.5;
    scroll-behavior: smooth;
+   overflow: hidden !important;
    @include responsive-font-size(14px,true);
 }
 

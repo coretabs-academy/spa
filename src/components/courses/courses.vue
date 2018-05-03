@@ -9,7 +9,7 @@
          </router-link>
       </v-avatar>
    </v-toolbar>
-   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen" class="elevation-15">
+   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen" v-bind:class="{'elevation-15':drawer.isOpen}">
       <v-toolbar flat>
          <v-btn flat icon color="white" v-if="!drawer.isRight" :to="trackURL">
             <v-icon>chevron_left</v-icon>
@@ -21,7 +21,7 @@
       </v-toolbar>
       <v-list class="py-0">
          <v-stepper v-model="current.categorie.id" vertical class="py-0">
-            <v-list-group v-for="categorie in categories" :key="`step-${categorie.id}`" :prepend-icon="categorie.action" v-model="categorie.active"  :class="getClass(categorie)">
+            <v-list-group v-for="categorie in categories" :key="`step-${categorie.id}`" :prepend-icon="categorie.action" v-model="categorie.active" :class="getClass(categorie)">
                <v-list-tile slot="activator">
                   <v-stepper-step :step="categorie.id " :complete="categorie.complete ">{{categorie.title}}</v-stepper-step>
                </v-list-tile>

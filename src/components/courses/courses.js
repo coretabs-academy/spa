@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 export default {
    name: 'CoursesComponent',
    components: {},
@@ -103,6 +101,7 @@ export default {
       $route(to, from) {
          let categorie = this.categories[Number(this.$route.params.course) - 1]
          let topic = categorie.topics[Number(this.$route.params.number) - 1]
+         document.querySelector('.courses >.content > div').scrollTop = 0
          this.current.categorie = {
             id: categorie.id,
             title: categorie.title,
