@@ -47,7 +47,6 @@ export default {
       el.className = ''
       el.classList.add('content')
       el.classList.add(this.currentClass)
-<<<<<<< HEAD
    },
    methods: {
       setHeader() {
@@ -55,7 +54,7 @@ export default {
          switch (this.$route.name) {
             case 'home':
             case 'signin':
-            case 'singup':
+            case 'signup':
                this.show = true
                this.navs = this.default_navs
                break
@@ -84,47 +83,6 @@ export default {
       },
       toggleDrawer() {
          this.drawer.isOpen = !this.drawer.isOpen
-=======
-    }
-  },
-  mounted() {
-    let el = document.querySelector('main.content')
-    el.className = ''
-    el.classList.add('content')
-    el.classList.add(this.currentClass)
-  },
-  methods: {
-    setHeader() {
-      this.currentClass = `${this.$route.name}-main-content`
-      switch (this.$route.name) {
-        case 'home':
-        case 'signin':
-        case 'signup':
-          this.show = true
-          this.navs = this.default_navs
-          break
-        case 'about':
-        case 'tracks':
-        case 'contact':
-          this.show = true
-          // if (!this.$store.state.isLogin) {
-          //    this.navs = this.user_navs;
-          // } else {
-          this.navs = this.default_navs
-          // }
-          break
-        case 'track':
-        case 'profile':
-          this.show = true
-          // this.navs = this.user_navs;
-          this.navs = this.default_navs
-          break
-        case '404':
-        case 'course':
-        case 'courses':
-          this.show = false
-          break
->>>>>>> 9f67fd1147bf67f15b388eebcdd3816b965df752
       }
    }
 }
