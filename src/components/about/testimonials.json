@@ -1,0 +1,30 @@
+{
+   "carousel": [{
+      "img": "saif.png",
+      "name": "منصور الجاسمي",
+      "description": "مصمم تطبيقات موبايل",
+      "quote": "Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.",
+      "rating": 4
+   },
+   {
+      "img": "saif.png",
+      "name": "منصور الجاسمي",
+      "description": "مصمم تطبيقات موبايل",
+      "quote": "Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.",
+      "rating": 5
+   },
+   {
+      "img": "saif.png",
+      "name": "منصور الجاسمي",
+      "description": "مصمم تطبيقات موبايل",
+      "quote": "Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.",
+      "rating": 3
+   },
+   {
+      "img": "saif.png",
+      "name": "منصور الجاسمي",
+      "description": "مصمم تطبيقات موبايل",
+      "quote": "Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.",
+      "rating": 1
+   }]
+}

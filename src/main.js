@@ -4,6 +4,9 @@ import App from './app.vue'
 import Vuetify from 'vuetify'
 import router from './router'
 import store from './store/app.store'
+import siema from 'vue2-siema'
+
+Vue.use(siema)
 
 Vue.use(API)
 
