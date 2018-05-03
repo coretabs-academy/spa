@@ -1,3 +1,10 @@
+@mixin font-family ($lang) {
+   @if($lang='ar') {
+      font-family: 'Droid Arabic Kufi';
+   } @else {
+      font-family: 'Poppins';
+   }
+}
 @mixin responsive-ratio($x,$y, $pseudo: false) {
    $padding: unquote(($y / $x) * 100 + '%');
    @if $pseudo {

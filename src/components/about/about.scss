@@ -1,13 +1,9 @@
 @import '~@/assets/styles/vars';
 @import '~@/../node_modules/rfs/scss/_rfs';
-$en: 'Poppins';
-$ar: 'Droid Arabic Kufi';
 /*=====================================
 About Style
 =======================================*/
 #about {
-   // font-family: $ar;
-
    #presentation {
       #desc-box {
          display: flex;
@@ -191,7 +187,7 @@ About Style
          height: 600px;
          @include box-shadow(0,0,0,0,transparent);
          z-index: 8;
-         font-family: $en;
+         @include font-family('en');
       }
 
       .carousel .jumbotron {
@@ -239,7 +235,6 @@ About Style
                .name {
                   width: 100%;
                   margin: 0 auto 20px;
-                  font-family: $ar;
                }
 
                .quote {
@@ -478,7 +473,7 @@ About Style
          max-width: 1050px;
          margin: auto;
          min-width: 312px;
-         font-family: $en;
+         @include font-family('en');
 
          .box {
             width: 237px;
@@ -663,7 +658,7 @@ About Style
          margin: auto;
          height: 330px;
          position: relative;
-         font-family: $en;
+         @include font-family('en');
 
          .mentors-carousel-item {
             width: 237px;

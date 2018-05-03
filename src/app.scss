@@ -16,7 +16,15 @@ Global Style
 
 * {
    outline: none;
-   font-family: 'Droid Arabic Kufi';
+   @include font-family('ar');
+}
+
+.font-family-ar {
+   @include font-family('ar');
+}
+
+.font-family-en {
+   @include font-family('en');
 }
 
 *,
@@ -124,5 +132,5 @@ a {
 }
 
 .container.fill-height {
-  min-height: calc(100vh - #{$header-height * 2});
+   min-height: calc(100vh - #{$header-height * 2});
 }
