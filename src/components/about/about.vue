@@ -18,8 +18,8 @@
          <v-flex text-xs-center>
            <div class="skew-box">
              <div class="particles"></div>
-             <h1>مجتمعنا رائع يضم مئات المبرمجين</h1>
-             <p>بإنضمامك معنا لن تتعلم البرمجة فحسب بل ستلتحق بمجتمع يوفر بيئة خصبة لتبادل الخبرات و بناء روابط و علاقات مع عدد كبير من المبرمجين الأكفاء</p>
+             <h1>{{ testimonials.title }}</h1>
+             <p>{{ testimonials.description }}</p>
            </div>
             <v-carousel cycle>
                <v-carousel-item v-for="(testimonial,i) in testimonials.carousel" :key="i" transition="fade" reverse-transition="fade">
@@ -41,10 +41,10 @@
    </v-container>
 
    <div id="team">
-     <h1>فريق العمل</h1>
-     <p>فريق عملنا يعمل على مدار الساعة ليحرص على حصولكم على الفائدة المرجوة و على أفضل تجربة خلال رحلتكم التدريبية على منصة coretabs</p>
+     <h1>{{ team.title }}</h1>
+     <p>{{ team.description }}</p>
      <div class="flex">
-       <div class="box" v-for="(t, i) in coretabsTeam" :key="i">
+       <div class="box" v-for="(t, i) in team.set" :key="i">
          <div class="image-container">
            <img :src="getTeamSrc(i)">
          </div>
@@ -65,10 +65,10 @@
    </div>
 
    <div id="mentors">
-     <h1>الموجهون</h1>
-     <p>فريق التوجية في الأكاديمية يتألف من عدد من الأشخاص المتميزين الذي سيقوموا بمساندتك أثناء رحلتك التدريبية على منصة coretabs</p>
+     <h1>{{ mentors.title }}</h1>
+     <p>{{ mentors.description }}</p>
      <siema :current.sync="currentSlide" class="mentors-carousel siema" ref="siema" :options="options" :auto-play="true" :play-duration="4000">
-       <div class="mentors-carousel-item" v-for="(t, i) in mentors" :key="i" :ref="'item' + i">
+       <div class="mentors-carousel-item" v-for="(t, i) in mentors.set" :key="i" :ref="'item' + i">
          <div class="image-container">
            <img :src="getMentorsSrc(i)" :ref="'img'+i" class="photo">
          </div>
@@ -96,9 +96,9 @@
    </div>
 
    <footer>
-     <router-link to="/">إتصل بنا</router-link>|
-     <router-link to="/">شروط الخدمة</router-link>|
-     <router-link to="/">سياسة الخصوصية</router-link>
+     <router-link to="/">{{ footer.contactUs }}</router-link>|
+     <router-link to="/">{{ footer.termsOfService }}</router-link>|
+     <router-link to="/">{{ footer.privacyPolicy }}</router-link>
    </footer>
 </div>
 </template>

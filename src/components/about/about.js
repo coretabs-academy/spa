@@ -1,8 +1,3 @@
-import * as data from './desc-box.json'
-import * as testimonials from './testimonials.json'
-import * as team from './coretabs-team.json'
-import * as mentors from './mentors.json'
-
 export default {
    name: 'AboutComponent',
    components: {},
@@ -10,7 +5,6 @@ export default {
       imageSrc: [],
       quotationIcon: '',
       starIcon: '',
-      testimonials,
       icons: {
         facebook: '',
         twitter: '',
@@ -29,7 +23,215 @@ export default {
       },
       leftImage: '',
       rightImage: '',
-      currentSlide: 0
+      currentSlide: 0,
+      descriptions: [
+        {
+          header: 'رؤيتنا في الأكاديمية',
+          paragraph: 'بما أننا نؤمن أن أفضل طريقة لتعلم البرمجة تكون من خلال التطبيق وليس من خلال الدروس النظرية التي لا يتم ربطها بشكل عملي مع مشاريع حقيق، فقد قمنا بإيجاد هذه المنصة لمساعدتك على تحقيق حلمك بالتدرب على لغة المستقبل (البرمجة) بأساليب فعالة.',
+          src: 'about/vision',
+          alt: 'image 1 '
+        },
+        {
+          header: 'إبني مهاراتك بذكاء',
+          paragraph: 'من الأخطاء الشائعة التي قد ترتكبها أثناء تعلمك للبرمجة هو إعتمادك على إسلوب خاطئ كدراسة كل المفاهيم دون الإلمام بكيفية توظيفها في مشروع حقيقي، لهذا في أكاديميتنا نقوم بتوجيهك من خلال مسار محدد من الورش التطبيقية بحيث أنك تتعلم المفاهيم في الوقت المناسب عند حاجتك لها.',
+          src: 'about/building_blocks',
+          alt: 'image 2 '
+        },
+        {
+          header: 'ما الذي ستكتسبه؟',
+          paragraph: 'من أهم ما قمنا بأخذة في عين الإعتبار عند إنشاء هذه المنصة هو تدريبك لتحصل على الخبرة والإستعداد الكافي للإنخراط في سوق العمل المحلي أو الحر بمجرد إنتهائك من سلسلة ورش العمل المحددة في المسار الذي قمت بإختيارة.',
+          src: 'about/hero',
+          alt: 'image 3 '
+        }
+      ],
+      testimonials: {
+        title: 'مجتمعنا رائع يضم مئات المبرمجين',
+        description: 'بإنضمامك معنا لن تتعلم البرمجة فحسب بل ستلتحق بمجتمع يوفر بيئة خصبة لتبادل الخبرات و بناء روابط و علاقات مع عدد كبير من المبرمجين الأكفاء',
+         carousel: [{
+            img: 'saif.png',
+            name: 'منصور الجاسمي',
+            description: 'مصمم تطبيقات موبايل',
+            quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
+            rating: 4
+         },
+         {
+            img: 'saif.png',
+            name: 'منصور الجاسمي',
+            description: 'مصمم تطبيقات موبايل',
+            quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
+            rating: 4
+         },
+         {
+            img: 'saif.png',
+            name: 'منصور الجاسمي',
+            description: 'مصمم تطبيقات موبايل',
+            quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
+            rating: 4
+         },
+         {
+            img: 'saif.png',
+            name: 'منصور الجاسمي',
+            description: 'مصمم تطبيقات موبايل',
+            quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
+            rating: 4
+         }
+        ]
+      },
+      team: {
+        title: 'فريق العمل',
+        description: 'فريق عملنا يعمل على مدار الساعة ليحرص على حصولكم على الفائدة المرجوة و على أفضل تجربة خلال رحلتكم التدريبية على منصة coretabs',
+        set: [
+          {
+            name: 'Louay Hamada',
+            jobs: ['Full-stack Web Application Developer'],
+            src: 'contributors/LouayH.jpg',
+            socials: [
+              {
+                name: 'LH',
+                src: 'http://louayhamada.com'
+              },
+              {
+                name: 'twitter',
+                src: 'http://twitter.com/LouayHamada'
+              },
+              {
+                name: 'github',
+                src: 'https://github.com/LouayH'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'https://stackoverflow.com/users/1398488/louay-hamada'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            jobs: ['Front-end web developer', 'UI/UX designer'],
+            src: 'contributors/alhakem.jpg',
+            socials: [
+              {
+                name: 'facebook',
+                src: 'ss'
+              },
+              {
+                name: 'twitter',
+                src: 'sxs'
+              },
+              {
+                name: 'behance',
+                src: 'ddcd'
+              },
+              {
+                name: 'website',
+                src: 'cdcd'
+              }
+            ]
+          }
+        ]
+      },
+      mentors: {
+        title: 'الموجهون',
+        description: 'فريق التوجية في الأكاديمية يتألف من عدد من الأشخاص المتميزين الذي سيقوموا بمساندتك أثناء رحلتك التدريبية على منصة coretabs',
+        set: [
+          {
+            name: 'Mohammed AlHakem',
+            jobs: ['Front-end web developer', 'UI/UX designer'],
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'facebook',
+                src: 'ss'
+              },
+              {
+                name: 'twitter',
+                src: 'sxs'
+              },
+              {
+                name: 'behance',
+                src: 'ddcd'
+              },
+              {
+                name: 'website',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            jobs: ['Front-end web developer', 'UI/UX designer'],
+            src: 'mentors/two.jpg',
+            socials: [
+              {
+                name: 'facebook',
+                src: 'ss'
+              },
+              {
+                name: 'twitter',
+                src: 'sxs'
+              },
+              {
+                name: 'behance',
+                src: 'ddcd'
+              },
+              {
+                name: 'website',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            jobs: ['Front-end web developer', 'UI/UX designer'],
+            src: 'mentors/three.jpg',
+            socials: [
+              {
+                name: 'facebook',
+                src: 'ss'
+              },
+              {
+                name: 'twitter',
+                src: 'sxs'
+              },
+              {
+                name: 'behance',
+                src: 'ddcd'
+              },
+              {
+                name: 'website',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            jobs: ['Front-end web developer', 'UI/UX designer'],
+            src: 'mentors/four.jpg',
+            socials: [
+              {
+                name: 'facebook',
+                src: 'ss'
+              },
+              {
+                name: 'twitter',
+                src: 'sxs'
+              },
+              {
+                name: 'behance',
+                src: 'ddcd'
+              },
+              {
+                name: 'website',
+                src: 'cdcd'
+              }
+            ]
+          }
+        ]
+      },
+      footer: {
+        contactUs: 'إتصل بنا',
+        termsOfService: 'شروط الخدمة',
+        privacyPolicy: 'سياسة الخصوصية'
+      }
    }),
    watch: {
      currentSlide() {
@@ -71,19 +273,14 @@ export default {
          children[i].classList.remove('active')
        }
        e.currentTarget.classList.add('active')
-       this.$refs.siema.goTo(mentors.length - this.options.perPage * (i + 1))
+       this.$refs.siema.goTo(this.mentors.set.length - this.options.perPage * (i + 1))
      },
      perPage() {
-       return Math.ceil(mentors.length / this.options.perPage)
+       return Math.ceil(this.mentors.set.length / this.options.perPage)
      }
    },
-   computed: {
-     descriptions: () => data,
-     coretabsTeam: () => team,
-     mentors: () => mentors
-   },
    created() {
-     for (let k of data) {
+     for (let k of this.descriptions) {
        this.$store.dispatch('getImgUrl', `images/${k.src}.svg`).then(img => {
           this.imageSrc.push(img)
        }).catch(error => {
@@ -120,7 +317,7 @@ export default {
         })
       }
 
-      for (let k of team) {
+      for (let k of this.team.set) {
         this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
            this.teamImages.push(img)
         }).catch(error => {
@@ -128,7 +325,7 @@ export default {
         })
       }
 
-      for (let k of mentors) {
+      for (let k of this.mentors.set) {
         this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
            this.mentorsImages.push(img)
         }).catch(error => {
