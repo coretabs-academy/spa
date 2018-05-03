@@ -8,11 +8,11 @@ export default {
   },
   data: () => ({
     introduction: {
-      title: 'إن تعلم البرمجة شيء رائع!',
-      p1: 'الأروع من ذلك أن أكاديمية Coretabs ستقوم بتوجيهك لبدأ تعلمها عبر عمل تطبيقات من أول يوم.',
-      p2: 'مستعد لتغيير حياتك وتعلم مهارات جديدة؟',
-      button1: 'نعم، اكتشف ميولي',
-      button2: 'لا، أنا لست قدها'
+      heading_text: 'إن تعلم البرمجة شيء رائع!',
+      description_text_1: 'الأروع من ذلك أن أكاديمية Coretabs ستقوم بتوجيهك لبدأ تعلمها عبر عمل تطبيقات من أول يوم.',
+      description_text_2: 'مستعد لتغيير حياتك وتعلم مهارات جديدة؟',
+      yes_btn_text: 'نعم، اكتشف ميولي',
+      no_btn_text: 'لا، أنا لست قدها'
     },
     playerOptions: {
       autoplay: false,
@@ -30,8 +30,10 @@ export default {
   methods: {
     setIntroVideoHeight() {
       var vDiv = document.querySelector('#introductory-video')
-      var vDivHeight = (vDiv.clientWidth * 74.8) / 100
-      vDiv.setAttribute('style', 'height: ' + vDivHeight + 'px !important')
+      if (vDiv) {
+        var vDivHeight = (vDiv.clientWidth * 75) / 100
+        vDiv.setAttribute('style', 'height: ' + vDivHeight + 'px !important')
+      }
     },
     play(vPlayer) {
       var player = document.getElementById('player')
@@ -56,6 +58,7 @@ export default {
   },
   mounted() {
     window.addEventListener('resize', this.setIntroVideoHeight)
+
     this.vPlayer.on('fullscreenchange', () => {
       this.exit(this.vPlayer)
     })

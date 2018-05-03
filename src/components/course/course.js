@@ -12,9 +12,7 @@ export default {
    },
    watch: {
       $route(to, from) {
-         setTimeout(() => {
-            this.getCourse()
-         }, 100)
+         this.getCourse()
       }
    },
    updated() {
@@ -51,7 +49,7 @@ export default {
          let youtube = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g
          mdText = mdText.replace(youtube, 'iframe.youtube.com/embed/$1/iframe')
          let html = marked(mdText)
-         html = html.replace('iframe', '<iframe class="youtube" height="345" src="http://www')
+         html = html.replace('iframe', '')
          html = html.replace('/iframe', '" frameborder="0" allowfullscreen></iframe>')
          return html
       }
