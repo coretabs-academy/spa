@@ -55,6 +55,23 @@ export default {
       root.valid = root.vs.v1 + root.vs.v2
     },
     submit() {
+    },
+    setSplashHeight() {
+      var sDiv = document.querySelector('#splash')
+      if (sDiv) {
+        var sDivHeight = sDiv.clientWidth - 20
+        sDiv.setAttribute('style', 'height: ' + sDivHeight + 'px !important')
+      }
     }
+  },
+  mounted() {
+    window.addEventListener('resize', this.setSplashHeight)
+
+    this.$nextTick(function() {
+      this.setSplashHeight()
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   }
 }

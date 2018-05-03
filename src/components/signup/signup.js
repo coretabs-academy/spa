@@ -46,15 +46,8 @@ export default {
   watch: {
     fullname: function(val) {
       if (val[0] !== undefined) {
-        document.querySelector('.avatar:nth-child(1)').setAttribute('data-before', val[0])
-
-        // var arabic = /[\u0600-\u06FF]/
-        // if (arabic.test(val[0])) {
-        //   document.querySelector('.avatar:nth-child(1)').style.lineHeight = '90px'
-        // } else {
-        //   document.querySelector('.avatar:nth-child(1)').style.lineHeight = '90px'
-        // }
-      } else { document.querySelector('.avatar:nth-child(1)').setAttribute('data-before', '') }
+        document.querySelector('#avatar').setAttribute('data-before', val[0])
+      } else { document.querySelector('#avatar').setAttribute('data-before', '') }
     }
   },
   updated() {
@@ -124,6 +117,34 @@ export default {
           root.alert.error = true
         }
       }
+    },
+    setAvatarsHeight() {
+      var aDiv = document.querySelector('#avatars')
+      if (aDiv) {
+        var aDivHeight = aDiv.clientWidth
+        aDiv.setAttribute('style', 'height: ' + aDivHeight + 'px !important')
+
+        var vDiv = document.querySelector('#avatar')
+        var vDivX = (aDiv.clientWidth / 7.5) * 2
+
+        vDiv.setAttribute('style', `
+          height: ${vDivX}px !important;
+          width: ${vDivX}px !important;
+          max-width: ${vDivX}px !important;
+          line-height: ${vDivX}px !important;
+          font-size: ${vDivX / 2}px !important;
+        `)
+      }
     }
+  },
+  mounted() {
+    window.addEventListener('resize', this.setAvatarsHeight)
+
+    this.$nextTick(function() {
+      this.setAvatarsHeight()
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   }
 }

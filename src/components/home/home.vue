@@ -1,6 +1,6 @@
 <template>
 <div id="home">
-  <v-container fluid fill-height id="full-screen-height">
+  <v-container fluid fill-height>
       <v-layout fluid row justify-center wrap>
         <v-flex text-xs-center xs10 sm8 md5 id="introductory-video">
           <v-btn id="play" @click="play(vPlayer)"><i></i></v-btn>

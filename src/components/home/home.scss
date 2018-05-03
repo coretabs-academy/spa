@@ -7,11 +7,7 @@ Home Style
    #player {
       display: none;
    }
-
-   #full-screen-height {
-      min-height: calc(100vh - 150px);
-   }
-
+   
    h2 {
       @media (min-width: 768px) {
          font-size: 28px;

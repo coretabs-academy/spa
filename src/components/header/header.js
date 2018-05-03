@@ -58,7 +58,7 @@ export default {
       switch (this.$route.name) {
         case 'home':
         case 'signin':
-        case 'singup':
+        case 'signup':
           this.show = true
           this.navs = this.default_navs
           break
