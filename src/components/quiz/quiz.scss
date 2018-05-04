@@ -27,6 +27,7 @@ $erorr_color: #cc5a5a;
         }
     }
     .stepper__content {
+        font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
          padding-left:0;
          padding-right:0;
         .list {
@@ -144,5 +145,39 @@ $erorr_color: #cc5a5a;
             padding-left: 10px;
         }
 
+    }
+}
+.true_answer { 
+    //class of success answer
+    box-shadow: 0px 2px 8px #dad6d6;
+    .checkbox_cont {
+        border-color: #57c881 !important;
+    }
+    .checkbox_inner {
+        background:transparent !important;
+    }
+    .checkbox_inner::after {
+        content:url('./icons/check.svg');
+        display: block;
+        position: relative;
+        margin-top: -5px !important;
+        margin-right: 1px !important;
+    }
+}
+.wrong_answer { 
+    //class of success answer
+    box-shadow: 0px 4px 6px #dad6d6 , 0px -2px 8px #dad6d6;
+    .checkbox_cont {
+        border-color:  $erorr_color !important;
+    }
+    .checkbox_inner {
+        background:transparent !important;
+    }
+    .checkbox_inner::after {
+        content:url('./icons/error.svg');
+        display: block;
+        position: relative;
+        margin-top: -5px !important;
+        margin-right: 2px !important;
     }
 }

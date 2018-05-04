@@ -20,7 +20,7 @@
               <v-list three-line subheader>
                   <template v-for="(answer, indexx) in item.answers">
                       <v-divider></v-divider>
-                  <v-list-tile href="javascript:;" :key="indexx">
+                  <v-list-tile href="javascript:;" :key="indexx" class=""> 
                     <v-list-tile-action>
                       <input type="checkbox" v-model="choose" :value="answer"/>
                       <span class="checkbox_cont"><span v-show="true" class="checkbox_inner"></span></span>
