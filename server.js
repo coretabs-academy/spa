@@ -11,12 +11,6 @@ app.use(history({
    verbose: true
 }))
 
-app.use(staticFileMiddleware)
-app.use(history({
-   disableDotRule: true,
-   verbose: true
-}))
-
 const indexHTML = (() => {
    return fs.readFileSync(path.resolve('./public_html/index.html'), 'utf-8')
 })()
