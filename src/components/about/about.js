@@ -16,99 +16,84 @@ export default {
       teamImages: [],
       mentorsImages: [],
       options: {
-        draggable: true,
-        duration: 500,
-        easing: 'ease-out',
-        perPage: 4,
-        startIndex: 0,
-        rtl: false
+         draggable: true,
+         duration: 500,
+         easing: 'ease-out',
+         perPage: 4,
+         startIndex: 0,
+         rtl: false
       },
       navigation: {
-        left: '',
-        right: ''
+         left: '',
+         right: ''
       },
       currentSlide: 0,
-      descriptions: [
-        {
-          header: 'رؤيتنا في الأكاديمية',
-          paragraph: 'بما أننا نؤمن أن أفضل طريقة لتعلم البرمجة تكون من خلال التطبيق وليس من خلال الدروس النظرية التي لا يتم ربطها بشكل عملي مع مشاريع حقيق، فقد قمنا بإيجاد هذه المنصة لمساعدتك على تحقيق حلمك بالتدرب على لغة المستقبل (البرمجة) بأساليب فعالة.',
-          src: 'about/vision',
-          alt: 'image 1 '
-        },
-        {
-          header: 'إبني مهاراتك بذكاء',
-          paragraph: 'من الأخطاء الشائعة التي قد ترتكبها أثناء تعلمك للبرمجة هو إعتمادك على إسلوب خاطئ كدراسة كل المفاهيم دون الإلمام بكيفية توظيفها في مشروع حقيقي، لهذا في أكاديميتنا نقوم بتوجيهك من خلال مسار محدد من الورش التطبيقية بحيث أنك تتعلم المفاهيم في الوقت المناسب عند حاجتك لها.',
-          src: 'about/building_blocks',
-          alt: 'image 2 '
-        },
-        {
-          header: 'ما الذي ستكتسبه؟',
-          paragraph: 'من أهم ما قمنا بأخذة في عين الإعتبار عند إنشاء هذه المنصة هو تدريبك لتحصل على الخبرة والإستعداد الكافي للإنخراط في سوق العمل المحلي أو الحر بمجرد إنتهائك من سلسلة ورش العمل المحددة في المسار الذي قمت بإختيارة.',
-          src: 'about/hero',
-          alt: 'image 3 '
-        }
-      ],
+      descriptions: [{
+         header: 'رؤيتنا في الأكاديمية',
+         paragraph: 'بما أننا نؤمن أن أفضل طريقة لتعلم البرمجة تكون من خلال التطبيق وليس من خلال الدروس النظرية التي لا يتم ربطها بشكل عملي مع مشاريع حقيق، فقد قمنا بإيجاد هذه المنصة لمساعدتك على تحقيق حلمك بالتدرب على لغة المستقبل (البرمجة) بأساليب فعالة.',
+         src: 'about/vision',
+         alt: 'image 1 '
+      }, {
+         header: 'إبني مهاراتك بذكاء',
+         paragraph: 'من الأخطاء الشائعة التي قد ترتكبها أثناء تعلمك للبرمجة هو إعتمادك على إسلوب خاطئ كدراسة كل المفاهيم دون الإلمام بكيفية توظيفها في مشروع حقيقي، لهذا في أكاديميتنا نقوم بتوجيهك من خلال مسار محدد من الورش التطبيقية بحيث أنك تتعلم المفاهيم في الوقت المناسب عند حاجتك لها.',
+         src: 'about/building_blocks',
+         alt: 'image 2 '
+      }, {
+         header: 'ما الذي ستكتسبه؟',
+         paragraph: 'من أهم ما قمنا بأخذة في عين الإعتبار عند إنشاء هذه المنصة هو تدريبك لتحصل على الخبرة والإستعداد الكافي للإنخراط في سوق العمل المحلي أو الحر بمجرد إنتهائك من سلسلة ورش العمل المحددة في المسار الذي قمت بإختيارة.',
+         src: 'about/hero',
+         alt: 'image 3 '
+      }],
       testimonials: {
-        title: 'مجتمعنا رائع يضم مئات المبرمجين',
-        description: 'بإنضمامك معنا لن تتعلم البرمجة فحسب بل ستلتحق بمجتمع يوفر بيئة خصبة لتبادل الخبرات و بناء روابط و علاقات مع عدد كبير من المبرمجين الأكفاء',
+         title: 'مجتمعنا رائع يضم مئات المبرمجين',
+         description: 'بإنضمامك معنا لن تتعلم البرمجة فحسب بل ستلتحق بمجتمع يوفر بيئة خصبة لتبادل الخبرات و بناء روابط و علاقات مع عدد كبير من المبرمجين الأكفاء',
          carousel: [{
             img: 'saif.png',
             name: 'منصور الجاسمي',
             description: 'مصمم تطبيقات موبايل',
             quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
             rating: 4
-         },
-         {
+         }, {
             img: 'saif.png',
             name: 'منصور الجاسمي',
             description: 'مصمم تطبيقات موبايل',
             quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
             rating: 4
-         },
-         {
+         }, {
             img: 'saif.png',
             name: 'منصور الجاسمي',
             description: 'مصمم تطبيقات موبايل',
             quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
             rating: 4
-         },
-         {
+         }, {
             img: 'saif.png',
             name: 'منصور الجاسمي',
             description: 'مصمم تطبيقات موبايل',
             quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
             rating: 4
-         }
-        ]
+         }]
       },
       team: {
-        title: 'فريق العمل',
-        description: 'فريق عملنا يعمل على مدار الساعة ليحرص على حصولكم على الفائدة المرجوة و على أفضل تجربة خلال رحلتكم التدريبية على منصة coretabs',
-        set: [
-          {
+         title: 'فريق العمل',
+         description: 'فريق عملنا يعمل على مدار الساعة ليحرص على حصولكم على الفائدة المرجوة و على أفضل تجربة خلال رحلتكم التدريبية على منصة coretabs',
+         set: [{
             name: 'Louay Hamada',
             about: 'Full-stack Web Application Developer',
             src: 'contributors/LouayH.jpg',
-            socials: [
-              {
-                name: 'LH',
-                src: 'http://louayhamada.com'
-              },
-              {
-                name: 'twitter',
-                src: 'http://twitter.com/LouayHamada'
-              },
-              {
-                name: 'github',
-                src: 'https://github.com/LouayH'
-              },
-              {
-                name: 'stackoverflow',
-                src: 'https://stackoverflow.com/users/1398488/louay-hamada'
-              }
-            ]
-          },
-          {
+            socials: [{
+               name: 'LH',
+               src: 'http://louayhamada.com'
+            }, {
+               name: 'twitter',
+               src: 'http://twitter.com/LouayHamada'
+            }, {
+               name: 'github',
+               src: 'https://github.com/LouayH'
+            }, {
+               name: 'stackoverflow',
+               src: 'https://stackoverflow.com/users/1398488/louay-hamada'
+            }]
+         }, {
             name: 'Mohammed AlHakem',
             about: 'Front-end web developer & UI/UX designer',
             src: 'contributors/alhakem.jpg',
@@ -138,10 +123,9 @@ export default {
         ]
       },
       mentors: {
-        title: 'الموجهون',
-        description: 'فريق التوجية في الأكاديمية يتألف من عدد من الأشخاص المتميزين الذي سيقوموا بمساندتك أثناء رحلتك التدريبية على منصة coretabs',
-        set: [
-          {
+         title: 'الموجهون',
+         description: 'فريق التوجية في الأكاديمية يتألف من عدد من الأشخاص المتميزين الذي سيقوموا بمساندتك أثناء رحلتك التدريبية على منصة coretabs',
+         set: [{
             name: 'Mohammed AlHakem',
             about: 'Front-end web developer & UI/UX designer',
             src: 'mentors/one.jpg',
@@ -171,46 +155,50 @@ export default {
         ]
       },
       footer: {
-        contactUs: 'إتصل بنا',
-        termsOfService: 'شروط الخدمة',
-        privacyPolicy: 'سياسة الخصوصية'
+         contactUs: 'إتصل بنا',
+         termsOfService: 'شروط الخدمة',
+         privacyPolicy: 'سياسة الخصوصية'
       }
    }),
    watch: {
-     currentSlide() {
-       let currentSlide = this.currentSlide / this.options.perPage
-       if ((n => n === +n && n === (n | 0))(currentSlide)) {
-         let children = this.$refs.controls.children
-         for (var i = 0; i < children.length; i++) {
-           children[i].classList.remove('active')
+      currentSlide() {
+         let currentSlide = this.currentSlide / this.options.perPage
+         if ((n => n === +n && n === (n | 0))(currentSlide)) {
+            let children = this.$refs.controls.children
+            for (var i = 0; i < children.length; i++) {
+               children[i].classList.remove('active')
+            }
+            // children[this.perPage - (currentSlide + 1)].classList.add('active')
          }
-         children[this.perPage - (currentSlide + 1)].classList.add('active')
-        }
       }
    },
    methods: {
-     show(i, e) {
-       let children = e.currentTarget.parentElement.children
-       for (let i = 0; i < children.length; i++) {
-         children[i].classList.remove('active')
-       }
-       e.currentTarget.classList.add('active')
-       this.$refs.siema.goTo(this.mentors.set.length - this.options.perPage * (i + 1))
-     }
+      show(i, e) {
+         let children = e.currentTarget.parentElement.children
+         for (let i = 0; i < children.length; i++) {
+            children[i].classList.remove('active')
+         }
+         e.currentTarget.classList.add('active')
+         this.$refs.siema.goTo(this.mentors.set.length - this.options.perPage * (i + 1))
+      },
+      setPerPage() {
+         this.options.perPage = Math.floor(document.querySelector('#mentors').offsetWidth / 237)
+         this.$refs.siema.init()
+      }
    },
    computed: {
-     perPage() {
-       return Math.ceil(this.mentors.set.length / this.options.perPage)
-     }
+      perPage() {
+         return Math.ceil(this.mentors.set.length / this.options.perPage)
+      }
    },
    created() {
-     for (let k of this.descriptions) {
-       this.$store.dispatch('getImgUrl', `images/${k.src}.svg`).then(img => {
-          this.imageSrc.push(img)
-       }).catch(error => {
-          throw new Error(error.message)
-       })
-     }
+      for (let k of this.descriptions) {
+         this.$store.dispatch('getImgUrl', `images/${k.src}.svg`).then(img => {
+            this.imageSrc.push(img)
+         }).catch(error => {
+            throw new Error(error.message)
+         })
+      }
 
       this.$store.dispatch('getImgUrl', 'images/quotation.svg').then(img => {
          this.quotationIcon = img
@@ -242,19 +230,19 @@ export default {
       }
 
       for (let k of this.team.set) {
-        this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
-           this.teamImages.push(img)
-        }).catch(error => {
-           throw new Error(error.message)
-        })
+         this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
+            this.teamImages.push(img)
+         }).catch(error => {
+            throw new Error(error.message)
+         })
       }
 
       for (let k of this.mentors.set) {
-        this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
-           this.mentorsImages.push(img)
-        }).catch(error => {
-           throw new Error(error.message)
-        })
+         this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
+            this.mentorsImages.push(img)
+         }).catch(error => {
+            throw new Error(error.message)
+         })
       }
 
       this.$store.dispatch('getImgUrl', 'images/left.svg').then(img => {
@@ -269,20 +257,20 @@ export default {
       })
    },
    mounted() {
-     this.$refs.siema.stop()
+      this.$refs.siema.stop()
 
-     let children = this.$refs.controls.children
-     for (var i = 0; i < children.length; i++) {
-       children[i].classList.remove('active')
-     }
-     children[i - 1].classList.add('active')
+      let children = this.$refs.controls.children
+      for (var i = 0; i < children.length; i++) {
+         children[i].classList.remove('active')
+      }
+      children[i - 1].classList.add('active')
 
-     // addEventListener('resize', e => {
-     //   if (e.target.innerWidth <= 1150) {
-     //     // console.log(this)
-     //     // root.$refs.siema.init()
-     //     this.$refs.siema.resizeHandler()
-     //   }
-     // }, false)
+      // addEventListener('resize', e => {
+      //   if (e.target.innerWidth <= 1150) {
+      //     // console.log(this)
+      //     // root.$refs.siema.init()
+      //     this.$refs.siema.resizeHandler()
+      //   }
+      // }, false)
    }
 }

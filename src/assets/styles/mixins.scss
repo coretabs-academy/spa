@@ -1,8 +1,13 @@
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+   content: $content;
+   display: $display;
+   position: $pos;
+}
 @mixin font-family ($lang,$important:false) {
    @if($lang=='ar') {
-      font-family: 'Droid Arabic Kufi'  + if($important,!important ,'');
+      font-family: 'Droid Arabic Kufi' short-if($important, !important);
    } @else {
-      font-family: 'Poppins'  + if($important,!important ,'');
+      font-family: 'Poppins' short-if($important, !important);
    }
 }
 @mixin responsive-ratio($x,$y, $pseudo: false) {
@@ -50,13 +55,13 @@
       transform: translate(-50%,-50%) !important;
    }
 }
-@mixin border-radius($radius) {
-   border-radius: $radius;
-   -webkit-border-radius: $radius;
-   -moz-border-radius: $radius;
+@mixin border-radius($radius,$important:false) {
+   border-radius: $radius short-if($important,!important);
+   -moz-border-radius: $radius short-if($important,!important);
+   -webkit-border-radius: $radius short-if($important,!important);
 }
-@mixin box-shadow($left, $top,$radius ,$spread , $color) {
-   box-shadow: $left $top $radius $spread $color;
-   -webkit-box-shadow: $left $top $radius $spread $color;
-   -moz-box-shadow: $left $top $radius $spread $color;
+@mixin box-shadow($left, $top,$radius ,$spread , $color,$important:false) {
+   box-shadow: $left $top $radius $spread $color short-if($important,!important);
+   -moz-box-shadow: $left $top $radius $spread $color short-if($important,!important);
+   -webkit-box-shadow: $left $top $radius $spread $color short-if($important,!important);
 }

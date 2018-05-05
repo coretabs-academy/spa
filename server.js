@@ -7,25 +7,19 @@ const path = require('path')
 const staticFileMiddleware = express.static('public_html')
 app.use(staticFileMiddleware)
 app.use(history({
-  disableDotRule: true,
-  verbose: true
-}))
-
-app.use(staticFileMiddleware)
-app.use(history({
-  disableDotRule: true,
-  verbose: true
+   disableDotRule: true,
+   verbose: true
 }))
 
 const indexHTML = (() => {
-  return fs.readFileSync(path.resolve('./public_html/index.html'), 'utf-8')
+   return fs.readFileSync(path.resolve('./public_html/index.html'), 'utf-8')
 })()
 
 app.get('*', (req, res) => {
-  res.write(indexHTML)
-  res.end()
+   res.write(indexHTML)
+   res.end()
 })
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-  console.log(`server started as http://localhost:${port}`)
+   console.log(`server started as http://localhost:${port}`)
 })

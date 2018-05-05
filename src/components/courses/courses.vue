@@ -19,7 +19,7 @@
          </v-btn>
          <v-toolbar-title>{{current.categorie.title}}</v-toolbar-title>
       </v-toolbar>
-      <v-list class="py-0">
+      <v-list class="py-0" expand>
          <v-stepper v-model="current.categorie.id" vertical class="py-0">
             <v-list-group v-for="categorie in categories" :key="`step-${categorie.id}`" :prepend-icon="categorie.action" v-model="categorie.active" :class="getClass(categorie)">
                <v-list-tile slot="activator">

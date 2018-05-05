@@ -1,6 +1,6 @@
 <template>
 <div v-if="loaded" class="course">
-   <div v-html="previewText(course)"></div>
+   <div v-html="previewText(course.data)"></div>
 </div>
 <div v-else class="progress-container">
    <v-container fluid grid-list-xs fill-height>

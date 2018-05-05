@@ -1,10 +1,11 @@
-import marked from 'marked'
-
 export default {
    name: 'CourseComponent',
    components: {},
    data: () => ({
-      course: '',
+      course: {
+         type: '',
+         data: ''
+      },
       loaded: true
    }),
    created() {
@@ -24,34 +25,40 @@ export default {
          })
          img.src = this.$store.state.githubFileURL
       })
+
+      // document.querySelectorAll('.course iframe').forEach((iframe) => {
+      //    iframe.src = iframe.src.replace("http://", "//")
+      // })
+
+      document.querySelectorAll('.course pre code').forEach((code) => {
+         hljs.highlightBlock(code)
+      });
    },
    methods: {
       getCourse() {
+         this.course.type = this.$route.query.type
          this.$http.get(this.$api.b64DecodeUnicode(this.$route.query.url))
             .then(data => {
-               this.course = data
+               this.course.data = data
+               switch (this.course.type) {
+                  case 'task':
+                  case 'text':
+                     this.course.data = data
+                  case 'video':
+                     this.course.data = {
+                        autthour
+                     }
+                  case 'quiz':
+                     this.course.data = data
+                     break;
+               }
                this.loaded = true
             }).catch(err => {
                console.error(err)
             })
       },
       previewText(mdText) {
-         marked.setOptions({
-            renderer: new marked.Renderer(),
-            gfm: true,
-            tables: true,
-            breaks: true,
-            pedantic: false,
-            sanitize: true,
-            smartLists: true,
-            smartypants: false
-         })
-         let youtube = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g
-         mdText = mdText.replace(youtube, 'iframe.youtube.com/embed/$1/iframe')
-         let html = marked(mdText)
-         html = html.replace('iframe', '')
-         html = html.replace('/iframe', '" frameborder="0" allowfullscreen></iframe>')
-         return html
+         return this.$markdown.render(mdText)
       }
    }
 }
