@@ -1,26 +1,26 @@
 <template>
-<div id="about" v-resize="setPerPage">
-   <div id="presentation">
-      <div v-for="(d, i) in descriptions" :key="i" id="desc-box">
-         <div class="description">
-            <div class="desc-text">
-               <h1>{{ d.header }}</h1>
-               <p>{{ d.paragraph }}</p>
-            </div>
-         </div>
-         <div class="desc-image">
-            <img :src="imageSrc[i]" :alt="d.alt">
-         </div>
-      </div>
-   </div>
+  <div id="about" v-resize="setPerPage">
+     <div id="presentation">
+        <div v-for="(d, i) in descriptions" :key="i" id="desc-box">
+           <div class="description">
+              <div class="desc-text">
+                 <h1>{{ d.header }}</h1>
+                 <p>{{ d.paragraph }}</p>
+              </div>
+           </div>
+           <div class="desc-image">
+              <img :src="imageSrc[i]" :alt="d.alt">
+           </div>
+    </div>
+  </div>
    <v-container id="testimonials" fluid fill-height>
       <v-layout fluid row justify-center wrap>
          <v-flex text-xs-center>
-            <div class="skew-box">
-               <div class="particles"></div>
-               <h1>{{ testimonials.title }}</h1>
-               <p>{{ testimonials.description }}</p>
-            </div>
+           <div class="skew-box">
+             <div class="particles"></div>
+             <h1>{{ testimonials.title }}</h1>
+             <p>{{ testimonials.description }}</p>
+           </div>
             <v-carousel cycle>
                <v-carousel-item v-for="(testimonial,i) in testimonials.carousel" :key="i" transition="fade" reverse-transition="fade">
                   <img class="quotation" :src="quotationIcon" />
@@ -55,12 +55,14 @@
              <p class="mb">{{ t.about }}</p>
              <div class="social">
                <div class="icon" v-for="(s, i) in t.socials" v-if="s.src" :key="i">
-                 <a :href="s.src" :title="s.name" target="_blank"></a>
+                 <a :href="s.src" :title="s.name" target=""></a>
                  <img :src="icons[s.name]" :alt="s.name">
                </div>
-            </div>
+             </div>
+           </div>
          </div>
-      </div>
+       </div>
+     </div>
    </div>
 
    <div id="mentors">
@@ -77,25 +79,27 @@
              <p class="mb">{{ t.about }}</p>
              <div class="social">
                <div class="icon" v-for="(s, i) in t.socials" v-if="s.src" :key="i">
-                 <a :href="s.src" :title="s.name" target="_blank"></a>
+                 <a :href="s.src" :title="s.name" target=""></a>
                  <img :src="icons[s.name]" :alt="s.name">
                </div>
-            </div>
+             </div>
+           </div>
          </div>
-      </siema>
-      <div class="navigation">
-         <img class="left" :src="navigation.left" @click="$refs.siema.prev(1)">
-         <img class="right" :src="navigation.right" @click="$refs.siema.next(1)">
-      </div>
-      <div class="controls" ref="controls">
-         <button v-for="(b, i) in perPage" type="button" name="button" @click="show(b - 1, $event)" :key="i"></button>
-      </div>
+       </div>
+     </siema>
+     <div class="navigation">
+       <img class="left" :src="navigation.left" @click="$refs.siema.prev(1)">
+       <img class="right" :src="navigation.right" @click="$refs.siema.next(1)">
+     </div>
+     <div class="controls" ref="controls">
+       <button v-for="(b, i) in perPage" type="button" name="button" @click="show(b - 1, $event)" :key="i"></button>
+     </div>
    </div>
 
    <footer>
-      <router-link to="/">{{ footer.contactUs }}</router-link>|
-      <router-link to="/">{{ footer.termsOfService }}</router-link>|
-      <router-link to="/">{{ footer.privacyPolicy }}</router-link>
+     <router-link to="/">{{ footer.contactUs }}</router-link>|
+     <router-link to="/">{{ footer.termsOfService }}</router-link>|
+     <router-link to="/">{{ footer.privacyPolicy }}</router-link>
    </footer>
 </div>
 </template>
