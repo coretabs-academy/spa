@@ -2,7 +2,10 @@ export default {
    name: 'CourseComponent',
    components: {},
    data: () => ({
-      course: '',
+      course: {
+         type: '',
+         data: ''
+      },
       loaded: true
    }),
    created() {
@@ -33,9 +36,22 @@ export default {
    },
    methods: {
       getCourse() {
+         this.course.type = this.$route.query.type
          this.$http.get(this.$api.b64DecodeUnicode(this.$route.query.url))
             .then(data => {
-               this.course = data
+               this.course.data = data
+               switch (this.course.type) {
+                  case 'task':
+                  case 'text':
+                     this.course.data = data
+                  case 'video':
+                     this.course.data = {
+                        autthour
+                     }
+                  case 'quiz':
+                     this.course.data = data
+                     break;
+               }
                this.loaded = true
             }).catch(err => {
                console.error(err)
