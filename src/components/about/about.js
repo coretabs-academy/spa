@@ -21,8 +21,10 @@ export default {
         startIndex: 0,
         rtl: false
       },
-      leftImage: '',
-      rightImage: '',
+      navigation: {
+        left: '',
+        right: ''
+      },
       currentSlide: 0,
       descriptions: [
         {
@@ -224,6 +226,98 @@ export default {
                 src: 'cdcd'
               }
             ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            jobs: ['Front-end web developer', 'UI/UX designer'],
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'facebook',
+                src: 'ss'
+              },
+              {
+                name: 'twitter',
+                src: 'sxs'
+              },
+              {
+                name: 'behance',
+                src: 'ddcd'
+              },
+              {
+                name: 'website',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            jobs: ['Front-end web developer', 'UI/UX designer'],
+            src: 'mentors/two.jpg',
+            socials: [
+              {
+                name: 'facebook',
+                src: 'ss'
+              },
+              {
+                name: 'twitter',
+                src: 'sxs'
+              },
+              {
+                name: 'behance',
+                src: 'ddcd'
+              },
+              {
+                name: 'website',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            jobs: ['Front-end web developer', 'UI/UX designer'],
+            src: 'mentors/three.jpg',
+            socials: [
+              {
+                name: 'facebook',
+                src: 'ss'
+              },
+              {
+                name: 'twitter',
+                src: 'sxs'
+              },
+              {
+                name: 'behance',
+                src: 'ddcd'
+              },
+              {
+                name: 'website',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            jobs: ['Front-end web developer', 'UI/UX designer'],
+            src: 'mentors/four.jpg',
+            socials: [
+              {
+                name: 'facebook',
+                src: 'ss'
+              },
+              {
+                name: 'twitter',
+                src: 'sxs'
+              },
+              {
+                name: 'behance',
+                src: 'ddcd'
+              },
+              {
+                name: 'website',
+                src: 'cdcd'
+              }
+            ]
           }
         ]
       },
@@ -235,38 +329,17 @@ export default {
    }),
    watch: {
      currentSlide() {
-       let currentSlide = this.currentSlide / 4
+       let currentSlide = this.currentSlide / this.options.perPage
        if ((n => n === +n && n === (n | 0))(currentSlide)) {
          let children = this.$refs.controls.children
          for (var i = 0; i < children.length; i++) {
            children[i].classList.remove('active')
          }
-         children[this.perPage() - (currentSlide + 1)].classList.add('active')
+         children[this.perPage - (currentSlide + 1)].classList.add('active')
         }
       }
    },
    methods: {
-     getImageSrc(i) {
-       return this.imageSrc[i]
-     },
-     getIcon(name) {
-       return this.icons[name]
-     },
-     getTeamSrc(i) {
-       return this.teamImages[i]
-     },
-     getMentorsSrc(i) {
-       return this.mentorsImages[i]
-     },
-     prev() {
-       this.$refs.siema.prev(1)
-     },
-     next() {
-       this.$refs.siema.next(1)
-     },
-     getImage(s) {
-       return s === 'left' ? this.leftImage : this.rightImage
-     },
      show(i, e) {
        let children = e.currentTarget.parentElement.children
        for (let i = 0; i < children.length; i++) {
@@ -274,7 +347,9 @@ export default {
        }
        e.currentTarget.classList.add('active')
        this.$refs.siema.goTo(this.mentors.set.length - this.options.perPage * (i + 1))
-     },
+     }
+   },
+   computed: {
      perPage() {
        return Math.ceil(this.mentors.set.length / this.options.perPage)
      }
@@ -334,12 +409,12 @@ export default {
       }
 
       this.$store.dispatch('getImgUrl', 'images/left.svg').then(img => {
-         this.leftImage = img
+         this.navigation.left = img
       }).catch(error => {
          throw new Error(error.message)
       })
       this.$store.dispatch('getImgUrl', 'images/right.svg').then(img => {
-         this.rightImage = img
+         this.navigation.right = img
       }).catch(error => {
          throw new Error(error.message)
       })

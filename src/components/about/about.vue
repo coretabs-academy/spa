@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="desc-image">
-        <img :src="getImageSrc(i)" :alt="d.alt">
+        <img :src="imageSrc[i]" :alt="d.alt">
       </div>
     </div>
   </div>
@@ -46,7 +46,7 @@
      <div class="flex">
        <div class="box" v-for="(t, i) in team.set" :key="i">
          <div class="image-container">
-           <img :src="getTeamSrc(i)">
+           <img :src="teamImages[i]">
          </div>
          <div class="profile">
            <div class="profile-container">
@@ -55,7 +55,7 @@
              <div class="social">
                <div class="icon" v-for="(s, i) in t.socials" v-if="s.src" :key="i">
                  <a :href="s.src" :title="s.name"></a>
-                 <img :src="getIcon(s.name)" :alt="s.name">
+                 <img :src="icons[s.name]" :alt="s.name">
                </div>
              </div>
            </div>
@@ -70,7 +70,7 @@
      <siema :current.sync="currentSlide" class="mentors-carousel siema" ref="siema" :options="options" :auto-play="true" :play-duration="4000">
        <div class="mentors-carousel-item" v-for="(t, i) in mentors.set" :key="i" :ref="'item' + i">
          <div class="image-container">
-           <img :src="getMentorsSrc(i)" :ref="'img'+i" class="photo">
+           <img :src="mentorsImages[i]" :ref="'img'+i" class="photo">
          </div>
          <div class="profile">
            <div class="profile-container">
@@ -79,7 +79,7 @@
              <div class="social">
                <div class="icon" v-for="(s, i) in t.socials" v-if="s.src" :key="i">
                  <a :href="s.src" :title="s.name"></a>
-                 <img :src="getIcon(s.name)" :alt="s.name">
+                 <img :src="icons[s.name]" :alt="s.name">
                </div>
              </div>
            </div>
@@ -87,11 +87,11 @@
        </div>
      </siema>
      <div class="navigation">
-       <img class="left" :src="getImage('left')" @click="prev()">
-       <img class="right" :src="getImage('right')" @click="next()">
+       <img class="left" :src="navigation.left" @click="$refs.siema.prev(1)">
+       <img class="right" :src="navigation.right" @click="$refs.siema.next(1)">
      </div>
      <div class="controls" ref="controls">
-       <button v-for="(b, i) in perPage()" type="button" name="button" @click="show(b - 1, $event)" :key="i"></button>
+       <button v-for="(b, i) in perPage" type="button" name="button" @click="show(b - 1, $event)" :key="i"></button>
      </div>
    </div>
 
