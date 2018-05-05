@@ -6,9 +6,9 @@ import router from './router'
 import store from './store/app.store'
 import siema from 'vue2-siema'
 
+Vue.use(API)
 Vue.use(siema)
 
-Vue.use(API)
 
 // User Vuetify material desing && customize own theme
 Vue.use(Vuetify, {
