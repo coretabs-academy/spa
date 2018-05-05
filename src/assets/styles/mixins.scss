@@ -56,12 +56,12 @@
    }
 }
 @mixin border-radius($radius,$important:false) {
-   border-radius: $radius if($important,!important ,'');
-   -moz-border-radius: $radius if($important,!important ,'');
-   -webkit-border-radius: $radius if($important,!important ,'');
+   border-radius: $radius short-if($important,!important);
+   -moz-border-radius: $radius short-if($important,!important);
+   -webkit-border-radius: $radius short-if($important,!important);
 }
 @mixin box-shadow($left, $top,$radius ,$spread , $color,$important:false) {
-   box-shadow: $left $top $radius $spread $color if($important,!important ,'');
-   -moz-box-shadow: $left $top $radius $spread $color if($important,!important ,'');
-   -webkit-box-shadow: $left $top $radius $spread $color if($important,!important ,'');
+   box-shadow: $left $top $radius $spread $color short-if($important,!important);
+   -moz-box-shadow: $left $top $radius $spread $color short-if($important,!important);
+   -webkit-box-shadow: $left $top $radius $spread $color short-if($important,!important);
 }

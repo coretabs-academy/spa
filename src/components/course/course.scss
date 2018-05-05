@@ -32,16 +32,16 @@ $markdown-em-spacer-6: 0.75em !default;
    > div {
       word-wrap: break-word !important;
 
-      &::before {
-         content: "" !important;
-         display: table !important;
-      }
-
-      &::after {
-         clear: both !important;
-         content: "" !important;
-         display: table !important;
-      }
+      // &::before {
+      //    content: "" !important;
+      //    display: table !important;
+      // }
+      //
+      // &::after {
+      //    clear: both !important;
+      //    content: "" !important;
+      //    display: table !important;
+      // }
 
       > *:first-child {
          margin-top: 0 !important;
