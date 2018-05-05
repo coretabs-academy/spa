@@ -20,7 +20,7 @@ $markdown-spacer-2: nth($markdown-spacers, 3) !default;
 $markdown-spacer-3: nth($markdown-spacers, 4) !default;
 $markdown-spacer-4: nth($markdown-spacers, 5) !default;
 $markdown-spacer-5: nth($markdown-spacers, 6) !default;
-$markdown-spacer-6: nth($markdown-spacers, 7) !default; // Em spacer variables
+$markdown-spacer-6: nth($markdown-spacers, 7) !default;
 $markdown-em-spacer-1: 0.0625em !default;
 $markdown-em-spacer-2: 0.125em !default;
 $markdown-em-spacer-3: 0.25em !default;
@@ -31,17 +31,6 @@ $markdown-em-spacer-6: 0.75em !default;
 .course {
    > div {
       word-wrap: break-word !important;
-
-      // &::before {
-      //    content: "" !important;
-      //    display: table !important;
-      // }
-      //
-      // &::after {
-      //    clear: both !important;
-      //    content: "" !important;
-      //    display: table !important;
-      // }
 
       > *:first-child {
          margin-top: 0 !important;
