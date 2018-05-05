@@ -516,15 +516,17 @@ About Style
                height: 100%;
                position: relative;
                z-index: 2;
-               transition: transform 0.4s ease;
-               transform-origin: center center -50%;
-               transform: rotateX(90deg);
+               opacity: 0.2;
+               transition: .5s ease;
 
                .profile-container {
                   position: absolute;
                   padding-top: 100px;
                   width: 100%;
                   height: 100%;
+                  opacity: 0;
+                  transform: translateY(30px);
+                  transition: .5s ease;
 
                   .social,
                   h3,
@@ -546,10 +548,11 @@ About Style
                   h3::before {
                     content: '';
                     position: absolute;
-                    width: 40%;
+                    width: 0%;
                     height: 2px;
                     background: white;
                     bottom: -5px;
+                    transition: width .5s ease;
                   }
 
                   p {
@@ -592,11 +595,26 @@ About Style
                   }
                }
             }
+            &:hover .profile{
+                opacity: 1;
+                transition: .5s ease;
 
-            &:hover .profile {
-               transition: transform 0.4s ease;
-               transform: rotateX(0);
+                 .profile-container {
+                   visibility: visible;
+                   opacity: 1;
+                  transform: translateY(0);
+                  transition: .5s ease;
+
+                  h3::before {
+                    width: 50%;
+                    transition: width .5s ease;
+                  }
+                }
             }
+            // &:hover .profile {
+            //    transition: transform 0.4s ease;
+            //    transform: rotateX(0);
+            // }
          }
       }
       @media screen and (max-width: 520px) {

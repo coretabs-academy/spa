@@ -55,7 +55,7 @@
              <p class="mb">{{ t.about }}</p>
              <div class="social">
                <div class="icon" v-for="(s, i) in t.socials" v-if="s.src" :key="i">
-                 <a :href="s.src" :title="s.name" target=""></a>
+                 <a :href="s.src" :title="s.name" target="_blank"></a>
                  <img :src="icons[s.name]" :alt="s.name">
                </div>
              </div>
@@ -79,7 +79,7 @@
              <p class="mb">{{ t.about }}</p>
              <div class="social">
                <div class="icon" v-for="(s, i) in t.socials" v-if="s.src" :key="i">
-                 <a :href="s.src" :title="s.name" target=""></a>
+                 <a :href="s.src" :title="s.name" target="_blank"></a>
                  <img :src="icons[s.name]" :alt="s.name">
                </div>
              </div>
