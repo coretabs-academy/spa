@@ -48,13 +48,14 @@
          <div class="image-container">
            <img :src="teamImages[i]">
          </div>
+         <div class="filter"></div>
          <div class="profile">
            <div class="profile-container">
              <h3>{{ t.name }}</h3>
-             <p class="mb" v-for="(job, i) in t.jobs" :key="i">{{ job }}</p>
+             <p class="mb">{{ t.about }}</p>
              <div class="social">
                <div class="icon" v-for="(s, i) in t.socials" v-if="s.src" :key="i">
-                 <a :href="s.src" :title="s.name"></a>
+                 <a :href="s.src" :title="s.name" target="_blank"></a>
                  <img :src="icons[s.name]" :alt="s.name">
                </div>
              </div>
@@ -75,10 +76,10 @@
          <div class="profile">
            <div class="profile-container">
              <h3>{{ t.name }}</h3>
-             <p class="mb" v-for="(job, i) in t.jobs" :key="i">{{ job }}</p>
+             <p class="mb">{{ t.about }}</p>
              <div class="social">
                <div class="icon" v-for="(s, i) in t.socials" v-if="s.src" :key="i">
-                 <a :href="s.src" :title="s.name"></a>
+                 <a :href="s.src" :title="s.name" target="_blank"></a>
                  <img :src="icons[s.name]" :alt="s.name">
                </div>
              </div>

@@ -6,10 +6,12 @@ export default {
       quotationIcon: '',
       starIcon: '',
       icons: {
-        facebook: '',
+        github: '',
+        stackoverflow: '',
+        website: '',
+        linkedin: '',
         twitter: '',
-        behance: '',
-        website: ''
+        LH: ''
       },
       teamImages: [],
       mentorsImages: [],
@@ -85,7 +87,7 @@ export default {
         set: [
           {
             name: 'Louay Hamada',
-            jobs: ['Full-stack Web Application Developer'],
+            about: 'Full-stack Web Application Developer',
             src: 'contributors/LouayH.jpg',
             socials: [
               {
@@ -108,23 +110,27 @@ export default {
           },
           {
             name: 'Mohammed AlHakem',
-            jobs: ['Front-end web developer', 'UI/UX designer'],
+            about: 'Front-end web developer & UI/UX designer',
             src: 'contributors/alhakem.jpg',
             socials: [
               {
-                name: 'facebook',
+                name: 'github',
                 src: 'ss'
               },
               {
-                name: 'twitter',
+                name: 'stackoverflow',
                 src: 'sxs'
               },
               {
-                name: 'behance',
+                name: 'website',
                 src: 'ddcd'
               },
               {
-                name: 'website',
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
                 src: 'cdcd'
               }
             ]
@@ -137,184 +143,27 @@ export default {
         set: [
           {
             name: 'Mohammed AlHakem',
-            jobs: ['Front-end web developer', 'UI/UX designer'],
+            about: 'Front-end web developer & UI/UX designer',
             src: 'mentors/one.jpg',
             socials: [
               {
-                name: 'facebook',
+                name: 'github',
                 src: 'ss'
               },
               {
-                name: 'twitter',
+                name: 'stackoverflow',
                 src: 'sxs'
               },
               {
-                name: 'behance',
+                name: 'website',
                 src: 'ddcd'
               },
               {
-                name: 'website',
+                name: 'linkedin',
                 src: 'cdcd'
-              }
-            ]
-          },
-          {
-            name: 'Mohammed AlHakem',
-            jobs: ['Front-end web developer', 'UI/UX designer'],
-            src: 'mentors/two.jpg',
-            socials: [
-              {
-                name: 'facebook',
-                src: 'ss'
               },
               {
                 name: 'twitter',
-                src: 'sxs'
-              },
-              {
-                name: 'behance',
-                src: 'ddcd'
-              },
-              {
-                name: 'website',
-                src: 'cdcd'
-              }
-            ]
-          },
-          {
-            name: 'Mohammed AlHakem',
-            jobs: ['Front-end web developer', 'UI/UX designer'],
-            src: 'mentors/three.jpg',
-            socials: [
-              {
-                name: 'facebook',
-                src: 'ss'
-              },
-              {
-                name: 'twitter',
-                src: 'sxs'
-              },
-              {
-                name: 'behance',
-                src: 'ddcd'
-              },
-              {
-                name: 'website',
-                src: 'cdcd'
-              }
-            ]
-          },
-          {
-            name: 'Mohammed AlHakem',
-            jobs: ['Front-end web developer', 'UI/UX designer'],
-            src: 'mentors/four.jpg',
-            socials: [
-              {
-                name: 'facebook',
-                src: 'ss'
-              },
-              {
-                name: 'twitter',
-                src: 'sxs'
-              },
-              {
-                name: 'behance',
-                src: 'ddcd'
-              },
-              {
-                name: 'website',
-                src: 'cdcd'
-              }
-            ]
-          },
-          {
-            name: 'Mohammed AlHakem',
-            jobs: ['Front-end web developer', 'UI/UX designer'],
-            src: 'mentors/one.jpg',
-            socials: [
-              {
-                name: 'facebook',
-                src: 'ss'
-              },
-              {
-                name: 'twitter',
-                src: 'sxs'
-              },
-              {
-                name: 'behance',
-                src: 'ddcd'
-              },
-              {
-                name: 'website',
-                src: 'cdcd'
-              }
-            ]
-          },
-          {
-            name: 'Mohammed AlHakem',
-            jobs: ['Front-end web developer', 'UI/UX designer'],
-            src: 'mentors/two.jpg',
-            socials: [
-              {
-                name: 'facebook',
-                src: 'ss'
-              },
-              {
-                name: 'twitter',
-                src: 'sxs'
-              },
-              {
-                name: 'behance',
-                src: 'ddcd'
-              },
-              {
-                name: 'website',
-                src: 'cdcd'
-              }
-            ]
-          },
-          {
-            name: 'Mohammed AlHakem',
-            jobs: ['Front-end web developer', 'UI/UX designer'],
-            src: 'mentors/three.jpg',
-            socials: [
-              {
-                name: 'facebook',
-                src: 'ss'
-              },
-              {
-                name: 'twitter',
-                src: 'sxs'
-              },
-              {
-                name: 'behance',
-                src: 'ddcd'
-              },
-              {
-                name: 'website',
-                src: 'cdcd'
-              }
-            ]
-          },
-          {
-            name: 'Mohammed AlHakem',
-            jobs: ['Front-end web developer', 'UI/UX designer'],
-            src: 'mentors/four.jpg',
-            socials: [
-              {
-                name: 'facebook',
-                src: 'ss'
-              },
-              {
-                name: 'twitter',
-                src: 'sxs'
-              },
-              {
-                name: 'behance',
-                src: 'ddcd'
-              },
-              {
-                name: 'website',
                 src: 'cdcd'
               }
             ]
@@ -385,7 +234,7 @@ export default {
       })
 
       for (let k in this.icons) {
-        this.$store.dispatch('getImgUrl', `images/social-icons/${k}.svg`).then(img => {
+        this.$store.dispatch('getImgUrl', `images/social-icons/${k !== 'LH' ? k + '.svg' : k + '.png'}`).then(img => {
            this.icons[k] = img
         }).catch(error => {
            throw new Error(error.message)
