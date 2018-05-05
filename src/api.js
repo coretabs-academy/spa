@@ -1,4 +1,7 @@
 import axios from 'axios'
+import showdown from 'showdown'
+
+let markdown = new showdown.Converter()
 
 export default {
    install: (Vue) => {
@@ -11,6 +14,11 @@ export default {
                   }, error => {
                      reject(error)
                   })
+            })
+         },
+         async post(url) {
+            return new Promise((resolve, reject) => {
+
             })
          }
       }
@@ -25,6 +33,18 @@ export default {
                function toSolidBytes(match, p1) {
                   return String.fromCharCode('0x' + p1)
                }))
+         }
+      }
+
+      Vue.prototype.$markdown = {
+         render(mdText) {
+            let youtube = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g,
+               link = /(?!\S+youtube\.com|youtu\.be)(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
+            mdText = mdText.replace(youtube, "<iframe class='youtube' src='http://www.youtube.com/embed/$1' frameborder='0' allowfullscreen></iframe>")
+            mdText = mdText.replace(link, "<a href='$1' target='_blank'>$1</a>")
+            let html = markdown.makeHtml(mdText)
+            html = html.replace(/^<blockquote>[\n](.*)[\n]<\/blockquote>$/mg,"<blockquote><div class='quotes no-select'><i class='material-icons'>format_quote</i></div>$1<div class='quotes no-select'><i class='material-icons'>format_quote</i></div></blockquote>")
+            return html
          }
       }
    }

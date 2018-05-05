@@ -1,3 +1,5 @@
+import markdown from 'showdown'
+
 export default {
    name: 'CourseComponent',
    components: {},
@@ -22,14 +24,6 @@ export default {
          })
          img.src = this.$store.state.githubFileURL
       })
-
-      // document.querySelectorAll('.course iframe').forEach((iframe) => {
-      //    iframe.src = iframe.src.replace("http://", "//")
-      // })
-
-      document.querySelectorAll('.course pre code').forEach((code) => {
-         hljs.highlightBlock(code)
-      });
    },
    methods: {
       getCourse() {
@@ -42,7 +36,22 @@ export default {
             })
       },
       previewText(mdText) {
-         return this.$markdown.render(mdText)
+         marked.setOptions({
+            renderer: new marked.Renderer(),
+            gfm: true,
+            tables: true,
+            breaks: true,
+            pedantic: false,
+            sanitize: true,
+            smartLists: true,
+            smartypants: false
+         })
+         let youtube = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g
+         mdText = mdText.replace(youtube, 'iframe.youtube.com/embed/$1/iframe')
+         let html = marked(mdText)
+         html = html.replace('iframe', '')
+         html = html.replace('/iframe', '" frameborder="0" allowfullscreen></iframe>')
+         return html
       }
    }
 }

@@ -1,3 +1,4 @@
+@import './functions';
 @import './mixins';
 $info-color: #2196f3;
 $error-color: #f44336;
@@ -11,6 +12,7 @@ $heading-color: #2c3e50;
 $secondary-color: #dcdcdc;
 $shadow-color: rgba(0, 0, 0, 0.15);
 $white-color-alpha: rgba(255,255,255,0.5);
+$grading-color: linear-gradient(to left, #2d43e7, #9042e8);
 $header-height: 100px;
 $cairo-font: 'assets/vendor/fonts/cairo/';
 $poppins-font: 'assets/vendor/fonts/poppins/';

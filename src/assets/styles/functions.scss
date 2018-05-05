@@ -1,0 +1,11 @@
+@function short-if($condition, $if-value, $else-value:'') {
+   @if ($condition == true) {
+      @return $if-value;
+   } @else {
+      @if($else-value == '') {
+         @return null;
+      } @else {
+         @return $else-value;
+      }
+   }
+}

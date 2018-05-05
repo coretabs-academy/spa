@@ -7,7 +7,7 @@ Home Style
    #player {
       display: none;
    }
-   
+
    h2 {
       @media (min-width: 768px) {
          font-size: 28px;
@@ -97,7 +97,7 @@ Home Style
 
       #introduction-buttons {
          #yes {
-            background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1));
+            background: $grading-color !important;
             @include box-shadow(0px, 15px,34px ,0px , $shadow-color);
          }
 

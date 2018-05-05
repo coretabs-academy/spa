@@ -102,8 +102,8 @@ html[dir='rtl'] {
 
          .btn {
             color: $primary-color !important;
-            width: $toolbar-height / 2 !important;
-            height: $toolbar-height / 2 !important;
+            width: $toolbar-height / 1.5 !important;
+            height: $toolbar-height / 1.5 !important;
 
             .icon {
                width: $toolbar-height / 2 !important;
@@ -117,15 +117,16 @@ html[dir='rtl'] {
    .navigation-drawer {
       height: 100vh !important;
       overflow: hidden !important;
-      background: $drawer-background !important;
       width: $drawer-width !important;
+      background: $drawer-background !important;
+      @include box-shadow(0px, 15px, 34px, 0px, $shadow-color,true);
 
       .toolbar {
          height: auto !important;
          padding: $padding !important;
+         background: $grading-color !important;
          min-height: $toolbar-height !important;
          max-height: $toolbar-height !important;
-         background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1)) !important;
 
          .toolbar__content {
             height: auto !important;
@@ -153,27 +154,27 @@ html[dir='rtl'] {
       }
 
       .list {
-         overflow-y: hidden !important;
+         overflow: hidden !important;
          background: $drawer-background !important;
          height: calc(100vh - #{$toolbar-height}) !important;
 
          .stepper {
             box-shadow: none !important;
+            overflow-y: scroll !important;
+            overflow-x: hidden !important;
             background: $drawer-background !important;
             height: calc(100vh - #{$toolbar-height}) !important;
 
             .list__group {
-               overflow: hidden !important;
-               height: $drawer-group-height !important;
-
+               // overflow: hidden !important;
+               // height: $drawer-group-height !important;
                &::after,
                &::before {
-                  height: 0 !important;
+                  background: none !important;
                }
 
                &.list__group--active {
-                  height: auto !important;
-
+                  // height: auto !important;
                   .list__group__header {}
                }
 
@@ -262,13 +263,15 @@ html[dir='rtl'] {
                }
 
                .list__group__header {
-                  overflow: visible !important;
+                  // overflow: visible !important;
                   padding: $padding !important;
+                  background: $white-color !important;
                   height: $drawer-group-height !important;
-                  border-bottom: 2px solid rgba($black-color,.12) !important;
+                  // border-bottom: 2px solid rgba($black-color,.12) !important;
+                  box-shadow: 0 3px 3px -2px rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 1px 8px 0 rgba(0,0,0,.12) !important;
 
                   &:hover {
-                     background: none !important;
+                     background: $white-color !important;
                   }
 
                   .list__tile {
@@ -305,10 +308,9 @@ html[dir='rtl'] {
                }
 
                .list__group__items {
-                  height: auto !important;
+                  // height: auto !important;
                   padding: $padding !important;
-                  background: $drawer-background !important;
-
+                  // background: $drawer-background !important;
                   div {
                      &:first-child {
                         .list__tile {
