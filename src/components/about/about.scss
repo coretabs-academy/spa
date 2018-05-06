@@ -386,15 +386,16 @@ About Style
          position: absolute;
          width: 100%;
          bottom: 0;
+         z-index: 6;
 
          button {
             background-color: #d7d7d7;
             flex-grow: 0;
             flex-shrink: 0;
-            width: 12px;
-            height: 12px;
+            width: 8px;
+            height: 8px;
             @include border-radius(50%);
-            margin: 30px 10px;
+            margin: 30px 5px;
             transition: 0.3s ease;
 
             &:hover {
@@ -407,13 +408,13 @@ About Style
          }
 
          button.active {
-            background: #4445e7;
-            @include box-shadow(0, 0, 0, 1px, #4445e7);
+            background: #6245e7;
+            @include box-shadow(0, 0, 0, 1.5px, #6245e7);
             transition: 0.3s ease;
 
             &:hover {
-               background-color: #5657f3;
-               @include box-shadow(0, 0, 0, 1px, #5657f3);
+               background-color: #7156ec;
+               @include box-shadow(0, 0, 0, 1.5px, #7156ec);
             }
 
             &:active {
@@ -421,7 +422,7 @@ About Style
             }
          }
          @media screen and (max-width: 550px){
-           transform: scale(0.8);
+           transform: scale(0.9);
          }
       }
 
