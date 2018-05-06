@@ -114,6 +114,11 @@ $erorr_color: #cc5a5a;
         color: #a0a0a0;
         border: 1px solid #a0a0a0;
     }
+    .r-btn.btn.btn--disabled {
+        color: #fff !important;
+        background: #7591ae !important;
+
+    }
     span.result-container {
         padding-bottom: 0px  !important;
         .err {
@@ -143,12 +148,13 @@ $erorr_color: #cc5a5a;
         .result {
             font-weight: 600;
             padding-left: 10px;
+            color: #5a5a5a;
         }
 
     }
 }
 .true_answer { 
-    //class of success answer
+    //class of true answer
     box-shadow: 0px 2px 8px #dad6d6;
     .checkbox_cont {
         border-color: #57c881 !important;
@@ -165,7 +171,7 @@ $erorr_color: #cc5a5a;
     }
 }
 .wrong_answer { 
-    //class of success answer
+    //class of wrong answer
     box-shadow: 0px 4px 6px #dad6d6 , 0px -2px 8px #dad6d6;
     .checkbox_cont {
         border-color:  $erorr_color !important;
