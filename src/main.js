@@ -3,12 +3,11 @@ import API from './api'
 import App from './app.vue'
 import Vuetify from 'vuetify'
 import router from './router'
-import store from './store/app.store'
 import siema from 'vue2-siema'
+import store from './store/app.store'
 
 Vue.use(API)
 Vue.use(siema)
-
 
 // User Vuetify material desing && customize own theme
 Vue.use(Vuetify, {
