@@ -1,7 +1,19 @@
 import axios from 'axios'
 import showdown from 'showdown'
 
-let markdown = new showdown.Converter()
+showdown.setFlavor('github')
+let markdown = new showdown.Converter({
+   emoji: false,
+   tables: true,
+   underline: true,
+   tasklists: true,
+   noHeaderId: true,
+   strikethrough: true,
+   tablesHeaderId: true,
+   parseImgDimensions: true,
+   // splitAdjacentBlockquotes:true,
+   // omitExtraWLInCodeBlocks: true,
+})
 
 export default {
    install: (Vue) => {
@@ -38,12 +50,13 @@ export default {
 
       Vue.prototype.$markdown = {
          render(mdText) {
-            let youtube = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g,
-               link = /(?!\S+youtube\.com|youtu\.be)(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
+            let youtube = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g
+            let link = /(?!\S+youtube\.com|youtu\.be)(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
             mdText = mdText.replace(youtube, "<iframe class='youtube' src='https://www.youtube.com/embed/$1' frameborder='0' allowfullscreen></iframe>")
             mdText = mdText.replace(link, "<a href='$1' target='_blank'>$1</a>")
             let html = markdown.makeHtml(mdText)
-            html = html.replace(/^<blockquote>[\n](.*)[\n]<\/blockquote>$/mg,"<blockquote><div class='quotes no-select'><i class='material-icons'>format_quote</i></div>$1<div class='quotes no-select'><i class='material-icons'>format_quote</i></div></blockquote>")
+            html = html.replace(/<blockquote>\s*(.*?)\s*<\/blockquote>/mg, "<blockquote><div class='quotes no-select'><i class='material-icons'>format_quote</i></div>$1<div class='quotes no-select'><i class='material-icons'>format_quote</i></div></blockquote>")
+            html = html.replace(/<pre>\s*(.*?)\s*<\/pre>/mg, "<pre><div class='code-action'><v-btn flat icon><v-icon>content_copy</v-icon></v-btn></div>$1</pre>")
             return html
          }
       }
