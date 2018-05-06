@@ -4,7 +4,10 @@ export default {
    data: () => ({
       imageSrc: [],
       quotationIcon: '',
-      starIcon: '',
+      starState: {
+        active: '',
+        inactive: ''
+      },
       icons: {
         github: '',
         stackoverflow: '',
@@ -14,15 +17,25 @@ export default {
         LH: ''
       },
       teamImages: [],
-      mentorsImages: [],
+      // mentorsImages: [],
       options: {
         draggable: true,
         duration: 500,
         easing: 'ease-out',
-        perPage: 4,
+        perPage: 1,
         startIndex: 0,
+        loop: true,
         rtl: false
       },
+      // mentorsOptions: {
+      //   querySelector: '.mentorscarousel',
+      //   draggable: true,
+      //   duration: 500,
+      //   easing: 'ease-out',
+      //   perPage: 4,
+      //   startIndex: 0,
+      //   rtl: false
+      // },
       navigation: {
         left: '',
         right: ''
@@ -55,29 +68,37 @@ export default {
             img: 'saif.png',
             name: 'منصور الجاسمي',
             description: 'مصمم تطبيقات موبايل',
-            quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
+            quote: 'venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
+            rating: 2
+         }
+         ,
+         {
+            img: 'saif.png',
+            name: 'منصور الجاسمي',
+            description: 'مصمم تطبيقات موبايل',
+            quote: 'venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
             rating: 4
          },
          {
             img: 'saif.png',
             name: 'منصور الجاسمي',
             description: 'مصمم تطبيقات موبايل',
-            quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
-            rating: 4
+            quote: 'venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
+            rating: 3
          },
          {
             img: 'saif.png',
             name: 'منصور الجاسمي',
             description: 'مصمم تطبيقات موبايل',
-            quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
-            rating: 4
+            quote: 'venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
+            rating: 5
          },
          {
             img: 'saif.png',
             name: 'منصور الجاسمي',
             description: 'مصمم تطبيقات موبايل',
-            quote: 'Aliquam erat volutpat. Mauris ullamcorper, lectus in cursus ullamcorper, urna ligula scelerisque sapien, ac vehicula dolor libero eget tortor. Mauris et leo non eros vehicula tincidunt sit amet nec mi. Pellentesque viverra efficitur velit malesuada lobortis. Suspendisse suscipit venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
-            rating: 4
+            quote: 'venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
+            rating: 1
          }
         ]
       },
@@ -137,39 +158,39 @@ export default {
           }
         ]
       },
-      mentors: {
-        title: 'الموجهون',
-        description: 'فريق التوجية في الأكاديمية يتألف من عدد من الأشخاص المتميزين الذي سيقوموا بمساندتك أثناء رحلتك التدريبية على منصة coretabs',
-        set: [
-          {
-            name: 'Mohammed AlHakem',
-            about: 'Front-end web developer & UI/UX designer',
-            src: 'mentors/one.jpg',
-            socials: [
-              {
-                name: 'github',
-                src: 'ss'
-              },
-              {
-                name: 'stackoverflow',
-                src: 'sxs'
-              },
-              {
-                name: 'website',
-                src: 'ddcd'
-              },
-              {
-                name: 'linkedin',
-                src: 'cdcd'
-              },
-              {
-                name: 'twitter',
-                src: 'cdcd'
-              }
-            ]
-          }
-        ]
-      },
+      // mentors: {
+      //   title: 'الموجهون',
+      //   description: 'فريق التوجية في الأكاديمية يتألف من عدد من الأشخاص المتميزين الذي سيقوموا بمساندتك أثناء رحلتك التدريبية على منصة coretabs',
+      //   set: [
+      //     {
+      //       name: 'Mohammed AlHakem',
+      //       about: 'Front-end web developer & UI/UX designer',
+      //       src: 'mentors/one.jpg',
+      //       socials: [
+      //         {
+      //           name: 'github',
+      //           src: 'ss'
+      //         },
+      //         {
+      //           name: 'stackoverflow',
+      //           src: 'sxs'
+      //         },
+      //         {
+      //           name: 'website',
+      //           src: 'ddcd'
+      //         },
+      //         {
+      //           name: 'linkedin',
+      //           src: 'cdcd'
+      //         },
+      //         {
+      //           name: 'twitter',
+      //           src: 'cdcd'
+      //         }
+      //       ]
+      //     }
+      //   ]
+      // },
       footer: {
         contactUs: 'إتصل بنا',
         termsOfService: 'شروط الخدمة',
@@ -178,14 +199,11 @@ export default {
    }),
    watch: {
      currentSlide() {
-       let currentSlide = this.currentSlide / this.options.perPage
-       if ((n => n === +n && n === (n | 0))(currentSlide)) {
-         let children = this.$refs.controls.children
-         for (var i = 0; i < children.length; i++) {
-           children[i].classList.remove('active')
-         }
-         children[this.perPage - (currentSlide + 1)].classList.add('active')
-        }
+       let children = this.$refs.controls.children
+       for (var i = 0; i < children.length; i++) {
+         children[i].classList.remove('active')
+       }
+       children[this.currentSlide].classList.add('active')
       }
    },
    methods: {
@@ -195,16 +213,19 @@ export default {
          children[i].classList.remove('active')
        }
        e.currentTarget.classList.add('active')
-       this.$refs.siema.goTo(this.mentors.set.length - this.options.perPage * (i + 1))
+       this.$refs.siema.goTo(i)
      },
-     setPerPage() {
-         this.options.perPage = Math.floor(document.querySelector('#mentors').offsetWidth / 237)
-         this.$refs.siema.init()
+     // setPerPage() {
+     //     this.options.perPage = Math.floor(document.querySelector('#mentors').offsetWidth / 237)
+     //     this.$refs.mentorscarousel.init()
+     //  },
+      calc(i, j) {
+        return i <= j ? this.starState.active : this.starState.inactive
       }
    },
    computed: {
      perPage() {
-       return Math.ceil(this.mentors.set.length / this.options.perPage)
+       return Math.ceil(this.testimonials.carousel.length / this.options.perPage)
      }
    },
    created() {
@@ -222,8 +243,13 @@ export default {
          throw new Error(error.message)
       })
 
-      this.$store.dispatch('getImgUrl', 'images/star.png').then(img => {
-         this.starIcon = img
+      this.$store.dispatch('getImgUrl', 'images/star_active.svg').then(img => {
+         this.starState.active = img
+      }).catch(error => {
+         throw new Error(error.message)
+      })
+      this.$store.dispatch('getImgUrl', 'images/star_inactive.svg').then(img => {
+         this.starState.inactive = img
       }).catch(error => {
          throw new Error(error.message)
       })
@@ -253,13 +279,13 @@ export default {
         })
       }
 
-      for (let k of this.mentors.set) {
-        this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
-           this.mentorsImages.push(img)
-        }).catch(error => {
-           throw new Error(error.message)
-        })
-      }
+      // for (let k of this.mentors.set) {
+      //   this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
+      //      this.mentorsImages.push(img)
+      //   }).catch(error => {
+      //      throw new Error(error.message)
+      //   })
+      // }
 
       this.$store.dispatch('getImgUrl', 'images/left.svg').then(img => {
          this.navigation.left = img
@@ -279,13 +305,13 @@ export default {
      for (var i = 0; i < children.length; i++) {
        children[i].classList.remove('active')
      }
-     children[i - 1].classList.add('active')
+     children[0].classList.add('active')
 
      // addEventListener('resize', e => {
      //   if (e.target.innerWidth <= 1150) {
      //     // console.log(this)
-     //     // root.$refs.siema.init()
-     //     this.$refs.siema.resizeHandler()
+     //     // root.$refs.mentorscarousel.init()
+     //     this.$refs.mentorscarousel.resizeHandler()
      //   }
      // }, false)
    }

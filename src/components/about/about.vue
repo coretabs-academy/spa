@@ -1,5 +1,5 @@
 <template>
-  <div id="about" v-resize="setPerPage">
+  <div id="about">
      <div id="presentation">
         <div v-for="(d, i) in descriptions" :key="i" id="desc-box">
            <div class="description">
@@ -13,32 +13,35 @@
            </div>
     </div>
   </div>
-   <v-container id="testimonials" fluid fill-height>
-      <v-layout fluid row justify-center wrap>
-         <v-flex text-xs-center>
-           <div class="skew-box">
-             <div class="particles"></div>
-             <h1>{{ testimonials.title }}</h1>
-             <p>{{ testimonials.description }}</p>
+  <div id="testimonials">
+    <div class="skew-box">
+      <div class="particles"></div>
+      <h1>{{ testimonials.title }}</h1>
+      <p>{{ testimonials.description }}</p>
+    </div>
+     <siema :current.sync="currentSlide" class="siema testimonials-carousel" ref="siema" :options="options" :auto-play="true" :play-duration="4000">
+        <div class="testimonials-carousel-item" v-for="(testimonial,i) in testimonials.carousel" :key="i"
+             @mouseenter="$refs.siema.stop()"
+             @mouseleave="$refs.siema.play()">
+           <img class="quotation" :src="quotationIcon" />
+           <div class="avatar" :style="{ backgroundImage: 'linear-gradient(rgba(84, 0, 255, 0.4), rgba(202, 62, 75, 0.4)), url(' + testimonial.img + ')' }" />
+           <div class="testimonial">
+              <h3 class="name">{{ testimonial.name }}<span class="description"> - {{ testimonial.description }}</span></h3>
+              <p class="quote">{{ testimonial.quote }}</p>
+              <div class="rating">
+                 <img v-for="i in 5" :key="i" :src="calc(i, testimonial.rating)" />
+              </div>
+              <div class="navigation">
+                <img class="left" :src="navigation.left" @click="$refs.siema.next(1)">
+                <img class="right" :src="navigation.right" @click="$refs.siema.prev(1)">
+              </div>
            </div>
-            <v-carousel cycle>
-               <v-carousel-item v-for="(testimonial,i) in testimonials.carousel" :key="i" transition="fade" reverse-transition="fade">
-                  <img class="quotation" :src="quotationIcon" />
-                  <div class="avatar" :style="{ backgroundImage: 'url(' + testimonial.img + ')' }" />
-                  <div class="testimonial">
-                     <h3 class="name">{{ testimonial.name }}<span class="description"> - {{ testimonial.description }}</span></h3>
-                     <p class="quote">{{ testimonial.quote }}</p>
-                     <div class="rating">
-                        <span v-for="i in testimonial.rating" :key="i">
-                  <img :src="starIcon" />
-                </span>
-                     </div>
-                  </div>
-               </v-carousel-item>
-            </v-carousel>
-         </v-flex>
-      </v-layout>
-   </v-container>
+        </div>
+     </siema>
+     <div class="controls" ref="controls">
+       <button v-for="(b, i) in perPage" type="button" name="button" @click="show(b - 1, $event)" :key="i"></button>
+     </div>
+  </div>
 
    <div id="team">
      <h1>{{ team.title }}</h1>
@@ -65,11 +68,11 @@
      </div>
    </div>
 
-   <div id="mentors">
+   <!-- <div id="mentors">
      <h1>{{ mentors.title }}</h1>
      <p>{{ mentors.description }}</p>
-     <siema :current.sync="currentSlide" class="mentors-carousel siema" ref="siema" :options="options" :auto-play="true" :play-duration="4000">
-       <div class="mentors-carousel-item" v-for="(t, i) in mentors.set" :key="i" :ref="'item' + i">
+     <div :current.sync="currentSlide" class="mentorscarousel" ref="mentorscarousel" :options="mentorsOptions" :auto-play="true" :play-duration="4000">
+       <div class="mentorscarousel-item" v-for="(t, i) in mentors.set" :key="i" :ref="'item' + i">
          <div class="image-container">
            <img :src="mentorsImages[i]" :ref="'img'+i" class="photo">
          </div>
@@ -86,15 +89,15 @@
            </div>
          </div>
        </div>
-     </siema>
+     </div>
      <div class="navigation">
-       <img class="left" :src="navigation.left" @click="$refs.siema.prev(1)">
-       <img class="right" :src="navigation.right" @click="$refs.siema.next(1)">
+       <img class="left" :src="navigation.left" @click="$refs.mentorscarousel.prev(1)">
+       <img class="right" :src="navigation.right" @click="$refs.mentorscarousel.next(1)">
      </div>
      <div class="controls" ref="controls">
        <button v-for="(b, i) in perPage" type="button" name="button" @click="show(b - 1, $event)" :key="i"></button>
      </div>
-   </div>
+   </div> -->
 
    <footer>
      <router-link to="/">{{ footer.contactUs }}</router-link>|

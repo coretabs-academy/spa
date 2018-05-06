@@ -141,10 +141,10 @@ About Style
    }
 
    #testimonials {
-      min-height: 100vh;
-
+     position: relative;
       .skew-box {
          position: relative;
+         text-align: center;
 
          .particles {
             position: absolute;
@@ -178,254 +178,253 @@ About Style
          }
          @media screen and (max-width: 550px) {
             .particles {
-               height: 800px;
+               height: 450px;
+            }
+         }
+         @media screen and (max-width: 300px) {
+            .particles {
+               height: 600px;
             }
          }
       }
 
-      .carousel {
-         height: 600px;
-         @include box-shadow(0,0,0,0,transparent);
-         z-index: 8;
-      }
+      .testimonials-carousel {
+        margin-top: -50px;
+        margin-bottom: 200px;
+        position: relative;
+        z-index: 5;
 
-      .carousel .jumbotron {
-         position: relative;
-         width: 100%;
-         height: 500px !important;
-         margin: 50px 0 0;
-         background-color: $white-color;
-         @include box-shadow(0px, 15px,34px ,0px , $shadow-color);
+        .testimonials-carousel-item {
+          background: white;
+          width: 80%;
+          max-width: 1100px;
+          position: relative;
+          margin: 60px auto;
+          @include box-shadow(0, 0, 20px, 1px, rgba(0,0,0,0.2));
+          @include border-radius(40px);
 
-         .jumbotron__wrapper {
+          .quotation {
+            width: 30px;
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 15px;
+            left: 15px;
+          }
 
-            .avatar {
-               position: absolute;
-               top: 10px;
-               right: 10px;
-               @include border-radius(25px);
-               width: 50px;
-               height: 50px;
-               background-size: 100% 100%;
+          .avatar {
+              width: 80px;
+              height: 80px;
+              position: absolute;
+              right: -40px;
+              background-position: center;
+              background-size: cover;
+              top: calc(50% - 40px);
+              @include border-radius(15px);
+              @include box-shadow(0, 0, 20px, 1px, rgba(0,0,0,0.2));
+          }
+          .testimonial {
+            width: 70%;
+            min-height: 200px;
+            position: relative;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .name {
+              position: absolute;
+              top: 30px;
+              width: 100%;
+              text-align: center;
+              color: #385674;
+
+              .description {
+                color: #afafaf;
+              }
             }
 
-            .avatar:before {
-               position: absolute;
-               content: " ";
-               top: 0;
-               right: 0;
-               width: 100%;
-               height: 100%;
-               @include border-radius(25px);
-               display: block;
-               z-index: 0;
-               background: linear-gradient(to top, rgba(45,67,231,0.5), rgba(144,66,232,0.5));
+            .quote {
+                text-align: center;
+                margin: 80px 0;
+                @include font-family('en');
+                color: #385674;
+            }
+
+            .rating {
+              position: absolute;
+              width: 120px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              bottom: 30px;
+
+              img {
+                width: 15px;
+                margin: 0 2.5px;
+              }
+            }
+
+            .navigation {
+               .left {
+                  top: calc(50% - 15px);
+                  left: -40px;
+                  width: 30px;
+                  opacity: 0.6;
+                  transition: opacity 0.3s ease;
+
+                  &:hover {
+                    opacity: 1;
+                    transition: opacity 0.3s ease;
+                  }
+               }
+
+               .right {
+                 top: calc(50% - 15px);
+                 right: -40px;
+                  width: 30px;
+                  opacity: 0.6;
+                  transition: opacity 0.3s ease;
+
+                  &:hover {
+                    opacity: 1;
+                    transition: opacity 0.3s ease;
+                  }
+               }
+
+               img {
+                  cursor: pointer;
+                  position: absolute;
+               }
+            }
+          }
+          @media screen and (max-width: 750px){
+            .quotation {
+              width: 20px;
+            }
+            .avatar {
+                width: 60px;
+                height: 60px;
+                right: 5px;
+                top: 5px;
+                @include border-radius(50%);
             }
 
             .testimonial {
-               position: absolute;
-               margin: 0 10px;
-               padding-top: 75px;
-               color: #425F7C;
-               * {
-                 @include font-family('en');
-               }
+              width: 75%;
 
-               .name {
-                  width: 100%;
-                  margin: 0 auto 20px;
-               }
+              .name {
+                top: 30px;
+                font-size: 0.94rem;
+              }
 
-               .quote {
-                  height: 300px;
-                  margin-right: 30px;
-                  margin-left: 30px;
-                  overflow: hidden;
+              .quote {
+                font-size: 0.94rem;
+              }
 
-                  &:after {
-                     content: "";
-                     position: absolute;
-                     top: -50px;
-                     right: 0;
-                     width: 100%;
-                     height: 50px;
-                     background: linear-gradient(to bottom,rgba(255,255,255,0) -75%,rgba(255,255,255,1) 100%);
-                  }
-               }
+              .rating {
 
-               .description {
-                  color: #E5E5E5;
-               }
+                img {
+                  width: 12px;
+                  margin: 0 2px;
+                }
+              }
+
+              .navigation {
+                 .left {
+                    top: calc(50% - 12.5px);
+                    left: -40px;
+                    width: 25px;
+                 }
+
+                 .right {
+                   top: calc(50% - 12.5px);
+                   right: -40px;
+                    width: 25px;
+                 }
+              }
             }
-         }
-      }
+          }
+          @media screen and (max-width: 550px){
+            width: 100%;
+            @include border-radius(0);
 
-      .carousel__left {
-         left: 10px;
-
-         .btn {
-            color: #E5E5E5;
-         }
-
-         i {
-            font-size: 30px !important;
-         }
-      }
-
-      .carousel__right {
-         right: 10px;
-
-         .btn {
-            color: #E5E5E5;
-         }
-
-         i {
-            font-size: 30px !important;
-         }
-      }
-
-      .carousel__controls {
-         background: transparent;
-
-         .btn {
-            color: #D2D2D2;
-            margin: 0 !important;
-         }
-
-         .btn.carousel__controls__item--active {
-            color: $primary-color;
-            font-size: 16px !important;
-         }
-
-         .btn.carousel__controls__item--active i {
-            font-size: 22px !important;
-         }
-      }
-      @media (min-width: 600px) {
-         .carousel {
-            height: 400px;
-         }
-
-         .carousel .jumbotron {
-            width: 80%;
-            margin: 50px 10% 0;
-            @include border-radius(25px);
-            height: 300px !important;
-
-            .jumbotron__wrapper {
-               .avatar {
-                  top: 5px;
-                  right: 5px;
-                  width: 50px;
-                  height: 50px;
-               }
-
-               .testimonial {
-                  margin: 0 10px;
-                  padding-top: 25px;
-
-                  .quote {
-                     margin-right: 0;
-                     margin-left: 0;
-                     height: 170px;
-                  }
-               }
+            .quotation {
+              width: 20px;
             }
-         }
-
-         .carousel__left,
-         .carousel__right {
-            i {
-               font-size: 46px !important;
+            .avatar {
+                width: 40px;
+                height: 40px;
+                right: 5px;
+                top: 5px;
+                @include border-radius(50%);
             }
-         }
-      }
-      @media (min-width: 960px) {
-         .carousel {
-            height: 375px;
-         }
 
-         .carousel .jumbotron {
-            height: 275px !important;
+            .testimonial {
+              width: 90%;
 
-            .jumbotron__wrapper {
-               .avatar {
-                  top: 15px;
-                  right: 15px;
-                  width: 95px;
-                  height: 95px;
-               }
+              .name {
+                top: 30px;
+                font-size: 0.94rem;
+                width: 70%;
+              }
 
-               .testimonial {
-                  margin: 0 150px;
-                  padding-top: 20px;
+              .quote {
+                font-size: 0.94rem;
+              }
 
-                  .quote {
-                     height: 150px;
-                  }
-               }
+              .navigation {
+                 display: none;
+              }
             }
-         }
-
-         .carousel__left {
-            left: calc(10% + 100px);
-         }
-
-         .carousel__right {
-            right: calc(10% + 100px);
-         }
+          }
+        }
       }
-      @media (min-width: 1200px) {
-         .carousel {
-            height: 350px;
-         }
-
-         .carousel .jumbotron {
-            height: 250px !important;
-
-            .jumbotron__wrapper {
-               .avatar {
-                  top: 20px;
-                  right: 20px;
-                  width: 100px;
-                  height: 100px;
-               }
-
-               .testimonial {
-                  margin: 0 200px;
-                  padding-top: 20px;
-
-                  .quote {
-                     height: 125px;
-                  }
-               }
-            }
-         }
-
-         .carousel__left {
-            left: calc(10% + 125px);
-         }
-
-         .carousel__right {
-            right: calc(10% + 125px);
-         }
-      }
-
-      .quotation {
-         top: 0;
-         left: 0;
-         transform: scale(0.7);
+      .controls {
+         display: flex;
+         justify-content: center;
+         align-items: center;
          position: absolute;
-         z-index: 7;
-         width: 50px;
+         width: 100%;
+         bottom: 0;
+
+         button {
+            background-color: #d7d7d7;
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 12px;
+            height: 12px;
+            @include border-radius(50%);
+            margin: 30px 10px;
+            transition: 0.3s ease;
+
+            &:hover {
+               background-color: #c7c7c7;
+            }
+
+            &:active {
+               @include box-shadow(0, 0, 0, 4px, #f1f1f1);
+            }
+         }
+
+         button.active {
+            background: #4445e7;
+            @include box-shadow(0, 0, 0, 1px, #4445e7);
+            transition: 0.3s ease;
+
+            &:hover {
+               background-color: #5657f3;
+               @include box-shadow(0, 0, 0, 1px, #5657f3);
+            }
+
+            &:active {
+               @include box-shadow(0, 0, 0, 6px, #cecefc);
+            }
+         }
+         @media screen and (max-width: 550px){
+           transform: scale(0.8);
+         }
       }
 
-      .quotation {
-         color: red;
-      }
    }
 
    #team {
