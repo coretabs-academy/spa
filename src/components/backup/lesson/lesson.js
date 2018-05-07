@@ -1,23 +1,24 @@
 export default {
-   name: 'CourseComponent',
+   name: 'LessonComponent',
    components: {},
    data: () => ({
-      course: {
+      lesson: {
          type: '',
-         data: ''
+         data: '',
+         notes: ''
       },
       loaded: true
    }),
    created() {
-      this.getCourse()
+      this.getLesson()
    },
    watch: {
       $route(to, from) {
-         this.getCourse()
+         this.getLesson()
       }
    },
    updated() {
-      document.querySelectorAll('.course img').forEach((img) => {
+      document.querySelectorAll('..lesson img').forEach((img) => {
          let src = img.src.replace(/^.*[\\/]/, '')
          this.$store.commit('getGithubFileURL', {
             repo: `${this.$route.params.track}-tutorials`,
@@ -26,30 +27,26 @@ export default {
          img.src = this.$store.state.githubFileURL
       })
 
-      // document.querySelectorAll('.course iframe').forEach((iframe) => {
-      //    iframe.src = iframe.src.replace("http://", "//")
-      // })
-
-      document.querySelectorAll('.course pre code').forEach((code) => {
+      document.querySelectorAll('.lesson pre code').forEach((code) => {
          hljs.highlightBlock(code)
       });
    },
    methods: {
-      getCourse() {
-         this.course.type = this.$route.query.type
+      getLesson() {
+         this.lesson.type = this.$route.query.type
          this.$http.get(this.$api.b64DecodeUnicode(this.$route.query.url))
             .then(data => {
-               this.course.data = data
-               switch (this.course.type) {
+               this.lesson.data = data
+               switch (this.lesson.type) {
                   case 'task':
                   case 'text':
-                     this.course.data = data
+                     this.lesson.data = data
                   case 'video':
-                     this.course.data = {
+                     this.lesson.data = {
                         autthour
                      }
                   case 'quiz':
-                     this.course.data = data
+                     this.lesson.data = data
                      break;
                }
                this.loaded = true

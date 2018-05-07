@@ -1,5 +1,5 @@
 <template>
-<div v-if="loaded" class="courses">
+<div v-if="loaded" class="modules">
    <v-toolbar app class="white">
       <v-toolbar-side-icon @click="drawer.isOpen = !drawer.isOpen"></v-toolbar-side-icon>
       <v-toolbar-title class="mx-auto">{{current.categorie.topic.title}}</v-toolbar-title>
@@ -39,15 +39,15 @@
       <router-view></router-view>
    </div>
 </div>
-<div v-else class="progress-container ">
+<div v-else class="progress-container">
    <v-container fluid grid-list-xs fill-height>
       <v-layout row align-center>
          <v-flex xs12>
-            <v-progress-circular indeterminate color="primary " :size="80 " :width="7 "></v-progress-circular>
+            <v-progress-circular indeterminate color="primary" size="80" width="7"></v-progress-circular>
          </v-flex>
       </v-layout>
    </v-container>
 </div>
 </template>
-<script src="./courses.js"></script>
-<style src="./courses.scss" lang="scss"></style>
+<script src="./modules.js"></script>
+<style src="./modules.scss" lang="scss"></style>

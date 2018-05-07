@@ -53,7 +53,7 @@ export default {
                         },
                         complete: false,
                         id: courseNumber + 1,
-                        action: this.getAction(course.type),
+                        type: this.getType(course.type),
                         title: course[`title-${this.$store.state.lang}`],
                         url: {
                            name: 'course',
@@ -154,24 +154,22 @@ export default {
       // isTopicActive(topic) {
       //
       // },
-      getAction(type) {
-         let action = ''
+      getType(type) {
          switch (type) {
             case 'quiz':
-               action = 'star'
+               return 'star'
                break
             case 'video':
-               action = 'play_arrow'
+               return 'play_arrow'
                break
             case 'text':
-               action = 'menu'
+               return 'menu'
                break
             case 'task':
-               action = 'build'
+               return 'build'
                break
          }
-         return 'build'
-         return action
+         // return 'build'
       }
    }
 }
