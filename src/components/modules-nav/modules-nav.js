@@ -1,11 +1,12 @@
 export default {
    name: 'ModulesNavComponent',
    components: {},
-   data: () => ({
-      drawer: {
-         isOpen: true,
-         isRight: false
-      }
-   }),
-   created() {}
+   data: () => ({}),
+   props: ['modules'],
+   created() {
+      console.log(this.modules)
+   },
+   watch: {
+
+   }
 }

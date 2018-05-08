@@ -8,16 +8,27 @@ export default {
    },
    data: () => ({
       height: 0,
+      loaded: true,
       drawer: {
          isOpen: true,
          isRight: false
-      }
+      },
+      current: {
+         lesson: {}
+      },
    }),
+   props: ['modules'],
    created() {
       this.$on('toggle-drawer', function(data) {
-         this.drawer.isOpen = !this.drawer.isOpen
+         console.log('data')
+         this.isOpen = !this.isOpen
       })
       this.drawer.isRight = this.$store.state.direction === 'rtl'
+   },
+   watch: {
+      $route(to, from) {
+
+      }
    },
    methods: {
       onResize() {
@@ -30,6 +41,16 @@ export default {
                self.height = window.innerHeight - document.querySelector(selector).offsetHeight
             }, 1000)
          }
-      }
+      },
+      getLessonId() {
+         let index = this.$store.state.modules.findIndex(function(module) {
+            return this.$route.params.workshop === workshop.url.params.workshop
+         }.bind(this))
+         if (index === -1) {
+            this.$router.push('/404')
+         } else {
+            return index
+         }
+      },
    }
 }

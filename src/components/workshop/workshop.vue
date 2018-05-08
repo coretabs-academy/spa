@@ -3,7 +3,7 @@
    <v-card>
       <v-layout>
          <v-flex>
-            <v-btn flat>{{start}}</v-btn>
+            <v-btn flat @click="goToLessons('/test/facebook-site-workshop/collo')">{{start}}</v-btn>
          </v-flex>
          <v-flex>{{workshop.last_update}}</v-flex>
          <v-flex></v-flex>
@@ -13,6 +13,9 @@
    <v-card></v-card>
    <v-card></v-card>
    <v-card></v-card>
+   <v-navigation-drawer>
+      <modules-nav-component :modules="workshop.modules"></modules-nav-component>
+   </v-navigation-drawer>
 </div>
 <div v-else class="progress-container">
    <v-container fluid grid-list-xs fill-height>

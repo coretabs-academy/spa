@@ -1,8 +1,7 @@
 import axios from 'axios'
 import showdown from 'showdown'
-
 showdown.setFlavor('github')
-let markdown = new showdown.Converter({
+const markdown = new showdown.Converter({
    emoji: false,
    tables: true,
    underline: true,
@@ -14,6 +13,7 @@ let markdown = new showdown.Converter({
    // splitAdjacentBlockquotes:true,
    // omitExtraWLInCodeBlocks: true,
 })
+
 
 export default {
    install: (Vue) => {

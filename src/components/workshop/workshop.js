@@ -17,6 +17,15 @@ export default {
       $route(to, from) {}
    },
    methods: {
-
+      goToLessons(url) {
+         this.$parent.$emit('clearTimeout')
+         this.$router.push({
+            name: 'modules',
+            params: {
+               module: 'collo',
+               modules: this.workshop.modules
+            }
+         })
+      }
    }
 }

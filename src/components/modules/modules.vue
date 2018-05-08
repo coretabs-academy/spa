@@ -1,7 +1,9 @@
 <template>
 <div v-if="loaded" class="modules">
-   <workshop-header-component></workshop-header-component>
-   <modules-nav-component></modules-nav-component>
+   <workshop-header-component :title="current.lesson.title"></workshop-header-component>
+   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen" v-bind:class="{'elevation-15':drawer.isOpen}">
+      <modules-nav-component :modules="modules"></modules-nav-component>
+   </v-navigation-drawer>
    <div class="content " v-bind:style="{ height: height + 'px' } " v-resize="onResize ">
       <router-view></router-view>
    </div>

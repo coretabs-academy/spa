@@ -7,6 +7,7 @@ export default {
    data: () => ({
       height: 0,
       loaded: false,
+      timeout: null,
       workshops: [],
       title: 'قائمة ورش العمل',
       drawer: {
@@ -20,6 +21,9 @@ export default {
    created() {
       this.$on('toggle-drawer', function(data) {
          this.drawer.isOpen = !this.drawer.isOpen
+      })
+      this.$on('clearTimeout', function(data) {
+         clearTimeout(this.timeout)
       })
       this.drawer.isRight = this.$store.state.direction === 'rtl'
       this.$store.commit('getGithubFileURL', {
@@ -58,7 +62,7 @@ export default {
             this.height = window.innerHeight - document.querySelector(selector).offsetHeight
          } else {
             let self = this
-            setTimeout(() => {
+            this.timeout = setTimeout(() => {
                self.height = window.innerHeight - document.querySelector(selector).offsetHeight
             }, 1000)
          }
