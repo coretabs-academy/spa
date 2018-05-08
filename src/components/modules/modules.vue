@@ -1,5 +1,10 @@
 <template>
 <div v-if="loaded" class="modules">
+   <workshop-header-component></workshop-header-component>
+   <modules-nav-component></modules-nav-component>
+   <div class="content " v-bind:style="{ height: height + 'px' } " v-resize="onResize ">
+      <router-view></router-view>
+   </div>
 </div>
 <div v-else class="progress-container">
    <v-container fluid grid-list-xs fill-height>

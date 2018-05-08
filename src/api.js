@@ -34,6 +34,16 @@ export default {
             })
          }
       }
+      Vue.prototype.$util = {
+         prettyDigit(n) {
+            return (n < 10) ? `0${n}` : n
+         }
+      }
+      Vue.prototype.$date = {
+         get(date) {
+            return `${Vue.prototype.$util.prettyDigit(date.getDate())}/${Vue.prototype.$util.prettyDigit(date.getMonth())}/${date.getFullYear()}`
+         }
+      }
       Vue.prototype.$encryption = {
          b64DecodeUnicode(str) {
             return decodeURIComponent(atob(str).split('').map(function(c) {

@@ -1,5 +1,18 @@
 <template>
 <div v-if="loaded" class="workshop">
+   <v-card>
+      <v-layout>
+         <v-flex>
+            <v-btn flat>{{start}}</v-btn>
+         </v-flex>
+         <v-flex>{{workshop.last_update}}</v-flex>
+         <v-flex></v-flex>
+         <v-flex></v-flex>
+      </v-layout>
+   </v-card>
+   <v-card></v-card>
+   <v-card></v-card>
+   <v-card></v-card>
 </div>
 <div v-else class="progress-container">
    <v-container fluid grid-list-xs fill-height>

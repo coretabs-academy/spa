@@ -1,14 +1,22 @@
+import ModulesNavComponent from '../modules-nav/modules-nav.vue'
 export default {
    name: 'WorkshopComponent',
-   components: {},
+   components: {
+      ModulesNavComponent
+   },
    data: () => ({
+      start: 'بدأ',
       loaded: true
    }),
-   created() {},
-   watch: {
-      $route(to, from) {
 
-      }
+   props: ['workshop'],
+   created() {
+
    },
-   methods: {}
+   watch: {
+      $route(to, from) {}
+   },
+   methods: {
+
+   }
 }

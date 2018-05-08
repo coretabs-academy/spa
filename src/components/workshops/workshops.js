@@ -1,6 +1,9 @@
+import WorkshopHeaderComponent from '../workshop-header/workshop-header.vue'
 export default {
    name: 'WorkshopsComponent',
-   components: {},
+   components: {
+      WorkshopHeaderComponent
+   },
    data: () => ({
       height: 0,
       loaded: false,
@@ -11,14 +14,13 @@ export default {
          isRight: false
       },
       current: {
-         workshop: {
-            id: '',
-            index: '',
-            title: ''
-         }
+         workshop: {}
       }
    }),
    created() {
+      this.$on('toggle-drawer', function(data) {
+         this.drawer.isOpen = !this.drawer.isOpen
+      })
       this.drawer.isRight = this.$store.state.direction === 'rtl'
       this.$store.commit('getGithubFileURL', {
          repo: `${this.$route.params.track}-tutorials`,
@@ -36,11 +38,7 @@ export default {
                })
             } else {
                let workshop = this.workshops[this.getWorkshopId()]
-               this.current.workshop = {
-                  id: workshop.id,
-                  index: workshop.index,
-                  title: workshop.title
-               }
+               this.current.workshop = workshop
             }
             this.loaded = true
          }).catch(err => {
@@ -50,21 +48,18 @@ export default {
    watch: {
       $route(to, from) {
          let workshop = this.workshops[this.getWorkshopId()]
-         this.current.workshop = {
-            id: workshop.id,
-            index: workshop.index,
-            title: workshop.title
-         }
+         this.current.workshop = workshop
       }
    },
    methods: {
       onResize() {
-         if (document.querySelector('.workshops >.toolbar') !== null) {
-            this.height = window.innerHeight - document.querySelector('.workshops >.toolbar').offsetHeight
+         let selector = '.workshops >.workshop-header >.toolbar'
+         if (document.querySelector(selector) !== null) {
+            this.height = window.innerHeight - document.querySelector(selector).offsetHeight
          } else {
             let self = this
             setTimeout(() => {
-               self.height = window.innerHeight - document.querySelector('.workshops >.toolbar').offsetHeight
+               self.height = window.innerHeight - document.querySelector(selector).offsetHeight
             }, 1000)
          }
       },
@@ -92,12 +87,12 @@ export default {
                   }
                },
                title: workshop.title[this.$store.state.lang],
-               desc: workshop[`desc-${this.$store.state.lang}`],
+               desc: workshop.desc[this.$store.state.lang],
                techniques_used: workshop.techniques_used,
                progress: 0,
                level: workshop.level,
                timetable: workshop.timetable,
-               last_update: workshop.last_update,
+               last_update: this.$date.get(new Date(workshop.last_update)),
                modules: [],
                users: workshop.users
             })
