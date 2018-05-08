@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomeComponent from './components/home/home.vue'
+import PageComponent from './components/page/page.vue'
 import AboutComponent from './components/about/about.vue'
 import SignInComponent from './components/signin/signin.vue'
 import SignUpComponent from './components/signup/signup.vue'
@@ -35,6 +36,10 @@ export default new Router({
       name: 'about',
       path: '/about',
       component: AboutComponent
+   }, {
+      name: 'page',
+      path: '/page/:page',
+      component: PageComponent
    }, {
       name: '404',
       path: '/404',

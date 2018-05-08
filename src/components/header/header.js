@@ -53,6 +53,7 @@ export default {
          this.currentClass = `${this.$route.name}-main-content`
          switch (this.$route.name) {
             case 'home':
+            case 'page':
             case 'signin':
             case 'signup':
                this.show = true
