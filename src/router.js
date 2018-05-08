@@ -11,8 +11,6 @@ import WorkshopComponent from './components/workshop/workshop.vue'
 import NotFoundComponent from './components/not-found/not-found.vue'
 import WorkshopsComponent from './components/workshops/workshops.vue'
 
-
-
 Vue.use(Router)
 
 export default new Router({

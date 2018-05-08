@@ -26,37 +26,23 @@ export default {
       })
       this.$http.get(this.$store.state.githubFileURL)
          .then(data => {
-            data.forEach((workshop, index) => {
-               this.workshops.push({
-                  id: workshop.id,
-                  index: index + 1,
-                  url: {
-                     name: 'workshop',
-                     params: {
-                        workshop: workshop.slug,
-                     }
-                  },
-                  title: workshop.title[this.$store.state.lang]
-               })
-               if (index === data.length - 1) {
-                  if (typeof this.$route.params.workshop === 'undefined') {
-                     this.$router.push({
-                        name: 'workshop',
-                        params: {
-                           workshop: this.workshops[0].url.params.workshop
-                        }
-                     })
-                  } else {
-                     let workshop = this.workshops[this.getWorkshopId()]
-                     this.current.workshop = {
-                        id: workshop.id,
-                        index: workshop.index,
-                        title: workshop.title
-                     }
+            this.workshops = this.parseData(data)
+            if (typeof this.$route.params.workshop === 'undefined') {
+               this.$router.push({
+                  name: 'workshop',
+                  params: {
+                     workshop: this.workshops[0].url.params.workshop
                   }
-                  this.loaded = true
+               })
+            } else {
+               let workshop = this.workshops[this.getWorkshopId()]
+               this.current.workshop = {
+                  id: workshop.id,
+                  index: workshop.index,
+                  title: workshop.title
                }
-            })
+            }
+            this.loaded = true
          }).catch(err => {
             console.error(err)
          })
@@ -91,6 +77,72 @@ export default {
          } else {
             return index
          }
+      },
+      // This is a temporary function
+      parseData(data) {
+         let workshops = []
+         data.forEach((workshop, workshopIndex) => {
+            workshops.push({
+               id: workshop.id,
+               index: workshopIndex + 1,
+               url: {
+                  name: 'workshop',
+                  params: {
+                     workshop: workshop.slug,
+                  }
+               },
+               title: workshop.title[this.$store.state.lang],
+               desc: workshop[`desc-${this.$store.state.lang}`],
+               techniques_used: workshop.techniques_used,
+               progress: 0,
+               level: workshop.level,
+               timetable: workshop.timetable,
+               last_update: workshop.last_update,
+               modules: [],
+               users: workshop.users
+            })
+            workshop.modules.forEach((module, moduleIndex) => {
+               workshops[workshopIndex].modules.push({
+                  id: module.id,
+                  index: moduleIndex + 1,
+                  url: {
+                     name: 'modules',
+                     params: {
+                        modules: module.slug,
+                     }
+                  },
+                  title: module.title[this.$store.state.lang],
+                  lessons: [],
+                  active: false,
+                  complete: false
+               })
+               module.lessons.forEach((lesson) => {
+                  workshops[workshopIndex].modules[moduleIndex].lessons.push({
+                     id: lesson.id,
+                     url: {
+                        name: 'lesson',
+                        params: {
+                           lesson: lesson.slug,
+                        },
+                        query: {
+                           url: lesson.url,
+                           type: lesson.type,
+                           notes: lesson.notes_url
+                        }
+                     },
+                     query: {
+                        url: lesson.url,
+                        type: lesson.type,
+                        notes: lesson.notes_url
+                     },
+                     type: lesson.type,
+                     title: lesson.title[this.$store.state.lang],
+                     complete: false
+                  })
+               })
+            })
+         })
+         return workshops
       }
    }
 }

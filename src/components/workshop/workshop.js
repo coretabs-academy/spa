@@ -4,5 +4,11 @@ export default {
    data: () => ({
       loaded: true
    }),
-   created() {}
+   created() {},
+   watch: {
+      $route(to, from) {
+
+      }
+   },
+   methods: {}
 }

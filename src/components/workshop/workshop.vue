@@ -1,6 +1,5 @@
 <template>
 <div v-if="loaded" class="workshop">
-collo
 </div>
 <div v-else class="progress-container">
    <v-container fluid grid-list-xs fill-height>
