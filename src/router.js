@@ -8,6 +8,7 @@ import SignInComponent from './components/signin/signin.vue'
 import SignUpComponent from './components/signup/signup.vue'
 import ContactComponent from './components/contact/contact.vue'
 import CoursesComponent from './components/courses/courses.vue'
+import PageComponent from './components/page/page.vue'
 // import TracksComponent from './components/tracks/tracks.vue'
 // import ProfileComponent from './components/profile/profile.vue'
 import NotFoundComponent from './components/not-found/not-found.vue'
@@ -61,6 +62,10 @@ export default new Router({
          name: 'signup',
          path: '/signup',
          component: SignUpComponent
+      }, {
+         name: 'page',
+         path: '/page/:page',
+         component: PageComponent
       }
       // {
       //    name: 'tracks',
