@@ -510,24 +510,30 @@ export default {
       prev() {
         var index = mentorsSiema.currentSlide / mentorsSiema.perPage
         if (mentorsSiema.currentSlide % mentorsSiema.perPage === 0) {
-          let children = document.querySelector('.m').children
-          for (var i = 0; i < children.length; i++) {
-            children[i].classList.remove('active')
+          const slideM = document.querySelector('.m')
+          if (slideM) {
+            var children = slideM.children
+            for (var i = 0; i < children.length; i++) {
+              children[i].classList.remove('active')
+            }
+            index = Math.ceil(index)
+            children[index].classList.add('active')
           }
-          index = Math.ceil(index)
-          children[index].classList.add('active')
         }
         mentorsSiema.prev(mentorsSiema.perPage)
       },
       next() {
         var index = mentorsSiema.currentSlide / mentorsSiema.perPage
         if (mentorsSiema.currentSlide % mentorsSiema.perPage === 0) {
-          let children = document.querySelector('.m').children
-          for (var i = 0; i < children.length; i++) {
-            children[i].classList.remove('active')
+          const slideM = document.querySelector('.m')
+          if (slideM) {
+            var children = slideM.children
+            for (var i = 0; i < children.length; i++) {
+              children[i].classList.remove('active')
+            }
+            index = Math.ceil(index)
+            children[index].classList.add('active')
           }
-          index = Math.ceil(index)
-          children[index].classList.add('active')
         }
         mentorsSiema.next(mentorsSiema.perPage)
       }
@@ -621,11 +627,14 @@ export default {
      this.playTSiema()
 
      function changeCurrentSlideT() {
-       let children = document.querySelector('.t').children
-       for (var i = 0; i < children.length; i++) {
-         children[i].classList.remove('active')
+       const slideT = document.querySelector('.t')
+       if (slideT) {
+         var children = slideT.children
+         for (var i = 0; i < children.length; i++) {
+           children[i].classList.remove('active')
+         }
+         children[this.currentSlide].classList.add('active')
        }
-       children[this.currentSlide].classList.add('active')
      }
 
      let childrenT = this.$refs.controlsT.children
@@ -662,23 +671,29 @@ export default {
      function changeCurrentSlideM() {
        var index = this.currentSlide / this.perPage
        if (this.currentSlide % this.perPage === 0 || index + 1 === root.mentors.set.length / this.perPage) {
-         let children = document.querySelector('.m').children
-         for (var i = 0; i < children.length; i++) {
-           children[i].classList.remove('active')
+         const slideM = document.querySelector('.m')
+         if (slideM) {
+           var children = slideM.children
+           for (var i = 0; i < children.length; i++) {
+             children[i].classList.remove('active')
+           }
+           index = Math.ceil(index)
+           children[index].classList.add('active')
          }
-         index = Math.ceil(index)
-         children[index].classList.add('active')
        }
      }
 
      addEventListener('resize', function() {
        root.perPage = mentorsSiema.perPage
-       let children = document.querySelector('.m').children
-       for (var i = 0; i < children.length; i++) {
-         children[i].classList.remove('active')
+       const slideM = document.querySelector('.m')
+       if (slideM) {
+         var children = slideM.children
+         for (var i = 0; i < children.length; i++) {
+           children[i].classList.remove('active')
+         }
+         children[0].classList.add('active')
+         mentorsSiema.currentSlide = 0
        }
-       children[0].classList.add('active')
-       mentorsSiema.currentSlide = 0
      }, false)
 
      let childrenM = this.$refs.controlsT.children

@@ -25,5 +25,29 @@ export default {
       })
       document.querySelector('html').setAttribute('lang', this.$store.state.lang)
       document.querySelector('html').setAttribute('dir', this.$store.state.direction)
-   }
+   },
+   mounted() {
+     updateHeader()
+   },
+  updated() {
+    updateHeader()
+  }
+}
+
+function updateHeader() {
+  const isAbout = document.querySelector('#about')
+  function subHeader() {
+     if (isAbout) {
+       if (window.scrollY >= 100) {
+         header.classList.add('fixed-header')
+       } else {
+         header.classList.remove('fixed-header')
+       }
+     } else {
+       header.classList.remove('fixed-header')
+     }
+  }
+ const header = document.querySelector('header')
+
+ window.addEventListener('scroll', subHeader)
 }

@@ -117,6 +117,44 @@ header {
    }
 }
 
+header.fixed-header {
+  background: white;
+  position: fixed;
+  width: 100%;
+  z-index: 6;
+    @include box-shadow(0px, 15px,34px ,0px , $shadow-color);
+
+  .toolbar__content {
+    height: 60px !important;
+
+     .brand-logo {
+        width: auto !important;
+        height: 100% !important;
+
+        img {
+           width: auto;
+           height: 100%;
+        }
+     }
+
+     .btn {
+        height: 30px !important;
+        color: #624bca !important;
+        margin: 15px 0 15px 10px !important;
+     }
+
+     .btn.radius {
+        border: 1px solid rgba(#634cc9, 0.59) !important;
+        margin: 15px 20px 15px 10px !important;
+     }
+
+     .btn.radius:hover {
+        background: rgba(#624bc9, 0.1) !important;
+        color: rgba(#624bc9, 0.9) !important;
+     }
+  }
+}
+
 [dir='ltr'] {
    header .list__group__header__append-icon {
       right: 0 !important;
