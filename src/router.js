@@ -7,8 +7,6 @@ import CourseComponent from './components/course/course.vue'
 import SignInComponent from './components/signin/signin.vue'
 import SignUpComponent from './components/signup/signup.vue'
 import ContactUsComponent from './components/contact-us/contact-us.vue'
-import TermsOfServiceComponent from './components/terms-of-service/terms-of-service.vue'
-import PrivacyPolicyComponent from './components/privacy-policy/privacy-policy.vue'
 import CoursesComponent from './components/courses/courses.vue'
 import PageComponent from './components/page/page.vue'
 // import TracksComponent from './components/tracks/tracks.vue'
@@ -67,19 +65,9 @@ export default new Router({
          component: PageComponent
       },
       {
-         name: 'contactus',
-         path: '/contactus',
+         name: 'contact-us',
+         path: '/contact-us',
          component: ContactUsComponent
-      },
-      {
-         name: 'termsofservice',
-         path: '/termsofservice',
-         component: TermsOfServiceComponent
-      },
-      {
-         name: 'privacypolicy',
-         path: '/privacypolicy',
-         component: PrivacyPolicyComponent
       }
       // {
       //    name: 'tracks',
