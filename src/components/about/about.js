@@ -1,3 +1,9 @@
+import Siema from 'siema'
+
+let carouselTransitionT
+let carouselTransitionM
+let mentorsSiema
+
 export default {
    name: 'AboutComponent',
    components: {},
@@ -17,16 +23,7 @@ export default {
         LH: ''
       },
       teamImages: [],
-      // mentorsImages: [],
-      options: {
-        draggable: true,
-        duration: 500,
-        easing: 'ease-out',
-        perPage: 1,
-        startIndex: 0,
-        loop: true,
-        rtl: false
-      },
+      mentorsImages: [],
       // mentorsOptions: {
       //   querySelector: '.mentorscarousel',
       //   draggable: true,
@@ -70,8 +67,7 @@ export default {
             description: 'مصمم تطبيقات موبايل',
             quote: 'venenatis dui ac pharetra. Nunc eu felis fermentum diam molestie dictum. Ut pretium laoreet tincidunt. Curabitur suscipit iaculis elit et lobortis.',
             rating: 2
-         }
-         ,
+         },
          {
             img: 'saif.png',
             name: 'منصور الجاسمي',
@@ -101,6 +97,9 @@ export default {
             rating: 1
          }
         ]
+      },
+      testimonialsSiema: {
+        perPage: ''
       },
       team: {
         title: 'فريق العمل',
@@ -158,75 +157,380 @@ export default {
           }
         ]
       },
-      // mentors: {
-      //   title: 'الموجهون',
-      //   description: 'فريق التوجية في الأكاديمية يتألف من عدد من الأشخاص المتميزين الذي سيقوموا بمساندتك أثناء رحلتك التدريبية على منصة coretabs',
-      //   set: [
-      //     {
-      //       name: 'Mohammed AlHakem',
-      //       about: 'Front-end web developer & UI/UX designer',
-      //       src: 'mentors/one.jpg',
-      //       socials: [
-      //         {
-      //           name: 'github',
-      //           src: 'ss'
-      //         },
-      //         {
-      //           name: 'stackoverflow',
-      //           src: 'sxs'
-      //         },
-      //         {
-      //           name: 'website',
-      //           src: 'ddcd'
-      //         },
-      //         {
-      //           name: 'linkedin',
-      //           src: 'cdcd'
-      //         },
-      //         {
-      //           name: 'twitter',
-      //           src: 'cdcd'
-      //         }
-      //       ]
-      //     }
-      //   ]
-      // },
+      mentors: {
+        title: 'الموجهون',
+        description: 'فريق التوجية في الأكاديمية يتألف من عدد من الأشخاص المتميزين الذي سيقوموا بمساندتك أثناء رحلتك التدريبية على منصة coretabs',
+        set: [
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },{
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          },
+          {
+            name: 'Mohammed AlHakem',
+            about: 'Front-end web developer & UI/UX designer',
+            src: 'mentors/one.jpg',
+            socials: [
+              {
+                name: 'github',
+                src: 'ss'
+              },
+              {
+                name: 'stackoverflow',
+                src: 'sxs'
+              },
+              {
+                name: 'website',
+                src: 'ddcd'
+              },
+              {
+                name: 'linkedin',
+                src: 'cdcd'
+              },
+              {
+                name: 'twitter',
+                src: 'cdcd'
+              }
+            ]
+          }
+        ]
+      },
       footer: {
         contactUs: 'إتصل بنا',
         termsOfService: 'شروط الخدمة',
         privacyPolicy: 'سياسة الخصوصية'
-      }
+      },
+      perPage: 1
    }),
-   watch: {
-     currentSlide() {
-       let children = this.$refs.controls.children
-       for (var i = 0; i < children.length; i++) {
-         children[i].classList.remove('active')
-       }
-       children[this.currentSlide].classList.add('active')
-      }
-   },
    methods: {
-     show(i, e) {
+     showTestimonials(i, e) {
        let children = e.currentTarget.parentElement.children
        for (let i = 0; i < children.length; i++) {
          children[i].classList.remove('active')
        }
        e.currentTarget.classList.add('active')
-       this.$refs.siema.goTo(i)
+       this.testimonialsSiema.goTo(i)
      },
-     // setPerPage() {
-     //     this.options.perPage = Math.floor(document.querySelector('#mentors').offsetWidth / 237)
-     //     this.$refs.mentorscarousel.init()
-     //  },
+     showMentors(i, e) {
+       let children = e.currentTarget.parentElement.children
+       for (let i = 0; i < children.length; i++) {
+         children[i].classList.remove('active')
+       }
+       e.currentTarget.classList.add('active')
+       mentorsSiema.goTo(i * this.perPage)
+     },
       calc(i, j) {
         return i <= j ? this.starState.active : this.starState.inactive
+      },
+      stopTSiema() {
+        clearInterval(carouselTransitionT)
+      },
+      playTSiema() {
+        carouselTransitionT = setInterval(() => { this.testimonialsSiema.prev() }, 4000)
+      },
+      stopMSiema() {
+        clearInterval(carouselTransitionM)
+      },
+      playMSiema() {
+        carouselTransitionM = setInterval(() => {
+          if (mentorsSiema.currentSlide + mentorsSiema.perPage >= this.mentors.set.length) {
+            mentorsSiema.prev(this.mentors.set.length)
+          } else {
+            mentorsSiema.next(mentorsSiema.perPage)
+          }
+        }, 5000)
+      },
+      count() {
+        return Math.ceil(this.mentors.set.length / this.perPage)
+      },
+      prev() {
+        var index = mentorsSiema.currentSlide / mentorsSiema.perPage
+        if (mentorsSiema.currentSlide % mentorsSiema.perPage === 0) {
+          let children = document.querySelector('.m').children
+          for (var i = 0; i < children.length; i++) {
+            children[i].classList.remove('active')
+          }
+          index = Math.ceil(index)
+          children[index].classList.add('active')
+        }
+        mentorsSiema.prev(mentorsSiema.perPage)
+      },
+      next() {
+        var index = mentorsSiema.currentSlide / mentorsSiema.perPage
+        if (mentorsSiema.currentSlide % mentorsSiema.perPage === 0) {
+          let children = document.querySelector('.m').children
+          for (var i = 0; i < children.length; i++) {
+            children[i].classList.remove('active')
+          }
+          index = Math.ceil(index)
+          children[index].classList.add('active')
+        }
+        mentorsSiema.next(mentorsSiema.perPage)
       }
-   },
-   computed: {
-     perPage() {
-       return Math.ceil(this.testimonials.carousel.length / this.options.perPage)
-     }
    },
    created() {
      for (let k of this.descriptions) {
@@ -279,13 +583,13 @@ export default {
         })
       }
 
-      // for (let k of this.mentors.set) {
-      //   this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
-      //      this.mentorsImages.push(img)
-      //   }).catch(error => {
-      //      throw new Error(error.message)
-      //   })
-      // }
+      for (let k of this.mentors.set) {
+        this.$store.dispatch('getImgUrl', `images/${k.src}`).then(img => {
+           this.mentorsImages.push(img)
+        }).catch(error => {
+           throw new Error(error.message)
+        })
+      }
 
       this.$store.dispatch('getImgUrl', 'images/left.svg').then(img => {
          this.navigation.left = img
@@ -299,20 +603,90 @@ export default {
       })
    },
    mounted() {
-     this.$refs.siema.stop()
+     this.testimonialsSiema = new Siema({
+        selector: '.testimonials-carousel',
+        duration: 500,
+        easing: 'ease-out',
+        perPage: 1,
+        startIndex: 0,
+        draggable: true,
+        multipleDrag: true,
+        threshold: 20,
+        loop: true,
+        rtl: false,
+        onInit: changeCurrentSlideT,
+        onChange: changeCurrentSlideT
+     })
 
-     let children = this.$refs.controls.children
-     for (var i = 0; i < children.length; i++) {
-       children[i].classList.remove('active')
+     this.playTSiema()
+
+     function changeCurrentSlideT() {
+       let children = document.querySelector('.t').children
+       for (var i = 0; i < children.length; i++) {
+         children[i].classList.remove('active')
+       }
+       children[this.currentSlide].classList.add('active')
      }
-     children[0].classList.add('active')
 
-     // addEventListener('resize', e => {
-     //   if (e.target.innerWidth <= 1150) {
-     //     // console.log(this)
-     //     // root.$refs.mentorscarousel.init()
-     //     this.$refs.mentorscarousel.resizeHandler()
-     //   }
-     // }, false)
+     let childrenT = this.$refs.controlsT.children
+     for (let i = 0; i < childrenT.length; i++) {
+       childrenT[i].classList.remove('active')
+     }
+     childrenT[0].classList.add('active')
+
+     let root = this
+
+     mentorsSiema = new Siema({
+        selector: '.mentors-carousel',
+        duration: 1000,
+        easing: 'ease-out',
+        perPage: {
+          1150: 4,
+          900: 3,
+          650: 2,
+          520: 3,
+          0: 2
+        },
+        startIndex: 0,
+        draggable: true,
+        multipleDrag: true,
+        threshold: 20,
+        loop: false,
+        rtl: false,
+        onInit: changeCurrentSlideM,
+        onChange: changeCurrentSlideM
+     })
+
+     this.playMSiema()
+
+     function changeCurrentSlideM() {
+       var index = this.currentSlide / this.perPage
+       if (this.currentSlide % this.perPage === 0 || index + 1 === root.mentors.set.length / this.perPage) {
+         let children = document.querySelector('.m').children
+         for (var i = 0; i < children.length; i++) {
+           children[i].classList.remove('active')
+         }
+         index = Math.ceil(index)
+         children[index].classList.add('active')
+       }
+     }
+
+     addEventListener('resize', function() {
+       root.perPage = mentorsSiema.perPage
+       let children = document.querySelector('.m').children
+       for (var i = 0; i < children.length; i++) {
+         children[i].classList.remove('active')
+       }
+       children[0].classList.add('active')
+       mentorsSiema.currentSlide = 0
+     }, false)
+
+     let childrenM = this.$refs.controlsT.children
+     for (let i = 0; i < childrenM.length; i++) {
+       childrenM[i].classList.remove('active')
+     }
+     childrenM[0].classList.add('active')
+
+     this.perPage = mentorsSiema.perPage
    }
 }
