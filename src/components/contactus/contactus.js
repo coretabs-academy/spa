@@ -1,5 +1,5 @@
 export default {
-   name: 'ContactComponent',
+   name: 'ContactUsComponent',
    components: {},
    data: () => ({}),
    created() {}
