@@ -107,9 +107,9 @@
    </div>
 
    <footer>
-     <router-link to="/">{{ footer.contactUs }}</router-link>|
-     <router-link to="/">{{ footer.termsOfService }}</router-link>|
-     <router-link to="/">{{ footer.privacyPolicy }}</router-link>
+     <router-link to="/contact-us">{{ footer.contactUs }}</router-link>|
+     <router-link to="/page/terms-of-service">{{ footer.termsOfService }}</router-link>|
+     <router-link to="/page/privacy-policy">{{ footer.privacyPolicy }}</router-link>
    </footer>
 </div>
 </template>

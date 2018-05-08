@@ -11,6 +11,7 @@ import ModulesComponent from './components/modules/modules.vue'
 import WorkshopComponent from './components/workshop/workshop.vue'
 import NotFoundComponent from './components/not-found/not-found.vue'
 import WorkshopsComponent from './components/workshops/workshops.vue'
+import ContactUsComponent from './components/contact-us/contact-us.vue'
 
 Vue.use(Router)
 
@@ -36,6 +37,10 @@ export default new Router({
       name: 'about',
       path: '/about',
       component: AboutComponent
+   }, {
+      name: 'contact-us',
+      path: '/contact-us',
+      component: ContactUsComponent
    }, {
       name: 'page',
       path: '/page/:page',

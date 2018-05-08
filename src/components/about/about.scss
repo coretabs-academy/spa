@@ -690,7 +690,8 @@ About Style
 
       h1,
       p {
-         width: 750px;
+         max-width: 750px;
+         width: 100%;
       }
       @media screen and (max-width: 850px) {
          h1,
