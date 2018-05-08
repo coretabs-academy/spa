@@ -7,41 +7,44 @@ Tracks Style
    .jumbotron {
       .layout {
          margin: 0 5px !important;
-      }
 
-      .card {
-         position: relative !important;
+         .section-title {
+            color: $black-color !important;
 
-         .card__media {
-
-            /* 16:9 Aspect Ratio */
-            // padding-top: 56.25% !important;
-            /* 4:3 Aspect Ratio */
-            // padding-top: 75% !important;
-            /* 3:2 Aspect Ratio */
-            // padding-top: 66.66% !important;
-            /* 8:5 Aspect Ratio */
-            padding-top: 62.5% !important;
-         }
-
-         .card__title {
-            height: 45px !important;
-            line-height: 45px !important;
-            padding: 0 25px 0 0 !important;
-
-            h1 {
-               @include responsive-font-size(0.8rem,true);
+            &::after,
+            &::before {
+               background: $black-color !important;
             }
          }
 
-         .card__text {
-            top: 0 !important;
-            z-index: 80 !important;
-            border-radius: 0 !important;
-            font-weight: 600 !important;
-            position: absolute !important;
-            height: calc(100% - 45px) !important;
-            @include responsive-font-size(0.8rem,true);
+         .card {
+            position: relative !important;
+
+            .card__media {
+               @include responsive-ratio(3,2,true);
+            }
+
+            .card__title {
+               height: 45px !important;
+               line-height: 45px !important;
+               padding: 0 25px 0 0 !important;
+               background: $grading-color !important;
+
+               h1 {
+                  @include responsive-font-size(0.8rem,true);
+               }
+            }
+
+            .card__text {
+               top: 0 !important;
+               z-index: 80 !important;
+               border-radius: 0 !important;
+               font-weight: 600 !important;
+               position: absolute !important;
+               height: calc(100% - 45px) !important;
+               background: $grading-color !important;
+               @include responsive-font-size(0.8rem,true);
+            }
          }
       }
    }

@@ -2,7 +2,7 @@ export default {
    name: 'WorkshopComponent',
    components: {},
    data: () => ({
-      loaded: false
+      loaded: true
    }),
    created() {}
 }

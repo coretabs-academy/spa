@@ -19,8 +19,8 @@ export default {
       document.querySelectorAll('#lesson-markdown img').forEach((img) => {
          let src = img.src.replace(/^.*[\\/]/, '')
          this.$store.commit('getGithubFileURL', {
-            repo: `${this.$route.params.module}-tutorials`,
-            path: `${this.$api.b64DecodeUnicode(this.$route.query.url).replace(/[a-zA-Z-]+\.txt/, '')}/${src}`
+            repo: `${this.$route.params.track}-tutorials`,
+            path: `${this.$encryption.b64DecodeUnicode(this.$route.query.url).replace(/[a-zA-Z-]+\.txt/, '')}/${src}`
          })
          img.src = this.$store.state.githubFileURL
       })
@@ -35,8 +35,8 @@ export default {
          switch (this.type) {
             case 0:
             case 1:
-               this.lesson_content = this.$api.b64DecodeUnicode(this.$route.query.url)
-               this.$http.get(this.$api.b64DecodeUnicode(this.$route.query.notes))
+               this.lesson_content = this.$encryption.b64DecodeUnicode(this.$route.query.url)
+               this.$http.get(this.$encryption.b64DecodeUnicode(this.$route.query.notes))
                   .then(data => {
                      this.notes_content = this.previewMarkdowText(data)
                      this.loaded = true
@@ -45,7 +45,7 @@ export default {
                   })
                break
             case 2:
-               this.$http.get(this.$api.b64DecodeUnicode(this.$route.query.url))
+               this.$http.get(this.$encryption.b64DecodeUnicode(this.$route.query.url))
                   .then(data => {
                      this.lesson_content = this.previewMarkdowText(data)
                      this.loaded = true
@@ -54,7 +54,7 @@ export default {
                   })
                break
             case 3:
-               this.$http.get(this.$api.b64DecodeUnicode(this.$route.query.url))
+               this.$http.get(this.$encryption.b64DecodeUnicode(this.$route.query.url))
                   .then(data => {
                      this.lesson_content = this.previewMarkdowText(data)
                      this.loaded = true
@@ -63,7 +63,7 @@ export default {
                   })
                break
             case 4:
-               this.$http.get(this.$api.b64DecodeUnicode(this.$route.query.url))
+               this.$http.get(this.$encryption.b64DecodeUnicode(this.$route.query.url))
                   .then(data => {
                      this.lesson_content = this.previewMarkdowText(data)
                      this.loaded = true

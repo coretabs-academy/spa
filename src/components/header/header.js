@@ -60,23 +60,14 @@ export default {
                break
             case 'about':
             case 'tracks':
-            case 'contact':
                this.show = true
-               // if (!this.$store.state.isLogin) {
-               //    this.navs = this.user_navs;
-               // } else {
-               this.navs = this.default_navs
-               // }
-               break
-            case 'track':
-            case 'profile':
-               this.show = true
-               // this.navs = this.user_navs;
                this.navs = this.default_navs
                break
             case '404':
-            case 'course':
-            case 'courses':
+            case 'lesson':
+            case 'modules':
+            case 'workshop':
+            case 'workshops':
                this.show = false
                break
          }

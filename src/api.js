@@ -34,7 +34,7 @@ export default {
             })
          }
       }
-      Vue.prototype.$api = {
+      Vue.prototype.$encryption = {
          b64DecodeUnicode(str) {
             return decodeURIComponent(atob(str).split('').map(function(c) {
                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)

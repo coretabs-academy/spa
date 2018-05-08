@@ -1,6 +1,6 @@
 <template>
 <div v-if="loaded" class="tracks">
-   <v-jumbotron color="secondary" height="auto">
+   <v-jumbotron height="auto">
       <v-container fluid grid-list-xl fill-height>
          <v-layout justify-center row wrap>
             <v-flex text-xs-center xs12 sm12 md12>
@@ -9,7 +9,7 @@
             <v-flex xs12 sm9 md4 v-for="card in tracks.cards" :key="card.background" class="mb-5">
                <v-card>
                   <v-card-media :src="card.background"></v-card-media>
-                  <v-card-title primary-title class="primary">
+                  <v-card-title primary-title>
                      <h1 class="text-xs-center"><router-link :to="card.href" class="white--text">{{card.title}}</router-link></h1>
                      <v-spacer></v-spacer>
                      <v-btn icon @click.native="card.show = !card.show" class="white--text close-btn">
@@ -17,7 +17,7 @@
                      </v-btn>
                   </v-card-title>
                   <v-slide-y-transition>
-                     <v-card-text class="elevation-2 primary white--text" v-show="card.show">
+                     <v-card-text class="elevation-2 white--text" v-show="card.show">
                         <v-layout justify-content align-center>
                            {{card.description}}
                         </v-layout>
@@ -33,7 +33,7 @@
    <v-container fluid grid-list-xs fill-height>
       <v-layout row align-center>
          <v-flex xs12>
-            <v-progress-circular indeterminate color="primary" size="80" width="7"></v-progress-circular>
+            <v-progress-circular indeterminate color="primary" :size="80" :width="7"></v-progress-circular>
          </v-flex>
       </v-layout>
    </v-container>
