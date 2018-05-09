@@ -11,7 +11,7 @@ Signup Style
     @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
     border-radius: 25px;
     padding: 20px;
-    background-color: #FFFFFF;
+    background-color: $white-color;
 
     @media (max-width: 600px) {
       flex-basis: 90%;
@@ -42,7 +42,7 @@ Signup Style
       #avatar {
         display: block;
         border-radius: 0;
-        color: #fff;
+        color: $white-color;
         margin: 10px 0 0 20px;
       }
 
@@ -68,7 +68,7 @@ Signup Style
           display: none;
         }
       }
-      
+
       .input-group--text-field label {
         max-width: unset;
         text-align: right;
@@ -96,19 +96,19 @@ Signup Style
           float: left;
           margin: 0;
           height: 32px;
-          background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1));
+          background: $grading-color;
           @include box-shadow(0px, 2px, 5px, 0px , $shadow-color);
           line-height: 0px;
-          color: #FFFFFF !important;
+          color: $white-color !important;
           font-weight: 400;
           width: 75%;
           max-width: 150px;
-    
+
           @media (max-width: 960px) {
             margin-top: 20px;
           }
         }
-    
+
         #submit:disabled {
           background: #D5D5D5;
           box-shadow: none;
@@ -118,7 +118,7 @@ Signup Style
         @media (max-width: 600px) {
           flex-basis: calc((100% / 12) * 10);
           max-width: calc((100% / 12) * 10);
-          
+
           #submit {
             width: 100%;
             max-width: 100%;

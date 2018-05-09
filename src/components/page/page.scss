@@ -5,13 +5,13 @@ Page Style
 =======================================*/
 #page {
   padding-bottom: 40px;
-  
+
   div#container {
     position: relative;
     @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
     border-radius: 25px;
     padding: 25px 0;
-    background: linear-gradient(to top, #FAFAFA 25px, #FFF 25px);
+    background: linear-gradient(to top, #FAFAFA 25px, $white-color 25px);
 
     @media (max-width: 600px) {
       flex-basis: 90%;
@@ -43,6 +43,6 @@ Page Style
 
 .theme--light .card {
   border-top: 1px solid #E0E0E0 !important;
-  background-color: #FAFAFA !important;
+  background-color: $workshop-drawer-background !important;
   padding: 20px;
 }

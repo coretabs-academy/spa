@@ -9,7 +9,7 @@
          <v-stepper v-model="current.workshop.index" vertical class="py-0">
             <v-list-group v-for="workshop in workshops" :key="`step-${workshop.index}`">
                <v-list-tile slot="activator">
-                  <v-stepper-step :step="workshop.index" :complete="workshop.progress === 100">
+                  <v-stepper-step :step="workshop.index" :complete="workshop.progress === 100" v-bind:class="{'stepper__step--active':workshop.progress > 0}">
                      <router-link :to="workshop.url">{{workshop.title}}</router-link>
                   </v-stepper-step>
                </v-list-tile>

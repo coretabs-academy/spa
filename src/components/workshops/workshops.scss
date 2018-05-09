@@ -152,7 +152,27 @@ html[dir='rtl'] {
                            width: 100% !important;
                            height: $drawer-group-height !important;
 
+                           &.stepper__step--complete {
+                              .stepper__step__step {
+                                 color: $white-color !important;
+                                 background: var(--workshop-complete-state) !important;
+
+                                 &:before {
+                                    display: none !important;
+                                 }
+                              }
+                           }
+
+                           &.stepper__step--active {
+                              .stepper__step__step {
+                                 &:before {
+                                    color: var(--workshop-complete-state) !important;
+                                 }
+                              }
+                           }
+
                            .stepper__step__step {
+                              font-size: 14px !important;
                               position: relative !important;
                               margin: $workshop-margin !important;
                               height: $stepper-icon-size !important;
@@ -169,7 +189,7 @@ html[dir='rtl'] {
                                  text-align: center !important;
                                  border-radius: 50% !important;
                                  position: absolute !important;
-                                 transform: scale(0.75) !important;
+                                 transform: scale(0.82) !important;
                                  content: attr(data-index) !important;
                                  background-color: $white-color !important;
                                  line-height: $stepper-icon-size !important;

@@ -11,7 +11,7 @@ Signin Style
     @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
     border-radius: 25px;
     padding: 20px;
-    background-color: #FFFFFF;
+    background-color: $white-color;
 
     @media (max-width: 600px) {
       flex-basis: 90%;
@@ -50,7 +50,7 @@ Signin Style
           color: #000;
         }
       }
-      
+
       .alert {
         border-radius: 10px;
         margin: 0 0 10px;
@@ -93,11 +93,11 @@ Signin Style
 
         #submit {
           margin: 0 0 0 auto;
-          background: linear-gradient(to left, rgba(45,67,231,1), rgba(144,66,232,1));
+          background: $grading-color;
           @include box-shadow(0px, 2px, 5px, 0px , $shadow-color);
-          color: #FFFFFF !important;
+          color: $white-color !important;
         }
-    
+
         #submit:disabled {
           background: #D5D5D5;
           box-shadow: none;
@@ -116,7 +116,7 @@ Signin Style
           padding: 0 16px;
           justify-content: center;
           align-items: center;
-          background-color: #FFF !important;
+          background-color: $white-color !important;
           color: #9E9E9E !important;
           text-transform: uppercase;
           text-decoration: none;

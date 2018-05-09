@@ -52,8 +52,8 @@ export default {
    updated() {
       document.querySelectorAll('#sidenav .stepper__step__step').forEach((stepper, index) => {
          stepper.setAttribute('data-index', index + 1)
-         if (this.workshops[index].progress != 0) {
-            stepper.style.background = this.progress(this.workshops[index].progress + 20);
+         if (this.workshops[index].progress !== 0 && this.workshops[index].progress !== 100) {
+            stepper.style.background = this.progress(this.workshops[index].progress);
          }
       })
    },
