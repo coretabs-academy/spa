@@ -3,7 +3,7 @@ export default {
   components: {},
   data: () => ({
     heading_text: 'تسجيل الدخول',
-    forgot_link_text: '<a href="/forgot">نسيت كلمة المرور؟</a>',
+    forgot_link_text: '<a href="/forgot-password">نسيت كلمة المرور؟</a>',
     submit_btn_text: 'دخول',
     signup_btn_text: 'حساب جديد',
     alert: {
@@ -27,7 +27,7 @@ export default {
     pw: true,
     pwRules: [
       v => !!v || '',
-      v => (v && v.length >= 10) || 'كلمة السر يجب أن تتكون من 10 أحرى على الأقل'
+      v => (v && v.length >= 10) || 'كلمة السر يجب أن تتكون من 10 أحرف على الأقل'
     ]
   }),
   updated() {

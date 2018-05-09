@@ -1,6 +1,5 @@
 <template>
-  <div id="page">
-<v-container fluid fill-height>
+  <v-container id="page" fluid fill-height>
     <v-layout row align-center justify-center>
       <v-flex id="container" xs8>
         <div>
@@ -20,18 +19,6 @@
       </v-flex>
     </v-layout>
   </v-container>
-  <v-container fluid>
-    <v-layout row wrap align-center justify-center>
-      <v-flex xs12>
-        <footer>
-          <router-link to="/">{{ footer.contactUs }}</router-link>|
-          <router-link to="/page/terms-of-service">{{ footer.termsOfService }}</router-link>|
-          <router-link to="/page/privacy-policy">{{ footer.privacyPolicy }}</router-link>
-        </footer>
-      </v-flex>
-    </v-layout>
-  </v-container>
-  </div>
 </template>
 <script src="./page.js"></script>
 <style src="./page.scss" lang="scss"></style>
