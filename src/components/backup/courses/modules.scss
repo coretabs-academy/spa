@@ -5,12 +5,11 @@ Modules Style
 =======================================*/
 $padding: 0 0 15px 0;
 $ar-padding: 0 15px 0 0;
-$workshop-stepper-icon-size: 25px;
-$workshopstepper-line-width: 2px;
+$stepper-line-width: 2px;
+$stepper-icon-size: 25px;
 $drawer-group-item-height: 40px;
 $stepper-group-item-padding: 10px;
 $drawer-group-active-state: #74dad9;
-var(--workshop-normal-state): #cdcdcd;
 $stepper-group-item-fl-padding: 15px;
 
 main.course-main-content,
@@ -40,7 +39,7 @@ html[dir='rtl'] {
                                  &::after,
                                  &::before {
                                     left: 0 !important;
-                                    right: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($workshopstepper-line-width / 2) !important;
+                                    right: ($stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
                                  }
                               }
                            }
@@ -195,7 +194,7 @@ html[dir='rtl'] {
                            .list__tile__action {
                               .icon {
                                  &::before {
-                                    height: ($drawer-group-item-height - $workshop-stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
+                                    height: ($drawer-group-item-height - $stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
                                  }
                               }
                            }
@@ -210,7 +209,7 @@ html[dir='rtl'] {
                            .list__tile__action {
                               .icon {
                                  &::after {
-                                    height: ($drawer-group-item-height - $workshop-stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
+                                    height: ($drawer-group-item-height - $stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
                                  }
                               }
                            }
@@ -222,17 +221,17 @@ html[dir='rtl'] {
                         padding: 0 $stepper-group-item-padding !important;
 
                         .list__tile__action {
-                           width: $workshop-stepper-icon-size !important;
-                           min-width: $workshop-stepper-icon-size !important;
-                           max-width: $workshop-stepper-icon-size !important;
+                           width: $stepper-icon-size !important;
+                           min-width: $stepper-icon-size !important;
+                           max-width: $stepper-icon-size !important;
 
                            .icon {
                               border-radius: 50% !important;
                               background: $white-color !important;
-                              width: $workshop-stepper-icon-size !important;
-                              height: $workshop-stepper-icon-size !important;
+                              width: $stepper-icon-size !important;
+                              height: $stepper-icon-size !important;
                               color: var(--workshop-normal-state) !important;
-                              font-size: $workshop-stepper-icon-size / 2 !important;
+                              font-size: $stepper-icon-size / 2 !important;
                               border: 2px dashed var(--workshop-normal-state) !important;
 
                               &::after,
@@ -241,10 +240,10 @@ html[dir='rtl'] {
                                  content: "" !important;
                                  display: block !important;
                                  position: absolute !important;
-                                 width: $workshopstepper-line-width !important;
+                                 width: $stepper-line-width !important;
                                  background: var(--workshop-normal-state) !important;
-                                 height: ($drawer-group-item-height - $workshop-stepper-icon-size) /2 !important;
-                                 left: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($workshopstepper-line-width / 2) !important;
+                                 height: ($drawer-group-item-height - $stepper-icon-size) /2 !important;
+                                 left: ($stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
                               }
 
                               &::before {

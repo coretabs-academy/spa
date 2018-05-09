@@ -5,6 +5,7 @@ Modules Style
 =======================================*/
 $padding: 0 0 0 15px;
 $ar-padding: 0 15px 0 0;
+$stepper-line-width: 2px;
 $drawer-group-height: 45px;
 $drawer-group-item-height: 40px;
 $stepper-group-item-padding: 10px;
@@ -55,7 +56,7 @@ html[dir='rtl'] {
                                  &::after,
                                  &::before {
                                     left: 0 !important;
-                                    right: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($workshopstepper-line-width / 2) !important;
+                                    right: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
                                  }
                               }
                            }
@@ -85,6 +86,10 @@ html[dir='rtl'] {
       width: $workshop-drawer-width !important;
       background: $workshop-drawer-background !important;
       @include box-shadow(0px, 15px, 34px, 0px, $shadow-color,true);
+
+      &.navigation-drawer--close {
+         transform: translateX($workshop-drawer-width) !important;
+      }
 
       .navigation-drawer__border {
          display: none !important;
@@ -346,10 +351,10 @@ html[dir='rtl'] {
                                  content: "" !important;
                                  display: block !important;
                                  position: absolute !important;
-                                 width: $workshopstepper-line-width !important;
+                                 width: $stepper-line-width !important;
                                  background: var(--workshop-normal-state) !important;
                                  height: ($drawer-group-item-height - $workshop-stepper-icon-size) /2 !important;
-                                 left: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($workshopstepper-line-width / 2) !important;
+                                 left: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
                               }
 
                               &::before {
