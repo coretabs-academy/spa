@@ -1,9 +1,9 @@
 <template>
 <div v-if="loaded" class="workshops">
    <workshop-header-component :title="current.workshop.title"></workshop-header-component>
-   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen" v-bind:class="{'elevation-15':drawer.isOpen}">
+   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen" v-bind:class="{'elevation-24':drawer.isOpen}">
       <v-toolbar flat>
-         <v-toolbar-title class="mx-auto">{{title}}</v-toolbar-title>
+         <v-toolbar-title>{{title}}</v-toolbar-title>
       </v-toolbar>
       <v-list class="py-0">
          <v-stepper v-model="current.workshop.index" vertical class="py-0">

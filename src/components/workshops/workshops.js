@@ -64,7 +64,7 @@ export default {
             let self = this
             this.timeout = setTimeout(() => {
                self.height = window.innerHeight - document.querySelector(selector).offsetHeight
-            }, 1000)
+            }, 100)
          }
       },
       getWorkshopId() {
@@ -93,8 +93,8 @@ export default {
                title: workshop.title[this.$store.state.lang],
                desc: workshop.desc[this.$store.state.lang],
                techniques_used: workshop.techniques_used,
-               progress: 0,
                level: workshop.level,
+               progress: workshop.progress,
                timetable: workshop.timetable,
                last_update: this.$date.get(new Date(workshop.last_update)),
                modules: [],
@@ -111,9 +111,7 @@ export default {
                      }
                   },
                   title: module.title[this.$store.state.lang],
-                  lessons: [],
-                  active: false,
-                  complete: false
+                  lessons: []
                })
                module.lessons.forEach((lesson) => {
                   workshops[workshopIndex].modules[moduleIndex].lessons.push({
@@ -135,8 +133,8 @@ export default {
                         notes: lesson.notes_url
                      },
                      type: lesson.type,
+                     is_shown: lesson.is_shown,
                      title: lesson.title[this.$store.state.lang],
-                     complete: false
                   })
                })
             })

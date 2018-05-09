@@ -20,8 +20,7 @@ export default {
    props: ['modules'],
    created() {
       this.$on('toggle-drawer', function(data) {
-         console.log('data')
-         this.isOpen = !this.isOpen
+         this.drawer.isOpen = !this.drawer.isOpen
       })
       this.drawer.isRight = this.$store.state.direction === 'rtl'
    },
@@ -39,7 +38,7 @@ export default {
             let self = this
             setTimeout(() => {
                self.height = window.innerHeight - document.querySelector(selector).offsetHeight
-            }, 1000)
+            }, 100)
          }
       },
       getLessonId() {

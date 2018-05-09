@@ -14,7 +14,6 @@ const markdown = new showdown.Converter({
    // omitExtraWLInCodeBlocks: true,
 })
 
-
 export default {
    install: (Vue) => {
       Vue.prototype.$http = {

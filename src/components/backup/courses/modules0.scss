@@ -21,6 +21,10 @@ main.courses-main-content {
 html[dir='rtl'] {
    .courses {
       .navigation-drawer {
+         .toolbar {
+            padding: $ar-padding !important;
+         }
+
          .list {
             .stepper {
                .list__group {
@@ -65,12 +69,65 @@ html[dir='rtl'] {
 }
 
 .courses {
-   .navigation-drawer {
-      .list {
+   height: 100% !important;
+   overflow: hidden !important;
+   position: relative !important;
+   background: $white-color !important;
 
+   .navigation-drawer {
+      height: 100vh !important;
+      overflow: hidden !important;
+      width: $workshop-drawer-width !important;
+      background: $workshop-drawer-background !important;
+      @include box-shadow(0px, 15px, 34px, 0px, $shadow-color,true);
+
+      .navigation-drawer__border{
+         display: none !important;
+      }
+
+      .toolbar {
+         height: auto !important;
+         padding: $padding !important;
+         background: $grading-color !important;
+         min-height: $workshop-header-height !important;
+         max-height: $workshop-header-height !important;
+
+         .toolbar__content {
+            height: auto !important;
+            min-height: $workshop-header-height !important;
+            max-height: $workshop-header-height !important;
+
+            .btn {
+               width: 25px !important;
+               height: 25px !important;
+               background: #393ba8 !important;
+
+               .icon {
+                  width: 25px !important;
+                  height: 25px !important;
+                  font-size: 25px !important;
+               }
+            }
+
+            .toolbar__title {
+               font-size: 16px !important;
+               font-weight: bold !important;
+               color: $white-color !important;
+            }
+         }
+      }
+
+      .list {
+         overflow: hidden !important;
+         background: $workshop-drawer-background !important;
+         height: calc(100vh - #{$workshop-header-height}) !important;
 
          .stepper {
-         
+            box-shadow: none !important;
+            overflow-y: scroll !important;
+            overflow-x: hidden !important;
+            background: $workshop-drawer-background !important;
+            height: calc(100vh - #{$workshop-header-height}) !important;
 
             .list__group {
                // overflow: hidden !important;

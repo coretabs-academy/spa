@@ -3,4 +3,89 @@
 /*=====================================
 Workshops Style
 =======================================*/
-.workshops {}
+$padding: 0 0 50px 0;
+$ar-padding: 0 50px 0 0;
+
+main.workshop-main-content,
+main.workshops-main-content {
+   padding-top: $workshop-header-height !important;
+}
+
+html[dir='rtl'] {
+   .workshops {
+      > .navigation-drawer {
+         .toolbar {
+            padding: $ar-padding !important;
+         }
+      }
+   }
+}
+
+.workshops {
+   height: 100% !important;
+   overflow: hidden !important;
+   position: relative !important;
+   background: $white-color !important;
+
+   > .navigation-drawer {
+      height: 100vh !important;
+      overflow: hidden !important;
+      width: $workshop-drawer-width !important;
+      background: $workshop-drawer-background !important;
+      // @include box-shadow(0px, 15px, 34px, 0px, $shadow-color,true);
+      .navigation-drawer__border {
+         display: none !important;
+      }
+
+      .toolbar {
+         height: auto !important;
+         padding: $padding !important;
+         background: $grading-color !important;
+         min-height: $workshop-header-height !important;
+         max-height: $workshop-header-height !important;
+
+         .toolbar__content {
+            height: auto !important;
+            min-height: $workshop-header-height !important;
+            max-height: $workshop-header-height !important;
+
+            .toolbar__title {
+               font-size: 16px !important;
+               font-weight: bold !important;
+               color: $white-color !important;
+            }
+         }
+      }
+
+      .list {
+         overflow: hidden !important;
+         background: $workshop-drawer-background !important;
+         height: calc(100vh - #{$workshop-header-height}) !important;
+
+         .stepper {
+            box-shadow: none !important;
+            overflow-y: scroll !important;
+            overflow-x: hidden !important;
+            background: $workshop-drawer-background !important;
+            height: calc(100vh - #{$workshop-header-height}) !important;
+         }
+      }
+   }
+
+   .content {
+      margin: 0 !important;
+      padding: 0 !important;
+      border-left: 0 !important;
+      transition: none !important;
+      background: $white-color !important;
+
+      > div {
+         width: 100% !important;
+         height: 100% !important;
+         transition: none !important;
+         overflow: hidden !important;
+         user-select: text !important;
+         padding: 40px 50px !important;
+      }
+   }
+}

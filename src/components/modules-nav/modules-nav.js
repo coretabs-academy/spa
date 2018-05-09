@@ -3,9 +3,7 @@ export default {
    components: {},
    data: () => ({}),
    props: ['modules'],
-   created() {
-      console.log(this.modules)
-   },
+   created() {},
    watch: {
 
    }
