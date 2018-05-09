@@ -40,7 +40,7 @@ export default {
     pw: true,
     pwRules: [
       v => !!v || '',
-      v => (v && v.length >= 10) || 'كلمة السر يجب أن تتكون من 10 أحرى على الأقل'
+      v => (v && v.length >= 10) || 'كلمة السر يجب أن تتكون من 10 أحرف على الأقل'
     ]
   }),
   watch: {
@@ -113,6 +113,9 @@ export default {
         root.alert.message = data.message
         if (data.success === true) {
           root.alert.success = true
+          setTimeout(() => {
+            root.$router.push('/congratulations')
+          }, 1000)
         } else {
           root.alert.error = true
         }

@@ -56,9 +56,9 @@ export default {
             case 'page':
             case 'signin':
             case 'signup':
-               this.show = true
-               this.navs = this.default_navs
-               break
+            case 'congratulations':
+            case 'reset-password':
+            case 'forgot-password':
             case 'about':
             case 'tracks':
                this.show = true
