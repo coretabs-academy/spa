@@ -5,13 +5,11 @@ Modules Style
 =======================================*/
 $padding: 0 0 0 15px;
 $ar-padding: 0 15px 0 0;
-$stepper-line-width: 2px;
 $drawer-group-height: 45px;
 $drawer-group-item-height: 40px;
 $stepper-group-item-padding: 10px;
 $drawer-group-active-state: #74dad9;
 $stepper-group-item-fl-padding: 15px;
-
 
 main.course-main-content,
 main.courses-main-content {
@@ -40,6 +38,7 @@ html[dir='rtl'] {
                      .list__tile {
                         .stepper__step {
                            .stepper__label {
+                              text-shadow: none !important;
                               margin: $workshop-ar-margin !important;
                            }
                         }
@@ -56,7 +55,7 @@ html[dir='rtl'] {
                                  &::after,
                                  &::before {
                                     left: 0 !important;
-                                    right: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
+                                    right: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($workshopstepper-line-width / 2) !important;
                                  }
                               }
                            }
@@ -150,6 +149,7 @@ html[dir='rtl'] {
                // height: $drawer-group-height !important;
                &::after,
                &::before {
+                  height: 0 !important;
                   background: none !important;
                }
 
@@ -174,27 +174,27 @@ html[dir='rtl'] {
                         .list__tile__action {
                            &.topic-complete-state {
                               .icon {
-                                 color: $workshop-complete-state !important;
-                                 border-color: $workshop-complete-state !important;
+                                 color: var(--workshop-complete-state) !important;
+                                 border-color: var(--workshop-complete-state) !important;
 
                                  &::after {
                                     background: $drawer-group-active-state !important;
                                  }
 
                                  &::before {
-                                    background: $workshop-complete-state !important;
+                                    background: var(--workshop-complete-state) !important;
                                  }
                               }
                            }
 
                            &.topic-all-complete-state {
                               .icon {
-                                 color: $workshop-complete-state !important;
-                                 border-color: $workshop-complete-state !important;
+                                 color: var(--workshop-complete-state) !important;
+                                 border-color: var(--workshop-complete-state) !important;
 
                                  &::after,
                                  &::before {
-                                    background: $workshop-complete-state !important;
+                                    background: var(--workshop-complete-state) !important;
                                  }
                               }
                            }
@@ -219,7 +219,7 @@ html[dir='rtl'] {
                      .list__tile {
                         .stepper__step {
                            .stepper__step__step {
-                              background-color: $workshop-complete-state !important;
+                              background-color: var(--workshop-complete-state) !important;
                            }
                         }
                      }
@@ -229,12 +229,12 @@ html[dir='rtl'] {
                      .list__tile {
                         .list__tile__action {
                            .icon {
-                              color: $workshop-complete-state !important;
-                              border-color: $workshop-complete-state !important;
+                              color: var(--workshop-complete-state) !important;
+                              border-color: var(--workshop-complete-state) !important;
 
                               &::after,
                               &::before {
-                                 background: $workshop-complete-state !important;
+                                 background: var(--workshop-complete-state) !important;
                               }
                            }
                         }
@@ -268,7 +268,7 @@ html[dir='rtl'] {
                         .stepper__step__step {
                            font-size: 14px !important;
                            font-family: 'Open Sans Condensed' !important;
-                           background-color: $workshop-normal-state !important;
+                           background-color: var(--workshop-normal-state) !important;
                         }
 
                         .stepper__label {
@@ -336,9 +336,9 @@ html[dir='rtl'] {
                               background: $white-color !important;
                               width: $workshop-stepper-icon-size !important;
                               height: $workshop-stepper-icon-size !important;
-                              color: $workshop-normal-state !important;
+                              color: var(--workshop-normal-state) !important;
                               font-size: $workshop-stepper-icon-size / 2 !important;
-                              border: 2px dashed $workshop-normal-state !important;
+                              border: 2px dashed var(--workshop-normal-state) !important;
 
                               &::after,
                               &::before {
@@ -346,10 +346,10 @@ html[dir='rtl'] {
                                  content: "" !important;
                                  display: block !important;
                                  position: absolute !important;
-                                 width: $stepper-line-width !important;
-                                 background: $workshop-normal-state !important;
+                                 width: $workshopstepper-line-width !important;
+                                 background: var(--workshop-normal-state) !important;
                                  height: ($drawer-group-item-height - $workshop-stepper-icon-size) /2 !important;
-                                 left: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
+                                 left: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($workshopstepper-line-width / 2) !important;
                               }
 
                               &::before {

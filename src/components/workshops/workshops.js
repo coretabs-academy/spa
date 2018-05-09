@@ -49,6 +49,13 @@ export default {
             console.error(err)
          })
    },
+   updated() {
+      document.querySelectorAll('#sidenav .stepper__step__step').forEach((stepper, index) => {
+         if (this.workshops[index].progress != 0) {
+            stepper.style.background = this.progress(this.workshops[index].progress + 20);
+         }
+      })
+   },
    watch: {
       $route(to, from) {
          let workshop = this.workshops[this.getWorkshopId()]
@@ -66,6 +73,21 @@ export default {
                self.height = window.innerHeight - document.querySelector(selector).offsetHeight
             }, 100)
          }
+      },
+      progress(percent) {
+         let maxPercent = 100
+         let increment = 360 / maxPercent
+         let half = Math.round(maxPercent / 2)
+         let gradient = ''
+         if (percent < half) {
+            let nextdeg = 90 + (increment * percent)
+            gradient = `linear-gradient(90deg, var(--workshop-normal-state) 50%, transparent 50%, transparent),linear-gradient(${nextdeg}deg, var(--workshop-complete-state) 50%, var(--workshop-normal-state) 50%, var(--workshop-normal-state))`
+
+         } else {
+            let nextdeg = -90 + (increment * (percent - half));
+            gradient = `linear-gradient(${nextdeg}deg, var(--workshop-complete-state) 50%, transparent 50%, transparent),linear-gradient(270deg, var(--workshop-complete-state) 50%, var(--workshop-normal-state) 50%, var(--workshop-normal-state))`
+         }
+         return gradient
       },
       getWorkshopId() {
          let index = this.workshops.findIndex(function(workshop) {

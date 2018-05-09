@@ -3,7 +3,7 @@
 Scrollbar Style
 =======================================*/
 ::-webkit-scrollbar {
-   width: 5px !important;
+   width: $scrollbar-width !important;
    background: $secondary-color !important;
 }
 
