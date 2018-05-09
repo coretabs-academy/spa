@@ -5,16 +5,16 @@ import PageComponent from './components/page/page.vue'
 import AboutComponent from './components/about/about.vue'
 import SignInComponent from './components/signin/signin.vue'
 import SignUpComponent from './components/signup/signup.vue'
-import CongratulationsComponent from './components/congratulations/congratulations.vue'
+import ContactUsComponent from './components/contact-us/contact-us.vue'
 import ResetPasswordComponent from './components/reset-password/reset-password.vue'
 import ForgotPasswordComponent from './components/forgot-password/forgot-password.vue'
+import CongratulationsComponent from './components/congratulations/congratulations.vue'
 import TracksComponent from './components/tracks/tracks.vue'
 import LessonComponent from './components/lesson/lesson.vue'
 import ModulesComponent from './components/modules/modules.vue'
 import WorkshopComponent from './components/workshop/workshop.vue'
 import NotFoundComponent from './components/not-found/not-found.vue'
 import WorkshopsComponent from './components/workshops/workshops.vue'
-import ContactUsComponent from './components/contact-us/contact-us.vue'
 
 Vue.use(Router)
 

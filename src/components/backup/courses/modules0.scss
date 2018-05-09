@@ -3,15 +3,15 @@
 /*=====================================
 Modules Style
 =======================================*/
-$padding: 0 0 15px 0;
+$padding: 0 0 0 15px;
 $ar-padding: 0 15px 0 0;
-$stepper-icon-size: 25px;
 $stepper-line-width: 2px;
+$drawer-group-height: 45px;
 $drawer-group-item-height: 40px;
 $stepper-group-item-padding: 10px;
 $drawer-group-active-state: #74dad9;
-$drawer-group-normal-state: #cdcdcd;
 $stepper-group-item-fl-padding: 15px;
+
 
 main.course-main-content,
 main.courses-main-content {
@@ -26,7 +26,13 @@ html[dir='rtl'] {
          }
 
          .list {
+            direction: ltr !important;
+
             .stepper {
+               * {
+                  direction: rtl !important;
+               }
+
                .list__group {
                   .list__group__header {
                      padding: $ar-padding !important;
@@ -50,7 +56,7 @@ html[dir='rtl'] {
                                  &::after,
                                  &::before {
                                     left: 0 !important;
-                                    right: ($stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
+                                    right: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
                                  }
                               }
                            }
@@ -81,7 +87,7 @@ html[dir='rtl'] {
       background: $workshop-drawer-background !important;
       @include box-shadow(0px, 15px, 34px, 0px, $shadow-color,true);
 
-      .navigation-drawer__border{
+      .navigation-drawer__border {
          display: none !important;
       }
 
@@ -118,6 +124,7 @@ html[dir='rtl'] {
       }
 
       .list {
+         direction: rtl !important;
          overflow: hidden !important;
          background: $workshop-drawer-background !important;
          height: calc(100vh - #{$workshop-header-height}) !important;
@@ -129,9 +136,18 @@ html[dir='rtl'] {
             background: $workshop-drawer-background !important;
             height: calc(100vh - #{$workshop-header-height}) !important;
 
+            &::-webkit-scrollbar {
+               width: 5px !important;
+               background: $workshop-drawer-background !important;
+            }
+
+            * {
+               direction: ltr !important;
+            }
+
             .list__group {
                // overflow: hidden !important;
-               // height: $workshop-drawer-group-height !important;
+               // height: $drawer-group-height !important;
                &::after,
                &::before {
                   background: none !important;
@@ -230,7 +246,7 @@ html[dir='rtl'] {
                   // overflow: visible !important;
                   padding: $padding !important;
                   background: $white-color !important;
-                  height: $workshop-drawer-group-height !important;
+                  height: $drawer-group-height !important;
                   // border-bottom: 2px solid rgba($black-color,.12) !important;
                   box-shadow: 0 3px 3px -2px rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 1px 8px 0 rgba(0,0,0,.12) !important;
 
@@ -247,12 +263,12 @@ html[dir='rtl'] {
                         z-index: 1 !important;
                         width: 100% !important;
                         pointer-events: none !important;
-                        height: $workshop-drawer-group-height !important;
+                        height: $drawer-group-height !important;
 
                         .stepper__step__step {
                            font-size: 14px !important;
                            font-family: 'Open Sans Condensed' !important;
-                           background-color: $drawer-group-normal-state !important;
+                           background-color: $workshop-normal-state !important;
                         }
 
                         .stepper__label {
@@ -284,7 +300,7 @@ html[dir='rtl'] {
                            .list__tile__action {
                               .icon {
                                  &::before {
-                                    height: ($drawer-group-item-height - $stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
+                                    height: ($drawer-group-item-height - $workshop-stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
                                  }
                               }
                            }
@@ -299,7 +315,7 @@ html[dir='rtl'] {
                            .list__tile__action {
                               .icon {
                                  &::after {
-                                    height: ($drawer-group-item-height - $stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
+                                    height: ($drawer-group-item-height - $workshop-stepper-icon-size) /2 + ($stepper-group-item-fl-padding) !important;
                                  }
                               }
                            }
@@ -311,18 +327,18 @@ html[dir='rtl'] {
                         padding: 0 $stepper-group-item-padding !important;
 
                         .list__tile__action {
-                           width: $stepper-icon-size !important;
-                           min-width: $stepper-icon-size !important;
-                           max-width: $stepper-icon-size !important;
+                           width: $workshop-stepper-icon-size !important;
+                           min-width: $workshop-stepper-icon-size !important;
+                           max-width: $workshop-stepper-icon-size !important;
 
                            .icon {
                               border-radius: 50% !important;
                               background: $white-color !important;
-                              width: $stepper-icon-size !important;
-                              height: $stepper-icon-size !important;
-                              color: $drawer-group-normal-state !important;
-                              font-size: $stepper-icon-size / 2 !important;
-                              border: 2px dashed $drawer-group-normal-state !important;
+                              width: $workshop-stepper-icon-size !important;
+                              height: $workshop-stepper-icon-size !important;
+                              color: $workshop-normal-state !important;
+                              font-size: $workshop-stepper-icon-size / 2 !important;
+                              border: 2px dashed $workshop-normal-state !important;
 
                               &::after,
                               &::before {
@@ -331,9 +347,9 @@ html[dir='rtl'] {
                                  display: block !important;
                                  position: absolute !important;
                                  width: $stepper-line-width !important;
-                                 background: $drawer-group-normal-state !important;
-                                 height: ($drawer-group-item-height - $stepper-icon-size) /2 !important;
-                                 left: ($stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
+                                 background: $workshop-normal-state !important;
+                                 height: ($drawer-group-item-height - $workshop-stepper-icon-size) /2 !important;
+                                 left: ($workshop-stepper-icon-size / 2) + $stepper-group-item-padding - ($stepper-line-width / 2) !important;
                               }
 
                               &::before {
