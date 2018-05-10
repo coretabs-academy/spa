@@ -63,10 +63,9 @@ export default {
         }
         this.checkAnswers(question, answer)
       } else {
-          if (this.status.right) {
-            this.status.right = ''
-          }
-          
+        if (this.status.right) {
+          this.status.right = ''
+        }
         if (question.choose.includes(answer)) {
           question.choose.splice(question.choose.indexOf(answer), 1)
         } else {
@@ -79,10 +78,12 @@ export default {
       if (question.choose.toString() === question.correct.toString()) {
         this.result = this.results_texts.success
         if (question.correct.length > 1) this.status.right = 'true_answer_checkbox'
-        document.getElementById(`step${answer}`).classList.remove('wrong_step')
+        question.true = true
+        question.wrong = false
       } else {
         this.result = this.results_texts.fail
-        document.getElementById(`step${answer}`).classList.add('wrong_step')
+        question.true = false
+        question.wrong = true
       }
     },
     goNext() {

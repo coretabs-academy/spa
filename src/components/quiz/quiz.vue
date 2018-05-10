@@ -4,7 +4,7 @@
       <v-stepper v-model="e1" class="quizz-stepper" non-linear>
         <v-stepper-header>
           <template v-for="(question, qIndex) in questions">
-            <v-stepper-step :id="`step${Math.abs(qIndex - (questions.length - 1) )}`" :step="qIndex+1" :key="qIndex" :complete="e1 > qIndex+1" edit-icon="check"  editable></v-stepper-step>
+            <v-stepper-step :class="{'wrong_step': question.wrong, 'true_step': question.true}" :step="qIndex+1" :key="qIndex" :complete="e1 > qIndex+1" edit-icon="check" editable></v-stepper-step>
             <v-divider v-if="qIndex + 1 < questions.length" :key="`divider-${qIndex}`"></v-divider>
           </template>
         </v-stepper-header>

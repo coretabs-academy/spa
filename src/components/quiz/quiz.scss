@@ -2,33 +2,44 @@
 $check_color : #5955e9;
 $lite_grey: #727272;
 $hint_icon_color: #f89f2c;
-$erorr_color: #cc5a5a;
+$error_color: #cc5a5a;
 
-.stepper__step.stepper__step--inactive .stepper__step__step { 
-    background: #c2c7cb !important;
+.stepper__step__step {
+    font-size: 0;
 }
-.stepper__step.stepper__step--complete .stepper__step__step { 
-    background: #6668df !important;
+.stepper__step.stepper__step .stepper__step__step::after {
+    content: url('./icons/star.svg');
+    position: relative;
+    display: block;
 }
-.stepper__step.stepper__step--complete .stepper__step__step::after { 
-    display: none !important;
-}
+
 .stepper__step.stepper__step--active .stepper__step__step{ 
     background: #6ad6d6 !important;
 }
+.stepper__step.stepper__step--inactive .stepper__step__step, .stepper__step.stepper__step--complete .stepper__step__step { 
+    background: #c2c7cb !important;
+}
+.stepper__step.stepper__step--complete .stepper__step__step i {
+    display: none;
+}
+
 .stepper__step.stepper__step.wrong_step  {
     .stepper__step__step { 
-    background: $erorr_color !important;
+        background: $error_color !important;
     }
     .stepper__step__step::after {
         content: url('./icons/error2.svg') !important;
-        display: block;
-        padding:24px 24px;
-        margin-left: 6px;
-        margin-top: 3px;
-        position: relative;
     }
 }
+.stepper__step.stepper__step.true_step  {
+    .stepper__step__step { 
+        background: #57c881 !important;
+    }
+    .stepper__step__step::after {
+        content: url('./icons/check_white.svg') !important;
+    }
+}
+
 .stepper {
     border-radius: 15px !important;
     font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
@@ -113,14 +124,6 @@ $erorr_color: #cc5a5a;
     }
 }
 
-.stepper__step.stepper__step .stepper__step__step::after {
-    content: url('./icons/star.svg');
-    display: block;
-    padding:24px 24px;
-    margin-left: 6px;
-    margin-top: 3px;
-    position: relative;
-}
 .quizz-layout {
     direction: ltr;
 }
@@ -173,7 +176,7 @@ $erorr_color: #cc5a5a;
     span.result-container {
         padding-bottom: 0px  !important;
         .err {
-            color: $erorr_color !important;
+            color: $error_color !important;
         }
         @include rfs(20);
         display: inline-block;
@@ -186,7 +189,6 @@ $erorr_color: #cc5a5a;
             padding-left: 10px;
             color: #5a5a5a;
         }
-
     }
 }
 .true_answer { 
@@ -206,11 +208,12 @@ $erorr_color: #cc5a5a;
         margin-right: 1px !important;
     }
 }
+
 .wrong_answer { 
     //class of wrong answer
     box-shadow: 0px 4px 6px #dad6d6 , 0px -2px 8px #dad6d6;
     .checkbox_cont {
-        border-color:  $erorr_color !important;
+        border-color:  $error_color !important;
     }
     .checkbox_inner {
         background:transparent !important;
@@ -222,6 +225,8 @@ $erorr_color: #cc5a5a;
         margin-top: -3px !important;
     }
 }
+
+
 .true_answer_checkbox { 
     //class of true answer
     box-shadow: 0px 2px 8px #dad6d6;
@@ -243,7 +248,7 @@ $erorr_color: #cc5a5a;
     //class of wrong answer
     box-shadow: 0px 4px 6px #dad6d6 , 0px -2px 8px #dad6d6;
     .checkbox_cont {
-        border-color: $erorr_color !important;
+        border-color: $error_color !important;
     }
     .checkbox_inner {
         background:transparent !important;
@@ -252,7 +257,7 @@ $erorr_color: #cc5a5a;
         content:url('./icons/error2.svg') !important;
         display: block;
         position: relative;
-        background:$erorr_color !important;
+        background:$error_color !important;
    
     }
 }
