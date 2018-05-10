@@ -8,17 +8,17 @@ export default {
    created() {
       this.$store.state.lang = 'ar'
       this.$store.state.direction = 'rtl'
-      this.$store.dispatch('getImgUrl', 'images/logo.png').then(img => {
+      this.$store.dispatch('getImgUrl', 'icons/logo.png').then(img => {
          this.$store.state.logo = img
       }).catch(error => {
          throw new Error(error.message)
       })
-      this.$store.dispatch('getImgUrl', 'images/icon.png').then(img => {
+      this.$store.dispatch('getImgUrl', 'icons/icon.png').then(img => {
          this.$store.state.icon = img
       }).catch(error => {
          throw new Error(error.message)
       })
-      this.$store.dispatch('getImgUrl', 'images/forum_logo.png').then(img => {
+      this.$store.dispatch('getImgUrl', 'icons/forum-logo.png').then(img => {
          this.$store.state.forumLogo = img
       }).catch(error => {
          throw new Error(error.message)

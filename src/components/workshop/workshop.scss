@@ -3,4 +3,104 @@
 /*=====================================
 Workshop Style
 =======================================*/
-.Workshop {}
+$icon-size: 30px;
+$padding: 0 0 0 50px;
+$ar-padding: 0 50px 0 0;
+
+html[dir='rtl'] {
+   .workshop {
+      .card {
+         &:nth-child(1) {}
+      }
+   }
+}
+
+.workshop {
+   .card {
+      padding: 10px !important;
+      overflow: hidden !important;
+      border-radius: 8px !important;
+      margin-bottom: 25px !important;
+
+      .container {
+         height: 100% !important;
+
+         .layout {
+            margin: 0 !important;
+            height: 100% !important;
+         }
+      }
+
+      &:nth-child(1) {
+         height: 80px !important;
+
+         .btn {
+            width: 60% !important;
+            font-weight: 700 !important;
+            background: $grading-color !important;
+         }
+
+         .icon {
+            img {
+               width: $icon-size !important;
+               height: $icon-size !important;
+            }
+         }
+
+         .text {
+            div {
+               font-weight: 700 !important;
+
+               &:nth-child(1) {
+                  font-size: 12px !important;
+                  margin-bottom: 3px !important;
+                  color: var(--workshop-normal-state) !important;
+               }
+
+               &:nth-child(2) {
+                  font-size: 14px !important;
+                  color: $black-color !important;
+               }
+            }
+         }
+      }
+
+      &:nth-child(2) {
+         height: 80px !important;
+      }
+
+      &:nth-child(3) {
+         height: 80px !important;
+
+         .icon {
+            img {
+               width: 80px !important;
+               height: 80px !important;
+            }
+         }
+
+         .text {
+            div {
+               font-weight: 700 !important;
+
+               &:nth-child(1) {
+                  font-size: 12px !important;
+                  margin-bottom: 8px !important;
+                  color: $black-color !important;
+               }
+
+               &:nth-child(2) {
+                  font-size: 14px !important;
+                  font-weight: normal !important;
+                  color: rgba($black-color,0.8) !important;
+
+                  a {
+                     text-decoration: underline !important;
+                     color: var(--workshop-active-state) !important;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

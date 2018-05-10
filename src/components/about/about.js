@@ -574,7 +574,7 @@ export default {
       })
 
       for (let k in this.icons) {
-        this.$store.dispatch('getImgUrl', `images/social-icons/${k !== 'LH' ? k + '.svg' : k + '.png'}`).then(img => {
+        this.$store.dispatch('getImgUrl', `icons/social-icons/${k !== 'LH' ? k + '.svg' : k + '.png'}`).then(img => {
            this.icons[k] = img
         }).catch(error => {
            throw new Error(error.message)

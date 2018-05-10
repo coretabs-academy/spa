@@ -9,7 +9,7 @@ module.exports = {
       },
       plugins: [
          new FaviconsWebpackPlugin({
-            logo: './src/assets/multimedia/images/icon.png',
+            logo: './src/assets/multimedia/icons/icon.png',
             prefix: 'icons/',
             persistentCache: true,
             inject: true,

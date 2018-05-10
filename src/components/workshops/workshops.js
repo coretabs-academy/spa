@@ -118,7 +118,7 @@ export default {
                techniques_used: workshop.techniques_used,
                level: workshop.level,
                progress: workshop.progress,
-               timetable: workshop.timetable,
+               timeline: workshop.timeline,
                last_update: this.$date.get(new Date(workshop.last_update)),
                modules: [],
                users: workshop.users

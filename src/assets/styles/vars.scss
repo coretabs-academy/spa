@@ -19,15 +19,9 @@ $workshop-margin: 0 0 0 20px;
 $workshop-header-height: 50px;
 $workshop-drawer-width: 320px;
 $workshop-ar-margin: 0 20px 0 0;
-$workshop-toolbar-padding: 0 15px;
 $workshop-drawer-background: #fafafa;
 $cairo-font: 'assets/vendor/fonts/cairo/';
 $poppins-font: 'assets/vendor/fonts/poppins/';
 $droid-kufi-font: 'assets/vendor/fonts/droid-kufi/';
 $material-design-font: 'assets/vendor/fonts/material-design-icons/';
 $open-sans-condensed-font: 'assets/vendor/fonts/open-sans-condensed/';
-
-:root {
-   --workshop-normal-state: #cdcdcd;
-   --workshop-complete-state: #7d68df;
-}

@@ -5,8 +5,10 @@ Workshops Style
 =======================================*/
 $padding: 0 0 0 50px;
 $ar-padding: 0 50px 0 0;
-$stepper-icon-size: 30px;
+$stepper-icon-size: 25px;
 $drawer-group-height: 60px;
+$content-padding: 30px 30px 30px 60px;
+$content-ar-padding: 30px 60px 30px 30px;
 
 main.workshop-main-content,
 main.workshops-main-content {
@@ -48,6 +50,12 @@ html[dir='rtl'] {
                   }
                }
             }
+         }
+      }
+
+      .content {
+         > div {
+            padding: $content-ar-padding !important;
          }
       }
    }
@@ -175,9 +183,9 @@ html[dir='rtl'] {
                               font-size: 14px !important;
                               position: relative !important;
                               margin: $workshop-margin !important;
+                              width: $stepper-icon-size !important;
                               height: $stepper-icon-size !important;
                               transition: all 0.3s linear !important;
-                              width: $stepper-icon-size + 5px !important;
                               background: linear-gradient(90deg, var(--workshop-normal-state) 50%, transparent 50%, transparent),linear-gradient(90deg, var(--workshop-complete-state) 50%, var(--workshop-normal-state) 50%, var(--workshop-normal-state));
 
                               &:before {
@@ -245,7 +253,7 @@ html[dir='rtl'] {
          transition: none !important;
          overflow: hidden !important;
          user-select: text !important;
-         padding: 40px 50px !important;
+         padding: $content-padding !important;
       }
    }
 }

@@ -9,7 +9,6 @@ $stepper-line-width: 2px;
 $drawer-group-height: 45px;
 $drawer-group-item-height: 40px;
 $stepper-group-item-padding: 10px;
-$drawer-group-active-state: #74dad9;
 $stepper-group-item-fl-padding: 15px;
 
 main.course-main-content,
@@ -168,7 +167,7 @@ html[dir='rtl'] {
                      .list__tile {
                         .stepper__step {
                            .stepper__step__step {
-                              background-color: $drawer-group-active-state !important;
+                              background-color: var(--workshop-active-state) !important;
                            }
                         }
                      }
@@ -183,7 +182,7 @@ html[dir='rtl'] {
                                  border-color: var(--workshop-complete-state) !important;
 
                                  &::after {
-                                    background: $drawer-group-active-state !important;
+                                    background: var(--workshop-active-state) !important;
                                  }
 
                                  &::before {
@@ -206,11 +205,11 @@ html[dir='rtl'] {
 
                            &.topic-active-state {
                               .icon {
-                                 color: $drawer-group-active-state !important;
-                                 border-color: $drawer-group-active-state !important;
+                                 color: var(--workshop-active-state) !important;
+                                 border-color: var(--workshop-active-state) !important;
 
                                  &::before {
-                                    background: $drawer-group-active-state !important;
+                                    background: var(--workshop-active-state) !important;
                                  }
                               }
                            }
