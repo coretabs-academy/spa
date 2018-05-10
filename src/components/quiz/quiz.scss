@@ -16,6 +16,19 @@ $erorr_color: #cc5a5a;
 .stepper__step.stepper__step--active .stepper__step__step{ 
     background: #6ad6d6 !important;
 }
+.stepper__step.stepper__step.wrong_step  {
+    .stepper__step__step { 
+    background: $erorr_color !important;
+    }
+    .stepper__step__step::after {
+        content: url('./icons/error2.svg') !important;
+        display: block;
+        padding:24px 24px;
+        margin-left: 6px;
+        margin-top: 3px;
+        position: relative;
+    }
+}
 .stepper {
     border-radius: 15px !important;
     font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
@@ -58,7 +71,45 @@ $erorr_color: #cc5a5a;
             margin-top: 1px !important;
             margin-bottom: 1px !important;
         }
-
+        .hint-container {
+            font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
+            color: #8d8d8d;
+            @include rfs(18);
+            font-weight: 600;
+            margin-top: 20px;
+            padding:15px 25px;
+        }
+        .circle {
+            display:inline-flex;
+            background: $hint_icon_color;
+            border-radius: 50%;
+            padding: 6px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+        .hint_bold {
+            color: $hint_icon_color;
+            @include rfs(20);
+        }
+  
+    }
+    .stepper__content.checkboxes {
+        .checkbox_cont  {
+            border-radius: 0% !important;
+        }
+        .checkbox_inner {
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 0% !important;
+            background: #496a8a !important;
+        }
+        .checkbox_inner::after {
+            content: url('./icons/check_white.svg');
+            display: block;
+            margin: auto;
+        }
     }
 }
 
@@ -122,29 +173,14 @@ $erorr_color: #cc5a5a;
     span.result-container {
         padding-bottom: 0px  !important;
         .err {
-            color: $erorr_color;
+            color: $erorr_color !important;
         }
         @include rfs(20);
         display: inline-block;
         margin: 0px 24px !important;
         padding: 10px 10px;
 
-        .circle {
-            display:inline-flex;
-            background: $hint_icon_color;
-            border-radius: 50%;
-            padding: 2px;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            top: 2px;
-            right: 2px;
-            cursor: pointer;
-            transition: all .3s ease .1s;
-        }
-        .circle:hover {
-            transform: scale(1.2);
-        }
+
         .result {
             font-weight: 600;
             padding-left: 10px;
@@ -183,7 +219,40 @@ $erorr_color: #cc5a5a;
         content:url('./icons/error.svg');
         display: block;
         position: relative;
-        margin-top: -5px !important;
-        margin-right: 2px !important;
+        margin-top: -3px !important;
+    }
+}
+.true_answer_checkbox { 
+    //class of true answer
+    box-shadow: 0px 2px 8px #dad6d6;
+    .checkbox_cont {
+        border-color: #57c881 !important;
+        overflow: hidden !important;
+    }
+    .checkbox_inner {
+        // background:transparent !important;
+    }
+    .checkbox_inner::after {
+        content:url('./icons/check.svg');
+        display: block;
+        position: relative;
+        background: #57c881 !important;
+    }
+}
+.wrong_answer_checkbox { 
+    //class of wrong answer
+    box-shadow: 0px 4px 6px #dad6d6 , 0px -2px 8px #dad6d6;
+    .checkbox_cont {
+        border-color: $erorr_color !important;
+    }
+    .checkbox_inner {
+        background:transparent !important;
+    }
+    .checkbox_inner::after {
+        content:url('./icons/error2.svg') !important;
+        display: block;
+        position: relative;
+        background:$erorr_color !important;
+   
     }
 }

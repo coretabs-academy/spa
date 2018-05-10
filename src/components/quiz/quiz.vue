@@ -1,10 +1,10 @@
 <template>
   <v-layout row wrap class="quizz-layout">
     <v-flex xs12 lg8 offset-lg2 md8 offset-md2>
-      <v-stepper v-model="e1" class="quizz-stepper">
+      <v-stepper v-model="e1" class="quizz-stepper" non-linear>
         <v-stepper-header>
           <template v-for="(question, qIndex) in questions">
-            <v-stepper-step  :step="qIndex+1" :key="qIndex" :complete="e1 > qIndex+1"></v-stepper-step>
+            <v-stepper-step :id="`step${Math.abs(qIndex - (questions.length - 1) )}`" :step="qIndex+1" :key="qIndex" :complete="e1 > qIndex+1" edit-icon="check"  editable></v-stepper-step>
             <v-divider v-if="qIndex + 1 < questions.length" :key="`divider-${qIndex}`"></v-divider>
           </template>
         </v-stepper-header>
@@ -13,14 +13,14 @@
             <p class="question-num py-0">السؤال {{e1}} من {{questions.length}} : {{heading_text}}</p>
           </v-card>
           <template v-for="(question, qIndex) in questions">
-            <v-stepper-content :step="qIndex + 1" :key="qIndex">
+            <v-stepper-content :step="qIndex + 1" :key="qIndex" :class="{checkboxes : (question.correct.length > 1) }">
               <h3 class="question-content">{{question.text}}</h3>
               <v-card color="grey lighten-1" flat>
                 <!-- one-correct answer -->
                 <v-list three-line subheader>
                   <template v-for="(answer, aIndex) in question.answers">
-                    <v-divider></v-divider>
-                    <v-list-tile @click="chooseAnswer(question, aIndex)" :key="aIndex">
+                    <v-divider :key="`divider-${aIndex}`"></v-divider>
+                    <v-list-tile @click="chooseAnswer(question, aIndex)" :key="aIndex" :class="[question.choose.includes(aIndex) && !question.correct.includes(aIndex) && question.correct.length === 1 ? 'wrong_answer' : '' ,question.choose.includes(aIndex) && question.correct.includes(aIndex) && question.correct.length === 1 ? 'true_answer' : '',question.correct.includes(aIndex) && question.correct.length > 1 ? status.right : '']" >
                       <v-list-tile-action>
                         <input type="checkbox" v-model="question.choose" :value="answer" />
                         <span class="checkbox_cont">
@@ -32,18 +32,20 @@
                       </v-list-tile-content>
                     </v-list-tile>
                   </template>
-                  <v-divider :key="`divider-${qIndex}`"></v-divider>
+                  <v-divider :key="`divider2-${qIndex}`"></v-divider>
                 </v-list>
               </v-card>
-              <!-- <v-btn color="primary" @click.native="e1 = index +2">test</v-btn> -->
+              <v-card v-show="result === results_texts.fail" flat>
+                  <p class="hint-container py-0"><span class="circle"><v-icon color="white" small>lightbulb_outline</v-icon></span> <span class="hint_bold" > تلميح:</span> {{question.hint}}</p>
+                </v-card>
             </v-stepper-content>
           </template>
           <v-card class="btns-control" flat>
-            <v-btn v-show="e1 < questions.length" class="r-btn" flat @click="goNext" :disabled="!result || result === results_texts.fail">{{buttons_texts.next}}</v-btn>
+            <v-btn v-show="e1 < questions.length" class="r-btn" flat @click="goNext" :disabled="!result">{{buttons_texts.next}}</v-btn>
             <v-btn v-if="e1 > 0" v-show="questions[e1 - 1].correct.length > 1" class="r-btn" flat @click="checkAnswers(questions[e1 - 1])">{{buttons_texts.confirm}}</v-btn>
+            <v-btn v-show="e1 > 1" class="r-btn" flat @click="goPrev" >{{buttons_texts.pre}}</v-btn>
             <span class="result-container">
               <span v-show="result" :class="['result', result === results_texts.fail ? 'err' : '']">{{result}}</span>
-              <span v-show="result === results_texts.fail" class="hint">{{results_texts.hint}} <span class="circle"><v-icon color="white" size="small">star</v-icon></span></span>
             </span>
           </v-card>
         </v-stepper-items>

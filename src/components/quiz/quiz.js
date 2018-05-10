@@ -2,8 +2,11 @@ export default {
   data() {
     return {
       e1: 0,
-      heading_text: 'اختر الإجابة الصحيحة',
+      heading_text: 'اختر الإجابات الصحيحة',
       result: '',
+      status: {
+        right: ''
+      },
       results_texts: {
         success: 'أحسنت الإجابة صحيحة',
         fail: 'أحسنت المحاولة! ',
@@ -13,7 +16,8 @@ export default {
         confirm: 'تأكيد الإجابة',
         retry: 'أعد المحاولة',
         dismiss: 'تجاهل السؤال',
-        next: 'السؤال التالي'
+        next: 'السؤال التالي',
+        pre: 'السؤال السابق'
       },
       questions: [
         {
@@ -40,7 +44,8 @@ export default {
           'text': 'pla pla pla',
           'answers': {
             '1': 'beboba',
-            '2': 'aeaoaa'
+            '2': 'aeaoaa',
+            '3': 'fg fgfg '
           },
           'correct': ['1', '2'],
           'hint': 'foo boo',
@@ -56,8 +61,12 @@ export default {
         if (!question.choose.includes(answer)) {
           question.choose.push(answer)
         }
-        this.checkAnswers(question)
+        this.checkAnswers(question, answer)
       } else {
+          if (this.status.right) {
+            this.status.right = ''
+          }
+          
         if (question.choose.includes(answer)) {
           question.choose.splice(question.choose.indexOf(answer), 1)
         } else {
@@ -65,17 +74,23 @@ export default {
         }
       }
     },
-    checkAnswers(question) {
+    checkAnswers(question, answer) {
       question.choose.sort()
       if (question.choose.toString() === question.correct.toString()) {
         this.result = this.results_texts.success
+        if (question.correct.length > 1) this.status.right = 'true_answer_checkbox'
+        document.getElementById(`step${answer}`).classList.remove('wrong_step')
       } else {
         this.result = this.results_texts.fail
+        document.getElementById(`step${answer}`).classList.add('wrong_step')
       }
     },
     goNext() {
       this.e1 += 1
       this.result = ''
+    },
+    goPrev() {
+      this.e1 -= 1
     }
   }
 }
