@@ -33,7 +33,7 @@ $error_color: #cc5a5a;
 }
 .stepper__step.stepper__step.true_step  {
     .stepper__step__step { 
-        background: #57c881 !important;
+        background: $check_color !important;
     }
     .stepper__step__step::after {
         content: url('./icons/check_white.svg') !important;
