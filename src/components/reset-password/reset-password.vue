@@ -8,7 +8,6 @@
           <v-flex id="form" xs12 sm12 md6>
             <v-form v-model="valid" ref="form" lazy-validation>
               <h2 class="black--text mb-2" v-html="heading_text"></h2>
-              <p v-html="forgot_text"></p>
               <v-alert type="success" v-model="alert.success" v-text="alert.message"></v-alert>
               <v-alert type="error" v-model="alert.error" v-text="alert.message"></v-alert>
               <v-text-field :label="password_label" v-model="password" :class="[alert.success ? 'disabled' : '']" :rules="pwRules" :disabled="alert.success" required

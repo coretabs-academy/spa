@@ -21,7 +21,7 @@ Congratulations Style
     #splash {
       background-image: url("~@/assets/multimedia/images/auth/email.svg");
       background-position: center top;
-      background-size: calc(100%) calc(100%);
+      background-size: contain;
       background-repeat: no-repeat;
 
       @media (max-width: 1200px) {
@@ -31,7 +31,7 @@ Congratulations Style
         height: 180px;
       }
 
-      @media (max-width: 960px) {
+      @media (max-width: 959px) {
         display: none;
       }
     }
@@ -39,7 +39,7 @@ Congratulations Style
     #form {
       padding-left: 20px;
 
-      @media (max-width: 960px) {
+      @media (max-width: 959px) {
         padding: 0 20px;
       }
 
@@ -60,7 +60,7 @@ Congratulations Style
         width: 200px;
         line-height: 0px;
 
-        @media (max-width: 960px) {
+        @media (max-width: 959px) {
           margin: 0 auto !important;
           width: 100%;
           max-width: 100%;
