@@ -46,9 +46,11 @@
          <v-layout row>
             <v-flex xs7>
                <div class="title">{{i18n.card2.about}}</div>
-               <p>{{workshop.desc}}</p>
+               <p>{{workshop.about}}</p>
                <div class="title">{{i18n.card2.techniques_used}}</div>
-               <v-chip v-for="techniques_used in workshop.techniques_used" :key="techniques_used">{{techniques_used}}</v-chip>
+               <div class="chips">
+                  <v-chip v-for="techniques_used in workshop.techniques_used" :key="techniques_used">{{techniques_used}}</v-chip>
+               </div>
                <div class="title">{{i18n.card2.users}}</div>
                <div class="title">{{i18n.card2.resutl}}</div>
                <v-btn flat round>{{i18n.card2.resutlBtn}}</v-btn>

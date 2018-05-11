@@ -115,8 +115,8 @@ export default {
                   }
                },
                title: workshop.title[this.$store.state.lang],
-               desc: workshop.desc[this.$store.state.lang],
-               techniques_used: workshop.techniques_used.split(', '),
+               about: workshop.desc[this.$store.state.lang],
+               techniques_used: workshop.techniques_used.split(', ').reverse(),
                level: workshop.level,
                progress: workshop.progress,
                timeline: workshop.timeline,
