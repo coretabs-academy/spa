@@ -9,6 +9,12 @@
       }
    }
 }
+@function map-deep-get($map, $keys...) {
+   @each $key in $keys {
+      $map: map-get($map, $key);
+   }
+   @return $map;
+}
 // get left|right|top|bottom value from padding/margin
 @function getValue($value,$direction,$unit:false) {
    $result: ();

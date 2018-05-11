@@ -44,11 +44,19 @@
    <v-card class="elevation-5">
       <v-container class="no-select" fluid>
          <v-layout row>
-            <v-flex xs8></v-flex>
+            <v-flex xs7>
+               <div class="title">{{i18n.card2.about}}</div>
+               <p>{{workshop.desc}}</p>
+               <div class="title">{{i18n.card2.techniques_used}}</div>
+               <v-chip v-for="techniques_used in workshop.techniques_used" :key="techniques_used">{{techniques_used}}</v-chip>
+               <div class="title">{{i18n.card2.users}}</div>
+               <div class="title">{{i18n.card2.resutl}}</div>
+               <v-btn flat round>{{i18n.card2.resutlBtn}}</v-btn>
+            </v-flex>
             <v-flex xs5>
                <v-navigation-drawer open>
                   <v-toolbar flat>
-
+                     <progress :value="workshop.progress" max="100" :data-value="workshop.progress + '%'"></progress>
                   </v-toolbar>
                   <modules-nav-component :modules="workshop.modules"></modules-nav-component>
                </v-navigation-drawer>

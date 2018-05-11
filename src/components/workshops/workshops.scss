@@ -204,10 +204,10 @@ html[dir='rtl'] {
                                  border-radius: 50% !important;
                                  position: absolute !important;
                                  transform: scale(0.82) !important;
+                                 @include font-family('number',true);
                                  content: attr(data-index) !important;
                                  background-color: $white-color !important;
                                  line-height: $stepper-icon-size !important;
-                                 font-family: 'Open Sans Condensed' !important;
                                  color: var(--workshop-normal-state) !important;
                                  font-size: $stepper-icon-size - 10px !important;
                               }

@@ -91,7 +91,8 @@ a {
       margin-right: 10px;
    }
 }
-@include center(true);
+
+@include center(true,true);
 
 .no-select {
    user-select: none !important;

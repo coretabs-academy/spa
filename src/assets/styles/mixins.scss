@@ -3,11 +3,20 @@
    display: $display;
    position: $pos;
 }
-@mixin font-family ($lang,$important:false) {
-   @if($lang=='ar') {
+@mixin font-family ($value,$important:false) {
+   @if($value=='ar') {
       font-family: 'Droid Arabic Kufi' short-if($important, !important);
-   } @else {
+   }
+   @elseif($value=='button') {
+      font-family: 'Cairo' short-if($important, !important);
+   }
+   @elseif($value=='number') {
+      font-family: 'Open Sans Condensed' short-if($important, !important);
+   }
+   @elseif($value=='en') {
       font-family: 'Poppins' short-if($important, !important);
+   } @else {
+      @warn 'Error #{$value} dose not mathcing';
    }
 }
 @mixin truncate-Text($overflow: ellipsis,$important:false) {
@@ -46,18 +55,18 @@
 //       transform: translate(-50%, -50%);
 //    }
 // }
-@mixin center($class) {
+@mixin center($class,$important:false) {
    @if($class) {
       .center {
-         top: 50% !important;
-         left: 50% !important;
-         position: absolute !important;
-         transform: translate(-50%,-50%) !important;
+         top: 50% short-if($important, !important);
+         left: 50% short-if($important, !important);
+         position: absolute short-if($important, !important);
+         transform: translate(-50%,-50%) short-if($important, !important);
       }
    } @else {
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%,-50%) !important;
+      top: 50% short-if($important, !important);
+      left: 50% short-if($important, !important);
+      transform: translate(-50%,-50%) short-if($important, !important);
    }
 }
 @mixin border-radius($radius,$important:false) {
@@ -70,4 +79,9 @@
    box-shadow: $left $top $radius $spread $color short-if($important,!important);
    -moz-box-shadow: $left $top $radius $spread $color short-if($important,!important);
    -webkit-box-shadow: $left $top $radius $spread $color short-if($important,!important);
+}
+@mixin appearance($appearance,$important:false) {
+   appearance: $appearance short-if($important,!important);
+   -moz-appearance: $appearance short-if($important,!important);
+   -webkit-appearance: $appearance short-if($important,!important);
 }

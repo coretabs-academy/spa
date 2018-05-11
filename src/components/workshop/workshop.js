@@ -20,7 +20,7 @@ export default {
          },
          card2: {
             users: 'المدربون',
-            desc: 'عن ورشة العمل',
+            about: 'عن ورشة العمل',
             resutlBtn: 'مشاهدة حية',
             resutl: 'النتيجة النهائية',
             techniques_used: 'التقنيات المستخدمة'

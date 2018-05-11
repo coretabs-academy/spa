@@ -31,6 +31,7 @@ html[dir='rtl'] {
                      .list__tile {
                         .stepper__step {
                            .stepper__label {
+                              text-align: right !important;
                               text-shadow: none !important;
                               margin: $workshop-ar-margin !important;
                               width: calc(100% - #{$stepper-icon-size} - #{((getValue($workshop-ar-margin,'left',true) + getValue($workshop-ar-margin,'right',true)) * 2)} - #{$scrollbar-width}) !important;
@@ -197,7 +198,7 @@ html[dir='rtl'] {
 
                > div:nth-child(1) {
                   padding: 0 $stepper-group-item-padding !important;
-                  width: $workshop-drawer-width - $stepper-icon-size * 2 - ((getValue($padding,'left') + getValue($padding,'right')) * 2) - ((getValue($drawer-group-height-toggle-icon-padding,'left') + getValue($drawer-group-height-toggle-icon-padding,'right')) * 2) - $scrollbar-width !important;
+                  width: calc(100% - #{$stepper-icon-size} * 2 - ((#{getValue($padding,'left',true)} + #{getValue($padding,'right',true)}) * 2) - ((#{getValue($drawer-group-height-toggle-icon-padding,'left',true)} + #{getValue($drawer-group-height-toggle-icon-padding,'right',true)}) * 2) - #{$scrollbar-width}) !important;
 
                   .list__tile {
                      padding: 0 !important;
@@ -214,14 +215,15 @@ html[dir='rtl'] {
                         .stepper__step__step {
                            margin: 0 !important;
                            font-size: 14px !important;
+                           @include font-family('number',true);
                            width: $stepper-icon-size !important;
                            height: $stepper-icon-size !important;
-                           font-family: 'Open Sans Condensed' !important;
                            background-color: var(--workshop-normal-state) !important;
                         }
 
                         .stepper__label {
                            font-size: 14px !important;
+                           text-align: left !important;
                            color: $black-color !important;
                            margin: $workshop-margin !important;
                            width: calc(100% - #{$stepper-icon-size} - #{((getValue($workshop-margin,'left',true) + getValue($workshop-margin,'right',true)) * 2)} - #{$scrollbar-width}) !important;
@@ -282,7 +284,7 @@ html[dir='rtl'] {
 
                   .list__tile {
                      height: $drawer-group-item-height !important;
-                     padding: $stepper-group-item-padding !important;
+                     padding: 0 $stepper-group-item-padding !important;
 
                      .list__tile__action {
                         width: $stepper-icon-size !important;
