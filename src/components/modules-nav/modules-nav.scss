@@ -197,7 +197,7 @@ html[dir='rtl'] {
 
                > div:nth-child(1) {
                   padding: 0 $stepper-group-item-padding !important;
-                  width: var(--workshop-drawer-width) - $stepper-icon-size * 2 - ((getValue($padding,'left') + getValue($padding,'right')) * 2) - ((getValue($drawer-group-height-toggle-icon-padding,'left') + getValue($drawer-group-height-toggle-icon-padding,'right')) * 2) - $scrollbar-width !important;
+                  width: $workshop-drawer-width - $stepper-icon-size * 2 - ((getValue($padding,'left') + getValue($padding,'right')) * 2) - ((getValue($drawer-group-height-toggle-icon-padding,'left') + getValue($drawer-group-height-toggle-icon-padding,'right')) * 2) - $scrollbar-width !important;
 
                   .list__tile {
                      padding: 0 !important;
