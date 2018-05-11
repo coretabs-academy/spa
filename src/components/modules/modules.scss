@@ -5,25 +5,23 @@ Modules Style
 =======================================*/
 $padding: 0 0 0 15px;
 $ar-padding: 0 15px 0 0;
-$content-padding: 30px 30px 30px 60px;
-$content-ar-padding: 30px 60px 30px 30px;
+$content-padding: 15px 30px;
 
-main.lesson-main-content,
-main.modules-main-content {
-   padding-top: $workshop-header-height !important;
+main.workshop-main-content,
+main.workshops-main-content {
+   padding: $workshop-header-height 0 0 $workshop-drawer-width !important;
 }
 
 html[dir='rtl'] {
+   main.lesson-main-content,
+   main.modules-main-content {
+      padding: $workshop-header-height $workshop-drawer-width 0 0 !important;
+   }
+
    .modules {
       .navigation-drawer {
          .toolbar {
             padding: $ar-padding !important;
-         }
-      }
-
-      .content {
-         > div {
-            padding: $content-ar-padding !important;
          }
       }
    }

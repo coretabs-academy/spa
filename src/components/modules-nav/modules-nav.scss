@@ -11,6 +11,7 @@ $drawer-group-height: 45px;
 $drawer-group-item-height: 40px;
 $stepper-group-item-padding: 10px;
 $stepper-group-item-fl-padding: 15px;
+$drawer-group-height-toggle-icon-padding: 0 20px;
 
 html[dir='rtl'] {
    .modules-nav {
@@ -26,12 +27,14 @@ html[dir='rtl'] {
                .list__group__header {
                   padding: $ar-padding !important;
 
-                  .list__tile {
-                     .stepper__step {
-                        .stepper__label {
-                           text-shadow: none !important;
-                           margin: $workshop-ar-margin !important;
-                           width: calc(100% - #{$stepper-icon-size} - #{((getValue($workshop-ar-margin,'left',true) + getValue($workshop-ar-margin,'right',true)) * 2)} - #{$scrollbar-width}) !important;
+                  > div:nth-child(1) {
+                     .list__tile {
+                        .stepper__step {
+                           .stepper__label {
+                              text-shadow: none !important;
+                              margin: $workshop-ar-margin !important;
+                              width: calc(100% - #{$stepper-icon-size} - #{((getValue($workshop-ar-margin,'left',true) + getValue($workshop-ar-margin,'right',true)) * 2)} - #{$scrollbar-width}) !important;
+                           }
                         }
                      }
                   }
@@ -88,25 +91,20 @@ html[dir='rtl'] {
          }
 
          .list__group {
-            // overflow: hidden !important;
-            // height: $drawer-group-height !important;
             &::after,
             &::before {
                height: 0 !important;
                background: none !important;
             }
 
-            &.list__group--active {
-               // height: auto !important;
-               .list__group__header {}
-            }
-
             &.active-state {
                .list__group__header {
-                  .list__tile {
-                     .stepper__step {
-                        .stepper__step__step {
-                           background-color: var(--workshop-active-state) !important;
+                  > div:nth-child(1) {
+                     .list__tile {
+                        .stepper__step {
+                           .stepper__step__step {
+                              background-color: var(--workshop-active-state) !important;
+                           }
                         }
                      }
                   }
@@ -159,10 +157,12 @@ html[dir='rtl'] {
 
             &.complete-state {
                .list__group__header {
-                  .list__tile {
-                     .stepper__step {
-                        .stepper__step__step {
-                           background-color: var(--workshop-complete-state) !important;
+                  > div:nth-child(1) {
+                     .list__tile {
+                        .stepper__step {
+                           .stepper__step__step {
+                              background-color: var(--workshop-complete-state) !important;
+                           }
                         }
                      }
                   }
@@ -186,19 +186,18 @@ html[dir='rtl'] {
             }
 
             .list__group__header {
-               // overflow: visible !important;
                padding: $padding !important;
                background: $white-color !important;
                height: $drawer-group-height !important;
-               // border-bottom: 2px solid rgba($black-color,.12) !important;
                box-shadow: 0 3px 3px -2px rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 1px 8px 0 rgba(0,0,0,.12) !important;
 
                &:hover {
                   background: $white-color !important;
                }
 
-               div {
-                  // width: $workshop-drawer-width - ((getValue($padding,'left') + getValue($padding,'right')) * 2) - $scrollbar-width - 20px!important;
+               > div:nth-child(1) {
+                  padding: 0 $stepper-group-item-padding !important;
+                  width: var(--workshop-drawer-width) - $stepper-icon-size * 2 - ((getValue($padding,'left') + getValue($padding,'right')) * 2) - ((getValue($drawer-group-height-toggle-icon-padding,'left') + getValue($drawer-group-height-toggle-icon-padding,'right')) * 2) - $scrollbar-width !important;
 
                   .list__tile {
                      padding: 0 !important;
@@ -234,20 +233,22 @@ html[dir='rtl'] {
                         }
                      }
                   }
+               }
 
-                  .list__group__header__append-icon {
-                     .icon {
-                        font-size: 25px !important;
-                        color: $secondary-color !important;
-                     }
+               .list__group__header__append-icon {
+                  margin: 0 !important;
+                  padding: $drawer-group-height-toggle-icon-padding !important;
+
+                  .icon {
+                     color: $secondary-color !important;
+                     font-size: $stepper-icon-size !important;
                   }
                }
             }
 
             .list__group__items {
-               // height: auto !important;
                padding: $padding !important;
-               // background: $workshop-drawer-background !important;
+
                div {
                   &:first-child {
                      .list__tile {
@@ -281,7 +282,7 @@ html[dir='rtl'] {
 
                   .list__tile {
                      height: $drawer-group-item-height !important;
-                     padding: 0 $stepper-group-item-padding !important;
+                     padding: $stepper-group-item-padding !important;
 
                      .list__tile__action {
                         width: $stepper-icon-size !important;

@@ -6,11 +6,21 @@ Workshop Style
 $icon-size: 30px;
 $padding: 0 0 0 50px;
 $ar-padding: 0 50px 0 0;
+$card-margin-bottom: 10px;
+$card-default-height: 80px;
+$card1-text-margin: 0 0 3px 5px;
+$card1-text-ar-margin: 0 5px 3px 0;
 
 html[dir='rtl'] {
    .workshop {
       .card {
-         &:nth-child(1) {}
+         &:nth-child(1) {
+            .text {
+               div {
+                  margin: $card1-text-ar-margin !important;
+               }
+            }
+         }
       }
    }
 }
@@ -20,7 +30,8 @@ html[dir='rtl'] {
       padding: 10px !important;
       overflow: hidden !important;
       border-radius: 8px !important;
-      margin-bottom: 25px !important;
+      height: $card-default-height !important;
+      margin-bottom: $card-margin-bottom !important;
 
       .container {
          height: 100% !important;
@@ -32,8 +43,6 @@ html[dir='rtl'] {
       }
 
       &:nth-child(1) {
-         height: 80px !important;
-
          .btn {
             width: 60% !important;
             font-weight: 700 !important;
@@ -50,10 +59,10 @@ html[dir='rtl'] {
          .text {
             div {
                font-weight: 700 !important;
+               margin: $card1-text-margin !important;
 
                &:nth-child(1) {
                   font-size: 12px !important;
-                  margin-bottom: 3px !important;
                   color: var(--workshop-normal-state) !important;
                }
 
@@ -66,16 +75,47 @@ html[dir='rtl'] {
       }
 
       &:nth-child(2) {
-         height: auto !important;
+         padding: 30px 50px !important;
+         height: calc(100% - #{$card-default-height * 2} - #{$card-margin-bottom * 2}) !important;
+
+         .navigation-drawer {
+            height: 100% !important;
+            box-shadow: none !important;
+            overflow: hidden !important;
+            width: $workshop-drawer-width !important;
+            background: $workshop-drawer-background !important;
+
+            &.navigation-drawer--close {
+               transform: translateX($workshop-drawer-width) !important;
+            }
+
+            .navigation-drawer__border {
+               display: none !important;
+            }
+
+            .toolbar {
+               height: auto !important;
+               padding: $padding !important;
+               background: $grading-color !important;
+               min-height: $workshop-header-height !important;
+               max-height: $workshop-header-height !important;
+
+               .toolbar__content {
+                  height: auto !important;
+                  min-height: $workshop-header-height !important;
+                  max-height: $workshop-header-height !important;
+               }
+            }
+         }
       }
 
       &:nth-child(3) {
-         height: 80px !important;
+         margin-bottom: 0 !important;
 
          .icon {
             img {
-               width: 80px !important;
-               height: 80px !important;
+               width: $card-default-height !important;
+               height: $card-default-height !important;
             }
          }
 
