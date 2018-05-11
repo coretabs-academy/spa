@@ -21,6 +21,14 @@ export default {
    created() {
       this.$on('toggle-drawer', function(data) {
          this.drawer.isOpen = !this.drawer.isOpen
+         document.querySelector('main.content').classList.toggle('sidenav-close')
+         if (!this.drawer.isOpen) {
+            // document.querySelector('main.content').setAttribute('style', 'padding-left', '0 !important')
+            // document.querySelector('main.content').setAttribute('style', 'padding-right', '0 !important')
+         } else {
+            // document.querySelector('main.content').setAttribute('style', 'padding-left', `0`)
+            // document.querySelector('main.content').setAttribute('style', 'padding-right', `0`)
+         }
       })
       this.$on('clearTimeout', function(data) {
          clearTimeout(this.timeout)

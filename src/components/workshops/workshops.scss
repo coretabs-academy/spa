@@ -11,12 +11,18 @@ $content-padding: 15px 30px;
 
 main.workshop-main-content,
 main.workshops-main-content {
+   &.sidenav-close {
+      padding: $workshop-header-height 0 0 0 !important;
+   }
    padding: $workshop-header-height 0 0 $workshop-drawer-width !important;
 }
 
 html[dir='rtl'] {
    main.workshop-main-content,
    main.workshops-main-content {
+      &.sidenav-close {
+         padding: $workshop-header-height 0 0 0 !important;
+      }
       padding: $workshop-header-height $workshop-drawer-width 0 0 !important;
    }
 
