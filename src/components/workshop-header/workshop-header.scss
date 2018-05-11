@@ -5,10 +5,19 @@ Workshop Header Style
 =======================================*/
 $toolbar-padding: 0 15px;
 
+html[dir='rtl'] {
+   .workshop-header {
+      > .toolbar {
+         padding: 0 $workshop-drawer-width 0 0 !important;
+      }
+   }
+}
+
 .workshop-header {
    > .toolbar {
       height: $workshop-header-height !important;
       line-height: $workshop-header-height !important;
+      padding: 0 0 0 $workshop-drawer-width !important;
 
       .toolbar__content {
          height: $workshop-header-height !important;

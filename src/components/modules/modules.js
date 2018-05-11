@@ -14,7 +14,8 @@ export default {
          isRight: false
       },
       current: {
-         lesson: {}
+         lesson: {},
+         workshopURL: ''
       },
    }),
    props: ['modules'],

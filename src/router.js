@@ -86,7 +86,7 @@ export default new Router({
       path: '/:track/:workshop/:module',
       props: true,
       children: [{
-        name: 'lesson',
+        name: 'lessons',
         path: ':lesson',
         component: LessonComponent
       }]

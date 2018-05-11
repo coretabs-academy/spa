@@ -40,6 +40,7 @@ html[dir='rtl'] {
 
                            .stepper__label {
                               margin: $workshop-ar-margin !important;
+                              width: $workshop-drawer-width - $stepper-icon-size - ((getValue($workshop-ar-margin,'left') + getValue($workshop-ar-margin,'right')) * 2) - $scrollbar-width !important;
 
                               a {
                                  text-align: right !important;
@@ -139,6 +140,7 @@ html[dir='rtl'] {
 
                .list__group__header {
                   padding: 0 !important;
+                  max-width: 100% !important;
                   background: $white-color !important;
                   height: $drawer-group-height !important;
                   box-shadow: 0 3px 3px -2px rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 1px 8px 0 rgba(0,0,0,.12) !important;
@@ -147,7 +149,7 @@ html[dir='rtl'] {
                      background: $white-color !important;
                   }
 
-                  div {
+                  > div {
                      width: 100% !important;
 
                      .list__tile {
@@ -213,11 +215,13 @@ html[dir='rtl'] {
                               margin: $workshop-margin !important;
                               height: $drawer-group-height !important;
                               line-height: $drawer-group-height !important;
+                              width: $workshop-drawer-width - $stepper-icon-size - ((getValue($workshop-margin,'left') + getValue($workshop-margin,'right')) * 2) - $scrollbar-width !important;
 
                               a {
                                  width: 100% !important;
                                  text-align: left !important;
                                  color: $black-color !important;
+                                 @include truncate-Text(ellipsis,true);
                                  height: $drawer-group-height !important;
                               }
                            }

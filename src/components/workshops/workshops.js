@@ -140,20 +140,20 @@ export default {
                   workshops[workshopIndex].modules[moduleIndex].lessons.push({
                      id: lesson.id,
                      url: {
-                        name: 'lesson',
+                        name: 'lessons',
                         params: {
                            lesson: lesson.slug,
                         },
                         query: {
-                           url: lesson.url,
-                           type: lesson.type,
-                           notes: lesson.notes_url
+                           url: this.$encryption.b64EncodeUnicode(lesson.url),
+                           type: this.$encryption.b64EncodeUnicode(lesson.type),
+                           notes: this.$encryption.b64EncodeUnicode(lesson.notes_url)
                         }
                      },
                      query: {
-                        url: lesson.url,
-                        type: lesson.type,
-                        notes: lesson.notes_url
+                        url: this.$encryption.b64EncodeUnicode(lesson.url),
+                        type: this.$encryption.b64EncodeUnicode(lesson.type),
+                        notes: this.$encryption.b64EncodeUnicode(lesson.notes_url)
                      },
                      type: lesson.type,
                      is_shown: lesson.is_shown,

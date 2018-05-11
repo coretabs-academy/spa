@@ -44,6 +44,15 @@
    <v-card class="elevation-5">
       <v-container class="no-select" fluid>
          <v-layout row align-center>
+            <v-flex xs6>
+               <v-navigation-drawer open>
+                  <v-toolbar flat>
+
+                  </v-toolbar>
+                  <modules-nav-component :modules="workshop.modules"></modules-nav-component>
+               </v-navigation-drawer>
+            </v-flex>
+            <v-flex xs6></v-flex>
          </v-layout>
       </v-container>
    </v-card>

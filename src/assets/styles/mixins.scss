@@ -10,6 +10,11 @@
       font-family: 'Poppins' short-if($important, !important);
    }
 }
+@mixin truncate-Text($overflow: ellipsis,$important:false) {
+   overflow: hidden short-if($important,!important);
+   white-space: nowrap short-if($important,!important);
+   text-overflow: $overflow short-if($important,!important);
+}
 @mixin responsive-ratio($x,$y, $pseudo: false) {
    $padding: unquote(($y / $x) * 100 + '%');
    @if $pseudo {
@@ -58,6 +63,7 @@
 @mixin border-radius($radius,$important:false) {
    border-radius: $radius short-if($important,!important);
    -moz-border-radius: $radius short-if($important,!important);
+   background-clip: padding-box short-if($important,!important);
    -webkit-border-radius: $radius short-if($important,!important);
 }
 @mixin box-shadow($left, $top,$radius ,$spread , $color,$important:false) {

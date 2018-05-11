@@ -121,55 +121,6 @@ export default {
                self.height = window.innerHeight - document.querySelector('.courses >.toolbar').offsetHeight
             }, 1000)
          }
-      },
-      getClass(categorie) {
-         if (categorie.complete) {
-            return 'complete-state'
-         } else if (categorie.id === this.current.categorie.id) {
-            return 'active-state'
-         }
-      },
-      // getClass(categorie) {
-      //    let cls = ''
-      //    if (categorie.complete) {
-      //       cls = 'complete-state'
-      //    } else if (categorie.id === this.current.categorie.id) {
-      //       cls = 'active-state'
-      //    }
-      //    return !categorie.active ? `elevation-1 ${cls}` : cls
-      // },
-      isTopicActive(id, number) {
-         let categorieId = Number(this.$route.params.course)
-         let topic = Number(this.$route.params.number)
-         if (categorieId === id && topic > number) {
-            if (number + 1 === topic) {
-               return 'topic-complete-state'
-            } else {
-               return 'topic-all-complete-state'
-            }
-         } else if (categorieId === id && topic === number) {
-            return 'topic-active-state'
-         }
-      },
-      // isTopicActive(topic) {
-      //
-      // },
-      getType(type) {
-         switch (type) {
-            case 'quiz':
-               return 'star'
-               break
-            case 'video':
-               return 'play_arrow'
-               break
-            case 'text':
-               return 'menu'
-               break
-            case 'task':
-               return 'build'
-               break
-         }
-         // return 'build'
       }
    }
 }
