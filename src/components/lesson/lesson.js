@@ -33,8 +33,8 @@ export default {
       getLesson() {
          this.type = Number(this.$route.query.type)
          switch (this.type) {
-            case 0:
-            case 1:
+            case "0":
+            case "1":
                this.lesson_content = this.$encryption.b64DecodeUnicode(this.$route.query.url)
                this.$http.get(this.$encryption.b64DecodeUnicode(this.$route.query.notes))
                   .then(data => {
@@ -44,7 +44,7 @@ export default {
                      console.error(err)
                   })
                break
-            case 2:
+            case "2":
                this.$http.get(this.$encryption.b64DecodeUnicode(this.$route.query.url))
                   .then(data => {
                      this.lesson_content = this.previewMarkdowText(data)
@@ -53,7 +53,7 @@ export default {
                      console.error(err)
                   })
                break
-            case 3:
+            case "3":
                this.$http.get(this.$encryption.b64DecodeUnicode(this.$route.query.url))
                   .then(data => {
                      this.lesson_content = this.previewMarkdowText(data)
@@ -62,7 +62,7 @@ export default {
                      console.error(err)
                   })
                break
-            case 4:
+            case "4":
                this.$http.get(this.$encryption.b64DecodeUnicode(this.$route.query.url))
                   .then(data => {
                      this.lesson_content = this.previewMarkdowText(data)

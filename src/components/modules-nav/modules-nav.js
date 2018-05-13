@@ -50,17 +50,17 @@ export default {
       },
       getLessonAction(type) {
          switch (type) {
-            case 0:
+            case "0":
                return 'play_arrow'
-            case 1:
+            case "1":
                return 'menu'
                // break
-            case 2:
+            case "2":
                // break
-            case 3:
+            case "3":
                return 'star'
                break
-            case 4:
+            case "4":
                return 'build'
                // break
          }

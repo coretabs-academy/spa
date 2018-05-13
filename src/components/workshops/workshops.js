@@ -105,7 +105,6 @@ export default {
          let workshops = []
          data.forEach((workshop, workshopIndex) => {
             workshops.push({
-               id: workshop.id,
                index: workshopIndex + 1,
                url: {
                   name: 'workshop',
@@ -113,19 +112,19 @@ export default {
                      workshop: workshop.slug,
                   }
                },
-               title: workshop.title[this.$store.state.lang],
-               about: workshop.desc[this.$store.state.lang],
-               techniques_used: workshop.techniques_used.split(', ').reverse(),
                level: workshop.level,
-               progress: workshop.progress,
-               timeline: workshop.timeline,
-               last_update: this.$date.get(new Date(workshop.last_update)),
-               modules: [],
-               users: workshop.users
+               title: workshop.title,
+               duration: workshop.duration,
+               description: workshop.description,
+               shown_percentage: workshop.shown_percentage,
+               used_technologies: workshop.used_technologies.split(', ').reverse(),
+               last_update_date: this.$date.get(new Date(workshop.last_update_date)),
+               authors: workshop.authors,
+               modules: []
             })
             workshop.modules.forEach((module, moduleIndex) => {
                workshops[workshopIndex].modules.push({
-                  id: module.id,
+                  title: module.title,
                   index: moduleIndex + 1,
                   url: {
                      name: 'modules',
@@ -133,12 +132,10 @@ export default {
                         modules: module.slug,
                      }
                   },
-                  title: module.title[this.$store.state.lang],
                   lessons: []
                })
                module.lessons.forEach((lesson) => {
                   workshops[workshopIndex].modules[moduleIndex].lessons.push({
-                     id: lesson.id,
                      url: {
                         name: 'modules',
                         params: {
@@ -157,8 +154,8 @@ export default {
                         notes: this.$encryption.b64EncodeUnicode(lesson.notes_url)
                      },
                      type: lesson.type,
-                     is_shown: lesson.is_shown,
-                     title: lesson.title[this.$store.state.lang],
+                     title: lesson.title,
+                     is_shown: lesson.is_shown
                   })
                })
             })
