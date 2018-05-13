@@ -119,6 +119,10 @@ export default {
                 src: 'http://twitter.com/LouayHamada'
               },
               {
+                name: 'linkedin',
+                src: 'https://www.linkedin.com/in/louayhamada/'
+              },
+              {
                 name: 'github',
                 src: 'https://github.com/LouayH'
               },
@@ -214,7 +218,7 @@ export default {
                 src: 'cdcd'
               }
             ]
-          },{
+          }, {
             name: 'Mohammed AlHakem',
             about: 'Front-end web developer & UI/UX designer',
             src: 'mentors/one.jpg',

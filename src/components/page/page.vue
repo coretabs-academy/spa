@@ -1,7 +1,7 @@
 <template>
   <v-container id="page" fluid fill-height>
     <v-layout row align-center justify-center>
-      <v-flex id="container" xs8>
+      <v-flex id="container" class="text-xs-center" xs8>
         <div>
           <h2 class="my-4" v-html="heading_title_text">
           </h2>

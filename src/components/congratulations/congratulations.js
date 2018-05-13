@@ -2,8 +2,8 @@ export default {
   name: 'CongratulationsComponent',
   components: {},
   data: () => ({
-    heading_text: 'تهانينا!',
-    verify_text: 'لقد قمت بإنشاء حسابك بنجاح، تفقد بريدك الإلكتروني لتفعيل حسابك.',
+    heading_title_text: 'تهانينا!',
+    description_text: 'لقد قمت بإنشاء حسابك بنجاح، تفقد بريدك الإلكتروني لتفعيل حسابك.',
     submit_btn_text: 'أعد إرسال بريد التفعيل',
     counter: 30
   }),

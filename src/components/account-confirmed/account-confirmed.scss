@@ -1,0 +1,81 @@
+@import '~@/assets/styles/vars';
+@import '~@/../node_modules/rfs/scss/_rfs';
+/*=====================================
+Account Confirmed Style
+=======================================*/
+#account-confirmed {
+  padding-bottom: 80px;
+
+  div#container {
+    position: relative;
+    @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
+    border-radius: 25px;
+    padding: 20px;
+    background: $white-color;
+
+    @media (max-width: 600px) {
+      flex-basis: 90%;
+      max-width: 90%;
+    }
+
+    #splash {
+      background-image: url("~@/assets/multimedia/images/auth/account_confirmed.svg");
+      background-position: center top;
+      background-size: contain;
+      background-repeat: no-repeat;
+      padding: 20px;
+
+      @media (max-width: 959px) {
+        display: none;
+      }
+    }
+
+    #form {
+      padding: 20px;
+
+      @media (max-width: 959px) {
+        padding: 0 20px;
+      }
+
+      h2 {
+        text-align: right;
+        @include responsive-font-size(1.5rem,true);
+      }
+
+      #buttons {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 24px 0 0 0;
+
+        button {
+          display: inline-flex;
+          flex: 0 1 auto;
+          @include box-shadow(0px, 2px, 5px, 0px , $shadow-color);
+          margin: 0 0 0 auto;
+          width: 45%;
+          max-width: 180px;
+          padding: 0 20px;
+          height: 40px;
+          font-weight: 400;
+          line-height: 0px;
+
+          @media (max-width: 1200px) and (min-width: 960px) {
+            width: auto;
+          }
+
+          @media (max-width: 768px) {
+            margin: 0 auto 20px auto !important;
+            width: 95%;
+            max-width: 95%;
+            height: 55px;
+          }
+        }
+        
+        #start {
+          background: $grading-color;
+          color: $white-color !important;
+        }
+      }
+    }
+  }
+}
