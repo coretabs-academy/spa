@@ -25,3 +25,7 @@ $poppins-font: 'assets/vendor/fonts/poppins/';
 $droid-kufi-font: 'assets/vendor/fonts/droid-kufi/';
 $material-design-font: 'assets/vendor/fonts/material-design-icons/';
 $open-sans-condensed-font: 'assets/vendor/fonts/open-sans-condensed/';
+$loader: (
+   container-background: $grading-color,
+   progress: (size: 80px, precent: 80%, stroke: (width:12, color: $white-color))
+)

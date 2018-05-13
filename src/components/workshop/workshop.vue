@@ -81,11 +81,10 @@
    </v-card>
 </div>
 <div v-else class="progress-container">
-   <v-container fluid grid-list-xs fill-height>
-      <v-layout row align-center>
-         <v-flex xs12>
-            <v-progress-circular indeterminate color="primary" :size="80" :width="7"></v-progress-circular>
-         </v-flex>
+   <v-container fluid fill-height>
+      <v-layout column align-center justify-center>
+         <v-progress-circular indeterminate :size="$store.state.progress.size" :width="$store.state.progress.width"></v-progress-circular>
+         <div class="progress-text text-center">{{$store.state.progress.text}}...</div>
       </v-layout>
    </v-container>
 </div>

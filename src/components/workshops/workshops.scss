@@ -9,22 +9,22 @@ $stepper-icon-size: 25px;
 $drawer-group-height: 60px;
 $content-padding: 15px 30px;
 
-main.workshop-main-content,
-main.workshops-main-content {
-   &.sidenav-close {
-      padding: $workshop-header-height 0 0 0 !important;
-   }
-   padding: $workshop-header-height 0 0 $workshop-drawer-width !important;
-}
+// main.workshop-main-content,
+// main.workshops-main-content {
+//    &.sidenav-close {
+//       padding: $workshop-header-height 0 0 0 !important;
+//    }
+//    padding: $workshop-header-height 0 0 $workshop-drawer-width !important;
+// }
 
 html[dir='rtl'] {
-   main.workshop-main-content,
-   main.workshops-main-content {
-      &.sidenav-close {
-         padding: $workshop-header-height 0 0 0 !important;
-      }
-      padding: $workshop-header-height $workshop-drawer-width 0 0 !important;
-   }
+   // main.workshop-main-content,
+   // main.workshops-main-content {
+   //    &.sidenav-close {
+   //       padding: $workshop-header-height 0 0 0 !important;
+   //    }
+   //    padding: $workshop-header-height $workshop-drawer-width 0 0 !important;
+   // }
 
    .workshops {
       > .navigation-drawer {
@@ -254,7 +254,7 @@ html[dir='rtl'] {
       border-left: 0 !important;
       transition: none !important;
       background: $white-color !important;
-      // padding-right: $workshop-drawer-width !important;
+
       > div {
          width: 100% !important;
          height: 100% !important;

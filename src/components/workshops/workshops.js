@@ -45,7 +45,7 @@ export default {
                let workshop = this.workshops[this.getWorkshopId()]
                this.current.workshop = workshop
             }
-            this.loaded = true
+            // this.loaded = true
          }).catch(err => {
             console.error(err)
          })
@@ -141,8 +141,9 @@ export default {
                   workshops[workshopIndex].modules[moduleIndex].lessons.push({
                      id: lesson.id,
                      url: {
-                        name: 'lessons',
+                        name: 'modules',
                         params: {
+                           module: module.slug,
                            lesson: lesson.slug,
                         },
                         query: {

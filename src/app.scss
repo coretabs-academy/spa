@@ -91,7 +91,6 @@ a {
       margin-right: 10px;
    }
 }
-
 @include center(true,true);
 
 .no-select {
@@ -142,6 +141,22 @@ a {
 
 .progress-container {
    height: 100% !important;
+   background: map-deep-get($loader,'container-background') !important;
+
+   .progress-circular {
+      svg {
+         circle {
+            stroke: map-deep-get($loader,'progress','stroke','color') !important;
+         }
+      }
+   }
+
+   .progress-text {
+      width: 100% !important;
+      margin-top: 20px !important;
+      font-weight: 700 !important;
+      color: map-deep-get($loader,'progress','stroke','color') !important;
+   }
 }
 
 .application--wrap {

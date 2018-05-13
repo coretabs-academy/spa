@@ -8,6 +8,11 @@ export default {
    created() {
       this.$store.state.lang = 'ar'
       this.$store.state.direction = 'rtl'
+      this.$store.state.progress = {
+         width: 5,
+         size: 80,
+         text: 'الرجاء الإنتظار حتى تحميل الصفحة'
+      }
       this.$store.dispatch('getImgUrl', 'icons/logo.png').then(img => {
          this.$store.state.logo = img
       }).catch(error => {

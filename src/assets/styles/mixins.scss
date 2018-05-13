@@ -85,3 +85,19 @@
    -moz-appearance: $appearance short-if($important,!important);
    -webkit-appearance: $appearance short-if($important,!important);
 }
+@mixin progress-circular($loader,$important) {
+   $size: strip-unit(map-deep-get($loader,'progress','size') / 2);
+   $precent: strip-unit(map-deep-get($loader,'progress','precent'));
+   $stroke-width: strip-unit(map-deep-get($loader,'progress','stroke','width'));
+   $r: ($size - $stroke-width) / 2;
+   $circumference: $r * 2 * 3.14;
+   $strokeDashArray: round($circumference * 1000) / 1000;
+   // $strokeDashOffset: addUnit(((100 - strip-unit(map-deep-get($loader,'percent'))) / 100) * $circumference);
+   r: $r !important;
+   cx: $size / 2 short-if($important,!important);
+   cy: $size / 2 short-if($important,!important);
+   // stroke-dasharray: $strokeDashArray short-if($important,!important);
+   // stroke-dashoffset: $strokeDashOffset short-if($important,!important);
+   stroke: map-deep-get($loader,'progress','stroke','color') short-if($important,!important);
+   stroke-width: map-deep-get($loader,'progress','stroke','width') short-if($important,!important);
+}

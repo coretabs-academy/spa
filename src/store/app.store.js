@@ -11,7 +11,12 @@ export default new Vuex.Store({
       direction: '',
       forumLogo: '',
       isLogin: false,
-      githubFileURL: ''
+      githubFileURL: '',
+      progress: {
+         size: 0,
+         width: 0,
+         text: ''
+      }
    },
    mutations: {
       getGithubFileURL(state, params) {
