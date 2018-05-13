@@ -1,7 +1,7 @@
 <template>
 <div v-if="loaded" class="workshops">
    <workshop-header-component :title="current.workshop.title"></workshop-header-component>
-   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen" id="sidenav" :width="$store.state.css.workshops.drawerWidth">
+   <v-navigation-drawer id="sidenav" app :right="drawer.isRight" v-model="drawer.isOpen" :width="$store.state.css.workshops.drawerWidth" hide-overlay>
       <v-toolbar flat>
          <v-toolbar-title>{{title}}</v-toolbar-title>
       </v-toolbar>

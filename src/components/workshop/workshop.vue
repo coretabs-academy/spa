@@ -1,50 +1,52 @@
 <template>
 <div v-if="loaded" class="workshop">
    <v-card class="elevation-5">
-      <v-container class="no-select" fluid>
-         <v-layout row align-center>
-            <v-spacer></v-spacer>
-            <v-flex d-flex xs3>
-               <v-flex class="icon" xs2>
+      <v-container class="no-select" fluid grid-list-xl>
+         <v-layout row wrap align-center justify-center>
+            <v-flex xs4 sm4 md3>
+               <v-layout row wrap align-center justify-center>
                   <img v-if="workshop.level === 0" src="../../assets/multimedia/icons/workshop/level1.svg" alt="course level icon">
                   <img v-if="workshop.level === 1" src="../../assets/multimedia/icons/workshop/level2.svg" alt="course level icon">
                   <img v-if="workshop.level === 2" src="../../assets/multimedia/icons/workshop/level3.svg" alt="course level icon">
-               </v-flex>
-               <v-flex class="text" xs10>
-                  <div>{{i18n.card1.level.title}}</div>
-                  <div>{{i18n.card1.level.value[workshop.level]}}</div>
-               </v-flex>
+                  <div class="text">
+                     <div>{{i18n.card1.level.title}}</div>
+                     <div>{{i18n.card1.level.value[workshop.level]}}</div>
+                  </div>
+               </v-layout>
             </v-flex>
-            <v-flex d-flex xs3>
-               <v-flex class="icon" xs2>
-                  <img src="../../assets/multimedia/icons/workshop/timeline.svg" alt="last update icon">
-               </v-flex>
-               <v-flex class="text" xs10>
-                  <div>{{i18n.card1.timeline.title}}</div>
-                  <div>{{workshop.timeline}} {{i18n.card1.timeline.unit}}</div>
-               </v-flex>
+            <v-flex xs4 sm4 md3>
+               <v-layout row wrap align-center justify-center>
+                  <img src="../../assets/multimedia/icons/workshop/timeline.svg" alt="timeline icon">
+                  <div class="text">
+                     <div>{{i18n.card1.timeline.title}}</div>
+                     <div>{{workshop.timeline}} {{i18n.card1.timeline.unit}}</div>
+                  </div>
+               </v-layout>
             </v-flex>
-            <v-flex d-flex xs3>
-               <v-flex class="icon" xs2>
+            <v-flex xs4 sm4 md3>
+               <v-layout row wrap align-center justify-center>
                   <img src="../../assets/multimedia/icons/workshop/last-update.svg" alt="last update icon">
-               </v-flex>
-               <v-flex class="text" xs10>
-                  <div>{{i18n.card1.last_update}}</div>
-                  <div>{{workshop.last_update}}</div>
-               </v-flex>
+                  <div class="text">
+                     <div>{{i18n.card1.last_update}}</div>
+                     <div>{{workshop.last_update}}</div>
+                  </div>
+               </v-layout>
             </v-flex>
-            <v-flex d-flex xs2>
-               <v-btn round class="white--text" v-if="workshop.progress === 0">{{i18n.card1.start[0]}}</v-btn>
-               <v-btn round class="white--text" v-else>{{i18n.card1.start[1]}}</v-btn>
-               <v-spacer></v-spacer>
+            <v-flex xs6 sm4 md3>
+               <v-layout row wrap align-center justify-center>
+                  <v-flex md8>
+                     <v-btn round class="white--text" v-if="workshop.progress === 0">{{i18n.card1.start[0]}}</v-btn>
+                     <v-btn round class="white--text" v-else>{{i18n.card1.start[1]}}</v-btn>
+                  </v-flex>
+               </v-layout>
             </v-flex>
          </v-layout>
       </v-container>
    </v-card>
    <v-card class="elevation-5">
       <v-container class="no-select" fluid>
-         <v-layout row>
-            <v-flex xs7>
+         <v-layout row wrap>
+            <v-flex xs12 sm7 md7>
                <div class="title">{{i18n.card2.about}}</div>
                <p>{{workshop.about}}</p>
                <div class="title">{{i18n.card2.techniques_used}}</div>
@@ -55,26 +57,28 @@
                <div class="title">{{i18n.card2.resutl}}</div>
                <v-btn flat round>{{i18n.card2.resutlBtn}}</v-btn>
             </v-flex>
-            <v-flex xs5>
-               <v-navigation-drawer open>
+            <v-flex xs12 sm5 md5>
+               <div class="navigation">
                   <v-toolbar flat>
                      <progress :value="workshop.progress" max="100" :data-value="workshop.progress + '%'"></progress>
                   </v-toolbar>
                   <modules-nav-component :modules="workshop.modules"></modules-nav-component>
-               </v-navigation-drawer>
+               </div>
             </v-flex>
          </v-layout>
       </v-container>
    </v-card>
    <v-card class="elevation-5">
-      <v-container class="no-select" fluid>
-         <v-layout row align-center>
-            <v-flex class="icon" xs2>
-               <img :src="$store.state.forumLogo" alt="forum-logo icon">
-            </v-flex>
-            <v-flex class="text" xs10>
-               <div>{{i18n.card3.title}}</div>
-               <div>{{i18n.card3.text}} <a href="https://forums.coretabs.net" target="_blank">{{i18n.card3.here}}</a></div>
+      <v-container class="no-select" fluid grid-list-xl>
+         <v-layout row wrap align-center justify-center>
+            <v-flex xs11 sm11 md11>
+               <v-layout row align-center>
+                  <img :src="$store.state.forumLogo" alt="forum-logo icon">
+                  <div class="text">
+                     <div>{{i18n.card3.title}}</div>
+                     <div>{{i18n.card3.text}} <a href="https://forums.coretabs.net" target="_blank">{{i18n.card3.here}}</a></div>
+                  </div>
+               </v-layout>
             </v-flex>
          </v-layout>
       </v-container>

@@ -19,7 +19,7 @@ export default new Vuex.Store({
       },
       css: {
          workshops: {
-            drawerWidth: '',
+            drawerWidth: ''
          }
       }
    },

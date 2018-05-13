@@ -1,7 +1,7 @@
 <template>
 <div v-if="loaded" class="modules">
    <workshop-header-component :title="current.lesson.title"></workshop-header-component>
-   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen" v-bind:class="{'elevation-15':drawer.isOpen}">
+   <v-navigation-drawer app :right="drawer.isRight" v-model="drawer.isOpen" :width="$store.state.css.workshops.drawerWidth" hide-overlay>
       <v-toolbar flat>
          <v-btn flat icon color="white" v-if="!drawer.isRight" :to="current.workshopURL">
             <v-icon>chevron_left</v-icon>

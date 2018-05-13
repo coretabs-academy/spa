@@ -6,24 +6,16 @@ Workshops Style
 $padding: 0 0 0 50px;
 $ar-padding: 0 50px 0 0;
 $stepper-icon-size: 25px;
+$content-padding: 15px 5px;
 $drawer-group-height: 60px;
-$content-padding: 15px 30px;
-// main.workshop-main-content,
-// main.workshops-main-content {
-// &.sidenav-close {
-//    padding: $workshop-header-height 0 0 0 !important;
-// }
-// padding-top: $workshop-header-height !important;
-// }
+
+main.workshop-main-content,
+main.workshops-main-content {
+   padding-top: $workshop-header-height !important;
+   background: $workshop-content-background !important;
+}
 
 html[dir='rtl'] {
-   // main.workshop-main-content,
-   // main.workshops-main-content {
-   // &.sidenav-close {
-   //    padding: $workshop-header-height 0 0 0 !important;
-   // }
-   // padding-top: $workshop-header-height !important;
-   // }
    .workshops {
       > .navigation-drawer {
          .toolbar {
@@ -75,9 +67,7 @@ html[dir='rtl'] {
       overflow: hidden !important;
       background: $workshop-drawer-background !important;
       @include box-shadow(0px, 15px, 34px, 0px, $shadow-color,true);
-      // &.navigation-drawer--close {
-      //    transform: translateX($workshop-drawer-width) !important;
-      // }
+
       .navigation-drawer__border {
          display: none !important;
       }
@@ -116,7 +106,6 @@ html[dir='rtl'] {
             height: calc(100vh - #{$workshop-header-height}) !important;
 
             &::-webkit-scrollbar {
-               // width: 0 !important;
                background: $shadow-color !important;
             }
 
@@ -248,15 +237,21 @@ html[dir='rtl'] {
       padding: 0 !important;
       border-left: 0 !important;
       transition: none !important;
-      background: $white-color !important;
+      overflow: hidden !important;
+      background: $workshop-content-background !important;
 
       > div {
          width: 100% !important;
          height: 100% !important;
          transition: none !important;
-         overflow: hidden !important;
+         // overflow: hidden !important;
+         overflow-x: hidden !important;
          user-select: text !important;
          padding: $content-padding !important;
+
+         &::-webkit-scrollbar {
+            background: $workshop-content-background !important;
+         }
       }
    }
 }
