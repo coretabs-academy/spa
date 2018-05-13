@@ -28,6 +28,7 @@ export default {
       }).catch(error => {
          throw new Error(error.message)
       })
+      this.$store.state.css.workshops.drawerWidth = 350
       document.querySelector('html').setAttribute('lang', this.$store.state.lang)
       document.querySelector('html').setAttribute('dir', this.$store.state.direction)
    },

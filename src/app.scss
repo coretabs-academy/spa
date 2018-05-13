@@ -140,7 +140,8 @@ a {
 }
 
 .progress-container {
-   height: 100% !important;
+   height: 100vh !important;
+   margin-top: $workshop-header-height * -1 !important;
    background: map-deep-get($loader,'container-background') !important;
 
    .progress-circular {

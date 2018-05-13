@@ -7,17 +7,7 @@ $padding: 0 0 0 15px;
 $ar-padding: 0 15px 0 0;
 $content-padding: 15px 30px;
 
-main.workshop-main-content,
-main.workshops-main-content {
-   padding: $workshop-header-height 0 0 $workshop-drawer-width !important;
-}
-
 html[dir='rtl'] {
-   main.lesson-main-content,
-   main.modules-main-content {
-      padding: $workshop-header-height $workshop-drawer-width 0 0 !important;
-   }
-
    .modules {
       .navigation-drawer {
          .toolbar {
@@ -36,13 +26,8 @@ html[dir='rtl'] {
    .navigation-drawer {
       height: 100vh !important;
       overflow: hidden !important;
-      width: $workshop-drawer-width !important;
       background: $workshop-drawer-background !important;
       @include box-shadow(0px, 15px, 34px, 0px, $shadow-color,true);
-
-      &.navigation-drawer--close {
-         transform: translateX($workshop-drawer-width) !important;
-      }
 
       .navigation-drawer__border {
          display: none !important;

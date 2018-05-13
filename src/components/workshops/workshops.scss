@@ -8,24 +8,22 @@ $ar-padding: 0 50px 0 0;
 $stepper-icon-size: 25px;
 $drawer-group-height: 60px;
 $content-padding: 15px 30px;
-
 // main.workshop-main-content,
 // main.workshops-main-content {
-//    &.sidenav-close {
-//       padding: $workshop-header-height 0 0 0 !important;
-//    }
-//    padding: $workshop-header-height 0 0 $workshop-drawer-width !important;
+// &.sidenav-close {
+//    padding: $workshop-header-height 0 0 0 !important;
+// }
+// padding-top: $workshop-header-height !important;
 // }
 
 html[dir='rtl'] {
    // main.workshop-main-content,
    // main.workshops-main-content {
-   //    &.sidenav-close {
-   //       padding: $workshop-header-height 0 0 0 !important;
-   //    }
-   //    padding: $workshop-header-height $workshop-drawer-width 0 0 !important;
+   // &.sidenav-close {
+   //    padding: $workshop-header-height 0 0 0 !important;
    // }
-
+   // padding-top: $workshop-header-height !important;
+   // }
    .workshops {
       > .navigation-drawer {
          .toolbar {
@@ -50,7 +48,7 @@ html[dir='rtl'] {
 
                            .stepper__label {
                               margin: $workshop-ar-margin !important;
-                              width: $workshop-drawer-width - $stepper-icon-size - ((getValue($workshop-ar-margin,'left') + getValue($workshop-ar-margin,'right')) * 2) - $scrollbar-width !important;
+                              width: calc(100% - #{$stepper-icon-size - ((getValue($workshop-ar-margin,'left') + getValue($workshop-ar-margin,'right')) * 2) - $scrollbar-width}) !important;
 
                               a {
                                  text-align: right !important;
@@ -75,14 +73,11 @@ html[dir='rtl'] {
    > .navigation-drawer {
       height: 100vh !important;
       overflow: hidden !important;
-      width: $workshop-drawer-width !important;
       background: $workshop-drawer-background !important;
       @include box-shadow(0px, 15px, 34px, 0px, $shadow-color,true);
-
-      &.navigation-drawer--close {
-         transform: translateX($workshop-drawer-width) !important;
-      }
-
+      // &.navigation-drawer--close {
+      //    transform: translateX($workshop-drawer-width) !important;
+      // }
       .navigation-drawer__border {
          display: none !important;
       }
@@ -219,7 +214,7 @@ html[dir='rtl'] {
                               margin: $workshop-margin !important;
                               height: $drawer-group-height !important;
                               line-height: $drawer-group-height !important;
-                              width: $workshop-drawer-width - $stepper-icon-size - ((getValue($workshop-margin,'left') + getValue($workshop-margin,'right')) * 2) - $scrollbar-width !important;
+                              width: calc(100% - #{$stepper-icon-size - ((getValue($workshop-margin,'left') + getValue($workshop-margin,'right')) * 2) - $scrollbar-width}) !important;
 
                               a {
                                  width: 100% !important;

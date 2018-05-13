@@ -36,21 +36,21 @@ export default {
    watch: {
       $route(to, from) {
          this.setHeader()
-         let el = document.querySelector('main.content')
-         el.className = ''
-         el.classList.add('content')
-         el.classList.add(this.currentClass)
+         // let el = document.querySelector('main.content')
+         // el.className = ''
+         // el.classList.add('content')
+         // el.classList.add(this.currentClass)
       }
    },
-   mounted() {
-      let el = document.querySelector('main.content')
-      el.className = ''
-      el.classList.add('content')
-      el.classList.add(this.currentClass)
-   },
+   // mounted() {
+   //    let el = document.querySelector('main.content')
+   //    el.className = ''
+   //    el.classList.add('content')
+   //    el.classList.add(this.currentClass)
+   // },
    methods: {
       setHeader() {
-         this.currentClass = `${this.$route.name}-main-content`
+         // this.currentClass = `${this.$route.name}-main-content`
          switch (this.$route.name) {
             case 'home':
             case 'page':

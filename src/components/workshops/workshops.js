@@ -21,7 +21,6 @@ export default {
    created() {
       this.$on('toggle-drawer', function(data) {
          this.drawer.isOpen = !this.drawer.isOpen
-         document.querySelector('main.content').classList.toggle('sidenav-close')
       })
       this.$on('clearTimeout', function(data) {
          clearTimeout(this.timeout)
@@ -45,7 +44,7 @@ export default {
                let workshop = this.workshops[this.getWorkshopId()]
                this.current.workshop = workshop
             }
-            // this.loaded = true
+            this.loaded = true
          }).catch(err => {
             console.error(err)
          })

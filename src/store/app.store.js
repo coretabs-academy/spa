@@ -16,6 +16,11 @@ export default new Vuex.Store({
          size: 0,
          width: 0,
          text: ''
+      },
+      css: {
+         workshops: {
+            drawerWidth: '',
+         }
       }
    },
    mutations: {

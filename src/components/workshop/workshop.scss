@@ -19,7 +19,6 @@ $card3: (
    margin-bottom: 8px,
    text-font-size: 14px
 );
-$workshop-drawer-width: 100%;
 
 html[dir='rtl'] {
    .workshop {
@@ -133,13 +132,13 @@ html[dir='rtl'] {
          }
 
          .navigation-drawer {
+            width: 100% !important;
             height: 100% !important;
             box-shadow: none !important;
             overflow: hidden !important;
             border-style: solid !important;
             border-width: 0 0 0 1px !important;
             border-color: $shadow-color !important;
-            width: $workshop-drawer-width !important;
             background: $workshop-drawer-background !important;
 
             .navigation-drawer__border {
