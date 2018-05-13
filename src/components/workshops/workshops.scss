@@ -19,7 +19,15 @@ html[dir='rtl'] {
    .workshops {
       > .navigation-drawer {
          .toolbar {
-            padding: _calc($ar-padding, $workshop-ar-margin) !important;
+            padding: 0 $scrollbar-width 0 0 !important;
+
+            .btn {
+               margin: $workshop-ar-margin !important;
+            }
+
+            .toolbar__title {
+               margin: $workshop-ar-margin !important;
+            }
          }
 
          .list {
@@ -68,14 +76,26 @@ html[dir='rtl'] {
       background: $workshop-drawer-background !important;
       @include box-shadow(0px, 15px, 34px, 0px, $shadow-color,true);
 
+      &.navigation-drawer--is-mobile {
+         .toolbar {
+            .toolbar__content {
+               .btn {
+                  .icon {
+                     display: block !important;
+                  }
+               }
+            }
+         }
+      }
+
       .navigation-drawer__border {
          display: none !important;
       }
 
       .toolbar {
-         height: auto !important;
-         padding: $padding !important;
          background: $grading-color !important;
+         padding: 0 0 0 $scrollbar-width !important;
+         height: $workshop-header-height !important;
          min-height: $workshop-header-height !important;
          max-height: $workshop-header-height !important;
 
@@ -83,6 +103,19 @@ html[dir='rtl'] {
             height: auto !important;
             min-height: $workshop-header-height !important;
             max-height: $workshop-header-height !important;
+
+            .btn {
+               color: $white-color !important;
+               width: $stepper-icon-size !important;
+               height: $stepper-icon-size !important;
+
+               .icon {
+                  display: none !important;
+                  width: $stepper-icon-size !important;
+                  height: $stepper-icon-size !important;
+                  font-size: $stepper-icon-size !important;
+               }
+            }
 
             .toolbar__title {
                font-size: 16px !important;

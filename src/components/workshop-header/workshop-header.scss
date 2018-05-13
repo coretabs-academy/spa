@@ -11,8 +11,8 @@ $toolbar-padding: 0 15px;
       line-height: $workshop-header-height !important;
 
       .toolbar__content {
-         height: $workshop-header-height !important;
          padding: $toolbar-padding !important;
+         height: $workshop-header-height !important;
          line-height: $workshop-header-height !important;
 
          .toolbar__title {
@@ -22,9 +22,9 @@ $toolbar-padding: 0 15px;
          }
 
          .brand-logo {
-            background: #f4f4f4 !important;
             width: $workshop-header-height / 1.6 !important;
             height: $workshop-header-height / 1.6 !important;
+            background: $workshop-drawer-background !important;
 
             a {
                width: $workshop-header-height / 1.6 !important;
@@ -45,7 +45,7 @@ $toolbar-padding: 0 15px;
             .icon {
                width: $workshop-header-height / 2 !important;
                height: $workshop-header-height / 2 !important;
-               font-size: ($workshop-header-height / 2) / ($workshop-header-height / 3) !important;
+               font-size: $workshop-header-height / 2 !important;
             }
          }
       }
