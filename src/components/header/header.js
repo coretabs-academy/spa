@@ -54,12 +54,14 @@ export default {
          switch (this.$route.name) {
             case 'home':
             case 'page':
+            case 'about':
+            case 'contact-us':
             case 'signin':
             case 'signup':
+            case 'account-confirmed':
             case 'congratulations':
             case 'reset-password':
             case 'forgot-password':
-            case 'about':
             case 'tracks':
                this.show = true
                this.navs = this.default_navs

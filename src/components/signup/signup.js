@@ -3,7 +3,7 @@ export default {
   data: () => ({
     heading_text: 'أنت على بُعد خطوة واحدة',
     description_text: 'قم بإنشاء حسابك لتبدأ رحلة اكتشاف ميولك ولتنضم إلى مجتمعنا الرائع',
-    tos_text: 'بالضغط على إنشاء الحساب، أنت توافق على <a href="/tos">شروط الخدمة</a> الخاصة بالأكاديمية.',
+    tos_text: 'بالضغط على إنشاء الحساب، أنت توافق على <a href="/page/terms-of-service">شروط الخدمة</a> الخاصة بالأكاديمية.',
     submit_btn_text: 'إنشاء الحساب',
     alert: {
       success: false,

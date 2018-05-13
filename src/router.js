@@ -3,9 +3,10 @@ import Router from 'vue-router'
 import HomeComponent from './components/home/home.vue'
 import PageComponent from './components/page/page.vue'
 import AboutComponent from './components/about/about.vue'
+import ContactUsComponent from './components/contact-us/contact-us.vue'
 import SignInComponent from './components/signin/signin.vue'
 import SignUpComponent from './components/signup/signup.vue'
-import ContactUsComponent from './components/contact-us/contact-us.vue'
+import AccountConfirmedComponent from './components/account-confirmed/account-confirmed.vue'
 import ResetPasswordComponent from './components/reset-password/reset-password.vue'
 import ForgotPasswordComponent from './components/forgot-password/forgot-password.vue'
 import CongratulationsComponent from './components/congratulations/congratulations.vue'
@@ -36,6 +37,10 @@ export default new Router({
       name: 'signup',
       path: '/signup',
       component: SignUpComponent
+    }, {
+      name: 'account-confirmed',
+      path: '/account-confirmed',
+      component: AccountConfirmedComponent
     }, {
       name: 'congratulations',
       path: '/congratulations',
