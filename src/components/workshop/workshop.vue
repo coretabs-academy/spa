@@ -16,10 +16,10 @@
             </v-flex>
             <v-flex xs4 sm4 md3>
                <v-layout row wrap align-center justify-center>
-                  <img src="../../assets/multimedia/icons/workshop/timeline.svg" alt="timeline icon">
+                  <img src="../../assets/multimedia/icons/workshop/duration.svg" alt="duration icon">
                   <div class="text">
-                     <div>{{i18n.card1.timeline.title}}</div>
-                     <div>{{workshop.timeline}} {{i18n.card1.timeline.unit}}</div>
+                     <div>{{i18n.card1.duration.title}}</div>
+                     <div>{{workshop.duration}} {{i18n.card1.duration.unit}}</div>
                   </div>
                </v-layout>
             </v-flex>
@@ -27,15 +27,15 @@
                <v-layout row wrap align-center justify-center>
                   <img src="../../assets/multimedia/icons/workshop/last-update.svg" alt="last update icon">
                   <div class="text">
-                     <div>{{i18n.card1.last_update}}</div>
-                     <div>{{workshop.last_update}}</div>
+                     <div>{{i18n.card1.last_update_date_date_date}}</div>
+                     <div>{{workshop.last_update_date_date_date}}</div>
                   </div>
                </v-layout>
             </v-flex>
             <v-flex xs6 sm4 md3>
                <v-layout row wrap align-center justify-center>
                   <v-flex md8>
-                     <v-btn round class="white--text" v-if="workshop.progress === 0">{{i18n.card1.start[0]}}</v-btn>
+                     <v-btn round class="white--text" v-if="workshop.shown_percentage === 0">{{i18n.card1.start[0]}}</v-btn>
                      <v-btn round class="white--text" v-else>{{i18n.card1.start[1]}}</v-btn>
                   </v-flex>
                </v-layout>
@@ -47,20 +47,20 @@
       <v-container class="no-select" fluid>
          <v-layout row wrap>
             <v-flex xs12 sm7 md7>
-               <div class="title">{{i18n.card2.about}}</div>
-               <p>{{workshop.about}}</p>
-               <div class="title">{{i18n.card2.techniques_used}}</div>
+               <div class="title">{{i18n.card2.description}}</div>
+               <p>{{workshop.description}}</p>
+               <div class="title">{{i18n.card2.used_technologies}}</div>
                <div class="chips">
-                  <v-chip v-for="techniques_used in workshop.techniques_used" :key="techniques_used">{{techniques_used}}</v-chip>
+                  <v-chip v-for="used_technologies in workshop.used_technologies" :key="used_technologies">{{used_technologies}}</v-chip>
                </div>
-               <div class="title">{{i18n.card2.users}}</div>
+               <div class="title">{{i18n.card2.authors}}</div>
                <div class="title">{{i18n.card2.resutl}}</div>
-               <v-btn flat round>{{i18n.card2.resutlBtn}}</v-btn>
+               <v-btn flat round href="workshop.workshop_result_url">{{i18n.card2.resutlBtn}}</v-btn>
             </v-flex>
             <v-flex xs12 sm5 md5>
                <div class="navigation">
                   <v-toolbar flat>
-                     <progress :value="workshop.progress" max="100" :data-value="workshop.progress + '%'"></progress>
+                     <progress :value="workshop.shown_percentage" max="100" :data-value="workshop.shown_percentage + '%'"></progress>
                   </v-toolbar>
                   <modules-nav-component :modules="workshop.modules"></modules-nav-component>
                </div>

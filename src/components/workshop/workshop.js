@@ -7,11 +7,11 @@ export default {
    data: () => ({
       i18n: {
          card1: {
-            timeline: {
+            duration: {
                unit: 'ساعة',
                title: 'الجدول الزمني'
             },
-            last_update: 'آخر تحديث',
+            last_update_date: 'آخر تحديث',
             start: ['بدأ', 'إستمرار'],
             level: {
                title: 'المستوى',
@@ -19,11 +19,11 @@ export default {
             }
          },
          card2: {
-            users: 'المدربون',
-            about: 'عن ورشة العمل',
+            authors: 'المدربون',
             resutlBtn: 'مشاهدة حية',
             resutl: 'النتيجة النهائية',
-            techniques_used: 'التقنيات المستخدمة'
+            description: 'عن ورشة العمل',
+            used_technologies: 'التقنيات المستخدمة'
          },
          card3: {
             here: 'هنا',
@@ -41,16 +41,5 @@ export default {
    watch: {
       $route(to, from) {}
    },
-   methods: {
-      goToLessons(url) {
-         this.$parent.$emit('clearTimeout')
-         this.$router.push({
-            name: 'modules',
-            params: {
-               module: 'collo',
-               modules: this.workshop.modules
-            }
-         })
-      }
-   }
+   methods: {}
 }
