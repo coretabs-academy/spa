@@ -16,11 +16,11 @@
       <div v-html="lesson_content"></div>
    </template>
 </div>
-<div v-else class="progress-container">
+<div v-else class="progress-container lesson-progress">
    <v-container fluid fill-height>
       <v-layout column align-center justify-center>
          <v-progress-circular indeterminate :size="$store.state.progress.size" :width="$store.state.progress.width"></v-progress-circular>
-         <div class="progress-text text-center">{{$store.state.progress.text}}...</div>
+         <div class="progress-text text-center">{{$store.state.progress.lessonText}}...</div>
       </v-layout>
    </v-container>
 </div>

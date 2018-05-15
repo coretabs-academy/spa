@@ -1,5 +1,7 @@
 import axios from 'axios'
+import router from './router'
 import showdown from 'showdown'
+
 showdown.setFlavor('github')
 const markdown = new showdown.Converter({
    emoji: false,
@@ -33,11 +35,113 @@ export default {
             })
          }
       }
-      Vue.prototype.$util = {
-         prettyDigit(n) {
-            return (n < 10) ? `0${n}` : n
+      Vue.prototype.$api = {
+            getWorkshopId(workshops) {
+               let index = workshops.findIndex(function(workshop) {
+                  return router.app.$route.params.workshop === workshop.url.params.workshop
+               }.bind(this))
+               if (index === -1) {
+                  router.push('/404')
+               } else {
+                  return workshops[index]
+               }
+            },
+            getModuleId(modules) {
+               let index = modules.findIndex(function(module) {
+                  return router.app.$route.params.module === module.url.params.module
+               }.bind(this))
+               return modules[index]
+            },
+            getLessonId(lessons) {
+               let index = lessons.findIndex(function(module) {
+                  return router.app.$route.params.lesson === module.url.params.lesson
+               }.bind(this))
+               if (index === -1) {
+                  router.push('/404')
+               } else {
+                  return lessons[index]
+               }
+            },
+            getWorkshopsData(url) {
+               return new Promise((resolve, reject) => {
+                  Vue.prototype.$http.get(url)
+                     .then(data => {
+                        let workshops = []
+                        data.forEach((workshop, workshopIndex) => {
+                           workshops.push({
+                              index: workshopIndex + 1,
+                              url: {
+                                 name: 'workshop',
+                                 params: {
+                                    workshop: workshop.slug,
+                                 }
+                              },
+                              level: workshop.level,
+                              title: workshop.title,
+                              duration: workshop.duration,
+                              description: workshop.description,
+                              shown_percentage: workshop.shown_percentage,
+                              workshop_result_url: workshop.workshop_result_url,
+                              used_technologies: workshop.used_technologies.split(', ').reverse(),
+                              last_update_date: Vue.prototype.$date.get(new Date(workshop.last_update_date)),
+                              authors: workshop.authors,
+                              modules: []
+                           })
+                           workshop.modules.forEach((module, moduleIndex) => {
+                              workshops[workshopIndex].modules.push({
+                                 active: true,
+                                 title: module.title,
+                                 index: moduleIndex + 1,
+                                 url: {
+                                    name: 'modules',
+                                    params: {
+                                       module: module.slug
+                                    }
+                                 },
+                                 lessons: []
+                              })
+                              module.lessons.forEach((lesson, lessonIndex) => {
+                                 workshops[workshopIndex].modules[moduleIndex].lessons.push({
+                                    index: lessonIndex + 1,
+                                    url: {
+                                       name: 'lessons',
+                                       params: {
+                                          module: module.slug,
+                                          lesson: lesson.slug,
+                                          workshopURL: workshop.url,
+                                          modules: workshops[workshopIndex].modules
+                                       },
+                                       query: {
+                                          url: Vue.prototype.$encryption.b64EncodeUnicode(lesson.url),
+                                          type: Vue.prototype.$encryption.b64EncodeUnicode(lesson.type),
+                                          notes: Vue.prototype.$encryption.b64EncodeUnicode(lesson.notes_url)
+                                       }
+                                    },
+                                    query: {
+                                       url: Vue.prototype.$encryption.b64EncodeUnicode(lesson.url),
+                                       type: Vue.prototype.$encryption.b64EncodeUnicode(lesson.type),
+                                       notes: Vue.prototype.$encryption.b64EncodeUnicode(lesson.notes_url)
+                                    },
+                                    type: lesson.type,
+                                    title: lesson.title,
+                                    is_shown: lesson.is_shown
+                                 })
+                              })
+                           })
+                        })
+                        resolve(workshops)
+                     })
+                     .catch(err => {
+                        reject(err)
+                     })
+               })
+            }
+         },
+         Vue.prototype.$util = {
+            prettyDigit(n) {
+               return (n < 10) ? `0${n}` : n
+            }
          }
-      }
       Vue.prototype.$date = {
          get(date) {
             return `${Vue.prototype.$util.prettyDigit(date.getDate())}/${Vue.prototype.$util.prettyDigit(date.getMonth())}/${date.getFullYear()}`

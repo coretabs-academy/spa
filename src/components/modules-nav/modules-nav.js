@@ -8,20 +8,30 @@ export default {
    }),
    props: ['modules'],
    created() {
-      this.current.module = this.modules[0]
-      // if (typeof this.$route.params.module !== 'undefined') {
-      // } else {
-      //
-      // }
+      if (typeof this.$route.params.module !== 'undefined') {
+         this.current.module = this.$api.getModuleId(this.modules)
+      } else {
+         this.current.module = this.modules[0]
+      }
    },
    watch: {},
    methods: {
       getClass(module) {
-         if (module.complete) {
+         if (this.isComplete(module)) {
             return 'complete-state'
-         } else if (module.id === this.current.module.id) {
+         } else {
             return 'active-state'
          }
+      },
+      isComplete(module) {
+         let complete = true;
+         for (let i = 0; i < module.lessons.length; i++) {
+            if (module.lessons[i].is_shown === false) {
+               complete = false;
+               break;
+            }
+         }
+         return complete;
       },
       // getClass(module) {
       //    let cls = ''

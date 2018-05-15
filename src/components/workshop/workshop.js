@@ -35,9 +35,7 @@ export default {
    }),
 
    props: ['workshop'],
-   created() {
-
-   },
+   created() {},
    watch: {
       $route(to, from) {}
    },

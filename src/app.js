@@ -11,7 +11,8 @@ export default {
       this.$store.state.progress = {
          width: 5,
          size: 80,
-         text: 'الرجاء الإنتظار حتى تحميل الصفحة'
+         pageText: 'الرجاء الإنتظار حتى تحميل الصفحة',
+         lessonText:'الرجاء الإنتظار حتى تحميل الدرس'
       }
       this.$store.dispatch('getImgUrl', 'icons/logo.png').then(img => {
          this.$store.state.logo = img

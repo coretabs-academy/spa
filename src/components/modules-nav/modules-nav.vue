@@ -1,13 +1,13 @@
 <template>
 <div class="modules-nav">
-   <v-list class="py-0" :expand="typeof this.$route.params.module !== 'undefined'">
-      <v-stepper v-model="current.module.id" vertical class="py-0">
-         <v-list-group v-for="module in modules" :key="`step-${module.id}`" v-model="module.active" :class="getClass(module)">
+   <v-list class="py-0">
+      <v-stepper v-model="current.module.index" vertical class="py-0">
+         <v-list-group v-for="module in modules" :key="`step-${module.index}`" v-model="module.active" :class="getClass(module)">
             <v-list-tile slot="activator">
-               <v-stepper-step :step="module.index" :complete="module.complete"><span>{{module.title}}</span></v-stepper-step>
+               <v-stepper-step :step="module.index" :complete="isComplete(module)"><span>{{module.title}}</span></v-stepper-step>
             </v-list-tile>
-            <v-list-tile v-for="lesson in module.lessons" :key="`step-${lesson.id}`">
-               <v-list-tile-action :class="isLessonActive(module.id,lesson.id)">
+            <v-list-tile v-for="lesson in module.lessons" :key="`step-${module.id}-${lesson.index}`">
+               <v-list-tile-action :class="isLessonActive(module.id,lesson.index)">
                   <v-icon>{{getLessonAction(lesson.type)}}</v-icon>
                </v-list-tile-action>
                <router-link :to="lesson.url">{{lesson.title}}</router-link>

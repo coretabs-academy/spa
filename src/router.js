@@ -20,81 +20,78 @@ import WorkshopsComponent from './components/workshops/workshops.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
-  routes: [
-    {
+   mode: 'history',
+   routes: [{
       path: '/',
       name: 'home',
       component: HomeComponent
-    }, {
+   }, {
       path: '/home',
       redirect: '/'
-    }, {
+   }, {
       name: 'signin',
       path: '/signin',
       component: SignInComponent
-    }, {
+   }, {
       name: 'signup',
       path: '/signup',
       component: SignUpComponent
-    }, {
+   }, {
       name: 'account-confirmed',
       path: '/account-confirmed',
       component: AccountConfirmedComponent
-    }, {
+   }, {
       name: 'congratulations',
       path: '/congratulations',
       component: CongratulationsComponent
-    }, {
+   }, {
       name: 'reset-password',
       path: '/reset-password',
       component: ResetPasswordComponent
-    }, {
+   }, {
       name: 'forgot-password',
       path: '/forgot-password',
       component: ForgotPasswordComponent
-    }, {
+   }, {
       name: 'about',
       path: '/about',
       component: AboutComponent
-    }, {
+   }, {
       name: 'contact-us',
       path: '/contact-us',
       component: ContactUsComponent
-    }, {
+   }, {
       name: 'page',
       path: '/page/:page',
       component: PageComponent
-    }, {
+   }, {
       name: '404',
       path: '/404',
       component: NotFoundComponent
-    }, {
+   }, {
       path: '*',
       redirect: '/404'
-    }, {
+   }, {
       name: 'tracks',
       path: '/tracks',
       component: TracksComponent
-    }, {
+   }, {
       name: 'workshops',
       path: '/:track',
       component: WorkshopsComponent,
       children: [{
-        name: 'workshop',
-        path: ':workshop',
-        component: WorkshopComponent
+         name: 'workshop',
+         path: ':workshop',
+         component: WorkshopComponent
       }]
-    }, {
+   }, {
       name: 'modules',
       component: ModulesComponent,
       path: '/:track/:workshop/:module',
-      props: true,
       children: [{
-        name: 'lessons',
-        path: ':lesson',
-        component: LessonComponent
+         name: 'lessons',
+         path: ':lesson',
+         component: LessonComponent
       }]
-    }
-  ]
+   }]
 })

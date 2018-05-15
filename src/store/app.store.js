@@ -15,7 +15,8 @@ export default new Vuex.Store({
       progress: {
          size: 0,
          width: 0,
-         text: ''
+         pageText: '',
+         lessonText: ''
       },
       css: {
          workshops: {

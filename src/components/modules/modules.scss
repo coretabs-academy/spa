@@ -3,11 +3,11 @@
 /*=====================================
 Modules Style
 =======================================*/
+$content-padding: 0;
 $padding: 0 0 0 15px;
 $ar-padding: 0 15px 0 0;
-$content-padding: 15px 30px;
 
-main.lesson-main-content,
+main.lessons-main-content,
 main.modules-main-content {
    padding-top: $workshop-header-height !important;
    background: $workshop-content-background !important;
@@ -77,15 +77,21 @@ html[dir='rtl'] {
       padding: 0 !important;
       border-left: 0 !important;
       transition: none !important;
+      overflow: hidden !important;
       background: $workshop-content-background !important;
 
       > div {
          width: 100% !important;
          height: 100% !important;
          transition: none !important;
-         overflow: hidden !important;
+         // overflow: hidden !important;
+         overflow-x: hidden !important;
          user-select: text !important;
          padding: $content-padding !important;
+
+         &::-webkit-scrollbar {
+            background: $workshop-content-background !important;
+         }
       }
    }
 }

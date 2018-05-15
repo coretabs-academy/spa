@@ -67,7 +67,7 @@ export default {
                this.navs = this.default_navs
                break
             case '404':
-            case 'lesson':
+            case 'lessons':
             case 'modules':
             case 'workshop':
             case 'workshops':

@@ -21,7 +21,7 @@
    <v-container fluid fill-height>
       <v-layout column align-center justify-center>
          <v-progress-circular indeterminate :size="$store.state.progress.size" :width="$store.state.progress.width"></v-progress-circular>
-         <div class="progress-text text-center">{{$store.state.progress.text}}...</div>
+         <div class="progress-text text-center">{{$store.state.progress.pageText}}...</div>
       </v-layout>
    </v-container>
 </div>

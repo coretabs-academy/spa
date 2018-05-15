@@ -144,6 +144,23 @@ a {
    margin-top: $workshop-header-height * -1 !important;
    background: map-deep-get($loader,'container-background') !important;
 
+   &.lesson-progress {
+      margin-top: 0 !important;
+      background: map-deep-get($loader,'lesson-container-background') !important;
+
+      .progress-circular {
+         svg {
+            circle {
+               stroke: map-deep-get($loader,'progress','stroke','lesson-color') !important;
+            }
+         }
+      }
+
+      .progress-text {
+         color: map-deep-get($loader,'progress','stroke','lesson-color') !important;
+      }
+   }
+
    .progress-circular {
       svg {
          circle {

@@ -28,5 +28,6 @@ $material-design-font: 'assets/vendor/fonts/material-design-icons/';
 $open-sans-condensed-font: 'assets/vendor/fonts/open-sans-condensed/';
 $loader: (
    container-background: $grading-color,
-   progress: (size: 80px, precent: 80%, stroke: (width:12, color: $white-color))
+   lesson-container-background: $workshop-drawer-background,
+   progress: (size: 80px, precent: 80%, stroke: (width:12, color: $white-color, lesson-color: var(--workshop-complete-state)))
 )

@@ -5,9 +5,9 @@
          <v-layout row wrap align-center justify-center>
             <v-flex xs4 sm4 md3>
                <v-layout row wrap align-center justify-center>
-                  <img v-if="workshop.level === 0" src="../../assets/multimedia/icons/workshop/level1.svg" alt="course level icon">
-                  <img v-if="workshop.level === 1" src="../../assets/multimedia/icons/workshop/level2.svg" alt="course level icon">
-                  <img v-if="workshop.level === 2" src="../../assets/multimedia/icons/workshop/level3.svg" alt="course level icon">
+                  <img v-if="workshop.level === '0'" src="../../assets/multimedia/icons/workshop/level1.svg" alt="course level icon">
+                  <img v-if="workshop.level === '1'" src="../../assets/multimedia/icons/workshop/level2.svg" alt="course level icon">
+                  <img v-if="workshop.level === '2'" src="../../assets/multimedia/icons/workshop/level3.svg" alt="course level icon">
                   <div class="text">
                      <div>{{i18n.card1.level.title}}</div>
                      <div>{{i18n.card1.level.value[workshop.level]}}</div>
@@ -27,8 +27,8 @@
                <v-layout row wrap align-center justify-center>
                   <img src="../../assets/multimedia/icons/workshop/last-update.svg" alt="last update icon">
                   <div class="text">
-                     <div>{{i18n.card1.last_update_date_date_date}}</div>
-                     <div>{{workshop.last_update_date_date_date}}</div>
+                     <div>{{i18n.card1.last_update_date}}</div>
+                     <div>{{workshop.last_update_date}}</div>
                   </div>
                </v-layout>
             </v-flex>
@@ -55,7 +55,7 @@
                </div>
                <div class="title">{{i18n.card2.authors}}</div>
                <div class="title">{{i18n.card2.resutl}}</div>
-               <v-btn flat round href="workshop.workshop_result_url">{{i18n.card2.resutlBtn}}</v-btn>
+               <v-btn flat round target="_blank" :href="workshop.workshop_result_url">{{i18n.card2.resutlBtn}}</v-btn>
             </v-flex>
             <v-flex xs12 sm5 md5>
                <div class="navigation">
@@ -88,7 +88,7 @@
    <v-container fluid fill-height>
       <v-layout column align-center justify-center>
          <v-progress-circular indeterminate :size="$store.state.progress.size" :width="$store.state.progress.width"></v-progress-circular>
-         <div class="progress-text text-center">{{$store.state.progress.text}}...</div>
+         <div class="progress-text text-center">{{$store.state.progress.pageText}}...</div>
       </v-layout>
    </v-container>
 </div>
