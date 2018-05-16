@@ -6,15 +6,17 @@ Workshop Style
 $card: (
    height: auto,
    icon-size: 30px,
-   margin-bottom: 10px,
-   padding: 15px 0 10px
+   margin-bottom: 40px,
+   padding: 0px,
+   background: $white-color
 );
 $card1: (
-   text: (margin: 0 10px 0 0, ar-margin: 0 0 0 10px,font-size:1em)
+   text: (margin: 0 10px 0 0, ar-margin: 0 0 0 10px, font-size:1em)
 );
 $card2: (
    part1: (padding:40px, margin-bottom: 20px, font-size:(title:1.25em, paragraph:0.95em, chips:1em, btn:1em)),
-   part2: (toolbar: (height: 30px, padding: 0 10px, progress-border-raduis: 50px))
+   part2: (toolbar: (height: 30px, padding: 0 10px, progress-border-raduis: 50px)),
+   part3: (padding:40px, margin-bottom: 40px, font-size:(title:1.25em, paragraph:0.95em, chips:1em, btn:1em)),
 );
 $card3: (
    icon-size: 80px,
@@ -49,6 +51,7 @@ html[dir='rtl'] {
       height: map-deep-get($card,'height') !important;
       padding: map-deep-get($card,'padding') !important;
       margin-bottom: map-deep-get($card,'margin-bottom') !important;
+      background: map-deep-get($card,'background') !important;
 
       .container {
          height: 100% !important;
@@ -110,21 +113,21 @@ html[dir='rtl'] {
             p {
                line-height: 1.5 !important;
                font-weight: normal !important;
-               margin-bottom: map-deep-get($card2,'part1','margin-bottom') !important;
-               @include responsive-font-size(map-deep-get($card2,'part1','font-size','paragraph'),true);
+               margin-bottom: map-deep-get($card2,'part3','margin-bottom') !important;
+               @include responsive-font-size(map-deep-get($card2,'part3','font-size','paragraph'),true);
             }
 
             .chips {
-               margin-bottom: map-deep-get($card2,'part1','margin-bottom') !important;
+               margin-bottom: map-deep-get($card2,'part3','margin-bottom') !important;
 
                .chip {
                   padding: 0 5px !important;
-                  font-weight: 700 !important;
+                  font-weight: 400 !important;
                   pointer-events: none !important;
                   @include font-family('en',true);
                   background: $white-color !important;
-                  color: var(--workshop-normal-state) !important;
-                  border: 2px solid var(--workshop-normal-state) !important;
+                  color: $black-color !important;
+                  border: 1px solid var(--workshop-normal-state) !important;
                   @include responsive-font-size(map-deep-get($card2,'part1','font-size','chips'),true);
                }
             }
@@ -132,7 +135,7 @@ html[dir='rtl'] {
             .btn {
                font-weight: 700 !important;
                color: $white-color !important;
-               background: $black-color !important;
+               background: #496A8A !important;
                @include responsive-font-size(map-deep-get($card2,'part1','font-size','btn'),true);
             }
          }

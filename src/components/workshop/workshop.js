@@ -12,7 +12,7 @@ export default {
                title: 'الجدول الزمني'
             },
             last_update_date: 'آخر تحديث',
-            start: ['بدأ', 'إستمرار'],
+            start: ['بدء', 'استمرار'],
             level: {
                title: 'المستوى',
                value: ['مبتدئ', 'متوسط', 'صعب']

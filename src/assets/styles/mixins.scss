@@ -5,7 +5,7 @@
 }
 @mixin font-family ($value,$important:false) {
    @if($value=='ar') {
-      font-family: 'Droid Arabic Kufi' short-if($important, !important);
+      font-family: 'Droid Arabic Kufi', 'Poppins' short-if($important, !important);
    }
    @elseif($value=='button') {
       font-family: 'Cairo' short-if($important, !important);
@@ -14,7 +14,7 @@
       font-family: 'Open Sans Condensed' short-if($important, !important);
    }
    @elseif($value=='en') {
-      font-family: 'Poppins' short-if($important, !important);
+      font-family: 'Poppins', 'Droid Arabic Kufi' short-if($important, !important);
    } @else {
       @warn 'Error #{$value} dose not mathcing';
    }

@@ -52,7 +52,7 @@ export default {
       document.querySelectorAll('#sidenav .stepper__step__step').forEach((stepper, index) => {
          stepper.setAttribute('data-index', index + 1)
          if (this.workshops[index].shown_percentage !== 0 && this.workshops[index].shown_percentage !== 100) {
-            stepper.style.background = this.progress(this.workshops[index].shown_percentage);
+            stepper.style.background = this.progress(this.workshops[index].shown_percentage)
          }
       })
    },
@@ -81,9 +81,8 @@ export default {
          if (percent < half) {
             let nextdeg = 90 + (increment * percent)
             gradient = `linear-gradient(90deg, var(--workshop-normal-state) 50%, transparent 50%, transparent),linear-gradient(${nextdeg}deg, var(--workshop-complete-state) 50%, var(--workshop-normal-state) 50%, var(--workshop-normal-state))`
-
          } else {
-            let nextdeg = -90 + (increment * (percent - half));
+            let nextdeg = -90 + (increment * (percent - half))
             gradient = `linear-gradient(${nextdeg}deg, var(--workshop-complete-state) 50%, transparent 50%, transparent),linear-gradient(270deg, var(--workshop-complete-state) 50%, var(--workshop-normal-state) 50%, var(--workshop-normal-state))`
          }
          return gradient

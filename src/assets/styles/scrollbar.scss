@@ -27,3 +27,7 @@ Scrollbar Style
 ::-webkit-scrollbar-thumb:active {
    background: $primary-color !important;
 }
+
+::-webkit-scrollbar-track {
+  background: $white-color;
+}

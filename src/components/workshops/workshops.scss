@@ -6,7 +6,7 @@ Workshops Style
 $padding: 0 0 0 50px;
 $ar-padding: 0 50px 0 0;
 $stepper-icon-size: 25px;
-$content-padding: 15px 5px;
+$content-padding: 50px;
 $drawer-group-height: 60px;
 
 main.workshop-main-content,
@@ -160,11 +160,12 @@ html[dir='rtl'] {
                }
 
                .list__group__header {
+                 border-bottom: 1px solid $secondary-color;
                   padding: 0 !important;
                   max-width: 100% !important;
                   background: $white-color !important;
                   height: $drawer-group-height !important;
-                  box-shadow: 0 3px 3px -2px rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 1px 8px 0 rgba(0,0,0,.12) !important;
+                  box-shadow: 0 3px 3px -2px rgba(0,0,0,.025),0 3px 4px 0 rgba(0,0,0,.025),0 1px 10px 0 rgba(0,0,0,.025) !important;
 
                   &:hover {
                      background: $white-color !important;
@@ -257,9 +258,17 @@ html[dir='rtl'] {
                   }
                }
 
+               &:last-of-type {
+                .list__group__header {
+                  border-bottom: unset;
+                }
+              }
+
                .list__group__items {
                   display: none !important;
                }
+
+               
             }
          }
       }

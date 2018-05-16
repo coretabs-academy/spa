@@ -9,6 +9,7 @@ $toolbar-padding: 0 15px;
    > .toolbar {
       height: $workshop-header-height !important;
       line-height: $workshop-header-height !important;
+      box-shadow: 0 10px 10px -2px rgba(0, 0, 0, 0.025), 0 10px 10px 0 rgba(0, 0, 0, 0.025), 0 0px 10px 0 rgba(0, 0, 0, 0.025) !important;
 
       .toolbar__content {
          padding: $toolbar-padding !important;
