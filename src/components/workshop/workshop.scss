@@ -7,7 +7,7 @@ $card: (
    height: auto,
    icon-size: 30px,
    margin-bottom: 40px,
-   padding: 0px,
+   padding: 0,
    background: $white-color
 );
 $card1: (
@@ -19,7 +19,7 @@ $card2: (
    part3: (padding:40px, margin-bottom: 40px, font-size:(title:1.25em, paragraph:0.95em, chips:1em, btn:1em)),
 );
 $card3: (
-   icon-size: 80px,
+   icon: (size: 35px, margin:0 10px 0 0, margin-ar:0 0 0 10px),
    margin-bottom: 8px,
    text-font-size: 14px
 );
@@ -36,6 +36,12 @@ html[dir='rtl'] {
          &:nth-child(2) {
             .navigation {
                border-width: 0 1px 0 0 !important;
+            }
+         }
+
+         &:nth-child(3) {
+            img {
+               margin: map-deep-get($card3,'icon','margin-ar') !important;
             }
          }
       }
@@ -200,8 +206,9 @@ html[dir='rtl'] {
             display: inline-flex !important;
 
             img {
-               width: map-deep-get($card3,'icon-size') !important;
-               height: map-deep-get($card3,'icon-size') !important;
+               width: map-deep-get($card3,'icon','size') !important;
+               height: map-deep-get($card3,'icon','size') !important;
+               margin: map-deep-get($card3,'icon','margin') !important;
             }
 
             .text {

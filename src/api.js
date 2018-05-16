@@ -101,6 +101,15 @@ export default {
                                  lessons: []
                               })
                               module.lessons.forEach((lesson, lessonIndex) => {
+                                 let url = ''
+                                 let notes = ''
+                                 if (lesson.type === '0' || lesson.type === '1') {
+                                    url = Vue.prototype.$encryption.b64EncodeUnicode(lesson.video_url)
+                                    notes = Vue.prototype.$encryption.b64EncodeUnicode(lesson.markdown_url)
+                                 } else {
+                                    url = Vue.prototype.$encryption.b64EncodeUnicode(lesson.markdown_url)
+                                    notes = ''
+                                 }
                                  workshops[workshopIndex].modules[moduleIndex].lessons.push({
                                     index: lessonIndex + 1,
                                     url: {
@@ -112,15 +121,15 @@ export default {
                                           modules: workshops[workshopIndex].modules
                                        },
                                        query: {
-                                          url: Vue.prototype.$encryption.b64EncodeUnicode(lesson.url),
-                                          type: Vue.prototype.$encryption.b64EncodeUnicode(lesson.type),
-                                          notes: Vue.prototype.$encryption.b64EncodeUnicode(lesson.notes_url)
+                                          url: url,
+                                          notes: notes,
+                                          type: Vue.prototype.$encryption.b64EncodeUnicode(lesson.type)
                                        }
                                     },
                                     query: {
-                                       url: Vue.prototype.$encryption.b64EncodeUnicode(lesson.url),
-                                       type: Vue.prototype.$encryption.b64EncodeUnicode(lesson.type),
-                                       notes: Vue.prototype.$encryption.b64EncodeUnicode(lesson.notes_url)
+                                       url: url,
+                                       notes: notes,
+                                       type: Vue.prototype.$encryption.b64EncodeUnicode(lesson.type)
                                     },
                                     type: lesson.type,
                                     title: lesson.title,

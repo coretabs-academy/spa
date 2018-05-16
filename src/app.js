@@ -24,7 +24,7 @@ export default {
       }).catch(error => {
          throw new Error(error.message)
       })
-      this.$store.dispatch('getImgUrl', 'icons/forum-logo.png').then(img => {
+      this.$store.dispatch('getImgUrl', 'icons/forums-logo.png').then(img => {
          this.$store.state.forumLogo = img
       }).catch(error => {
          throw new Error(error.message)
