@@ -11,7 +11,7 @@ $drawer-group-height: 45px;
 $drawer-group-item-height: 40px;
 $stepper-group-item-padding: 10px;
 $stepper-group-item-fl-padding: 15px;
-$drawer-group-height-toggle-icon-padding: 0 20px;
+$drawer-group-height-toggle-icon-padding: 0 0 0 20px;
 
 html[dir='rtl'] {
    .modules-nav {
@@ -35,6 +35,10 @@ html[dir='rtl'] {
                               text-shadow: none !important;
                               margin: $workshop-ar-margin !important;
                               width: calc(100% - #{$stepper-icon-size} - #{((getValue($workshop-ar-margin,'left',true) + getValue($workshop-ar-margin,'right',true)) * 2)} - #{$scrollbar-width}) !important;
+
+                              @media (max-width: 480px) {
+                                margin: 0 10px 0 0 !important;
+                              }
                            }
                         }
                      }
@@ -43,6 +47,11 @@ html[dir='rtl'] {
 
                .list__group__items {
                   padding: $ar-padding !important;
+                  
+
+                  @media (max-width: 480px) {
+                    padding: 0 5px 0 0 !important
+                  }
 
                   div {
                      .list__tile {
@@ -57,7 +66,11 @@ html[dir='rtl'] {
                         }
 
                         a {
-                           margin: $workshop-ar-margin !important;
+                          margin: $workshop-ar-margin !important;
+
+                          @media (max-width: 480px) {
+                            margin: 0 10px 0 0 !important;
+                          }
                         }
                      }
                   }
@@ -75,12 +88,20 @@ html[dir='rtl'] {
       background: $white-color !important;
       height: calc(100vh - #{$workshop-header-height}) !important;
 
+      @media (max-width: 960px) {
+        height: auto !important;
+      }
+
       .stepper {
          box-shadow: none !important;
          overflow-y: scroll !important;
          overflow-x: hidden !important;
          background: $workshop-drawer-background !important;
          height: calc(100vh - #{$workshop-header-height}) !important;
+
+         @media (max-width: 960px) {
+           height: auto !important;
+         }
 
          &::-webkit-scrollbar {
             // width: 5px !important;
@@ -201,7 +222,10 @@ html[dir='rtl'] {
                > div:nth-child(1) {
                   padding: 0 $stepper-group-item-padding !important;
                   width: calc(100% - #{$stepper-icon-size} * 2 - ((#{getValue($padding,'left',true)} + #{getValue($padding,'right',true)}) * 2) - ((#{getValue($drawer-group-height-toggle-icon-padding,'left',true)} + #{getValue($drawer-group-height-toggle-icon-padding,'right',true)}) * 2) - #{$scrollbar-width}) !important;
-
+                  
+                  @media (max-width: 480px) {
+                    padding: 0 0 0 $stepper-group-item-padding !important;
+                  }
                   .list__tile {
                      padding: 0 !important;
                      width: 100% !important;

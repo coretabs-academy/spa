@@ -39,5 +39,33 @@ export default {
    watch: {
       $route(to, from) {}
    },
-   methods: {}
+   methods: {
+    toggleAvatar() {
+      var isBreak = false
+      document.querySelectorAll('.author').forEach((author) => {
+        if (author.querySelector('.info').clientWidth >= (author.clientWidth - 58)) {
+          document.querySelectorAll('.avatar').forEach((avatar) => {
+            avatar.style.display = 'none'
+          })
+          isBreak = true
+        } else {
+          if (!isBreak) {
+            document.querySelectorAll('.avatar').forEach((avatar) => {
+              avatar.style.display = 'inline-flex'
+            })
+          }
+        }
+      })
+    }
+   },
+   mounted() {
+    window.addEventListener('resize', this.toggleAvatar)
+
+    this.$nextTick(function() {
+      this.toggleAvatar()
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
+  }
 }

@@ -3,7 +3,7 @@
    <v-card class="elevation-5">
       <v-container class="no-select" fluid grid-list-xl>
          <v-layout row wrap align-center justify-center>
-            <v-flex xs4 sm4 md3>
+            <v-flex xs8 sm4 md3>
                <v-layout row wrap align-center justify-center>
                   <img v-if="workshop.level === '0'" src="../../assets/multimedia/icons/workshop/level1.svg" alt="course level icon">
                   <img v-if="workshop.level === '1'" src="../../assets/multimedia/icons/workshop/level2.svg" alt="course level icon">
@@ -14,7 +14,7 @@
                   </div>
                </v-layout>
             </v-flex>
-            <v-flex xs4 sm4 md3>
+            <v-flex xs8 sm4 md3>
                <v-layout row wrap align-center justify-center>
                   <img src="../../assets/multimedia/icons/workshop/duration.svg" alt="duration icon">
                   <div class="text">
@@ -23,7 +23,7 @@
                   </div>
                </v-layout>
             </v-flex>
-            <v-flex xs4 sm4 md3>
+            <v-flex xs8 sm4 md3>
                <v-layout row wrap align-center justify-center>
                   <img src="../../assets/multimedia/icons/workshop/last-update.svg" alt="last update icon">
                   <div class="text">
@@ -32,7 +32,7 @@
                   </div>
                </v-layout>
             </v-flex>
-            <v-flex xs6 sm4 md3>
+            <v-flex xs8 sm4 md3>
                <v-layout row wrap align-center justify-center>
                   <v-flex md8>
                      <v-btn round class="white--text" v-if="workshop.shown_percentage === 0">{{i18n.card1.start[0]}}</v-btn>
@@ -46,7 +46,7 @@
    <v-card class="elevation-5">
       <v-container class="no-select" fluid>
          <v-layout row wrap>
-            <v-flex xs12 sm7 md7>
+            <v-flex xs12 sm12 md7>
                <div class="title">{{i18n.card2.description}}</div>
                <p>{{workshop.description}}</p>
                <div class="title">{{i18n.card2.used_technologies}}</div>
@@ -54,10 +54,24 @@
                   <v-chip v-for="used_technologies in workshop.used_technologies" :key="used_technologies">{{used_technologies}}</v-chip>
                </div>
                <div class="title">{{i18n.card2.authors}}</div>
+               <div class="authors">
+                 <div class="author" v-for="(author, index) in workshop.authors" :key="index">
+                  <v-avatar >{{ author.name[0] }}</v-avatar>
+                  <div class="info">
+                    <div>
+                      {{ author.name }}
+                    </div>
+                    <div>
+                      {{ author.role }}
+                    </div>
+                  </div>
+                 </div>
+
+               </div>
                <div class="title">{{i18n.card2.resutl}}</div>
                <v-btn flat round target="_blank" :href="workshop.workshop_result_url">{{i18n.card2.resutlBtn}}</v-btn>
             </v-flex>
-            <v-flex xs12 sm5 md5>
+            <v-flex xs12 sm12 md5>
                <div class="navigation">
                   <v-toolbar flat>
                      <progress :value="workshop.shown_percentage" max="100" :data-value="workshop.shown_percentage + '%'"></progress>

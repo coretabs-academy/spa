@@ -291,6 +291,10 @@ html[dir='rtl'] {
          user-select: text !important;
          padding: $content-padding !important;
 
+         @media (max-width: 600px) {
+          padding: 5% !important;
+         }
+
          &::-webkit-scrollbar {
             background: $workshop-content-background !important;
          }
