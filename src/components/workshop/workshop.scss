@@ -77,6 +77,9 @@ html[dir='rtl'] {
             width: 100% !important;
             font-weight: 700 !important;
             background: $grading-color !important;
+            @media (max-width: 960px) {
+              margin: 0;
+            }
          }
 
          img {
@@ -108,6 +111,9 @@ html[dir='rtl'] {
 
          .flex:nth-child(1) {
             padding: map-deep-get($card2,'part1','padding') !important;
+            @media (max-width: 600px) { 
+              padding: 20px !important;
+            }
 
             .title {
                font-weight: 700 !important;
@@ -266,6 +272,7 @@ html[dir='rtl'] {
 
          .flex {
             display: inline-flex !important;
+            padding: 12px 0;
 
             img {
                width: map-deep-get($card3,'icon-size') !important;

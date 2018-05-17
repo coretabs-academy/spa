@@ -43,7 +43,7 @@ export default {
     toggleAvatar() {
       var isBreak = false
       document.querySelectorAll('.author').forEach((author) => {
-        if (author.querySelector('.info').clientWidth > (author.clientWidth - 58)) {
+        if (author.querySelector('.info').clientWidth >= (author.clientWidth - 58)) {
           document.querySelectorAll('.avatar').forEach((avatar) => {
             avatar.style.display = 'none'
           })
