@@ -30,7 +30,12 @@ export default {
       } else {
          this.modules = modulesData
          this.getCurrentLesson(this.$api.getModuleId(this.modules).lessons)
-         this.current.workshopURL = this.$route.params.workshopURL
+         this.current.workshopURL = {
+            name: 'workshop',
+            params: {
+               workshop: this.$route.params.workshop,
+            }
+         }
          this.loaded = true
       }
    },

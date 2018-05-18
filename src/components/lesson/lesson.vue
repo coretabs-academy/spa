@@ -3,13 +3,16 @@
    <template v-if="type === '0'">
       <div id="lesson-scrimba" class="lesson-video lesson-scrimba">
          <iframe :src="lesson_content"></iframe>
-         <v-tabs :right="$store.state.direction === 'rtl'" icons-and-text>
+         <v-tabs :right="$store.state.direction === 'rtl'" icons-and-text v-model="current.tab">
             <v-tab v-for="tab in i18n.video" :key="tab.text">
                {{tab.text}}
                <v-icon>{{tab.icon}}</v-icon>
             </v-tab>
          </v-tabs>
-      
+         <v-tabs-items v-model="current.tab">
+            <v-tab-item><div v-html="notes_content"></div></v-tab-item>
+            <v-tab-item>quotes</v-tab-item>
+         </v-tabs-items>
       </div>
    </template>
    <template v-if="type === '1'">

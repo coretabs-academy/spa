@@ -14,6 +14,9 @@ export default {
             icon: 'add',
             text: 'لديك سؤال'
          }]
+      },
+      current: {
+         tab: null
       }
    }),
    created() {

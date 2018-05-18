@@ -48,7 +48,7 @@ html[dir='rtl'] {
 
                            .stepper__label {
                               margin: $workshop-ar-margin !important;
-                              width: calc(100% - #{$stepper-icon-size - ((getValue($workshop-ar-margin,'left') + getValue($workshop-ar-margin,'right')) * 2) - $scrollbar-width}) !important;
+                              width: calc(100% - #{$stepper-icon-size - ((getValue($workshop-ar-margin,'left',true) + getValue($workshop-ar-margin,'right',true)) * 2) - $scrollbar-width}) !important;
 
                               a {
                                  text-align: right !important;
@@ -160,7 +160,7 @@ html[dir='rtl'] {
                }
 
                .list__group__header {
-                 border-bottom: 1px solid $secondary-color;
+                  border-bottom: 1px solid $secondary-color;
                   padding: 0 !important;
                   max-width: 100% !important;
                   background: $white-color !important;
@@ -237,7 +237,7 @@ html[dir='rtl'] {
                               margin: $workshop-margin !important;
                               height: $drawer-group-height !important;
                               line-height: $drawer-group-height !important;
-                              width: calc(100% - #{$stepper-icon-size - ((getValue($workshop-margin,'left') + getValue($workshop-margin,'right')) * 2) - $scrollbar-width}) !important;
+                              width: calc(100% - #{$stepper-icon-size - ((getValue($workshop-margin,'left',true) + getValue($workshop-margin,'right',true)) * 2) - $scrollbar-width}) !important;
 
                               a {
                                  width: 100% !important;
@@ -259,16 +259,14 @@ html[dir='rtl'] {
                }
 
                &:last-of-type {
-                .list__group__header {
-                  border-bottom: unset;
-                }
-              }
+                  .list__group__header {
+                     border-bottom: unset;
+                  }
+               }
 
                .list__group__items {
                   display: none !important;
                }
-
-               
             }
          }
       }
@@ -290,9 +288,8 @@ html[dir='rtl'] {
          overflow-x: hidden !important;
          user-select: text !important;
          padding: $content-padding !important;
-
          @media (max-width: 600px) {
-          padding: 5% !important;
+            padding: 5% !important;
          }
 
          &::-webkit-scrollbar {

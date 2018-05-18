@@ -3,6 +3,9 @@
 /*=====================================
 Lesson Style
 =======================================*/
+$lesson: (
+   video: (tab:(margin:10px 15px 0 30px,ar-margin:10px 30px 0 15px,content:(height:150px, margin:20px 40px 20px 80px, ar-margin:20px 80px 20px 40px),slider-height:2px,height:60px,min-width:130px,font-size:12px,icon-size:20px))
+);
 $markdown-list-padding: 5em;
 $markdown-spacer: 10px !default;
 $markdown-spacers: (
@@ -30,16 +33,82 @@ $markdown-em-spacer-6: 0.75em !default;
 
 .lesson {
    .lesson-video {
+      height: 100% !important;
+
       &.lesson-scrimba {}
 
       &.lesson-youtube {}
-   }
 
-   .lesson-task {}
+      iframe {
+         width: 100% !important;
+         height: 100% !important;
+         // height: calc(100% - #{map-deep-get($lesson,'video','tab','height') + getValue(map-deep-get($lesson,'video','tab','margin'),'top',true) + getValue(map-deep-get($lesson,'video','tab','margin'),'bottom',true) map-deep-get($lesson,'video','tab','content','height') + getValue(map-deep-get($lesson,'video','tab','content','margin'),'top',true) + getValue(map-deep-get($lesson,'video','tab','content','margin'),'bottom',true)}) !important;
+      }
+
+      .tabs {
+         margin: map-deep-get($lesson,'video','tab','margin') !important;
+
+         .tabs__bar {
+            background-color: $workshop-content-background !important;
+
+            .tabs__wrapper {
+               .tabs__container {
+                  padding: 0 !important;
+                  height: map-deep-get($lesson,'video','tab','height') !important;
+
+                  &::before {
+                     bottom: 0 !important;
+                     width: 100% !important;
+                     content: '' !important;
+                     opacity: 0.7 !important;
+                     position: absolute !important;
+                     border-color: $secondary-color !important;
+                     background-color: $secondary-color !important;
+                     height: map-deep-get($lesson,'video','tab','slider-height') !important;
+                  }
+
+                  .tabs__slider-wrapper {
+                     .tabs__slider {
+                        border-color: $black-color !important;
+                        background-color: $black-color !important;
+                     }
+                  }
+
+                  .tabs__div {
+                     margin: 0 !important;
+                     font-weight: 700 !important;
+                     color: $black-color !important;
+                     min-width: map-deep-get($lesson,'video','tab','min-width') !important;
+
+                     .tabs__item {
+                        padding: 0 !important;
+                        font-size: map-deep-get($lesson,'video','tab','font-size') !important;
+
+                        &.tabs__item--active {}
+
+                        .icon {
+                           margin: 0 !important;
+                           font-size: map-deep-get($lesson,'video','tab','icon-size') !important;
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      .tabs__items {
+         height: map-deep-get($lesson,'video','tab','content','height') !important;
+         margin: map-deep-get($lesson,'video','tab','content','margin') !important;
+         max-height: map-deep-get($lesson,'video','tab','content','height') !important;
+         min-height: map-deep-get($lesson,'video','tab','content','height') !important;
+      }
+   }
 
    .lesson-quiz {}
 
-   .lesson-markdown {
+   .lesson-markdown,
+   .lesson-task {
       padding: 20px !important;
       word-wrap: break-word !important;
 
@@ -381,6 +450,16 @@ $markdown-em-spacer-6: 0.75em !default;
 
 html[dir='rtl'] {
    .lesson {
+      .lesson-video {
+         .tabs {
+            margin: map-deep-get($lesson,'video','tab','ar-margin') !important;
+         }
+
+         .tabs__items {
+            margin: map-deep-get($lesson,'video','tab','content','ar-margin') !important;
+         }
+      }
+
       .lesson-markdown {
          ol {
             padding-right: $markdown-list-padding;
