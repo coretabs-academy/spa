@@ -63,9 +63,10 @@ export default {
             case "0":
                return 'play_arrow'
             case "1":
-               return 'menu'
+            return 'play_arrow'
                // break
             case "2":
+            return 'menu'
                // break
             case "3":
                return 'star'
