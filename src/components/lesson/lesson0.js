@@ -13,31 +13,9 @@ export default {
          }, {
             icon: 'add',
             text: 'لديك سؤال'
-         }],
-         quiz: {
-            heading_text: 'اختر الإجابات الصحيحة',
-            results_texts: {
-               success: 'أحسنت الإجابة صحيحة',
-               fail: 'أحسنت المحاولة! ',
-               hint: 'هل تريد الحصول على تلميح ؟'
-            },
-            buttons_texts: {
-               confirm: 'تأكيد الإجابة',
-               retry: 'أعد المحاولة',
-               dismiss: 'تجاهل السؤال',
-               next: 'السؤال التالي',
-               pre: 'السؤال السابق'
-            }
-         }
-      },
-      quiz: {
-         result: '',
-         status: {
-            right: ''
-         }
+         }]
       },
       current: {
-         quiz: 0,
          tab: null
       }
    }),
@@ -94,7 +72,7 @@ export default {
             case "3":
                this.$http.get(url)
                   .then(data => {
-                     this.lesson_content = data
+                     this.lesson_content = this.previewMarkdowText(data)
                      this.loaded = true
                   }).catch(err => {
                      console.error(err)
@@ -113,44 +91,6 @@ export default {
       },
       previewMarkdowText(mdText) {
          return this.$markdown.render(mdText)
-      },
-      chooseAnswer(question, answer) {
-         if (question.correct.length === 1) {
-            question.choose = []
-            if (!question.choose.includes(answer)) {
-               question.choose.push(answer)
-            }
-            this.checkAnswers(question, answer)
-         } else {
-            if (this.quiz.status.right) {
-               this.quiz.status.right = ''
-            }
-            if (question.choose.includes(answer)) {
-               question.choose.splice(question.choose.indexOf(answer), 1)
-            } else {
-               question.choose.push(answer)
-            }
-         }
-      },
-      checkAnswers(question, answer) {
-         question.choose.sort()
-         if (question.choose.toString() === question.correct.toString()) {
-            this.quiz.result = this.i18n.quiz.results_texts.success
-            if (question.correct.length > 1) this.quiz.status.right = 'true_answer_checkbox'
-            question.true = true
-            question.wrong = false
-         } else {
-            this.quiz.result = this.i18n.quiz.results_texts.fail
-            question.true = false
-            question.wrong = true
-         }
-      },
-      goNextAnswers() {
-         this.current.quiz += 1
-         this.quiz.result = ''
-      },
-      goPrevAnswers() {
-         this.current.quiz -= 1
       }
    }
 }
