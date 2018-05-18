@@ -17,8 +17,17 @@
    </template>
    <template v-if="type === '1'">
       <div id="lesson-youtube" class="lesson-video lesson-youtube">
-         <iframe height="720" :src="lesson_content" frameborder="0" allowfullscreen></iframe>
-         <div v-html="notes_content"></div>
+         <iframe :src="lesson_content" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+         <v-tabs :right="$store.state.direction === 'rtl'" icons-and-text v-model="current.tab">
+            <v-tab v-for="tab in i18n.video" :key="tab.text">
+               {{tab.text}}
+               <v-icon>{{tab.icon}}</v-icon>
+            </v-tab>
+         </v-tabs>
+         <v-tabs-items v-model="current.tab">
+            <v-tab-item><div v-html="notes_content"></div></v-tab-item>
+            <v-tab-item>quotes</v-tab-item>
+         </v-tabs-items>
       </div>
    </template>
    <template v-if="type === '2'">
@@ -34,12 +43,12 @@
                       <v-stepper-step :class="{'wrong_step': question.wrong, 'true_step': question.true}" :step="qIndex+1" :key="qIndex" :complete="current.quiz > qIndex+1" edit-icon="check" editable></v-stepper-step>
                       <v-divider v-if="qIndex + 1 < lesson_content.length" :key="`divider-${qIndex}`"></v-divider>
                     </template>
-                 </v-stepper-header>
-                 <v-stepper-items>
-                    <v-card v-show="current.quiz <= lesson_content.length" flat>
-                      <p class="question-num py-0">السؤال {{current.quiz}} من {{lesson_content.length}} : {{i18n.quiz.heading_text}}</p>
-                    </v-card>
-                    <template v-for="(question, qIndex) in lesson_content">
+   </v-stepper-header>
+   <v-stepper-items>
+      <v-card v-show="current.quiz <= lesson_content.length" flat>
+         <p class="question-num py-0">السؤال {{current.quiz}} من {{lesson_content.length}} : {{i18n.quiz.heading_text}}</p>
+      </v-card>
+      <template v-for="(question, qIndex) in lesson_content">
                       <v-stepper-content :step="qIndex + 1" :key="qIndex" :class="{checkboxes : (question.correct.length > 1) }">
                         <h3 class="question-content">{{question.text}}</h3>
                         <v-card color="grey lighten-1" flat>
@@ -59,29 +68,29 @@
                                 </v-list-tile-content>
                               </v-list-tile>
                            </template>
-                           <v-divider :key="`divider2-${qIndex}`"></v-divider>
-                         </v-list>
-                        </v-card>
-                        <v-card v-show="quiz.result === i18n.quiz.results_texts.fail" flat>
-                           <p class="hint-container py-0"><span class="circle"><v-icon color="white" small>lightbulb_outline</v-icon></span> <span class="hint_bold" > تلميح:</span> {{question.hint}}</p>
-                         </v-card>
-                      </v-stepper-content>
-                    </template>
-                    <v-card class="btns-control" flat>
-                      <v-btn v-show="current.quiz < lesson_content.length" class="r-btn" flat @click="goNextAnswers" :disabled="!quiz.result">{{i18n.quiz.buttons_texts.next}}</v-btn>
-                      <v-btn v-if="current.quiz > 0" v-show="lesson_content[current.quiz - 1].correct.length > 1" class="r-btn" flat @click="checkAnswers(lesson_content[current.quiz - 1])">{{i18n.quiz.buttons_texts.confirm}}</v-btn>
-                      <v-btn v-show="current.quiz > 1" class="r-btn" flat @click="goPrevAnswers" >{{i18n.quiz.buttons_texts.pre}}</v-btn>
-                      <span class="result-container">
+      <v-divider :key="`divider2-${qIndex}`"></v-divider>
+      </v-list>
+      </v-card>
+      <v-card v-show="quiz.result === i18n.quiz.results_texts.fail" flat>
+         <p class="hint-container py-0"><span class="circle"><v-icon color="white" small>lightbulb_outline</v-icon></span> <span class="hint_bold"> تلميح:</span> {{question.hint}}</p>
+      </v-card>
+      </v-stepper-content>
+      </template>
+      <v-card class="btns-control" flat>
+         <v-btn v-show="current.quiz < lesson_content.length" class="r-btn" flat @click="goNextAnswers" :disabled="!quiz.result">{{i18n.quiz.buttons_texts.next}}</v-btn>
+         <v-btn v-if="current.quiz > 0" v-show="lesson_content[current.quiz - 1].correct.length > 1" class="r-btn" flat @click="checkAnswers(lesson_content[current.quiz - 1])">{{i18n.quiz.buttons_texts.confirm}}</v-btn>
+         <v-btn v-show="current.quiz > 1" class="r-btn" flat @click="goPrevAnswers">{{i18n.quiz.buttons_texts.pre}}</v-btn>
+         <span class="result-container">
                         <span v-show="quiz.result" :class="['result', quiz.result === i18n.quiz.results_texts.fail ? 'err' : '']">{{quiz.result}}</span>
-                      </span>
-                    </v-card>
-                 </v-stepper-items>
-                </v-stepper>
-            </v-flex>
-         </v-layout>
-      </div>
-   </template>
-   <template v-if="type === '4'">
+         </span>
+      </v-card>
+   </v-stepper-items>
+   </v-stepper>
+   </v-flex>
+   </v-layout>
+</div>
+</template>
+<template v-if="type === '4'">
       <div id="lesson-task" class="lesson-task" v-html="lesson_content"></div>
    </template>
 </div>
