@@ -1,0 +1,109 @@
+@import '~@/assets/styles/vars';
+@import '~@/../node_modules/rfs/scss/_rfs';
+/*=====================================
+Select Track Style
+=======================================*/
+#select-track {
+  padding-bottom: 80px;
+
+  div#container {
+    position: relative;
+    @include box-shadow(0px, 15px, 34px, 0px, $shadow-color);
+    border-radius: 25px;
+    padding: 20px 0;
+    background: linear-gradient(to left, #FAFAFA 50%, $white-color 50%);
+
+    @media (max-width: 600px) {
+      background: linear-gradient(to bottom, #FAFAFA 50%, $white-color 50%);
+    }
+
+    .track {
+      position: relative;
+      padding: 20px;
+      text-align: center;
+
+      @media (max-width: 600px) {
+        padding: 20px 0px;
+      }
+
+      input {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        width: 24px;
+        height: 24px;
+        opacity: 0;
+
+        @media (max-width: 600px) {
+          top: 20px;
+        }
+      }
+
+      .custom-radio {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        border: 1px solid $secondary-color;
+        background-color: $white-color;
+
+        @media (max-width: 600px) {
+          top: 20px;
+        }
+      }
+
+      input:checked ~ .custom-radio {
+        border: 1px solid $primary-color;
+        background-color: $primary-color;
+        &::after {
+          content:'';
+          display: block;
+          position: relative;
+          background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="%23fff" fill-rule="evenodd" clip-rule="evenodd"><path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"/></svg>');
+          background-size: contain;
+          width: 20px;
+          height: 20px;
+          margin: 2px 1px;
+        }
+      }
+
+      .icon {
+        width: 120px;
+        height: 92px;
+        background-image: url("~@/assets/multimedia/images/tracks-icons.png");
+        background-position: left top;
+      }
+
+      &:last-of-type {
+        .icon {
+          background-position: right top;
+        }
+      }
+
+      p:first-of-type {
+        font-weight: bold;
+      }
+
+      .submit {
+        margin: 0 0 0 auto;
+        background: $grading-color;
+        @include box-shadow(0px, 2px, 5px, 0px , $shadow-color);
+        color: $white-color !important;
+
+        font-weight: 400;
+        height: 40px;
+        width: 100%;
+        max-width: 150px;
+        line-height: 0px;
+      }
+
+      .submit:disabled {
+        background: #D5D5D5;
+        box-shadow: none;
+        color: rgba(0, 0, 0, 0.5) !important;
+      }
+    }
+  }
+}

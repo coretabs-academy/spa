@@ -4,7 +4,7 @@
 Lesson Style
 =======================================*/
 $lesson: (
-   video: (tab:(margin:10px 15px 0 30px,ar-margin:10px 30px 0 15px,content:(height:150px, margin:20px 40px 20px 80px, ar-margin:20px 80px 20px 40px),slider-height:2px,height:60px,min-width:130px,font-size:12px,icon-size:20px))
+   video: (tab:(margin:10px 15px 0 30px,ar-margin:10px 30px 0 15px,content:(height:150px, padding:20px 40px 20px 80px, ar-padding:20px 80px 20px 40px),slider-height:2px,height:60px,min-width:130px,font-size:12px,icon-size:20px))
 );
 $markdown-list-padding: 5em;
 $markdown-spacer: 10px !default;
@@ -343,7 +343,8 @@ $markdown-em-spacer-6: 0.75em !default;
       iframe {
          width: 100% !important;
          height: 100% !important;
-         // height: calc(100% - #{map-deep-get($lesson,'video','tab','height') + getValue(map-deep-get($lesson,'video','tab','margin'),'top',true) + getValue(map-deep-get($lesson,'video','tab','margin'),'bottom',true) map-deep-get($lesson,'video','tab','content','height') + getValue(map-deep-get($lesson,'video','tab','content','margin'),'top',true) + getValue(map-deep-get($lesson,'video','tab','content','margin'),'bottom',true)}) !important;
+         // height: calc(100% - #{map-deep-get($lesson,'video','tab','height') + getValue(map-deep-get($lesson,'video','tab','margin'),'top',true) + getValue(map-deep-get($lesson,'video','tab','margin'),'bottom',true) + map-deep-get($lesson,'video','tab','content','height')}) !important;
+         // height: calc(100% - #{map-deep-get($lesson,'video','tab','height') + getValue(map-deep-get($lesson,'video','tab','margin'),'top',true) + getValue(map-deep-get($lesson,'video','tab','margin'),'bottom',true) map-deep-get($lesson,'video','tab','content','height') + getValue(map-deep-get($lesson,'video','tab','content','padding'),'top',true) + getValue(map-deep-get($lesson,'video','tab','content','padding'),'bottom',true)}) !important;
       }
 
       .tabs {
@@ -399,14 +400,13 @@ $markdown-em-spacer-6: 0.75em !default;
       }
 
       .tabs__items {
-         height: map-deep-get($lesson,'video','tab','content','height') !important;
-         margin: map-deep-get($lesson,'video','tab','content','margin') !important;
-         max-height: map-deep-get($lesson,'video','tab','content','height') !important;
-         min-height: map-deep-get($lesson,'video','tab','content','height') !important;
+         height: auto !important;
+         // height: map-deep-get($lesson,'video','tab','content','height') !important;
+         padding: map-deep-get($lesson,'video','tab','content','padding') !important;
+         // max-height: map-deep-get($lesson,'video','tab','content','height') !important;
+         // min-height: map-deep-get($lesson,'video','tab','content','height') !important;
       }
    }
-
-   .lesson-quiz {}
 
    .lesson-markdown,
    .lesson-task {
@@ -757,7 +757,7 @@ html[dir='rtl'] {
          }
 
          .tabs__items {
-            margin: map-deep-get($lesson,'video','tab','content','ar-margin') !important;
+            padding: map-deep-get($lesson,'video','tab','content','ar-padding') !important;
          }
       }
 
