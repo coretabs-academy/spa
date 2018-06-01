@@ -1,0 +1,29 @@
+@import '~@/assets/styles/vars';
+@import '~@/../node_modules/rfs/scss/_rfs';
+.change-path-box {
+    box-shadow: 5px 2px 14px #d8d7d7, -3px 6px 13px #d8d7d7;
+    border-radius: 25px;
+    padding: 30px 100px;
+    .input-group__details {
+        margin-top: 4px !important;
+    }
+    .heading {
+        color:rgb(131, 131, 131) !important;
+    }
+    .sub-headin {
+        @include rfs(16);
+
+    }
+    .btn {
+        padding:4px 30px;
+        margin:30px 0px !important;
+    }
+    .my-btn {
+        background:$grading-color;
+        color:#fff !important;
+    }
+    .btn--disabled {
+        background: #d5d5d5 !important;
+        color: #fff !important;
+    }
+}

@@ -1,0 +1,130 @@
+@import '~@/assets/styles/vars';
+@import '~@/../node_modules/rfs/scss/_rfs';
+/*=====================================
+settings Style
+=======================================*/
+
+$padding: 0 0 0 50px;
+$ar-padding: 0 50px 0 0;
+$stepper-icon-size: 25px;
+$content-padding: 50px;
+$drawer-group-height: 60px;
+main.settings-main-content {
+    padding-top: $workshop-header-height !important;
+    background: $workshop-content-background !important;
+}html[dir='rtl'] {
+    .settings {
+        >.navigation-drawer {
+            .toolbar {
+                padding: 0 $scrollbar-width 0 0 !important;
+                .btn {
+                    .icon {
+                        display: block !important;
+                    }
+                    margin: $workshop-ar-margin !important;
+                }
+                .btn--icon {
+                    background: #393ba8 !important;
+                }
+                .toolbar__title {
+                    margin: $workshop-ar-margin !important;
+                }
+            }
+            .list {
+                direction: rtl !important;
+                .list__tile {
+                    margin-top: 1px !important;
+                    .list__tile__content {
+                        .list__tile__title {
+                            text-align: right !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.settings {
+    height: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+    background: $white-color !important;
+    >.navigation-drawer {
+        height: 100vh !important;
+        overflow: hidden !important;
+        background: $workshop-drawer-background !important;
+
+        @include box-shadow(0px, 15px, 34px, 0px, $shadow-color, true);
+        &.navigation-drawer--is-mobile {
+            .toolbar {
+                .toolbar__content {
+                    .btn {
+                        .icon {
+                            display: block !important;
+                        }
+                    }
+                }
+            }
+        }
+        .navigation-drawer__border {
+            display: none !important;
+        }
+        .toolbar {
+            background: $grading-color !important;
+            padding: 0 0 0 $scrollbar-width !important;
+            height: $workshop-header-height !important;
+            min-height: $workshop-header-height !important;
+            max-height: $workshop-header-height !important;
+            .toolbar__content {
+                height: auto !important;
+                min-height: $workshop-header-height !important;
+                max-height: $workshop-header-height !important;
+                .btn {
+                    color: $white-color !important;
+                    width: $stepper-icon-size !important;
+                    height: $stepper-icon-size !important;
+                    .icon {
+                        display: none !important;
+                        width: $stepper-icon-size !important;
+                        height: $stepper-icon-size !important;
+                        font-size: $stepper-icon-size !important;
+                    }
+                }
+                .toolbar__title {
+                    font-size: 16px !important;
+                    font-weight: bold !important;
+                    color: $white-color !important;
+                }
+            }
+        }
+        .list {
+            direction: rtl !important;
+            overflow: hidden !important;
+            background: $workshop-drawer-background !important;
+            height: calc(100vh - #{$workshop-header-height}) !important;
+        }
+    }
+    .content {
+        margin: 0 !important;
+        padding: 0 !important;
+        border-left: 0 !important;
+        transition: none !important;
+        overflow: hidden !important;
+        background: $workshop-content-background !important;
+        >div {
+            width: 100% !important;
+            height: 100% !important;
+            transition: none !important;
+            overflow-x: hidden !important;
+            user-select: text !important;
+            padding: $content-padding !important;
+            @media (max-width: 600px) {
+                padding: 5% !important;
+            }
+            &::-webkit-scrollbar {
+                background: $workshop-content-background !important;
+            }
+        }
+    }
+}

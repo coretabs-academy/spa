@@ -71,6 +71,9 @@ export default {
             case 'modules':
             case 'workshop':
             case 'workshops':
+            case 'editPersonalInfo':
+            case 'changePath':
+            case 'changePassword':
                this.show = false
                break
          }
