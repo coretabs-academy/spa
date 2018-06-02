@@ -73,7 +73,7 @@ export default {
                case 'workshop':
                case 'workshops':
                case 'editPersonalInfo':
-               case 'changePath':
+               case 'changeTrack':
                case 'changePassword':
                   this.show = false
                   break

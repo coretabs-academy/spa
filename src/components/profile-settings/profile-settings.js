@@ -16,7 +16,7 @@ export default {
       },
       i18n: {
           editPersonalInfo: 'تعديل المعلومات الشخصية',
-          changePath: 'تغيير المسار',
+          changeTrack: 'تغيير المسار',
           changePassword: 'تغيير كلمة السر'
       }
    }),
@@ -35,8 +35,8 @@ export default {
               case 'editPersonalInfo':
               this.header = this.i18n.editPersonalInfo
                   break
-              case 'changePath':
-              this.header = this.i18n.changePath
+              case 'changeTrack':
+              this.header = this.i18n.changeTrack
                   break
               case 'changePassword':
               this.header = this.i18n.changePassword
