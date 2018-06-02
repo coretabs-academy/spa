@@ -15,7 +15,7 @@ export default {
         newImage: 'https://pbs.twimg.com/profile_images/453785506073964544/XLrNdA2n.jpeg'
       },
       validImage: {
-        valid: false,
+        valid: 1,
         imageData: ''
       },
       alert: {
@@ -51,6 +51,9 @@ export default {
       ]
     }),
     watch: {
+      'validImage.valid': function() {
+        this.chackValid()
+      }
     },
     updated() {
       this.chackValid()
@@ -58,26 +61,27 @@ export default {
     methods: {
       previewImage(event) {
         let input = event.target
-        const img = new Image()
-        img.src = window.URL.createObjectURL(input.files[0])
+        this.reader = new FileReader()
         if (input.files && input.files[0]) {
-          this.validImage.imageData = input.files[0]
-             this.reader = new FileReader()
-            this.reader.onload = (e) => {
-                this.imageData = e.target.result
-                const width = img.naturalWidth
-                const height = img.naturalHeight
+          const img = new Image()
+          img.src = window.URL.createObjectURL(input.files[0])
+          img.onload = () => {
+            let width = img.naturalWidth
+            let height = img.naturalHeight
             window.URL.revokeObjectURL(img.src)
             if (width === height) {
-              this.validImage.valid = true
-            }
-            else {
-              this.validImage.valid = false
+              this.validImage.valid = 1
+              this.validImage.imageData = input.files[0]
+              this.reader.onload = (e) => {
+                this.imageData = e.target.result
+              }
+              this.reader.readAsDataURL(input.files[0])
+            } else {
+              this.validImage.valid = 0
             }
           }
-
         }
-    },
+      },
       chackValid() {
         var root = this
         root.vs.v1 = 1
@@ -88,21 +92,17 @@ export default {
             root.vs.v1 = 0
           }
         })
-        if (this.validImage.valid) {
-          this.reader.readAsDataURL(this.validImage.imageData)
-        }
         root.emRules.forEach((rule) => {
           if (rule(root.email) !== true) {
             root.vs.v2 = 0
           }
         })
-
         root.unRules.forEach((rule) => {
           if (rule(root.username) !== true) {
             root.vs.v3 = 0
           }
         })
-        root.valid = root.vs.v1 + root.vs.v2 + root.vs.v3
+        root.valid = root.vs.v1 + root.vs.v2 + root.vs.v3 + root.validImage.valid
       },
       json(success) {
         if (success === true) {

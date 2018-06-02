@@ -25,8 +25,7 @@ import changePassword from './components/profile-settings/change-password/change
 Vue.use(Router)
 
 export default new Router({
-<<<<<<< HEAD
-   mode: 'history',
+  mode: 'history',
    routes: [{
       path: '/',
       name: 'home',
@@ -47,6 +46,10 @@ export default new Router({
       path: '/account-confirmed',
       component: AccountConfirmedComponent
    }, {
+    name: 'select-track',
+    path: '/select-track',
+    component: SelectTrackComponent
+    }, {
       name: 'congratulations',
       path: '/congratulations',
       component: CongratulationsComponent
@@ -85,16 +88,17 @@ export default new Router({
     path: '/profile-settings/:user',
     component: ProfileSettings,
     children: [
-      {path: '',
-      redirect: {
-         name: 'editPersonalInfo'
+      {
+        path: '',
+        redirect: {
+          name: 'editPersonalInfo'
         }
     },
       {path: 'edit-personal-info', component: editPersonalInfo, name: 'editPersonalInfo'},
       {path: 'change-path', component: changePath, name: 'changePath'},
       {path: 'change-password', component: changePassword, name: 'changePassword'}
     ]
-    }, {
+  }, {
       name: 'workshops',
       path: '/:track',
       component: WorkshopsComponent,
@@ -113,84 +117,4 @@ export default new Router({
          component: LessonComponent
       }]
    }]
-=======
-  mode: 'history',
-  routes: [{
-    path: '/',
-    name: 'home',
-    component: HomeComponent
-  }, {
-    path: '/home',
-    redirect: '/'
-  }, {
-    name: 'signin',
-    path: '/signin',
-    component: SignInComponent
-  }, {
-    name: 'signup',
-    path: '/signup',
-    component: SignUpComponent
-  }, {
-    name: 'congratulations',
-    path: '/congratulations',
-    component: CongratulationsComponent
-  }, {
-    name: 'account-confirmed',
-    path: '/account-confirmed',
-    component: AccountConfirmedComponent
-  }, {
-    name: 'select-track',
-    path: '/select-track',
-    component: SelectTrackComponent
-  }, {
-    name: 'reset-password',
-    path: '/reset-password',
-    component: ResetPasswordComponent
-  }, {
-    name: 'forgot-password',
-    path: '/forgot-password',
-    component: ForgotPasswordComponent
-  }, {
-    name: 'about',
-    path: '/about',
-    component: AboutComponent
-  }, {
-    name: 'contact-us',
-    path: '/contact-us',
-    component: ContactUsComponent
-  }, {
-    name: 'page',
-    path: '/page/:page',
-    component: PageComponent
-  }, {
-    name: '404',
-    path: '/404',
-    component: NotFoundComponent
-  }, {
-    path: '*',
-    redirect: '/404'
-  }, {
-    name: 'tracks',
-    path: '/tracks',
-    component: TracksComponent
-  }, {
-    name: 'workshops',
-    path: '/:track',
-    component: WorkshopsComponent,
-    children: [{
-        name: 'workshop',
-        path: ':workshop',
-        component: WorkshopComponent
-    }]
-  }, {
-    name: 'modules',
-    component: ModulesComponent,
-    path: '/:track/:workshop/:module',
-    children: [{
-        name: 'lessons',
-        path: ':lesson',
-        component: LessonComponent
-    }]
-  }]
->>>>>>> 4fd3ecbacf14d2528495f4d804485fb3b557508b
 })

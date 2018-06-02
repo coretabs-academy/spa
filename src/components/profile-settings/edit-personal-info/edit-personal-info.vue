@@ -11,7 +11,7 @@
                   <img class="pic" :src="imageData || user.image " />
                   <label for="file_uploader" class="leave">
                     <v-icon small>edit</v-icon>
-                    <input @change="previewImage" v-show="false" name="My File" type="file" id="file_uploader" accept="image/*"/>
+                    <input @change="previewImage($event)" v-show="false" name="My File" type="file" id="file_uploader" accept="image/*"/>
                   </label>
                 </div>
                 </v-flex>
@@ -34,7 +34,7 @@
                   <v-text-field :label="username_label" v-model="username" :rules="unRules" required></v-text-field>
                   <v-checkbox v-model="mailSubs" color="primary"  label="فعل وضع القائمة البريدية" required></v-checkbox>
                   <p v-text="i18n.text1"></p>
-                  <v-btn right round id="submit" @click="submit" class="my-btn" v-text="i18n.saveChanges" :disabled="valid < 3"></v-btn>
+                  <v-btn right round id="submit" @click="submit" class="my-btn" v-text="i18n.saveChanges" :disabled="valid < 4"></v-btn>
                 </v-form>
               </div>
             </v-flex>

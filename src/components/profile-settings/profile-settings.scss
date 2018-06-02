@@ -9,10 +9,14 @@ $ar-padding: 0 50px 0 0;
 $stepper-icon-size: 25px;
 $content-padding: 50px;
 $drawer-group-height: 60px;
-main.settings-main-content {
+main.settings-main-content,
+main.editPersonalInfo-main-content,
+main.changePath-main-content,
+main.changePassword-main-content {
     padding-top: $workshop-header-height !important;
     background: $workshop-content-background !important;
-}html[dir='rtl'] {
+}
+html[dir='rtl'] {
     .settings {
         >.navigation-drawer {
             .toolbar {
