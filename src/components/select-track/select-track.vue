@@ -6,8 +6,8 @@
           <v-flex class="track" xs12 sm6 md6>
             <div @click="select('1')">
               <input type="radio" name="track" v-model="track_selected" value="1" />
-              <span class="custom-radio"></span>
-              <div class="icon"></div>
+              <v-icon class="custom-radio"></v-icon>
+              <div class="logo"></div>
               <p v-html="track_1_text_en" class="mt-4 mb-2"></p>
               <p v-html="track_1_text_ar" class="mt-2 mb-4"></p>
             </div>
@@ -16,8 +16,8 @@
           <v-flex class="track" xs12 sm6 md6>
             <div @click="select('2')">
               <input type="radio" name="track" v-model="track_selected" value="2" />
-              <span class="custom-radio"></span>
-              <div class="icon"></div>
+              <v-icon class="custom-radio"></v-icon>
+              <div class="logo"></div>
               <p v-html="track_2_text_en" class="mt-4 mb-2"></p>
               <p v-html="track_2_text_ar" class="mt-2 mb-4"></p>
             </div>

@@ -32,6 +32,12 @@ $markdown-em-spacer-5: 0.5em !default;
 $markdown-em-spacer-6: 0.75em !default;
 
 .lesson {
+  #have-question {
+    img {
+      margin: 25px 0 25px 25px;
+      width: 50px;
+    }
+  }
    .lesson-quiz {
       $check_color: #5955e9;
       $lite_grey: #727272;
@@ -43,9 +49,10 @@ $markdown-em-spacer-6: 0.75em !default;
       }
 
       .stepper__step.stepper__step .stepper__step__step::after {
-         content: url("~@/assets/multimedia/icons/quiz/star.svg");
-         position: relative;
-         display: block;
+        font-family: 'Material Icons';
+        content: 'star';
+        font-size: 20px;
+        color: #fff;
       }
 
       .stepper__step.stepper__step--active .stepper__step__step {
@@ -57,123 +64,202 @@ $markdown-em-spacer-6: 0.75em !default;
          background: #c2c7cb !important;
       }
 
-      .stepper__step.stepper__step--complete .stepper__step__step i {
-         display: none;
+      .stepper__step__step i {
+        display: none;
       }
-
+      
       .stepper__step.stepper__step.wrong_step {
-         .stepper__step__step {
-            background: $error_color !important;
-         }
-
-         .stepper__step__step::after {
-            content: url("~@/assets/multimedia/icons/quiz/error2.svg") !important;
-         }
+        .stepper__step__step {
+          background: $error_color !important;
+        }
+        
+        .stepper__step__step::after {
+          content: 'close';
+        }
       }
 
       .stepper__step.stepper__step.true_step {
-         .stepper__step__step {
-            background: $check_color !important;
-         }
+        .stepper__step__step {
+          background: $check_color !important;
+        }
 
-         .stepper__step__step::after {
-            content: url("~@/assets/multimedia/icons/quiz/check_white.svg") !important;
-         }
+        .stepper__step__step::after {
+          content: 'check';
+        }
       }
 
       .stepper {
-         border-radius: 15px !important;
-         font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
+        border-radius: 15px !important;
+        font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
 
-         .stepper__header {
-            box-shadow: 0 1px 0 #dcdcdc;
-            background-color: #fcfcfc !important;
+        .stepper__header {
+          box-shadow: 0 1px 0 #dcdcdc;
+          background-color: #fcfcfc !important;
 
-            .divider {
-               background: #e6e6e6 !important;
-            }
-         }
+          .divider {
+            background: #e6e6e6 !important;
+          }
+        }
 
-         .stepper__content {
-            font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
-            padding-left: 0;
-            padding-right: 0;
+        .stepper__content {
+          font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
+          padding: 0;
 
-            .list {
-               input[type=checkbox] {
-                  display: none;
-               }
-
-               .checkbox_cont {
-                  width: 1.7rem;
-                  height: 1.7rem;
-                  border: 1px solid #a2a2a2;
+          .list {
+            & > div {
+              position: relative;
+              z-index: 1;
+              
+              &.true_answer {
+                z-index: 2;
+                box-shadow: 0 0 10px #dad6d6;
+                background-color: #fff;
+        
+                .checkbox_cont {
+                    border-color: #57c881 !important;
+                }
+        
+                .checkbox_inner {
+                    background: transparent !important;
+                }
+        
+                .checkbox_inner::after {
+                  font-family: 'Material Icons';
+                  content: 'check';
+                  display: block;
                   position: relative;
-                  margin: auto;
-                  border-radius: 50%;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-               }
+                  margin-top: 1px;
+                  font-size: 22px;
+                  color: #57c881;
+                }
 
-               .checkbox_inner {
-                  width: 1rem;
-                  height: 1rem;
-                  background: #496a8a;
-                  position: absolute;
-                  border-radius: 50%;
-               }
-            }
+                & > .list__tile--link {
+                  border-bottom-width: 1px;
+                }
+              }
+        
+              &.wrong_answer {
+                z-index: 2;
+                box-shadow: 0 0 10px #dad6d6;
+                background-color: #fff;
+        
+                .checkbox_cont {
+                    border-color: $error_color !important;
+                }
+        
+                .checkbox_inner {
+                    background: transparent !important;
+                }
+        
+                .checkbox_inner::after {
+                  font-family: 'Material Icons';
+                  content: 'close';
+                  display: block;
+                  position: relative;
+                  margin-top: 1px;
+                  margin-left: .5px;
+                  font-size: 22px;
+                  color: $error_color;
+                }
+                
+                & > .list__tile--link {
+                  border-bottom-width: 1px;
+                }
+              }
 
-            .divider {
-               margin-top: 1px !important;
-               margin-bottom: 1px !important;
-            }
+              .list__tile {
+                height: 64px;
+              }
 
-            .hint-container {
-               font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
-               color: #8d8d8d;
-               @include rfs(18);
-               font-weight: 600;
-               margin-top: 20px;
-               padding: 15px 25px;
-            }
+              .list__tile--link {
+                background-color: #fdfdfd;
+                border-top: 1px solid #e7e7e7;
+                border-bottom: 0px solid #e7e7e7;
+              }
 
-            .circle {
-               display: inline-flex;
-               background: $hint_icon_color;
-               border-radius: 50%;
-               padding: 6px;
-               justify-content: center;
-               align-items: center;
-               position: relative;
-               cursor: pointer;
+              &:last-of-type {
+                .list__tile--link {
+                  border-bottom-width: 1px;
+                }
+              }
             }
+            
+              input[type=checkbox] {
+                display: none;
+              }
 
-            .hint_bold {
-               color: $hint_icon_color;
-               @include rfs(20);
-            }
-         }
+              .checkbox_cont {
+                width: 1.7rem;
+                height: 1.7rem;
+                border: 1px solid #a2a2a2;
+                position: relative;
+                margin: auto;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
 
-         .stepper__content.checkboxes {
-            .checkbox_cont {
-               border-radius: 0 !important;
-            }
+              .checkbox_inner {
+                width: 1rem;
+                height: 1rem;
+                background: #496a8a;
+                position: absolute;
+                border-radius: 50%;
+              }
+          }
 
-            .checkbox_inner {
-               width: 1.6rem;
-               height: 1.6rem;
-               border-radius: 0 !important;
-               background: #496a8a !important;
-            }
+          .divider {
+              margin-top: 1px !important;
+              margin-bottom: 1px !important;
+          }
 
-            .checkbox_inner::after {
-               content: url("~@/assets/multimedia/icons/quiz/check_white.svg");
-               display: block;
-               margin: auto;
-            }
-         }
+          .hint-container {
+              font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
+              color: #8d8d8d;
+              @include rfs(18);
+              margin-top: 20px;
+              padding: 15px 25px;
+          }
+
+          .circle {
+              display: inline-flex;
+              background: $hint_icon_color;
+              border-radius: 50%;
+              padding: 6px;
+              justify-content: center;
+              align-items: center;
+              position: relative;
+              cursor: pointer;
+          }
+
+          .hint_bold {
+              color: $hint_icon_color;
+              @include rfs(20);
+          }
+        }
+
+        .stepper__content.checkboxes {
+          .checkbox_cont {
+            border-radius: 0 !important;
+          }
+
+          .checkbox_inner {
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 0 !important;
+            background: #496a8a !important;
+          }
+
+          .checkbox_inner::after {
+            font-family: 'Material Icons';
+            content: 'check';
+            display: block;
+            margin: auto;
+            color: #fff;
+            font-size: 22px;
+          }
+        }
       }
 
       .quizz-layout {
@@ -189,8 +275,8 @@ $markdown-em-spacer-6: 0.75em !default;
       }
 
       .list__tile__title {
-         text-align: right;
-         color: $lite_grey;
+        text-align: right;
+        color: $lite_grey;
       }
 
       .question-content {
@@ -240,7 +326,7 @@ $markdown-em-spacer-6: 0.75em !default;
             @include rfs(20);
             display: inline-block;
             margin: 0 24px !important;
-            padding: 10px;
+            padding: 10px 0 0;
 
             .result {
                font-weight: 600;
@@ -250,91 +336,22 @@ $markdown-em-spacer-6: 0.75em !default;
          }
       }
 
-      .true_answer {
-         //class of true answer
-         box-shadow: 0 2px 8px #dad6d6;
-
-         .checkbox_cont {
-            border-color: #57c881 !important;
-         }
-
-         .checkbox_inner {
-            background: transparent !important;
-         }
-
-         .checkbox_inner::after {
-            content: url("~@/assets/multimedia/icons/quiz/check.svg");
-            display: block;
-            position: relative;
-            margin-top: -5px !important;
-            margin-right: 1px !important;
-         }
-      }
-
-      .wrong_answer {
-         //class of wrong answer
-         box-shadow: 0 4px 6px #dad6d6 , 0 -2px 8px #dad6d6;
-
-         .checkbox_cont {
-            border-color: $error_color !important;
-         }
-
-         .checkbox_inner {
-            background: transparent !important;
-         }
-
-         .checkbox_inner::after {
-            content: url("~@/assets/multimedia/icons/quiz/error.svg");
-            display: block;
-            position: relative;
-            margin-top: -3px !important;
-         }
-      }
-
       .true_answer_checkbox {
-         //class of true answer
-         box-shadow: 0 2px 8px #dad6d6;
+        box-shadow: 0 2px 8px #dad6d6;
 
-         .checkbox_cont {
-            border-color: #57c881 !important;
-            overflow: hidden !important;
-         }
+        .checkbox_cont {
+          border-color: #57c881 !important;
+          overflow: hidden !important;
+        }
 
-         .checkbox_inner {
-            // background:transparent !important;
-         }
-
-         .checkbox_inner::after {
-            content: url("~@/assets/multimedia/icons/quiz/check.svg");
-            display: block;
-            position: relative;
-            background: #57c881 !important;
-         }
-      }
-
-      .wrong_answer_checkbox {
-         //class of wrong answer
-         box-shadow: 0 4px 6px #dad6d6 , 0 -2px 8px #dad6d6;
-
-         .checkbox_cont {
-            border-color: $error_color !important;
-         }
-
-         .checkbox_inner {
-            background: transparent !important;
-         }
-
-         .checkbox_inner::after {
-            content: url("~@/assets/multimedia/icons/quiz/error2.svg") !important;
-            display: block;
-            position: relative;
-            background: $error_color !important;
-         }
+        .checkbox_inner::after {
+          background: #57c881 !important;
+        }
       }
    }
 
    .lesson-video {
-      height: 100% !important;
+      height: 88% !important;
 
       &.lesson-scrimba {}
 
@@ -761,7 +778,7 @@ html[dir='rtl'] {
          }
       }
 
-      .lesson-markdown {
+      .lesson-markdown, .lesson-task {
          ol {
             padding-right: $markdown-list-padding;
          }
