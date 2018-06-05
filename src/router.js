@@ -19,7 +19,7 @@ import WorkshopsComponent from './components/workshops/workshops.vue'
 import NotFoundComponent from './components/not-found/not-found.vue'
 import ProfileSettings from './components/profile-settings/profile-settings.vue'
 import editPersonalInfo from './components/profile-settings/edit-personal-info/edit-personal-info.vue'
-import changePath from './components/profile-settings/change-path/change-path.vue'
+import changeTrack from './components/profile-settings/change-track/change-track.vue'
 import changePassword from './components/profile-settings/change-password/change-password.vue'
 
 Vue.use(Router)
@@ -85,7 +85,7 @@ export default new Router({
       path: '/tracks',
       component: TracksComponent
    }, {
-    path: '/profile-settings/:user',
+    path: '/profile-settings/',
     component: ProfileSettings,
     children: [
       {
@@ -95,7 +95,7 @@ export default new Router({
         }
     },
       {path: 'edit-personal-info', component: editPersonalInfo, name: 'editPersonalInfo'},
-      {path: 'change-path', component: changePath, name: 'changePath'},
+      {path: 'change-track', component: changeTrack, name: 'changeTrack'},
       {path: 'change-password', component: changePassword, name: 'changePassword'}
     ]
   }, {

@@ -2,9 +2,9 @@
     <div dir="ltr">
         <v-layout row wrap>
             <v-flex xsm12 md8 offset-md2>
-                <div class="change-path-box" dir="rtl">
+                <div class="change-track-box" dir="rtl">
                     <v-form ref="form" lazy-validation>
-                        <p class="heading" v-text="i18n.choosePath"></p>
+                        <p class="heading" v-text="i18n.chooseTrack"></p>
                         <v-select
                         :items="items"
                         v-model="e1"
@@ -19,5 +19,5 @@
         </v-layout>
     </div>
 </template>
-<script src="./change-path.js"></script>
-<style src="./change-path.scss" lang="scss" ></style>
+<script src="./change-track.js"></script>
+<style src="./change-track.scss" lang="scss" ></style>
