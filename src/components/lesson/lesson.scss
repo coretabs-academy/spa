@@ -101,11 +101,28 @@ $markdown-em-spacer-6: 0.75em !default;
           }
         }
 
+        .stepper__items {
+          .card--flat {
+            padding: 0;
+            border: 0 !important;
+          }
+        }
+
         .stepper__content {
           font-family: 'Droid Arabic Kufi' , Arial, Helvetica, sans-serif;
           padding: 0;
 
+          .stepper__wrapper {
+            .card--flat {
+              padding: 0;
+              background-color: #fff !important;
+            }
+          }
+
           .list {
+            margin-top: -1px;
+            padding: 0;
+
             & > div {
               position: relative;
               z-index: 1;
@@ -286,31 +303,34 @@ $markdown-em-spacer-6: 0.75em !default;
       }
 
       .question-num {
-         color: #8d8d8d;
-         @include rfs(15);
-         margin-top: 20px;
-         padding: 15px 25px;
+        color: #8d8d8d;
+        @include rfs(15);
+        margin: 0;
+        padding: 15px 25px !important;
+        background: #fff;
       }
 
       .btns-control {
-         padding-bottom: 41px;
+        overflow: auto;
+        padding: 20px 0 !important;
+        background-color: #fff !important;
 
-         .r-btn {
-            border-radius: 20px !important;
-            background: #496a8a !important;
-            color: snow;
-            font-weight: 600;
-            position: relative !important;
-            left: 1.6rem;
-            float: left;
-            padding-bottom: 20px !important;
-         }
+        .r-btn {
+          border-radius: 20px !important;
+          background: #496a8a !important;
+          color: snow;
+          font-weight: 600;
+          position: relative !important;
+          left: 1.6rem;
+          float: left;
+          padding-bottom: 20px !important;
+        }
 
-         .r-white {
-            background: transparent !important;
-            color: #a0a0a0;
-            border: 1px solid #a0a0a0;
-         }
+        .r-white {
+          background: transparent !important;
+          color: #a0a0a0;
+          border: 1px solid #a0a0a0;
+        }
 
          .r-btn.btn.btn--disabled {
             color: #fff !important;
